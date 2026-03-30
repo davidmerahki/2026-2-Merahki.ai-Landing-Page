@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-void: #000000;
+  --bg-deep: #0a0010;
+  --glow-indigo: #3b1fc1;
+  --glow-rust: #c14a1f;
+  --accent-peach: #f4a27a;
+  --accent-purple: #a855f7;
+  --accent-blue: #3b82f6;
+  --accent-pink: #ec4899;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-gradient-peach-purple {
+    background: linear-gradient(90deg, #f4a27a, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-blue-pink {
+    background: linear-gradient(90deg, #3b82f6, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-purple-blue {
+    background: linear-gradient(135deg, #a855f7, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient-peach-purple {
+    border: 1px solid transparent;
+    background: linear-gradient(#0a0010, #0a0010) padding-box,
+      linear-gradient(90deg, #f4a27a, #a855f7) border-box;
+  }
+
+  .border-gradient-blue-pink {
+    border: 1px solid transparent;
+    background: linear-gradient(#0a0010, #0a0010) padding-box,
+      linear-gradient(90deg, #3b82f6, #ec4899) border-box;
+  }
+
+  .glow-bg-indigo {
+    background: radial-gradient(ellipse 60% 50% at 20% 40%, rgba(59, 31, 193, 0.35) 0%, transparent 70%);
+  }
+
+  .glow-bg-rust {
+    background: radial-gradient(ellipse 50% 40% at 80% 60%, rgba(193, 74, 31, 0.3) 0%, transparent 70%);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+  }
+
+  .narrative-card {
+    background: radial-gradient(
+      ellipse 90% 90% at 20% 50%,
+      rgba(170, 60, 8, 0.55) 0%,
+      rgba(90, 25, 4, 0.68) 55%,
+      rgba(18, 5, 1, 0.75) 100%
+    );
+    border: 1px solid rgba(255, 140, 60, 0.15);
+    backdrop-filter: blur(12px);
+  }
+
+  .section-badge {
+    letter-spacing: 0.15em;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+/* ── Animated glow orbs ── */
+.glow-orb-indigo {
+  will-change: transform;
+  animation: glowDriftA 24s ease-in-out infinite alternate;
+}
+
+.glow-orb-rust {
+  will-change: transform;
+  animation: glowDriftB 30s ease-in-out infinite alternate;
+}
+
+@keyframes glowDriftA {
+  0%   { transform: translate(-50%, -50%) translate(0%,    0%);  }
+  20%  { transform: translate(-50%, -50%) translate(12%,  16%);  }
+  40%  { transform: translate(-50%, -50%) translate(-6%,  22%);  }
+  60%  { transform: translate(-50%, -50%) translate(18%,  -4%);  }
+  80%  { transform: translate(-50%, -50%) translate(-10%,  9%);  }
+  100% { transform: translate(-50%, -50%) translate(7%,  -18%);  }
+}
+
+@keyframes glowDriftB {
+  0%   { transform: translate(-50%, -50%) translate(0%,    0%);  }
+  25%  { transform: translate(-50%, -50%) translate(-14%, -12%); }
+  50%  { transform: translate(-50%, -50%) translate(-22%,  9%);  }
+  75%  { transform: translate(-50%, -50%) translate(-7%,  -20%); }
+  100% { transform: translate(-50%, -50%) translate(-18%,  6%);  }
+}
+
+.logo-scroll-track {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft 35s linear infinite;
+}
+
+.logo-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #3b1fc1;
+  border-radius: 3px;
+}
