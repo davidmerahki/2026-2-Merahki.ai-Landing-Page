@@ -10,15 +10,19 @@ const perks: { src: string; alt: string }[] = [
   { src: "/images/perks/regional-leader.svg",                               alt: "Regional Leader" },
   { src: "/images/perks/software-advice-best-customer-support.svg",         alt: "Software Advice Best Customer Support" },
   { src: "/images/perks/users-most-likely-to-recommend.svg",                alt: "Users Most Likely to Recommend" },
+  { src: "/images/perks/1edtech.webp",                                       alt: "1EdTech" },
+  { src: "/images/perks/europass.webp",                                      alt: "Europass" },
+  { src: "/images/perks/iso27001.webp",                                      alt: "ISO 27001" },
+  { src: "/images/perks/latam-edtech.webp",                                  alt: "LATAM EdTech" },
 ];
 
 export default function PerksCarousel() {
-  const doubled = [...perks, ...perks];
+  const doubled = [...perks, ...perks, ...perks, ...perks];
 
   return (
     <section className="py-10 border-t border-white/5 overflow-hidden">
       <p className="text-center text-white/30 section-badge mb-8">
-        Recognized by the world&apos;s leading software review platforms
+        Trusted by the world&apos;s leading software review platforms, all merahki.ai and partners ecosystem solutions meet the highest industry standards.
       </p>
 
       <div className="relative">
