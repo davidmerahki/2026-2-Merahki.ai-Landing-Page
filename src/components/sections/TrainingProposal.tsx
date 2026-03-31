@@ -3,11 +3,22 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import Link from "next/link";
 import {
   ArrowRight,
-  CheckCircle2,
   CalendarCheck,
   MessageSquare,
   FileSignature,
   PlayCircle,
+  Video,
+  BookOpen,
+  Sparkles,
+  Palette,
+  Gift,
+  TrendingUp,
+  Share2,
+  BarChart2,
+  Monitor,
+  Database,
+  Smartphone,
+  GraduationCap,
 } from "lucide-react";
 
 const tiers = [
@@ -15,39 +26,42 @@ const tiers = [
     price: "4,575 USD",
     billing: "+ VAT · One-time payment",
     title: "Academy Setup",
+    subtitle: "Initial setup per course — 1 course per feature or use case to guarantee effectiveness",
+    headerIcon: GraduationCap,
     highlight: true,
     items: [
-      "Initial setup per course — 1 course per feature or use case to guarantee effectiveness",
-      "Guaranteed delivery in 8 weeks",
-      "No front-end or back-end development required — turnkey, ready to customize",
-      "100 minutes of premium video — production & editing of educational content",
-      "Complete program design — up to 12 lessons",
-      "Industry experts working on your project",
-      "6 interactive H5P learning activities",
-      "Design & customization — content tailored to your brand identity",
-      "Gamification & behavioral economics — powered by the Octalysis Framework",
-      "Education-Led Growth (ELG) Strategy Design — education integrated into your Go-To-Market strategy",
-      "CLG Flywheel Design & Activation — transform passionate users into your main growth engine",
+      { icon: CalendarCheck, title: "8-Week Guaranteed Delivery", desc: "No front-end or back-end development required — a turnkey solution ready to customize and implement." },
+      { icon: Video, title: "100 Minutes of Premium Video", desc: "Production & editing of educational content for your Academy." },
+      { icon: BookOpen, title: "Complete Program Design", desc: "Up to 12 lessons designed by industry experts working exclusively on your project." },
+      { icon: Sparkles, title: "6 Interactive H5P Activities", desc: "Designed for in-lesson engagement and knowledge reinforcement." },
+      { icon: Palette, title: "Design & Customization", desc: "Content tailored to your brand identity." },
+      { icon: Gift, title: "Gamification & Behavioral Economics", desc: "Powered by the Octalysis Framework." },
+      { icon: TrendingUp, title: "Education-Led Growth (ELG) Strategy", desc: "Education integrated directly into your Go-To-Market strategy to drive sales, adoption, and retention." },
+      { icon: Share2, title: "CLG Flywheel Design & Activation", desc: "Transform your most passionate users into your main growth engine." },
     ],
   },
   {
     price: "762 USD",
     billing: "+ VAT · / month · up to 1,000 users",
     title: "Growth & Analytics",
+    subtitle: "$1 USD per additional user / month",
+    headerIcon: BarChart2,
     highlight: false,
     items: [
-      "Learning Analytics — every lesson guarantees adoption through measurable, observable behaviors",
-      "LMS Platform — your knowledge base becomes a resource that drives growth metrics",
-      "Data Integration — virtual machine sends data directly to your preferred visualization tools",
+      { icon: BarChart2, title: "Learning Analytics", desc: "Every lesson guarantees adoption by measuring observable behaviors and learning outcomes." },
+      { icon: Monitor, title: "LMS Platform", desc: "Your knowledge base becomes a resource that drives growth metrics." },
+      { icon: Database, title: "Data Integration", desc: "Virtual machine sends data directly to your preferred visualization tools." },
     ],
   },
   {
     price: "400 USD",
     billing: "/ month · up to 1,000 users",
     title: "Mobile App",
+    subtitle: "$1 USD per additional user / month",
+    headerIcon: Smartphone,
     highlight: false,
     items: [
-      "iOS & Android App — your content, adaptive and personalized for all types of devices",
+      { icon: Smartphone, title: "iOS & Android App", desc: "Your content, adaptive and personalized for all types of devices." },
     ],
   },
 ];
@@ -290,26 +304,43 @@ export default function TrainingProposal() {
                 A complete ecosystem of technology and talent ready to upskill your workforce — delivered in 8 weeks.
               </p>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+            <div className="space-y-10">
               {tiers.map((tier, i) => (
                 <AnimatedSection key={tier.title} delay={i * 0.1}>
-                  <div className={`rounded-2xl p-7 space-y-5 h-full flex flex-col ${tier.highlight ? "border border-accent-purple/40 bg-accent-purple/10" : "glass-card"}`}>
-                    <div className="space-y-1">
-                      <p className={`text-2xl font-bold ${tier.highlight ? "text-gradient-peach-purple" : "text-white"}`}>{tier.price}</p>
-                      <p className="text-white/40 text-xs">{tier.billing}</p>
+                  <div className="space-y-6">
+                    <div className={`rounded-2xl px-8 py-6 flex items-start gap-4 ${
+                      i === 0
+                        ? "bg-gradient-to-r from-accent-purple/25 to-accent-pink/15 border border-accent-purple/35"
+                        : i === 1
+                        ? "bg-gradient-to-r from-accent-blue/20 to-accent-purple/10 border border-accent-blue/30"
+                        : "bg-gradient-to-r from-accent-peach/15 to-accent-purple/8 border border-accent-peach/25"
+                    }`}>
+                      <div className={`w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                        i === 0 ? "bg-accent-purple/20 border border-accent-purple/30"
+                        : i === 1 ? "bg-accent-blue/20 border border-accent-blue/30"
+                        : "bg-accent-peach/15 border border-accent-peach/25"
+                      }`}>
+                        <tier.headerIcon className={`w-4 h-4 ${i === 0 ? "text-accent-purple" : i === 1 ? "text-accent-blue" : "text-accent-peach"}`} />
+                      </div>
+                      <div>
+                        <p className="text-2xl md:text-3xl font-bold text-white">{tier.price}</p>
+                        <p className="text-white/50 text-sm mt-1">{tier.billing}</p>
+                        {tier.subtitle && (
+                          <p className="text-white/35 text-xs mt-2 max-w-lg">{tier.subtitle}</p>
+                        )}
+                      </div>
                     </div>
-                    <h4 className="text-white font-semibold text-lg border-t border-white/10 pt-4">{tier.title}</h4>
-                    <ul className="space-y-3 flex-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-7 px-2">
                       {tier.items.map((item) => (
-                        <li key={item} className="flex items-start gap-2.5">
-                          <CheckCircle2 className="w-4 h-4 text-accent-purple flex-shrink-0 mt-0.5" />
-                          <span className="text-white/65 text-sm leading-relaxed">{item}</span>
-                        </li>
+                        <div key={item.title} className="space-y-2.5">
+                          <div className="w-8 h-8 rounded-lg bg-accent-purple/12 border border-accent-purple/20 flex items-center justify-center">
+                            <item.icon className="w-4 h-4 text-accent-purple" />
+                          </div>
+                          <h5 className="text-white font-semibold text-sm leading-snug">{item.title}</h5>
+                          <p className="text-white/50 text-xs leading-relaxed">{item.desc}</p>
+                        </div>
                       ))}
-                    </ul>
-                    {tier.billing.includes("month") && (
-                      <p className="text-white/30 text-xs pt-2 border-t border-white/5">$1 USD per additional user / month</p>
-                    )}
+                    </div>
                   </div>
                 </AnimatedSection>
               ))}

@@ -8,11 +8,11 @@ import Link from "next/link";
 import { ArrowRight, Play, BookOpen, TrendingUp, Award, Users, Rocket } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "merahki.ai — Education-Led Growth Platform",
+  title: "merahki.ai — Education-Led Growth Ecosystem",
   description:
     "Transform your education approach into a growth engine for lasting impact on customers, leads, and partners. AI-powered learning at scale.",
   openGraph: {
-    title: "merahki.ai — Education-Led Growth Platform",
+    title: "merahki.ai — Education-Led Growth Ecosystem",
     description: "AI-powered education that drives retention, adoption, and revenue at scale.",
     url: "https://merahki.ai",
     type: "website",
@@ -36,7 +36,7 @@ export default function HomePage() {
             <div className="flex-1 space-y-8">
               <AnimatedSection>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
-                  Education-Led Growth Platform
+                  Education-Led Growth Ecosystem
                 </span>
               </AnimatedSection>
 
@@ -110,28 +110,13 @@ export default function HomePage() {
         />
         <div className="relative z-10 max-w-4xl mx-auto">
           <AnimatedSection>
-            <div className="relative rounded-3xl overflow-hidden border border-white/10 bg-white/3 aspect-video flex items-center justify-center group cursor-pointer">
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-accent-purple/20 to-accent-blue/20" />
-
-              {/* Play button */}
-              <div className="relative z-10 flex flex-col items-center gap-4">
-                <div className="w-20 h-20 rounded-full border-2 border-white/40 flex items-center justify-center bg-white/10 backdrop-blur-sm group-hover:bg-white/20 group-hover:scale-105 transition-all duration-300">
-                  <Play className="w-8 h-8 text-white ml-1" fill="white" />
-                </div>
-                <p className="text-white/60 text-sm font-medium">
-                  Watch how merahki.ai transforms education into growth
-                </p>
-              </div>
-
-              {/* Decorative grid */}
-              <div
-                className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage:
-                    "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-                  backgroundSize: "50px 50px",
-                }}
+            <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl aspect-video">
+              <iframe
+                src="https://player.vimeo.com/video/1119888924?h=2c6a08f16e#t=149"
+                className="absolute inset-0 w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="merahki.ai — Education-Led Growth Ecosystem"
               />
             </div>
           </AnimatedSection>

@@ -7,7 +7,7 @@ import PerksCarousel from "@/components/sections/PerksCarousel";
 
 export const metadata: Metadata = {
   title: {
-    default: "merahki.ai — Education-Led Growth Platform",
+    default: "merahki.ai — Education-Led Growth Ecosystem",
     template: "%s — merahki.ai",
   },
   description:
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   keywords: "education-led growth, LMS, customer education, partner training, AI learning platform",
   metadataBase: new URL("https://merahki.ai"),
   openGraph: {
-    title: "merahki.ai — Education-Led Growth Platform",
+    title: "merahki.ai — Education-Led Growth Ecosystem",
     description:
       "Transform your education approach into a growth engine for lasting impact on customers, leads and partners.",
     type: "website",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "merahki.ai — Education-Led Growth Platform",
+    title: "merahki.ai — Education-Led Growth Ecosystem",
     description: "AI-powered education that drives retention, adoption, and revenue at scale.",
     site: "@merahkiai",
   },
