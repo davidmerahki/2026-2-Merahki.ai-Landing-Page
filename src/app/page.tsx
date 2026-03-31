@@ -86,12 +86,13 @@ export default function HomePage() {
 
             {/* Right: Image */}
             <AnimatedSection delay={0.2} className="flex-1 w-full">
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl aspect-[16/10]">
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
                 <Image
                   src="/images/feature-adoption-tracker.png"
                   alt="Feature Adoption Tracker"
-                  fill
-                  className="object-cover"
+                  width={900}
+                  height={720}
+                  className="w-full h-auto"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
                 />
