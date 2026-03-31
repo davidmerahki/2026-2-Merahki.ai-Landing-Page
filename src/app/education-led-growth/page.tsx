@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
+import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -151,6 +152,8 @@ export default function EducationLedGrowthPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      <LogoCarousel />
 
       {/* What is ELG? */}
       <section className="relative py-20 px-6">
@@ -319,7 +322,7 @@ export default function EducationLedGrowthPage() {
           <AnimatedSection delay={0.1}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="#contact"
+                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
               >
                 Let&apos;s Get Started <ArrowRight className="w-4 h-4" />
@@ -424,7 +427,7 @@ export default function EducationLedGrowthPage() {
               </div>
               <div className="mt-10">
                 <Link
-                  href="#contact"
+                  href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
                 >
                   Start the Transformation <ArrowRight className="w-4 h-4" />

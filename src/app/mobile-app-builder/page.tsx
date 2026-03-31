@@ -3,6 +3,7 @@ import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
+import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Smartphone, Layers, BarChart3 } from "lucide-react";
 
@@ -99,7 +100,7 @@ export default function MobileAppBuilderPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.3}>
             <Link
-              href="#contact"
+              href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
             >
               Book a Demo <ArrowRight className="w-4 h-4" />
@@ -107,6 +108,8 @@ export default function MobileAppBuilderPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      <LogoCarousel />
 
       {/* Stats Bar */}
       <section className="py-12 px-6 border-y border-white/5">
@@ -254,7 +257,7 @@ export default function MobileAppBuilderPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.15}>
             <Link
-              href="#contact"
+              href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
             >
               Launch Your App <ArrowRight className="w-4 h-4" />

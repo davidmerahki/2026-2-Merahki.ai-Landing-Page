@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import FeatureCard from "@/components/ui/FeatureCard";
 import ContactSection from "@/components/sections/ContactSection";
+import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -181,21 +183,37 @@ export default function CertificationPage() {
           <AnimatedSection delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="#contact"
+                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
               >
                 Start Building <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="#demo"
+                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
               >
                 See a Demo
               </Link>
             </div>
           </AnimatedSection>
+          <AnimatedSection delay={0.4}>
+            <div className="flex items-center justify-center gap-2 mt-4">
+              <span className="text-white/30 text-xs">Powered by</span>
+              <div className="relative h-5 w-20">
+                <Image
+                  src="/images/certifications%20at%20scale/Pok-tech%20(1).png"
+                  alt="POK.tech"
+                  fill
+                  className="object-contain brightness-0 invert opacity-30"
+                  sizes="80px"
+                />
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
+
+      <LogoCarousel />
 
       {/* Stats Bar */}
       <section className="py-12 px-6 border-y border-white/5">
@@ -398,6 +416,217 @@ export default function CertificationPage() {
         </div>
       </section>
 
+      {/* NFT Credentials Pricing */}
+      <section className="relative py-20 px-6">
+        <GlowBackground
+          indigoPosition={{ x: "60%", y: "40%" }}
+          rustPosition={{ x: "30%", y: "60%" }}
+        />
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-8 space-y-2">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                NFT{" "}
+                <span className="text-gradient-peach-purple">Credentials</span>
+              </h2>
+              <p className="text-white/60 font-medium">
+                Special Prepayment Conditions *
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <div className="rounded-2xl overflow-hidden border border-white/10">
+              {/* Table header */}
+              <div className="grid grid-cols-3 bg-white/5 px-6 py-4 border-b border-white/10">
+                <span className="text-white/50 text-sm font-medium">
+                  Number of certificates
+                </span>
+                <span className="text-center text-white/50 text-sm font-medium">
+                  Price per pack **
+                </span>
+                <span className="text-center text-white/50 text-sm font-medium">
+                  Price per certificate **
+                </span>
+              </div>
+              {/* Table rows */}
+              {[
+                { qty: "1,000",   pack: "$2,500",   unit: "$2.50" },
+                { qty: "5,000",   pack: "$10,000",  unit: "$2.00" },
+                { qty: "10,000",  pack: "$16,500",  unit: "$1.65" },
+                { qty: "50,000",  pack: "$62,500",  unit: "$1.25" },
+                { qty: "100,000", pack: "$100,000", unit: "$1.00" },
+              ].map((row, i) => (
+                <div
+                  key={row.qty}
+                  className={`grid grid-cols-3 px-6 py-4 items-center border-b border-white/5 last:border-0 ${
+                    i % 2 === 0 ? "bg-white/[0.02]" : ""
+                  }`}
+                >
+                  <span className="text-white/70 text-sm font-medium">
+                    {row.qty}
+                  </span>
+                  <span className="text-center text-white font-semibold text-sm">
+                    {row.pack}
+                  </span>
+                  <span className="text-center text-accent-purple font-bold text-sm">
+                    {row.unit}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.15}>
+            <p className="mt-5 text-white/30 text-xs text-center leading-relaxed">
+              * Prepayment conditions apply. Prices are fixed at the time of
+              purchase and valid for the agreed certificate pack size.
+              <br />
+              ** All prices in USD. Bulk pricing applies per pack purchased.
+              Minimum order 1,000 certificates.
+            </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Partner logo — POK.tech */}
+      <section className="relative py-12 px-6">
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <AnimatedSection>
+            <p className="text-center text-white/50 text-sm mb-6 font-medium">
+              We are partners of the world&apos;s best credentials infrastructure
+            </p>
+            <div className="flex justify-center">
+              <div className="bg-white rounded-2xl px-10 py-6 flex items-center justify-center shadow-xl">
+                <div className="relative h-14 w-44">
+                  <Image
+                    src="/images/certifications%20at%20scale/Pok-tech%20(1).png"
+                    alt="POK.tech — Credentials infrastructure partner"
+                    fill
+                    className="object-contain"
+                    sizes="176px"
+                  />
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Features Premium */}
+      <section className="relative py-16 px-6">
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <AnimatedSection>
+            <div className="text-center mb-8 space-y-1">
+              <h2 className="text-3xl md:text-4xl font-bold">
+                Features{" "}
+                <span className="text-gradient-peach-purple">Premium</span>
+              </h2>
+              <p className="text-accent-purple font-semibold">
+                More Power, More Control, More Impact
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.1}>
+            <div className="glass-card rounded-2xl p-8 space-y-5">
+              {[
+                {
+                  title: "Learning Path Analytics:",
+                  body: "track how many users start, complete, and progress through each learning path.",
+                },
+                {
+                  title: "Leads on Pages:",
+                  body: "collect data from visitors on your certificate viewer pages through customizable lead forms.",
+                },
+                {
+                  title: "AdPages Performance Metrics:",
+                  body: "measure clicks and engagement within your credentials to optimize your campaigns.",
+                },
+                {
+                  title: "Employability Insights:",
+                  body: "see how many learners landed a job or got promoted after sharing their credentials on LinkedIn.",
+                },
+                {
+                  title: "Advanced Email Customization:",
+                  body: "personalize content, language, and layout using dynamic fields and AI-powered editing.",
+                },
+                {
+                  title: "Custom Email Sender Domain:",
+                  body: "send emails from your institution's domain instead of noreply@pok.tech to strengthen your brand.",
+                },
+              ].map((item) => (
+                <div key={item.title} className="flex items-start gap-3">
+                  <span className="text-accent-purple mt-1 flex-shrink-0">●</span>
+                  <p className="text-white/70 text-sm leading-relaxed">
+                    <span className="font-bold text-white">{item.title}</span>{" "}
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.15}>
+            <div className="mt-6 text-center space-y-1">
+              <p className="font-bold text-white text-base">
+                Premium Features included with your{" "}
+                <span className="text-gradient-peach-purple">
+                  $1,000 credit purchase
+                </span>
+              </p>
+              <p className="text-white/50 text-sm">
+                Unlock all Premium tools for your institution — more reach,
+                more impact, more control.
+              </p>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Advocacy — text left / image right */}
+      <section className="relative py-20 px-6">
+        <GlowBackground
+          indigoPosition={{ x: "70%", y: "40%" }}
+          rustPosition={{ x: "30%", y: "60%" }}
+        />
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <AnimatedSection>
+            <div className="flex flex-col gap-12 items-center md:flex-row">
+              {/* Text left */}
+              <div className="flex-1 space-y-6">
+                <div className="w-11 h-11 rounded-xl bg-accent-purple/20 flex items-center justify-center">
+                  <Award className="w-5 h-5 text-accent-purple" />
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white leading-snug">
+                  Every credential is transformed into a{" "}
+                  <span className="text-gradient-peach-purple">
+                    digital asset that drives greater defensibility and advocacy.
+                  </span>
+                </h2>
+                <p className="text-white/60 leading-relaxed">
+                  Move beyond static certificates. Build a verifiable ecosystem
+                  where every achievement strengthens your market position and
+                  turns users into your most powerful promoters.
+                </p>
+              </div>
+              {/* Image right */}
+              <div className="flex-1 w-full">
+                <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[4/3]">
+                  <Image
+                    src="/images/certifications%20at%20scale/Guido%20credential.png"
+                    alt="Guido credential — digital asset advocacy"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative py-24 px-6 text-center">
         <GlowBackground
@@ -423,13 +652,13 @@ export default function CertificationPage() {
           <AnimatedSection delay={0.15}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="#contact"
+                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
               >
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="#contact"
+                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all"
               >
                 Talk to Sales

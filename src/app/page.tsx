@@ -5,7 +5,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import ContactSection from "@/components/sections/ContactSection";
 import Link from "next/link";
-import { ArrowRight, Play, BookOpen, Cpu, TrendingUp, Award, Users, Rocket } from "lucide-react";
+import { ArrowRight, Play, BookOpen, TrendingUp, Award, Users, Rocket } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "merahki.ai — Education-Led Growth Platform",
@@ -59,7 +59,7 @@ export default function HomePage() {
               <AnimatedSection delay={0.3}>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Link
-                    href="#contact"
+                    href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
                   >
                     Book a Demo <ArrowRight className="w-4 h-4" />
@@ -201,10 +201,10 @@ export default function HomePage() {
                 bg: "bg-accent-peach/10",
               },
               {
-                icon: Cpu,
-                title: "Rapid Studio",
-                desc: "Enterprise e-learning authoring built for speed. Create, publish, and update training content in minutes.",
-                href: "/training-certification",
+                icon: Play,
+                title: "Flexible Courses",
+                desc: "Build and deliver engaging courses at any scale — self-paced, blended, or live — tailored to every learner's journey.",
+                href: "/flexible-courses",
                 color: "text-accent-purple",
                 bg: "bg-accent-purple/10",
               },

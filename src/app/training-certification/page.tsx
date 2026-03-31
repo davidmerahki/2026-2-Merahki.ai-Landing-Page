@@ -4,6 +4,7 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AgentCard from "@/components/ui/AgentCard";
 import ContactSection from "@/components/sections/ContactSection";
+import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Zap, Rocket, CheckCircle2 } from "lucide-react";
 
@@ -20,14 +21,40 @@ export const metadata: Metadata = {
 };
 
 const trustedBy = [
-  "Universidad de los Andes",
+  "POK",
+  "Codere",
+  "Fundación Corona",
+  "Novartis",
+  "Terumo",
+  "Fundación Santa Fe de Bogotá",
+  "Cafam",
   "AstraZeneca",
+  "UK PACT",
+  "IDARTES",
+  "Luker Chocolate",
+  "DRC – Danish Refugee Council",
+  "Universidad del Valle",
+  "Fundación Aflora",
+  "Bavaria",
+  "ESPN",
   "Claro",
-  "Beraka Travel",
+  "Celsia",
+  "Project Management Institute",
+  "Universidad de los Andes",
+  "Abbott",
+  "Parque Arauco",
   "BID",
-  "YouAdvanz Miami",
-  "Pok.tech",
+  "Escuela Nacional del Deporte",
+  "Fundación FEMSA",
+  "Unicuces",
+  "AMSHOC",
+  "Heel",
+  "Alcaldía Mayor de Bogotá",
+  "Universidad César Vallejo",
+  "Advanz International Education",
   "LearnWorlds",
+  "Vásquez Kennedy Career Success",
+  "Positiva Compañía de Seguros",
 ];
 
 const features = [
@@ -147,13 +174,13 @@ export default function TrainingCertificationPage() {
           <AnimatedSection delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="#pricing"
+                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
               >
                 Get a Quote <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="#contact"
+                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
               >
                 Book a Demo
@@ -162,6 +189,8 @@ export default function TrainingCertificationPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      <LogoCarousel />
 
       {/* Trusted By */}
       <section className="py-12 px-6 border-y border-white/5">
@@ -376,7 +405,7 @@ export default function TrainingCertificationPage() {
                 Cloud Sync integration · SSO · API access · Priority support
               </p>
               <Link
-                href="#contact"
+                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
               >
                 Contact Us <ArrowRight className="w-4 h-4" />

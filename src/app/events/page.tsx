@@ -47,7 +47,7 @@ export default function EventsPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.3}>
             <Link
-              href="#contact"
+              href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
             >
               Get event updates <ArrowRight className="w-4 h-4" />

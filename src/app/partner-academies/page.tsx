@@ -4,6 +4,7 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AgentCard from "@/components/ui/AgentCard";
 import ContactSection from "@/components/sections/ContactSection";
+import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Zap, TrendingUp, Award } from "lucide-react";
 
@@ -123,7 +124,7 @@ export default function PartnerAcademiesPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.3}>
             <Link
-              href="#contact"
+              href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
             >
               Book a Demo <ArrowRight className="w-4 h-4" />
@@ -131,6 +132,8 @@ export default function PartnerAcademiesPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      <LogoCarousel />
 
       {/* Problem Narrative */}
       <section className="relative py-16 px-6">
@@ -307,7 +310,7 @@ export default function PartnerAcademiesPage() {
           </AnimatedSection>
           <AnimatedSection delay={0.15}>
             <Link
-              href="#contact"
+              href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
             >
               Activate Your Partners <ArrowRight className="w-4 h-4" />

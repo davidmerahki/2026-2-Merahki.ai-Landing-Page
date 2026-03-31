@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import PerksCarousel from "@/components/sections/PerksCarousel";
 
 export const metadata: Metadata = {
   title: {
@@ -38,7 +40,12 @@ export default function RootLayout({
       <body className="bg-void text-white font-sans antialiased">
         <Navbar />
         <main>{children}</main>
+        <PerksCarousel />
         <Footer />
+        <Script
+          src="https://apps.clientify.net/widget-whatsapp2.0/app/assets/index-5yccDyx4.js?id=359676c1-a1ad-463d-8061-00a7b3de531f&path=https://plus.clientify.com"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

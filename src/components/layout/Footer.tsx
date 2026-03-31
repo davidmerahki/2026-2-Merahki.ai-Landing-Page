@@ -42,7 +42,7 @@ export default function Footer() {
               impact on customers, leads, and partners.
             </p>
             <Link
-              href="#contact"
+              href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
               className="inline-block px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-black hover:bg-white/90 transition-all"
             >
               Book a Demo

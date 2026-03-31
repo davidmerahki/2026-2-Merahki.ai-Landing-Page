@@ -145,12 +145,15 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #3b1fc1;
-  border-radius: 3px;
+  background: rgba(168, 85, 247, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.7);
 }
