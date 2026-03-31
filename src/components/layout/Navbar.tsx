@@ -178,10 +178,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-accent-purple to-accent-blue flex items-center justify-center">
-            <span className="text-white font-bold text-xs">M</span>
-          </div>
+        <Link href="/" className="flex items-center flex-shrink-0">
           <span className="text-white font-bold text-lg tracking-tight">
             merahki<span className="text-gradient-blue-pink">.ai</span>
           </span>
