@@ -4,6 +4,7 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AgentCard from "@/components/ui/AgentCard";
 import ContactSection from "@/components/sections/ContactSection";
+import OurProposal from "@/components/sections/OurProposal";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Award, Brain, Zap } from "lucide-react";
@@ -327,6 +328,8 @@ export default function CustomerEducationPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      <OurProposal />
 
       <ContactSection
         heading="Launch your customer education program"

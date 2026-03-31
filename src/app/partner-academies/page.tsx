@@ -4,6 +4,7 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AgentCard from "@/components/ui/AgentCard";
 import ContactSection from "@/components/sections/ContactSection";
+import PartnerProposal from "@/components/sections/PartnerProposal";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Zap, TrendingUp, Award } from "lucide-react";
@@ -318,6 +319,8 @@ export default function PartnerAcademiesPage() {
           </AnimatedSection>
         </div>
       </section>
+
+      <PartnerProposal />
 
       <ContactSection
         heading="Build your partner academy"

@@ -4,9 +4,10 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import AgentCard from "@/components/ui/AgentCard";
 import ContactSection from "@/components/sections/ContactSection";
+import TrainingProposal from "@/components/sections/TrainingProposal";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Zap, Rocket, CheckCircle2 } from "lucide-react";
+import { ArrowRight, ShieldCheck, Zap, Rocket } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Rapid Studio",
@@ -19,43 +20,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
-const trustedBy = [
-  "POK",
-  "Codere",
-  "Fundación Corona",
-  "Novartis",
-  "Terumo",
-  "Fundación Santa Fe de Bogotá",
-  "Cafam",
-  "AstraZeneca",
-  "UK PACT",
-  "IDARTES",
-  "Luker Chocolate",
-  "DRC – Danish Refugee Council",
-  "Universidad del Valle",
-  "Fundación Aflora",
-  "Bavaria",
-  "ESPN",
-  "Claro",
-  "Celsia",
-  "Project Management Institute",
-  "Universidad de los Andes",
-  "Abbott",
-  "Parque Arauco",
-  "BID",
-  "Escuela Nacional del Deporte",
-  "Fundación FEMSA",
-  "Unicuces",
-  "AMSHOC",
-  "Heel",
-  "Alcaldía Mayor de Bogotá",
-  "Universidad César Vallejo",
-  "Advanz International Education",
-  "LearnWorlds",
-  "Vásquez Kennedy Career Success",
-  "Positiva Compañía de Seguros",
-];
 
 const features = [
   {
@@ -110,39 +74,6 @@ const agents = [
   },
 ];
 
-const pricingTiers = [
-  {
-    name: "Personal",
-    subtitle: "For Individuals",
-    price: "Contact Us",
-    highlight: false,
-    features: [
-      "Complete authoring suite",
-      "Quizzes and assessments",
-      "Custom logic & themes",
-      "Free Reviewer licenses",
-      "Standard email support",
-    ],
-    cta: "Get Started",
-    href: "#contact",
-  },
-  {
-    name: "Enterprise",
-    subtitle: "For Agencies or Scaling Organizations",
-    price: "Custom",
-    highlight: true,
-    features: [
-      "2 license minimum",
-      "Hire a fullstack production team",
-      "Project Manager, Video Editor, Graphic Designer",
-      "Instructional Designer, Gamification Expert",
-      "Bulk user management",
-      "Access to merahki.ai Evolve Hub & Community",
-    ],
-    cta: "Get a Quote",
-    href: "#contact",
-  },
-];
 
 export default function TrainingCertificationPage() {
   return (
@@ -191,27 +122,6 @@ export default function TrainingCertificationPage() {
       </section>
 
       <LogoCarousel />
-
-      {/* Trusted By */}
-      <section className="py-12 px-6 border-y border-white/5">
-        <div className="max-w-6xl mx-auto">
-          <AnimatedSection>
-            <p className="text-center text-white/30 section-badge mb-8">
-              Trusted by
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              {trustedBy.map((name) => (
-                <span
-                  key={name}
-                  className="px-4 py-2 rounded-lg border border-white/10 bg-white/3 text-white/50 text-sm"
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* Narrative */}
       <section className="relative py-16 px-6">
@@ -327,93 +237,7 @@ export default function TrainingCertificationPage() {
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="relative py-24 px-6" id="pricing">
-        <GlowBackground
-          indigoPosition={{ x: "50%", y: "50%" }}
-          rustPosition={{ x: "70%", y: "30%" }}
-        />
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                We&apos;ve got a plan{" "}
-                <span className="text-gradient-peach-purple">for you</span>
-              </h2>
-              <p className="text-white/50">
-                Get everything your organization needs to create e-learning.
-              </p>
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {pricingTiers.map((tier, i) => (
-              <AnimatedSection key={tier.name} delay={i * 0.15}>
-                <div
-                  className={`rounded-2xl p-8 h-full flex flex-col space-y-6 ${
-                    tier.highlight
-                      ? "border border-accent-purple/40 bg-gradient-to-b from-accent-purple/10 to-transparent"
-                      : "glass-card"
-                  }`}
-                >
-                  <div>
-                    <p className="section-badge text-white/40 mb-2">
-                      {tier.subtitle}
-                    </p>
-                    <h3 className="text-2xl font-bold text-white">{tier.name}</h3>
-                    <p
-                      className={`text-4xl font-bold mt-3 ${
-                        tier.highlight
-                          ? "text-gradient-peach-purple"
-                          : "text-white"
-                      }`}
-                    >
-                      {tier.price}
-                    </p>
-                  </div>
-                  <ul className="space-y-3 flex-1">
-                    {tier.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-4 h-4 text-accent-purple flex-shrink-0 mt-0.5" />
-                        <span className="text-white/60 text-sm">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={tier.href}
-                    className={`inline-flex items-center justify-center gap-2 w-full py-3.5 rounded-full font-semibold text-sm transition-all ${
-                      tier.highlight
-                        ? "bg-white text-black hover:bg-white/90"
-                        : "border border-white/20 text-white hover:bg-white/5"
-                    }`}
-                  >
-                    {tier.cta} <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          {/* Custom / Enterprise note */}
-          <AnimatedSection delay={0.3}>
-            <div className="mt-8 text-center glass-card rounded-2xl p-8">
-              <p className="section-badge text-white/30 mb-3">Enterprise</p>
-              <h3 className="text-xl font-bold text-white mb-2">
-                For Agencies or Scaling Organizations
-              </h3>
-              <p className="text-white/50 text-sm mb-6">
-                Custom pricing · 25 license minimum · Dedicated Account Manager ·
-                Cloud Sync integration · SSO · API access · Priority support
-              </p>
-              <Link
-                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
-              >
-                Contact Us <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      <TrainingProposal />
 
       <ContactSection
         heading="Get a quote for Rapid Studio"
