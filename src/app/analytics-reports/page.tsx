@@ -84,25 +84,25 @@ export default function AnalyticsReportsPage() {
           <div className="flex flex-col gap-12 items-center md:flex-row">
             {/* Text */}
             <div className="flex-1 space-y-6">
-              <AnimatedSection>
+              <AnimatedSection immediate>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
                   Analytics &amp; Reports
                 </span>
               </AnimatedSection>
-              <AnimatedSection delay={0.1}>
+              <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                   Your complete{" "}
                   <span className="text-gradient-blue-pink">LMS dashboard</span>
                 </h1>
               </AnimatedSection>
-              <AnimatedSection delay={0.2}>
+              <AnimatedSection immediate delay={0.2}>
                 <p className="text-lg text-white/60 leading-relaxed">
                   Measure and report the impact of your training programs.
                   AI-powered insights, automated reports, and 95+ filters — all
                   in one dashboard built for data-driven decisions.
                 </p>
               </AnimatedSection>
-              <AnimatedSection delay={0.3}>
+              <AnimatedSection immediate delay={0.3}>
                 <Link
                   href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
@@ -112,7 +112,7 @@ export default function AnalyticsReportsPage() {
               </AnimatedSection>
             </div>
             {/* Hero image */}
-            <AnimatedSection delay={0.2} className="flex-1 w-full">
+            <AnimatedSection immediate delay={0.2} className="flex-1 w-full">
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[16/10]">
                 <Image
                   src="/images/analytics%20and%20reports/your%20complete%20lms%20dashboard.png"

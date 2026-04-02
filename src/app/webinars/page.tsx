@@ -27,25 +27,25 @@ export default function WebinarsPage() {
           rustPosition={{ x: "60%", y: "65%" }}
         />
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-          <AnimatedSection>
+          <AnimatedSection immediate>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
               Webinar Library
             </span>
           </AnimatedSection>
-          <AnimatedSection delay={0.1}>
+          <AnimatedSection immediate delay={0.1}>
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               Learn from the{" "}
               <span className="text-gradient-blue-pink">experts</span>
             </h1>
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
+          <AnimatedSection immediate delay={0.2}>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               Explore our library of live and on-demand sessions covering
               education-led growth, LMS strategy, AI in learning, and
               enterprise training best practices.
             </p>
           </AnimatedSection>
-          <AnimatedSection delay={0.3}>
+          <AnimatedSection immediate delay={0.3}>
             <Link
               href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"

@@ -34,29 +34,26 @@ export default function HomePage() {
 
             {/* Left: Text */}
             <div className="flex-1 space-y-8">
-              <AnimatedSection>
+              <AnimatedSection immediate>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
                   Education-Led Growth Ecosystem
                 </span>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.1}>
+              <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight">
-                  Transform your education approach into a{" "}
-                  <span className="text-gradient-peach-purple">growth engine</span>{" "}
-                  for lasting impact
+                  Turn Your Education Strategy into a{" "}
+                  <span className="text-gradient-peach-purple">Scalable Growth Engine.</span>
                 </h1>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.2}>
+              <AnimatedSection immediate delay={0.2}>
                 <p className="text-xl text-white/60 max-w-xl leading-relaxed">
-                  On customers, leads, and partners. AI-powered learning
-                  experiences that drive retention, adoption, and revenue — at
-                  scale.
+                  We design, produce, and launch AI-powered learning experiences for your customers, leads, and partners. Transform education into a high-impact driver of retention, adoption, and revenue.
                 </p>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.3}>
+              <AnimatedSection immediate delay={0.3}>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Link
                     href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
@@ -73,19 +70,19 @@ export default function HomePage() {
                 </div>
               </AnimatedSection>
 
-              <AnimatedSection delay={0.4}>
+              <AnimatedSection immediate delay={0.4}>
                 <div className="flex flex-wrap gap-8 text-sm text-white/40">
                   <span>+100 proven strategies</span>
                   <span className="text-white/20">·</span>
                   <span>8 industries served</span>
                   <span className="text-white/20">·</span>
-                  <span>AI-native platform</span>
+                  <span>AI-native ecosystem</span>
                 </div>
               </AnimatedSection>
             </div>
 
             {/* Right: Image */}
-            <AnimatedSection delay={0.2} className="flex-1 w-full">
+            <AnimatedSection immediate delay={0.2} className="flex-1 w-full">
               <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
                 <Image
                   src="/images/feature-adoption-tracker.png"

@@ -97,12 +97,12 @@ export default function InteractiveVideoPage() {
           <div className="flex flex-col gap-12 items-center md:flex-row">
             {/* Text */}
             <div className="flex-1 space-y-6">
-              <AnimatedSection>
+              <AnimatedSection immediate>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
                   Interactive Video
                 </span>
               </AnimatedSection>
-              <AnimatedSection delay={0.1}>
+              <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                   Turn passive watching into{" "}
                   <span className="text-gradient-blue-pink">
@@ -111,14 +111,14 @@ export default function InteractiveVideoPage() {
                   with our video-based educational platform
                 </h1>
               </AnimatedSection>
-              <AnimatedSection delay={0.2}>
+              <AnimatedSection immediate delay={0.2}>
                 <p className="text-lg text-white/60 leading-relaxed">
                   Boost your videos with AI-powered interactions. Instantly add
                   subtitles, quizzes, summaries, and structured navigation — all
                   in one place, without extra hours in post-production.
                 </p>
               </AnimatedSection>
-              <AnimatedSection delay={0.3}>
+              <AnimatedSection immediate delay={0.3}>
                 <Link
                   href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"

@@ -85,24 +85,24 @@ export default function TrainingCertificationPage() {
           rustPosition={{ x: "70%", y: "55%" }}
         />
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-          <AnimatedSection>
+          <AnimatedSection immediate>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
               Training &amp; Certification
             </span>
           </AnimatedSection>
-          <AnimatedSection delay={0.1}>
+          <AnimatedSection immediate delay={0.1}>
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               Boost{" "}
               <span className="text-gradient-blue-pink">workforce readiness</span>
             </h1>
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
+          <AnimatedSection immediate delay={0.2}>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               AI-powered training keeps employees skilled, compliant, and ready
               to perform — anywhere they work.
             </p>
           </AnimatedSection>
-          <AnimatedSection delay={0.3}>
+          <AnimatedSection immediate delay={0.3}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"

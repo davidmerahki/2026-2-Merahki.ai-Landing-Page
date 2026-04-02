@@ -166,12 +166,12 @@ export default function IntegrationsPage() {
           <div className="flex flex-col gap-12 items-center md:flex-row">
             {/* Text */}
             <div className="flex-1 space-y-6">
-              <AnimatedSection>
+              <AnimatedSection immediate>
                 <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
                   Integrations
                 </span>
               </AnimatedSection>
-              <AnimatedSection delay={0.1}>
+              <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                   The ultimate{" "}
                   <span className="text-gradient-blue-pink">
@@ -180,14 +180,14 @@ export default function IntegrationsPage() {
                   for sales, marketing, HR, and more
                 </h1>
               </AnimatedSection>
-              <AnimatedSection delay={0.2}>
+              <AnimatedSection immediate delay={0.2}>
                 <p className="text-lg text-white/60 leading-relaxed">
                   Connect merahki.ai to 50+ native tools — payments, CRM,
                   video, marketing, and ecommerce — or build fully custom
                   workflows with our API and webhooks.
                 </p>
               </AnimatedSection>
-              <AnimatedSection delay={0.3}>
+              <AnimatedSection immediate delay={0.3}>
                 <Link
                   href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
@@ -197,7 +197,7 @@ export default function IntegrationsPage() {
               </AnimatedSection>
             </div>
             {/* Hero image */}
-            <AnimatedSection delay={0.2} className="flex-1 w-full">
+            <AnimatedSection immediate delay={0.2} className="flex-1 w-full">
               <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[16/10]">
                 <Image
                   src="/images/integrations/The%20ultimate%20LMS%20integrations%20hub%20for%20sales%20marketing%20HR%20and%20more.png"

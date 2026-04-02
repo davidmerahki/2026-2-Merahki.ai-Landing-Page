@@ -129,12 +129,12 @@ export default function EducationLedGrowthPage() {
           rustPosition={{ x: "70%", y: "60%" }}
         />
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-          <AnimatedSection>
+          <AnimatedSection immediate>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
               Education-Led Growth
             </span>
           </AnimatedSection>
-          <AnimatedSection delay={0.1}>
+          <AnimatedSection immediate delay={0.1}>
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               For{" "}
               <span className="text-gradient-peach-purple">
@@ -143,7 +143,7 @@ export default function EducationLedGrowthPage() {
               seeking real impact
             </h1>
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
+          <AnimatedSection immediate delay={0.2}>
             <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
               Marketing leaders and growth professionals who want education to
               become their most powerful acquisition, retention, and expansion
