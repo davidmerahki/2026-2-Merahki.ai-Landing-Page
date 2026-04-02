@@ -151,82 +151,102 @@ const comparisonRows = [
   { feature: "Automatic renewal reminders", us: true, them: false },
   { feature: "Analytics linked to revenue", us: true, them: false },
   { feature: "Multi-tier certification paths", us: true, them: true },
-  { feature: "50+ language support", us: true, them: false },
+  { feature: "Multi language support", us: true, them: false },
+  { feature: "Full LMS + courses, live sessions, AI assistant & analytics ecosystem", us: true, them: false },
 ];
 
 export default function CertificationPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
-      {/* Hero */}
-      <section className="relative pt-32 pb-20 px-6 text-center">
+      {/* Hero — text left / image right */}
+      <section className="relative pt-32 pb-20 px-6">
         <GlowBackground
           indigoPosition={{ x: "30%", y: "40%" }}
           rustPosition={{ x: "70%", y: "60%" }}
         />
-        <div className="relative z-10 max-w-4xl mx-auto space-y-6">
-          <AnimatedSection immediate>
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-purple/30 bg-accent-purple/10 text-accent-purple text-xs font-medium tracking-widest uppercase">
-              Certifications at Scale
-            </span>
-          </AnimatedSection>
-          <AnimatedSection immediate delay={0.1}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight max-w-3xl mx-auto">
-              Issue verifiable digital credentials and microcredentials as NFTs on the blockchain.{" "}
-              <span className="text-gradient-peach-purple">Try the 100% free and unlimited version now!</span>
-            </h1>
-          </AnimatedSection>
-          <AnimatedSection immediate delay={0.2}>
-            <p className="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
-              POK is merahki.ai global partner for issuing verifiable digital credentials and microcredentials.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection immediate delay={0.25}>
-            <div className="flex flex-wrap justify-center gap-2 max-w-3xl mx-auto">
-              {[
-                "1,100+ universities, governments & companies",
-                "19 countries",
-                "ISO 27001 · SOC 2 · 1EdTech certified",
-                "Open Badges 3.0 · W3C VC · ELM/Europass",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium"
-                >
-                  {tag}
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <div className="flex flex-col gap-12 items-center md:flex-row">
+            {/* Text */}
+            <div className="flex-1 space-y-6">
+              <AnimatedSection immediate>
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent-purple/30 bg-accent-purple/10 text-accent-purple text-xs font-medium tracking-widest uppercase">
+                  Certifications at Scale
                 </span>
-              ))}
+              </AnimatedSection>
+              <AnimatedSection immediate delay={0.1}>
+                <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                  Issue verifiable digital credentials and microcredentials as NFTs on the blockchain.{" "}
+                  <span className="text-gradient-peach-purple">Try the 100% free and unlimited version now!</span>
+                </h1>
+              </AnimatedSection>
+              <AnimatedSection immediate delay={0.2}>
+                <p className="text-lg text-white/60 leading-relaxed">
+                  POK is merahki.ai global partner for issuing verifiable digital credentials and microcredentials.
+                </p>
+              </AnimatedSection>
+              <AnimatedSection immediate delay={0.25}>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "1,100+ universities, governments & companies",
+                    "19 countries",
+                    "ISO 27001 · SOC 2 · 1EdTech certified",
+                    "Open Badges 3.0 · W3C VC · ELM/Europass",
+                  ].map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </AnimatedSection>
+              <AnimatedSection immediate delay={0.3}>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Link
+                    href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
+                  >
+                    Access to the 100% free version now <ArrowRight className="w-4 h-4" />
+                  </Link>
+                  <Link
+                    href="https://certificates.the-world-university.com/c/5b7dd714-80e5-4c21-8beb-13130c3d0478" target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
+                  >
+                    View an example <ExternalLink className="w-4 h-4" />
+                  </Link>
+                </div>
+              </AnimatedSection>
+              <AnimatedSection immediate delay={0.4}>
+                <div className="flex items-center gap-2">
+                  <span className="text-white/30 text-xs">Powered by</span>
+                  <div className="relative h-5 w-20">
+                    <Image
+                      src="/images/certifications%20at%20scale/Pok-tech%20(1).png"
+                      alt="POK.tech"
+                      fill
+                      className="object-contain brightness-0 invert opacity-30"
+                      sizes="80px"
+                    />
+                  </div>
+                </div>
+              </AnimatedSection>
             </div>
-          </AnimatedSection>
-          <AnimatedSection immediate delay={0.3}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
-              >
-                Access to the 100% free version now <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="https://certificates.the-world-university.com/c/5b7dd714-80e5-4c21-8beb-13130c3d0478" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
-              >
-                View an example <ExternalLink className="w-4 h-4" />
-              </Link>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection immediate delay={0.4}>
-            <div className="flex items-center justify-center gap-2 mt-2">
-              <span className="text-white/30 text-xs">Powered by</span>
-              <div className="relative h-5 w-20">
+            {/* Hero image */}
+            <AnimatedSection immediate delay={0.2} className="flex-1 w-full">
+              <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <Image
-                  src="/images/certifications%20at%20scale/Pok-tech%20(1).png"
-                  alt="POK.tech"
-                  fill
-                  className="object-contain brightness-0 invert opacity-30"
-                  sizes="80px"
+                  src="/images/certifications%20at%20scale/hero%20image%20for%20certification%20at%20scale.webp"
+                  alt="Verifiable digital credentials on the blockchain"
+                  width={900}
+                  height={720}
+                  className="w-full h-auto"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
                 />
               </div>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -389,7 +409,7 @@ export default function CertificationPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold">
                 Why{" "}
-                <span className="text-gradient-peach-purple">merahki.ai</span>
+                <span className="text-gradient-peach-purple">POK + merahki.ai</span>
               </h2>
             </div>
           </AnimatedSection>
@@ -398,7 +418,7 @@ export default function CertificationPage() {
               <div className="grid grid-cols-3 bg-white/5 px-6 py-4 border-b border-white/10">
                 <span className="text-white/40 text-sm font-medium">Feature</span>
                 <span className="text-center text-accent-purple text-sm font-semibold">
-                  merahki.ai
+                  POK + merahki.ai
                 </span>
                 <span className="text-center text-white/30 text-sm font-medium">
                   Others
