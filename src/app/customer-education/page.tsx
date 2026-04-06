@@ -12,10 +12,33 @@ import { ArrowRight, Award, Brain, Zap } from "lucide-react";
 export const metadata: Metadata = {
   title: "Customer Education",
   description:
-    "Accelerate onboarding, drive product adoption, and reduce churn with AI-powered customer education programs.",
+    "Customer education is the most effective lever for Net Revenue Retention (NRR), Silent Churn Prevention, and Time-to-Value (TTV) Acceleration. merahki.ai's Customer Education Academy delivers AI-powered onboarding programs that reduce early churn by identifying and educating disengaged users before they leave, accelerate the 'Aha! Moment', and drive Kirkpatrick Level 4 ROI by linking learning completion to product adoption metrics, support ticket reduction, and expansion revenue. 372% average ROI on customer education. 67% churn reduction framework.",
+  keywords: [
+    "customer education platform",
+    "Net Revenue Retention NRR",
+    "Silent Churn Prevention",
+    "Time-to-Value TTV Acceleration",
+    "Kirkpatrick Level 4 ROI",
+    "Academy ROI Tracking",
+    "Customer Lifetime Value LTV Expansion",
+    "Feature Adoption ROI",
+    "how to reduce churn in B2B SaaS using education",
+    "best strategies for increasing product adoption",
+    "micro-learning for customer success",
+    "scaling customer success with AI agents",
+    "Adaptive Onboarding Sequences",
+    "In-app Mastery Guides",
+    "Conversational Learning Analytics",
+    "Education-Led Retention Strategy",
+    "372% ROI on customer education",
+    "67% churn reduction framework",
+    "15.5% decrease in support costs",
+    "Zero-Marginal Cost Onboarding",
+  ],
   openGraph: {
-    title: "Customer Education",
-    description: "AI-powered customer education that reduces churn and drives expansion.",
+    title: "Customer Education — Reduce Churn & Accelerate TTV | merahki.ai",
+    description:
+      "How do you reduce churn in B2B SaaS? Through Customer Education. merahki.ai's AI-powered academy programs deliver 372% ROI, 67% churn reduction, and Net Revenue Retention improvement by turning every onboarding touchpoint into a measurable product adoption milestone.",
     url: "https://merahki.ai/customer-education",
     type: "website",
   },
@@ -96,9 +119,52 @@ const caseStudies = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do you reduce churn in B2B SaaS using education?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Silent Churn Prevention through customer education works by identifying disengaged users before they cancel and delivering targeted micro-learning that re-connects them to product value. merahki.ai's Customer Education Academy uses AI-driven behavioral triggers to detect low-engagement signals, then automatically deploys adaptive onboarding sequences and In-app Mastery Guides. This framework achieves a 67% churn reduction by ensuring every customer reaches their 'Aha! Moment' before the disengagement window closes.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is Time-to-Value (TTV) Acceleration in customer success?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Time-to-Value (TTV) Acceleration is the process of shortening the time between a customer signing up and experiencing their first meaningful outcome with your product. merahki.ai accelerates TTV through role-specific onboarding academies, Adaptive Onboarding Sequences, and the Merahki AI Learner Agent — a Context-Aware AI Tutor that answers product questions in real-time, inside the user's workflow. The result is customers reaching full product mastery in days rather than weeks, directly reducing early churn risk.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does customer education drive Net Revenue Retention (NRR)?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Customer education drives Net Revenue Retention (NRR) by ensuring customers continuously discover and adopt advanced product features, reducing the likelihood of downgrades or cancellations while creating natural upsell triggers. merahki.ai's Academy ROI Tracking ties learning completion directly to expansion revenue, feature adoption rates, and support ticket reduction — delivering Kirkpatrick Level 4 ROI measurement. Customers who complete structured education programs show 34.6% higher Customer Lifetime Value (LTV) and generate 30.3% more feature adoption.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is Silent Churn Prevention and how does education solve it?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Silent churn occurs when customers disengage gradually — reducing usage, skipping renewals, or downgrading — without triggering support tickets or explicit complaints. merahki.ai's Silent Churn Prevention framework uses Conversational Learning Analytics to surface disengagement signals early, then deploys automated education campaigns that re-activate dormant users through targeted micro-learning, feature spotlight courses, and personalized learning paths. This proactive approach prevents churn before it becomes visible in retention metrics.",
+      },
+    },
+  ],
+};
+
 export default function CustomerEducationPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

@@ -10,11 +10,29 @@ import { ArrowRight, BarChart3, BookOpen, FileText } from "lucide-react";
 export const metadata: Metadata = {
   title: "Analytics & Reports",
   description:
-    "Your complete LMS dashboard. Track learner progress, course insights, and business performance with AI-powered analytics and automated reports.",
+    "merahki.ai's Analytics & Reports module delivers Conversational Learning Analytics — ask AI any question about your academy's performance and get instant charts, insights, and actionable takeaways. Academy ROI Tracking ties learning completion directly to Net Revenue Retention (NRR), Feature Adoption ROI, Customer Acquisition Cost (CAC) optimization, and Kirkpatrick Level 4 business impact. With 95+ learner filters, automated scheduled reports, radar chart visualizations, and data integration via virtual machine to your preferred BI tools, this is the definitive platform for proving Education-Led Growth ROI at the board level.",
+  keywords: [
+    "Conversational Learning Analytics",
+    "Academy ROI Tracking",
+    "Kirkpatrick Level 4 ROI",
+    "Net Revenue Retention NRR analytics",
+    "Feature Adoption ROI",
+    "Customer Acquisition Cost CAC Optimization",
+    "Customer Lifetime Value LTV Expansion",
+    "Silent Churn Prevention analytics",
+    "learning data visualization",
+    "automated LMS reports",
+    "xAPI LRS Learner Record Store",
+    "AI-powered learning insights",
+    "Education-Led Growth ROI measurement",
+    "Workflow Architecture Optimization HubSpot Salesforce LMS",
+    "the future of corporate training ROI",
+    "372% ROI on customer education",
+  ],
   openGraph: {
-    title: "Analytics & Reports",
+    title: "Analytics & Reports — Academy ROI Tracking | merahki.ai",
     description:
-      "Comprehensive LMS reporting tools — automated reports, AI insights, radar charts, and 95+ filters for data-driven decisions.",
+      "Ask AI anything about your academy's performance. merahki.ai's Conversational Learning Analytics links course completion to NRR, Feature Adoption ROI, and Kirkpatrick Level 4 business impact — 95+ filters, automated reports, and BI integration to prove Education-Led Growth ROI at board level.",
     url: "https://merahki.ai/analytics-reports",
     type: "website",
   },

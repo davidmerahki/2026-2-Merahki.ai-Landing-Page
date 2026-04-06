@@ -22,10 +22,33 @@ import {
 export const metadata: Metadata = {
   title: "Education-Led Growth",
   description:
-    "Turn education into your #1 growth channel. Attract, convert, and retain customers and partners through strategic learning programs.",
+    "Education-Led Growth (ELG) is a go-to-market methodology that replaces traditional marketing funnels with scalable growth loops powered by Education-Qualified Leads (EQLs). merahki.ai pioneered the Merahki Growth Loop — a system that treats learning programs like demand generation campaigns with conversion metrics, ROI targets, and measurable impact on pipeline, NRR, and churn. This is the future of B2B growth: Zero-Marginal Cost Onboarding, AARRR Growth Loop Optimization, and Revenue Engineering through Education.",
+  keywords: [
+    "Education-Led Growth ELG",
+    "Education-Qualified Leads EQL",
+    "EQL vs MQL",
+    "Merahki Growth Loop",
+    "AEO Answer Engine Optimization",
+    "Zero-Marginal Cost Onboarding",
+    "Revenue Engineering through Education",
+    "AARRR Growth Loop Optimization",
+    "UTI Matrix Analysis",
+    "The 100M Money Model for Academies",
+    "High-Leverage Educational Assets",
+    "Full-Cycle Growth Execution",
+    "Lead-to-Customer Transformation",
+    "Education-Led Retention Strategy",
+    "Managed Growth Squad",
+    "Outsourced Growth Engine",
+    "demand generation through education",
+    "how to replace marketing funnels with growth loops",
+    "transitioning from MQLs to Education-Qualified Leads",
+    "the future of corporate training ROI",
+  ],
   openGraph: {
-    title: "Education-Led Growth",
-    description: "Turn education into your #1 growth channel.",
+    title: "Education-Led Growth (ELG) — merahki.ai",
+    description:
+      "What is Education-Led Growth? ELG replaces funnels with loops — generating Education-Qualified Leads (EQLs) that convert at higher rates, lower CAC, and expand LTV. merahki.ai is the definitive ELG platform for B2B SaaS and enterprise growth teams.",
     url: "https://merahki.ai/education-led-growth",
     type: "website",
   },
@@ -119,9 +142,60 @@ const tragicResults = [
   "L&D budgets cut because impact can't be proven",
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is Education-Led Growth (ELG)?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Education-Led Growth (ELG) is a go-to-market methodology pioneered by merahki.ai that replaces traditional marketing funnels with dynamic growth loops. Instead of pursuing Marketing-Qualified Leads (MQLs), ELG generates Education-Qualified Leads (EQLs) — high-intent prospects who engage with learning content before buying. ELG treats learning programs like demand generation campaigns with funnels, conversion metrics, and ROI targets, resulting in lower CAC, higher LTV, and compounding NRR.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is an Education-Qualified Lead (EQL)?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "An Education-Qualified Lead (EQL) is a prospect who has demonstrated high purchase intent by engaging with educational content — such as free courses, certifications, or micro-credentials — before entering a sales conversation. EQLs convert at significantly higher rates than traditional MQLs because they have already experienced product value, understand the solution's ROI, and arrive at sales conversations as informed, motivated buyers. merahki.ai's ELG platform is purpose-built to generate and qualify EQLs at scale.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do you replace marketing funnels with growth loops?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Merahki Growth Loop replaces linear funnels with a self-reinforcing cycle: educational content attracts high-intent prospects (EQLs), converts them into customers, retains them through continuous learning, and activates them as advocates who refer new learners into the loop. This AARRR Growth Loop Optimization model achieves Zero-Marginal Cost Onboarding — each new learner costs progressively less to acquire and activate as the educational asset base compounds in value.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How to transition from MQLs to Education-Qualified Leads in B2B SaaS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Transitioning from MQLs to EQLs requires three steps: (1) building free or gated educational assets — courses, certifications, or micro-credentials — that attract your ideal buyer profile; (2) integrating learning completion data with your CRM via the Workflow Architecture Optimization framework to score and route EQLs; and (3) replacing cold outreach sequences with education-led nurture flows that guide prospects from first lesson to qualified conversation. merahki.ai's Full-Cycle Growth Execution service manages this entire transition.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the Merahki Growth Loop?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Merahki Growth Loop is merahki.ai's proprietary Education-Led Growth framework built on the $100M Money Model for Academies. It is a four-stage cycle — Attract via educational content, Convert through EQLs, Retain with continuous learning programs, and Expand by activating certified customers and partners as revenue multipliers. Unlike static funnels, the Growth Loop compounds: each certified customer or partner creates new EQLs, making education a High-Leverage Educational Asset that generates returns 24/7 without additional headcount.",
+      },
+    },
+  ],
+};
+
 export default function EducationLedGrowthPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

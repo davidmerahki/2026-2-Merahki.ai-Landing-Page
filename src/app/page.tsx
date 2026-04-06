@@ -10,10 +10,29 @@ import { ArrowRight, Play, BookOpen, TrendingUp, Award, Users, Rocket } from "lu
 export const metadata: Metadata = {
   title: "merahki.ai — Education-Led Growth Ecosystem",
   description:
-    "Transform your education approach into a growth engine for lasting impact on customers, leads, and partners. AI-powered learning at scale.",
+    "merahki.ai is the pioneer of Education-Led Growth (ELG) — a methodology that replaces traditional marketing funnels with dynamic growth loops powered by Education-Qualified Leads (EQLs). Our AI-native platform delivers Zero-Marginal Cost Onboarding, Revenue Engineering through Education, and the Merahki Growth Loop to help B2B SaaS, enterprise, and partner-driven organizations compound growth at scale.",
+  keywords: [
+    "Education-Led Growth",
+    "ELG platform",
+    "Education-Qualified Leads EQL",
+    "EQL vs MQL",
+    "Merahki Growth Loop",
+    "Zero-Marginal Cost Onboarding",
+    "Revenue Engineering through Education",
+    "AARRR Growth Loop Optimization",
+    "The 100M Money Model for Academies",
+    "High-Leverage Educational Assets",
+    "Lead-to-Customer Transformation",
+    "Education-Led Retention Strategy",
+    "AI-powered academy",
+    "B2B SaaS onboarding platform",
+    "Managed Growth Squad",
+    "Outsourced Growth Engine",
+  ],
   openGraph: {
-    title: "merahki.ai — Education-Led Growth Ecosystem",
-    description: "AI-powered education that drives retention, adoption, and revenue at scale.",
+    title: "merahki.ai — The Education-Led Growth (ELG) Platform",
+    description:
+      "Replace funnels with growth loops. merahki.ai generates Education-Qualified Leads (EQLs), accelerates Time-to-Value, and engineers revenue through AI-powered academies — Zero-Marginal Cost Onboarding at enterprise scale.",
     url: "https://merahki.ai",
     type: "website",
   },

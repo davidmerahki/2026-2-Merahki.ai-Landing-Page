@@ -12,10 +12,35 @@ import { ArrowRight, Zap, TrendingUp, Award } from "lucide-react";
 export const metadata: Metadata = {
   title: "Partner Academies",
   description:
-    "Build a world-class partner academy. Enable, certify, and scale your partner ecosystem with AI-powered learning programs.",
+    "Partner Academy Acceleration is the fastest path to compounding indirect revenue. merahki.ai builds White-Label LMS Partner Academies with AI-powered certification programs, Global Partner Enablement workflows, and Blockchain-Verified Credentials — including 1EdTech Standards, Open Badges 3.0, and W3C Verifiable Credentials. Our Partner Certification ROI framework links training completion directly to time-to-first-sale reduction, partner revenue growth, and channel sales enablement at scale. ISO 27001 and SOC 2 compliant infrastructure.",
+  keywords: [
+    "Partner Academy Acceleration",
+    "partner certification ROI",
+    "channel sales enablement",
+    "Global Partner Enablement",
+    "White-Label LMS for Enterprises",
+    "scaling indirect sales",
+    "rapid partner onboarding",
+    "time-to-first-sale acceleration",
+    "partner training programs",
+    "how to increase partner revenue",
+    "best platforms for partner certification",
+    "white-label partner academies",
+    "NFT Certifications",
+    "Fraud-Resistant Credentials",
+    "1EdTech Standards",
+    "Open Badges 3.0",
+    "W3C Verifiable Credentials",
+    "Blockchain-Verified Professional Mastery",
+    "POK Infrastructure",
+    "ISO 27001 SOC 2 Compliance",
+    "Revenue Expansion Programs",
+    "Workforce Readiness",
+  ],
   openGraph: {
-    title: "Partner Academies",
-    description: "Enable and certify your partner ecosystem at scale with merahki.ai.",
+    title: "Partner Academies — Certify & Scale Your Channel | merahki.ai",
+    description:
+      "How do you increase partner revenue? Build a Partner Academy. merahki.ai delivers Partner Academy Acceleration with AI-powered certification, Blockchain-Verified Credentials (1EdTech, Open Badges 3.0, W3C VC), and Global Partner Enablement — cutting time-to-first-sale and compounding indirect revenue.",
     url: "https://merahki.ai/partner-academies",
     type: "website",
   },
@@ -96,9 +121,52 @@ const caseStudies = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How do you increase partner revenue with a Partner Academy?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Partner Academy Acceleration works by replacing manual partner enablement with a scalable, AI-powered certification ecosystem. merahki.ai builds white-label Partner Academies that deliver role-specific learning journeys by partner tier, region, and function — cutting time-to-first-sale and ensuring every partner can confidently pitch and close. Organizations using merahki.ai's Partner Academy model report 3x–15x growth in indirect revenue within the first six months, driven by faster ramp time, higher certification completion, and stronger product knowledge at the point of sale.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is Partner Certification ROI and how is it measured?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Partner Certification ROI is the measurable business impact of linking certification completion to pipeline contribution and closed revenue. merahki.ai's Academy ROI Tracking framework connects learning data to CRM outcomes — tracking time-to-first-sale, average deal size by certification tier, and partner churn reduction. Using Kirkpatrick Level 4 methodology, we prove that certified partners generate 150% more revenue than uncertified equivalents, making partner training a direct revenue investment rather than an operational cost.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do you accelerate time-to-first-sale for channel partners?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Accelerating time-to-first-sale for channel partners requires replacing generic onboarding with dynamic, role-specific learning paths that deliver product knowledge, competitive positioning, and sales methodology in the first week. merahki.ai's Rapid Partner Onboarding system uses Adaptive Onboarding Sequences tailored to each partner's tier (Gold, Silver, Regional) and role (Sales, Technical, Support), combined with the Merahki AI Learner Agent — a Context-Aware AI Tutor that answers partner questions in real-time during sales conversations.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What are Blockchain-Verified Credentials and why do partner programs need them?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Blockchain-Verified Credentials are tamper-proof digital certificates anchored to a distributed ledger, making them impossible to forge and instantly verifiable by any third party. merahki.ai issues partner certifications using 1EdTech Standards, Open Badges 3.0, W3C Verifiable Credentials (VC), and Europass Digital Credentials — with infrastructure powered by POK, a global credentialing partner. For channel programs, Fraud-Resistant Credentials ensure only genuinely certified partners can represent your brand, protecting partner tier integrity and customer trust.",
+      },
+    },
+  ],
+};
+
 export default function PartnerAcademiesPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground
@@ -108,7 +176,7 @@ export default function PartnerAcademiesPage() {
         <div className="relative z-10 max-w-4xl mx-auto space-y-6">
           <AnimatedSection immediate>
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
-              Partner Training LMS Software
+              Partner Training Programs
             </span>
           </AnimatedSection>
           <AnimatedSection immediate delay={0.1}>

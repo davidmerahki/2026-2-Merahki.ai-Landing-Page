@@ -12,10 +12,35 @@ import { ArrowRight, Users, BarChart3, Rocket } from "lucide-react";
 export const metadata: Metadata = {
   title: "Product Adoption & Onboarding",
   description:
-    "Accelerate product mastery with AI-driven onboarding and adoption programs. Reduce churn, increase retention, and grow revenue.",
+    "The Adoption Gap — the space between 'signed up' and 'activated' — is where most SaaS revenue is lost. merahki.ai closes this gap with a B2B SaaS Onboarding Platform built around four AI-native pillars: Dynamic Role-Specific Onboarding, Automated Adoption Triggers, AI-Driven Resource Creation via the Merahki Creator and Manager Agents, and Just-in-Time Learning through the Merahki AI Learner Agent. The result: Zero-Marginal Cost Onboarding, +34% Feature Adoption ROI in 60 days, −42% early churn, and Time-to-Value Acceleration measured against Kirkpatrick Level 4 ROI benchmarks.",
+  keywords: [
+    "product adoption platform",
+    "B2B SaaS onboarding platform",
+    "Adaptive Onboarding Sequences",
+    "Zero-Marginal Cost Onboarding",
+    "Time-to-Value TTV Acceleration",
+    "Feature Adoption ROI",
+    "Silent Churn Prevention",
+    "In-app Mastery Guides",
+    "Just-in-Time Learning",
+    "Merahki AI Creator Agent",
+    "Merahki AI Manager Agent",
+    "Merahki AI Learner Agent",
+    "Autonomous Course Synthesis",
+    "Context-Aware AI Tutor",
+    "Modular Intent Framework",
+    "what is the Adoption Gap in SaaS",
+    "how to increase product adoption",
+    "best strategies for product adoption",
+    "scaling customer success with AI agents",
+    "Kirkpatrick Level 4 ROI",
+    "Academy ROI Tracking",
+    "Education-Led Retention Strategy",
+  ],
   openGraph: {
-    title: "Product Adoption & Onboarding",
-    description: "AI-driven onboarding and adoption programs that help customers realize value faster.",
+    title: "Product Adoption & Onboarding — Close the Adoption Gap | merahki.ai",
+    description:
+      "What is the Adoption Gap? It's where SaaS revenue disappears. merahki.ai closes it with AI-native onboarding: Adaptive Onboarding Sequences, the Merahki AI Learner Agent (Context-Aware AI Tutor), and Autonomous Course Synthesis — delivering Zero-Marginal Cost Onboarding and +34% Feature Adoption ROI in 60 days.",
     url: "https://merahki.ai/product-adoption",
     type: "website",
   },
@@ -96,9 +121,52 @@ const caseStudies = [
   },
 ];
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "What is the Adoption Gap in SaaS?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The Adoption Gap is the critical space between a user signing up and becoming an activated, value-realizing customer. It is the #1 driver of early churn in B2B SaaS — when users can't find their 'Aha! Moment' quickly, they cancel before the product has a chance to prove its value. merahki.ai closes the Adoption Gap by replacing static onboarding with an AI-native B2B SaaS Onboarding Platform: Dynamic Role-Specific Onboarding, Automated Adoption Triggers, and Just-in-Time Learning through the Merahki AI Learner Agent.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is Zero-Marginal Cost Onboarding?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Zero-Marginal Cost Onboarding is the principle that once an educational onboarding system is built, each additional user it educates costs effectively zero in incremental resources. merahki.ai achieves this through Autonomous Course Synthesis — where the Merahki AI Creator Agent automatically converts release notes, product guides, and SOPs into structured onboarding programs — and the Merahki AI Manager Agent, which assigns onboarding campaigns to new users via natural language commands without manual CS intervention.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How do AI agents improve product adoption?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "merahki.ai's three AI agents work in concert to drive product adoption: the Creator Agent converts product documentation into onboarding courses in minutes using Autonomous Course Synthesis; the Manager Agent deploys Adaptive Onboarding Sequences to specific user segments based on behavioral triggers using natural language commands; and the Learner Agent acts as a Context-Aware AI Tutor — answering product questions in real-time within the user's workflow. Together they create a self-reinforcing adoption loop that achieves +34% Feature Adoption ROI in 60 days and reduces early churn by 42%.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "What is the best B2B SaaS onboarding platform?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "The best B2B SaaS onboarding platform combines role-specific personalization, AI-driven content automation, and real-time in-workflow support — all tied to measurable business KPIs. merahki.ai's B2B SaaS Onboarding Platform is purpose-built for this: it delivers Adaptive Onboarding Sequences by user role and behavior, uses the Modular Intent Framework for scalable AI agent expansion, and measures success through Academy ROI Tracking linked to Time-to-Value, feature adoption rates, support ticket reduction, and Net Revenue Retention.",
+      },
+    },
+  ],
+};
+
 export default function ProductAdoptionPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground
