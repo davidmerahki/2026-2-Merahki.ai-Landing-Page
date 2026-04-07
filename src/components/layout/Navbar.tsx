@@ -54,8 +54,8 @@ const navGroups: NavGroup[] = [
   {
     label: "Company",
     items: [
-      { label: "About Us", desc: "Our mission and team", href: "#" },
-      { label: "Careers", desc: "Join the merahki.ai team", href: "#" },
+      { label: "About Us", desc: "Our mission and team", href: "https://www.linkedin.com/company/merahkiai/?viewAsMember=true" },
+      { label: "Careers", desc: "Join the merahki.ai team", href: "/careers" },
       { label: "Contact", desc: "Get in touch with us", href: "#contact" },
     ],
   },
