@@ -49,6 +49,7 @@ const navGroups: NavGroup[] = [
       { label: "Reports & Resources", desc: "Access Education-Led Growth research & guides.", href: "/reports" },
       { label: "Webinar Library", desc: "Learn from experts in live & on-demand sessions.", href: "/webinars" },
       { label: "Upcoming Events", desc: "Connect with merahki.ai during upcoming events.", href: "/events" },
+      { label: "Methodology", desc: "Our integral virtualization methodology — AICET, Agile, Octalysis, ICAP & Kirkpatrick.", href: "/methodology" },
     ],
   },
   {
