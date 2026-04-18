@@ -17,7 +17,7 @@ const perks: { src: string; alt: string }[] = [
 ];
 
 export default function PerksCarousel() {
-  const doubled = [...perks, ...perks, ...perks, ...perks];
+  const doubled = [...perks, ...perks];
 
   return (
     <section className="py-10 border-t border-white/5 overflow-hidden">

@@ -6,6 +6,7 @@ export default function ClientifyForm() {
       className="w-full border-0 block"
       style={{ minHeight: 520 }}
       allow="clipboard-write"
+      loading="lazy"
     />
   );
 }
