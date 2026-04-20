@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import GlowBackground from "@/components/ui/GlowBackground";
 import ContactSection from "@/components/sections/ContactSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -371,11 +372,14 @@ export default function WebsiteBuilderClient() {
           </motion.div>
 
           <motion.div style={{ y: imageParallax }} className="flex-1 w-full">
-            <div className="rounded-2xl border border-white/10 bg-white/5 shadow-2xl aspect-[16/10] flex items-center justify-center">
-              <div className="text-center space-y-2 pointer-events-none">
-                <Layout className="w-10 h-10 text-white/15 mx-auto" />
-                <p className="text-white/20 text-xs tracking-widest uppercase">Image coming soon</p>
-              </div>
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[16/10]">
+              <Image
+                src="/images/web builder/Growth your academy not your overhead.webp"
+                alt="Grow your academy, not your overhead"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
           </motion.div>
         </div>
