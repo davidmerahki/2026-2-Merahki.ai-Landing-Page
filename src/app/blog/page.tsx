@@ -55,14 +55,44 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Coming Soon */}
-      <section className="relative py-20 px-6">
+      {/* Articles */}
+      <section className="relative py-16 px-6">
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Article card */}
+              <Link
+                href="/blog/guia-credenciales-digitales"
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">Due Diligence</span>
+                  <span className="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/8 text-white/70 text-xs font-medium tracking-widest uppercase">Credenciales</span>
+                </div>
+                <h2 className="text-white font-bold text-xl leading-snug group-hover:text-gradient-peach-purple transition-all">
+                  Guía Integral: Cómo Evaluar una Plataforma de Credenciales Digitales
+                </h2>
+                <p className="text-white/55 text-sm leading-relaxed flex-1">
+                  Marco completo de due diligence, auditoría técnica, verificabilidad en blockchain, formulario maestro y matriz comparativa para universidades.
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/08">
+                  <span className="text-white/30 text-xs">merahki.ai · Abril 2026</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                </div>
+              </Link>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* More coming soon */}
+      <section className="relative pb-16 px-6">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <AnimatedSection>
-            <div className="glass-card rounded-2xl p-12 space-y-4">
-              <p className="text-5xl font-bold text-white/10">✍</p>
-              <h2 className="text-2xl font-bold text-white">Articles coming soon</h2>
-              <p className="text-white/50 leading-relaxed">
+            <div className="glass-card rounded-2xl p-10 space-y-3">
+              <p className="text-4xl font-bold text-white/10">✍</p>
+              <h3 className="text-xl font-bold text-white">More articles coming soon</h3>
+              <p className="text-white/50 leading-relaxed text-sm">
                 We&apos;re working on in-depth guides, customer stories, and
                 thought leadership pieces. Subscribe below to get notified when
                 we publish.
