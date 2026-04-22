@@ -247,6 +247,21 @@ export default function HowToEvaluateDigitalCredentialsPlatform() {
             </div>
           </AnimatedSection>
 
+          {/* CTA 1 */}
+          <AnimatedSection>
+            <div className="rounded-2xl p-8 md:p-10 border border-purple-500/25" style={{background: "radial-gradient(ellipse 120% 100% at 30% 50%, rgba(88,28,135,0.30), rgba(49,10,101,0.35), rgba(10,5,20,0.60))"}}>
+              <p className="text-xs font-bold tracking-widest uppercase text-purple-400/80 mb-4">merahki.ai + pok.tech</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Already know what to ask. <span className="text-gradient-peach-purple">We already have the answers.</span></h3>
+              <p className="text-white/60 text-base leading-relaxed mb-6 max-w-2xl">merahki.ai, powered by pok.tech, delivers the complete evidence package this guide requires: open standards, active ISO 27001, blockchain-verifiable credentials, documented APIs with sandbox, and a clear exit plan.</p>
+              <Link
+                href="https://merahki.ai/certification"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
+              >
+                See the certification solution <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
+
           {/* §4 */}
           <AnimatedSection>
             <div>
@@ -529,6 +544,21 @@ export default function HowToEvaluateDigitalCredentialsPlatform() {
                   </div>
                 ))}
               </div>
+            </div>
+          </AnimatedSection>
+
+          {/* CTA 2 */}
+          <AnimatedSection>
+            <div className="rounded-2xl p-8 md:p-10 border border-purple-500/25" style={{background: "radial-gradient(ellipse 120% 100% at 30% 50%, rgba(88,28,135,0.30), rgba(49,10,101,0.35), rgba(10,5,20,0.60))"}}>
+              <p className="text-xs font-bold tracking-widest uppercase text-purple-400/80 mb-4">merahki.ai + pok.tech</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">None of these red flags <span className="text-gradient-blue-pink">apply to us</span>.</h3>
+              <p className="text-white/60 text-base leading-relaxed mb-6 max-w-2xl">Full technical documentation. Auditable blockchain trail on public explorers. Active ISO 27001. DPA-ready. APIs with sandbox. A clear exit plan — all verifiable, no commercial pitch needed.</p>
+              <Link
+                href="https://merahki.ai/certification"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
+              >
+                Verify it yourself <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </AnimatedSection>
 
@@ -880,6 +910,14 @@ export default function HowToEvaluateDigitalCredentialsPlatform() {
               <h2 className="text-5xl md:text-7xl font-bold">Don&apos;t buy <span className="text-gradient-peach-purple">declarations</span>.</h2>
               <h2 className="text-5xl md:text-7xl font-bold">Buy <span className="text-gradient-blue-pink">evidence</span>.</h2>
               <p className="text-white/40 text-sm tracking-widest uppercase mt-6">merahki.ai · Complete Guide · v1.0 · April 2026</p>
+              <div className="pt-8">
+                <Link
+                  href="https://merahki.ai/certification"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-base"
+                >
+                  See the merahki.ai + pok.tech certification solution <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
           </AnimatedSection>
 

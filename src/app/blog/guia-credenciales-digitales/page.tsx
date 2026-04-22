@@ -246,6 +246,21 @@ export default function GuiaCredencialesDigitales() {
             </div>
           </AnimatedSection>
 
+          {/* CTA 1 */}
+          <AnimatedSection>
+            <div className="rounded-2xl p-8 md:p-10 border border-purple-500/25" style={{background: "radial-gradient(ellipse 120% 100% at 30% 50%, rgba(88,28,135,0.30), rgba(49,10,101,0.35), rgba(10,5,20,0.60))"}}>
+              <p className="text-xs font-bold tracking-widest uppercase text-purple-400/80 mb-4">merahki.ai + pok.tech</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">¿Ya sabés qué pedir? <span className="text-gradient-peach-purple">Nosotros ya tenemos las respuestas.</span></h3>
+              <p className="text-white/60 text-base leading-relaxed mb-6 max-w-2xl">merahki.ai, impulsado por pok.tech, entrega el paquete completo de evidencias que esta guía exige: estándares abiertos, ISO 27001 vigente, credenciales verificables en blockchain, APIs documentadas con sandbox y plan de salida.</p>
+              <Link
+                href="https://merahki.ai/es/certification"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
+              >
+                Ver la solución de certificación <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
+
           {/* §4 Dimensiones */}
           <AnimatedSection>
             <div>
@@ -528,6 +543,21 @@ export default function GuiaCredencialesDigitales() {
                   </div>
                 ))}
               </div>
+            </div>
+          </AnimatedSection>
+
+          {/* CTA 2 */}
+          <AnimatedSection>
+            <div className="rounded-2xl p-8 md:p-10 border border-purple-500/25" style={{background: "radial-gradient(ellipse 120% 100% at 30% 50%, rgba(88,28,135,0.30), rgba(49,10,101,0.35), rgba(10,5,20,0.60))"}}>
+              <p className="text-xs font-bold tracking-widest uppercase text-purple-400/80 mb-4">merahki.ai + pok.tech</p>
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Ninguna de estas señales <span className="text-gradient-blue-pink">aplica a merahki.ai + pok.tech</span>.</h3>
+              <p className="text-white/60 text-base leading-relaxed mb-6 max-w-2xl">Documentación técnica completa. Trazabilidad en blockchain auditable públicamente. ISO 27001 vigente. DPA disponible. APIs con sandbox. Plan de salida incluido — todo verificable, sin promesas comerciales.</p>
+              <Link
+                href="https://merahki.ai/es/certification"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
+              >
+                Verificalo vos mismo <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </AnimatedSection>
 
@@ -883,6 +913,14 @@ export default function GuiaCredencialesDigitales() {
                 Compre <span className="text-gradient-blue-pink">evidencia</span>.
               </h2>
               <p className="text-white/40 text-sm tracking-widest uppercase mt-6">merahki.ai · Guía Integral · v1.0 · Abril 2026</p>
+              <div className="pt-8">
+                <Link
+                  href="https://merahki.ai/es/certification"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-base"
+                >
+                  Ver la solución de certificación merahki.ai + pok.tech <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </div>
           </AnimatedSection>
 
