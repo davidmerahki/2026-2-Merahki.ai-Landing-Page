@@ -39,6 +39,8 @@ const navGroups: NavGroup[] = [
       { label: "Product Adoption & Onboarding", desc: "Increase product adoption with education.", href: "/product-adoption" },
       { label: "Certifications at Scale", desc: "Deliver training and certification at scale.", href: "/certification" },
       { label: "Marketing Your Courses", desc: "Your outsourced growth squad to turn traffic into enrolled students.", href: "/marketing-your-courses" },
+      { label: "Growth for Universities", desc: "Scale enrollment, retention & lifelong learning with AI.", href: "/growth-for-universities" },
+      { label: "Medical Education", desc: "AI-powered CME, accreditation & clinical training for healthcare.", href: "/medical-education" },
     ],
   },
   {
