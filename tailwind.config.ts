@@ -21,6 +21,17 @@ const config: Config = {
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
       },
+      fontSize: {
+        xs:   ["clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem)",   { lineHeight: "1.6" }],
+        sm:   ["clamp(0.875rem, 0.83rem + 0.25vw, 0.9375rem)",  { lineHeight: "1.6" }],
+        base: ["clamp(1rem, 0.95rem + 0.25vw, 1.125rem)",       { lineHeight: "1.6" }],
+        lg:   ["clamp(1.125rem, 1rem + 0.5vw, 1.25rem)",        { lineHeight: "1.6" }],
+        xl:   ["clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem)",       { lineHeight: "1.35" }],
+        "2xl": ["clamp(1.5rem, 1.25rem + 1vw, 1.875rem)",       { lineHeight: "1.35" }],
+        "3xl": ["clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem)",      { lineHeight: "1.2" }],
+        "4xl": ["clamp(2rem, 1.5rem + 2vw, 3rem)",              { lineHeight: "1.2" }],
+        "5xl": ["clamp(2.25rem, 1.6rem + 2.5vw, 3.75rem)",      { lineHeight: "1.1" }],
+      },
       backgroundImage: {
         "gradient-peach-purple": "linear-gradient(90deg, #f4a27a, #a855f7)",
         "gradient-blue-pink": "linear-gradient(90deg, #3b82f6, #ec4899)",

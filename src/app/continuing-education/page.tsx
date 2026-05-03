@@ -656,7 +656,7 @@ export default function ContinuingEducationPage() {
                   <p className="text-2xl md:text-3xl font-bold text-gradient-peach-purple">
                     {s.value}
                   </p>
-                  <p className="text-[11px] text-white/40 mt-1 leading-tight">
+                  <p className="text-xs text-white/40 mt-1 leading-tight">
                     {s.label}
                   </p>
                 </div>
@@ -840,20 +840,20 @@ export default function ContinuingEducationPage() {
                         {p.desc}
                       </p>
                       <div className="flex flex-wrap gap-3 pt-1">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
                           Lead: {p.leadKpi}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">
                           Lag: {p.lagKpi}
                         </span>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold bg-white/5 text-white/40 border border-white/10">
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/40 border border-white/10">
                           {p.timeline}
                         </span>
                       </div>
                     </div>
                     {/* Right: Includes */}
                     <div className="lg:w-[380px] shrink-0">
-                      <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-3">
+                      <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-3">
                         What&apos;s included
                       </p>
                       <ul className="space-y-2">
@@ -907,7 +907,7 @@ export default function ContinuingEducationPage() {
                 <div className="relative flex gap-6">
                   {/* Timeline dot + line */}
                   <div className="hidden sm:flex flex-col items-center pt-1">
-                    <div className="w-10 h-10 rounded-full bg-accent-purple/20 border border-accent-purple/40 flex items-center justify-center text-[10px] font-bold text-accent-purple shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-accent-purple/20 border border-accent-purple/40 flex items-center justify-center text-xs font-bold text-accent-purple shrink-0">
                       {w.week.replace("Week ", "W")}
                     </div>
                     {i < courseWeeks.length - 1 && (
@@ -917,7 +917,7 @@ export default function ContinuingEducationPage() {
                   {/* Card */}
                   <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="sm:hidden text-[10px] font-bold text-accent-purple bg-accent-purple/10 px-2 py-0.5 rounded-full">
+                      <span className="sm:hidden text-xs font-bold text-accent-purple bg-accent-purple/10 px-2 py-0.5 rounded-full">
                         {w.week}
                       </span>
                       <h3 className="text-base font-bold text-white">
@@ -931,7 +931,7 @@ export default function ContinuingEducationPage() {
                       {w.highlights.map((h) => (
                         <span
                           key={h}
-                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-medium bg-white/5 text-white/50 border border-white/10"
+                          className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-white/5 text-white/50 border border-white/10"
                         >
                           <CheckCircle2 className="w-3 h-3 text-accent-purple" />
                           {h}
@@ -1001,7 +1001,7 @@ export default function ContinuingEducationPage() {
                 Before / After Comparison
               </h3>
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-                <div className="grid grid-cols-3 text-[10px] font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
+                <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
                   <span>Dimension</span>
                   <span>Before (In-House)</span>
                   <span>After (merahki.ai)</span>
@@ -1102,7 +1102,7 @@ export default function ContinuingEducationPage() {
                         <h3 className="text-lg font-bold text-white">
                           {p.title}
                         </h3>
-                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest bg-white/5 px-2.5 py-1 rounded-full">
+                        <span className="text-xs font-bold text-white/30 uppercase tracking-widest bg-white/5 px-2.5 py-1 rounded-full">
                           {p.timeline}
                         </span>
                       </div>
@@ -1171,7 +1171,7 @@ export default function ContinuingEducationPage() {
                     }`}
                   >
                     {plan.popular && (
-                      <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">
+                      <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">
                         Most Popular
                       </span>
                     )}
@@ -1225,7 +1225,7 @@ export default function ContinuingEducationPage() {
                     }`}
                   >
                     {plan.popular && (
-                      <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">
+                      <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">
                         Most Popular
                       </span>
                     )}
@@ -1279,7 +1279,7 @@ export default function ContinuingEducationPage() {
                     }`}
                   >
                     {plan.popular && (
-                      <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">
+                      <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">
                         Most Popular
                       </span>
                     )}
@@ -1316,7 +1316,7 @@ export default function ContinuingEducationPage() {
                 Year 1 Total Investment
               </h3>
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-                <div className="grid grid-cols-5 text-[10px] font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
+                <div className="grid grid-cols-5 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
                   <span>Tier</span>
                   <span>Setup</span>
                   <span>LMS (12 mo)</span>
@@ -1365,31 +1365,31 @@ export default function ContinuingEducationPage() {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
                 <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                  <p className="text-[10px] text-white/30 uppercase tracking-widest mb-1">
+                  <p className="text-xs text-white/30 uppercase tracking-widest mb-1">
                     Program Setup
                   </p>
                   <p className="text-lg font-bold text-white">$4,209</p>
-                  <p className="text-[10px] text-white/30 line-through">
+                  <p className="text-xs text-white/30 line-through">
                     $4,575
                   </p>
                 </div>
                 <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                  <p className="text-[10px] text-white/30 uppercase tracking-widest mb-1">
+                  <p className="text-xs text-white/30 uppercase tracking-widest mb-1">
                     LMS + App Monthly
                   </p>
                   <p className="text-lg font-bold text-white">$1,069/mo</p>
-                  <p className="text-[10px] text-white/30 line-through">
+                  <p className="text-xs text-white/30 line-through">
                     $1,162/mo
                   </p>
                 </div>
                 <div className="rounded-xl border border-accent-purple/30 bg-accent-purple/10 p-5 text-center">
-                  <p className="text-[10px] text-accent-purple uppercase tracking-widest mb-1 font-bold">
+                  <p className="text-xs text-accent-purple uppercase tracking-widest mb-1 font-bold">
                     Year 1 Total
                   </p>
                   <p className="text-lg font-bold text-gradient-peach-purple">
                     $17,037
                   </p>
-                  <p className="text-[10px] text-emerald-400 font-semibold">
+                  <p className="text-xs text-emerald-400 font-semibold">
                     Save $1,482
                   </p>
                 </div>
@@ -1434,7 +1434,7 @@ export default function ContinuingEducationPage() {
                         .map((t, i) => (
                           <span
                             key={i}
-                            className="text-[10px] font-medium text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full"
+                            className="text-xs font-medium text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full"
                           >
                             {["Starter", "Professional", "Enterprise"][i]}:{" "}
                             {t}
@@ -1496,7 +1496,7 @@ export default function ContinuingEducationPage() {
           {/* Results Table */}
           <AnimatedSection delay={0.4}>
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-              <div className="grid grid-cols-3 text-[10px] font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
+              <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
                 <span>Client</span>
                 <span>Result</span>
                 <span>Detail</span>
@@ -1573,7 +1573,7 @@ export default function ContinuingEducationPage() {
 
           <AnimatedSection delay={0.4}>
             <div className="text-center">
-              <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-4">
+              <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-4">
                 Industries Where Corporate Clients Demand Training
               </p>
               <div className="flex flex-wrap gap-2 justify-center">

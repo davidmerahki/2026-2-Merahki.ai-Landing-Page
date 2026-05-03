@@ -232,7 +232,7 @@ export default function Navbar() {
                       <div className="grid grid-cols-2 gap-x-2 max-h-[70vh] overflow-y-auto pr-1">
                         {group.industryGroups.map((sector) => (
                           <div key={sector.sector} className="mb-1">
-                            <p className="px-3 pt-2 pb-1 text-[10px] font-bold text-accent-purple/80 uppercase tracking-widest border-b border-white/5 mb-1">
+                            <p className="px-3 pt-2 pb-1 text-xs font-bold text-accent-purple/80 uppercase tracking-widest border-b border-white/5 mb-1">
                               {sector.sector}
                             </p>
                             {sector.items.map((item) => (
@@ -244,7 +244,7 @@ export default function Navbar() {
                                 <span className="text-xs font-semibold text-white/80 group-hover/item:text-white transition-colors">
                                   {item.label}
                                 </span>
-                                <span className="text-[10px] text-white/35 leading-tight">{item.desc}</span>
+                                <span className="text-xs text-white/35 leading-tight">{item.desc}</span>
                               </Link>
                             ))}
                           </div>
@@ -322,7 +322,7 @@ export default function Navbar() {
                   {group.industryGroups ? (
                     group.industryGroups.map((sector) => (
                       <div key={sector.sector}>
-                        <p className="pt-2 pb-0.5 text-[10px] font-bold text-accent-purple/70 uppercase tracking-widest">
+                        <p className="pt-2 pb-0.5 text-xs font-bold text-accent-purple/70 uppercase tracking-widest">
                           {sector.sector}
                         </p>
                         {sector.items.map((item) => (

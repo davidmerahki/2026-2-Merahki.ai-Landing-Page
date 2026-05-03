@@ -454,7 +454,7 @@ export default function GrowthForUniversitiesPageES() {
                   }`}
                 >
                   {plan.highlighted && (
-                    <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">
+                    <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">
                       Más Popular
                     </span>
                   )}

@@ -196,7 +196,7 @@ export default function ContinuingEducationPageES() {
               {heroStats.map((s) => (
                 <div key={s.value} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
                   <p className="text-2xl md:text-3xl font-bold text-gradient-peach-purple">{s.value}</p>
-                  <p className="text-[11px] text-white/40 mt-1 leading-tight">{s.label}</p>
+                  <p className="text-xs text-white/40 mt-1 leading-tight">{s.label}</p>
                 </div>
               ))}
             </div>
@@ -301,13 +301,13 @@ export default function ContinuingEducationPageES() {
                       </div>
                       <p className="text-white/55 text-sm leading-relaxed">{p.desc}</p>
                       <div className="flex flex-wrap gap-3 pt-1">
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Lead: {p.leadKpi}</span>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">Lag: {p.lagKpi}</span>
-                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-semibold bg-white/5 text-white/40 border border-white/10">{p.timeline}</span>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Lead: {p.leadKpi}</span>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-sky-500/10 text-sky-400 border border-sky-500/20">Lag: {p.lagKpi}</span>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-white/40 border border-white/10">{p.timeline}</span>
                       </div>
                     </div>
                     <div className="lg:w-[380px] shrink-0">
-                      <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-3">Qué incluye</p>
+                      <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-3">Qué incluye</p>
                       <ul className="space-y-2">
                         {p.includes.map((item) => (
                           <li key={item} className="flex items-start gap-2 text-xs text-white/55">
@@ -340,18 +340,18 @@ export default function ContinuingEducationPageES() {
               <AnimatedSection key={w.week} delay={i * 0.1}>
                 <div className="relative flex gap-6">
                   <div className="hidden sm:flex flex-col items-center pt-1">
-                    <div className="w-10 h-10 rounded-full bg-accent-purple/20 border border-accent-purple/40 flex items-center justify-center text-[10px] font-bold text-accent-purple shrink-0">{w.week.replace("Sem ", "S")}</div>
+                    <div className="w-10 h-10 rounded-full bg-accent-purple/20 border border-accent-purple/40 flex items-center justify-center text-xs font-bold text-accent-purple shrink-0">{w.week.replace("Sem ", "S")}</div>
                     {i < courseWeeks.length - 1 && <div className="w-px flex-1 bg-white/10 mt-2" />}
                   </div>
                   <div className="flex-1 rounded-2xl border border-white/10 bg-white/[0.02] p-6 hover:bg-white/[0.04] transition-colors">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="sm:hidden text-[10px] font-bold text-accent-purple bg-accent-purple/10 px-2 py-0.5 rounded-full">{w.week}</span>
+                      <span className="sm:hidden text-xs font-bold text-accent-purple bg-accent-purple/10 px-2 py-0.5 rounded-full">{w.week}</span>
                       <h3 className="text-base font-bold text-white">{w.phase}</h3>
                     </div>
                     <p className="text-white/50 text-sm leading-relaxed mb-4">{w.desc}</p>
                     <div className="flex flex-wrap gap-2">
                       {w.highlights.map((h) => (
-                        <span key={h} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-medium bg-white/5 text-white/50 border border-white/10">
+                        <span key={h} className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium bg-white/5 text-white/50 border border-white/10">
                           <CheckCircle2 className="w-3 h-3 text-accent-purple" />{h}
                         </span>
                       ))}
@@ -385,7 +385,7 @@ export default function ContinuingEducationPageES() {
             <div className="mt-14">
               <h3 className="text-xl font-bold text-white text-center mb-6">Comparación Antes / Después</h3>
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-                <div className="grid grid-cols-3 text-[10px] font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
+                <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
                   <span>Dimensión</span><span>Antes (In-House)</span><span>Después (merahki.ai)</span>
                 </div>
                 {beforeAfter.map((row, i) => (
@@ -447,7 +447,7 @@ export default function ContinuingEducationPageES() {
                     <div className="space-y-3 flex-1">
                       <div className="flex items-center gap-3">
                         <h3 className="text-lg font-bold text-white">{p.title}</h3>
-                        <span className="text-[10px] font-bold text-white/30 uppercase tracking-widest bg-white/5 px-2.5 py-1 rounded-full">{p.timeline}</span>
+                        <span className="text-xs font-bold text-white/30 uppercase tracking-widest bg-white/5 px-2.5 py-1 rounded-full">{p.timeline}</span>
                       </div>
                       <p className="text-white/55 text-sm leading-relaxed">{p.desc}</p>
                       <p className="text-xs text-white/40 border-t border-white/5 pt-3"><span className="font-semibold text-white/55">Entregables:</span> {p.deliverables}</p>
@@ -479,7 +479,7 @@ export default function ContinuingEducationPageES() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {setupPlans.map((plan) => (
                   <div key={plan.name} className={`rounded-2xl p-7 border space-y-4 h-full flex flex-col ${plan.popular ? "border-accent-purple/50 bg-accent-purple/5" : "border-white/10 bg-white/[0.02]"}`}>
-                    {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
+                    {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
                     <h4 className="text-lg font-bold text-white">{plan.name}</h4>
                     <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price} <span className="text-xs text-white/30 font-normal">+ IVA</span></p>
                     <ul className="space-y-2 flex-1">
@@ -499,7 +499,7 @@ export default function ContinuingEducationPageES() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {lmsPlans.map((plan) => (
                   <div key={plan.name} className={`rounded-2xl p-7 border space-y-4 h-full flex flex-col ${plan.popular ? "border-accent-purple/50 bg-accent-purple/5" : "border-white/10 bg-white/[0.02]"}`}>
-                    {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
+                    {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
                     <h4 className="text-lg font-bold text-white">{plan.name}</h4>
                     <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price} <span className="text-xs text-white/30 font-normal">+ IVA</span></p>
                     <ul className="space-y-2 flex-1">
@@ -519,7 +519,7 @@ export default function ContinuingEducationPageES() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {appPlans.map((plan) => (
                   <div key={plan.name} className={`rounded-2xl p-7 border space-y-4 h-full flex flex-col ${plan.popular ? "border-accent-purple/50 bg-accent-purple/5" : "border-white/10 bg-white/[0.02]"}`}>
-                    {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
+                    {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
                     <h4 className="text-lg font-bold text-white">{plan.name}</h4>
                     <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price} <span className="text-xs text-white/30 font-normal">+ IVA</span></p>
                     <ul className="space-y-2 flex-1">
@@ -536,7 +536,7 @@ export default function ContinuingEducationPageES() {
             <div className="mb-16">
               <h3 className="text-xl font-bold text-white mb-6">Inversión Total Año 1</h3>
               <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-                <div className="grid grid-cols-5 text-[10px] font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
+                <div className="grid grid-cols-5 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
                   <span>Tier</span><span>Setup</span><span>LMS (12 m)</span><span>App (12 m)</span><span>Total Año 1</span>
                 </div>
                 {yearTotals.map((row, i) => (
@@ -562,19 +562,19 @@ export default function ContinuingEducationPageES() {
               <p className="text-white/55 text-sm mb-6 max-w-2xl">El paquete más común para lanzar tu primer programa B2B serio. Tier Professional en los tres servicios con 8% de descuento.</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
                 <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                  <p className="text-[10px] text-white/30 uppercase tracking-widest mb-1">Setup del Programa</p>
+                  <p className="text-xs text-white/30 uppercase tracking-widest mb-1">Setup del Programa</p>
                   <p className="text-lg font-bold text-white">$4,209</p>
-                  <p className="text-[10px] text-white/30 line-through">$4,575</p>
+                  <p className="text-xs text-white/30 line-through">$4,575</p>
                 </div>
                 <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                  <p className="text-[10px] text-white/30 uppercase tracking-widest mb-1">LMS + App Mensual</p>
+                  <p className="text-xs text-white/30 uppercase tracking-widest mb-1">LMS + App Mensual</p>
                   <p className="text-lg font-bold text-white">$1,069/mes</p>
-                  <p className="text-[10px] text-white/30 line-through">$1,162/mes</p>
+                  <p className="text-xs text-white/30 line-through">$1,162/mes</p>
                 </div>
                 <div className="rounded-xl border border-accent-purple/30 bg-accent-purple/10 p-5 text-center">
-                  <p className="text-[10px] text-accent-purple uppercase tracking-widest mb-1 font-bold">Total Año 1</p>
+                  <p className="text-xs text-accent-purple uppercase tracking-widest mb-1 font-bold">Total Año 1</p>
                   <p className="text-lg font-bold text-gradient-peach-purple">$17,037</p>
-                  <p className="text-[10px] text-emerald-400 font-semibold">Ahorra $1,482</p>
+                  <p className="text-xs text-emerald-400 font-semibold">Ahorra $1,482</p>
                 </div>
               </div>
               <Link href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm bg-accent-purple text-white hover:bg-accent-purple/85 transition-all">
@@ -595,7 +595,7 @@ export default function ContinuingEducationPageES() {
                     <p className="text-white/45 text-xs leading-relaxed">{addon.desc}</p>
                     <div className="flex flex-wrap gap-2 pt-1">
                       {addon.tiers.filter(Boolean).map((t, i) => (
-                        <span key={i} className="text-[10px] font-medium text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">
+                        <span key={i} className="text-xs font-medium text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">
                           {["Starter", "Professional", "Enterprise"][i]}: {t}
                         </span>
                       ))}
@@ -633,7 +633,7 @@ export default function ContinuingEducationPageES() {
           </div>
           <AnimatedSection delay={0.4}>
             <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-              <div className="grid grid-cols-3 text-[10px] font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
+              <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
                 <span>Cliente</span><span>Resultado</span><span>Detalle</span>
               </div>
               {[
@@ -675,7 +675,7 @@ export default function ContinuingEducationPageES() {
           </div>
           <AnimatedSection delay={0.4}>
             <div className="text-center">
-              <p className="text-[10px] font-bold text-white/30 uppercase tracking-widest mb-4">Industrias Donde los Clientes Corporativos Demandan Capacitación</p>
+              <p className="text-xs font-bold text-white/30 uppercase tracking-widest mb-4">Industrias Donde los Clientes Corporativos Demandan Capacitación</p>
               <div className="flex flex-wrap gap-2 justify-center">
                 {industries.map((ind) => (<span key={ind} className="px-4 py-1.5 rounded-full text-xs font-medium text-white/50 border border-white/10 bg-white/[0.03]">{ind}</span>))}
               </div>
