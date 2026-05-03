@@ -60,7 +60,28 @@ export default function BlogPage() {
         <div className="relative z-10 max-w-6xl mx-auto">
           <AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Article card — English */}
+              {/* Article card — EdTech Partner Guide */}
+              <Link
+                href="/blog/edtech-partner-continuing-education-guide"
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">Thought Leadership</span>
+                  <span className="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/8 text-white/70 text-xs font-medium tracking-widest uppercase">Continuing Education</span>
+                </div>
+                <h2 className="text-white font-bold text-xl leading-snug group-hover:text-gradient-peach-purple transition-all">
+                  Strategic Guide: How an EdTech Partner Accelerates University Continuing Education Growth and Corporate Client Outcomes
+                </h2>
+                <p className="text-white/55 text-sm leading-relaxed flex-1">
+                  Global data, recognized frameworks, Latin American case studies, and a decision map for university leadership to define their EdTech partner model. 372% three-year ROI.
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/08">
+                  <span className="text-white/30 text-xs">merahki.ai · May 2026</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                </div>
+              </Link>
+
+              {/* Article card — Digital Credentials */}
               <Link
                 href="/blog/how-to-evaluate-digital-credentials-platform"
                 className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
