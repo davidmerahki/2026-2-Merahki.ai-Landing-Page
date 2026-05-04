@@ -6,6 +6,8 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import PerksCarousel from "@/components/sections/PerksCarousel";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -180,6 +182,8 @@ export default function RootLayout({
           src="https://apps.clientify.net/widget-whatsapp2.0/app/assets/index-5yccDyx4.js?id=359676c1-a1ad-463d-8061-00a7b3de531f&path=https://plus.clientify.com"
           strategy="lazyOnload"
         />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
