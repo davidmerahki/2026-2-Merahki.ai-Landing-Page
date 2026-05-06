@@ -3,7 +3,8 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import BlogBackLink from "@/components/blog/BlogBackLink";
 
 export const metadata: Metadata = {
   title: "Guía Integral: Cómo Evaluar una Plataforma de Credenciales Digitales",
@@ -30,12 +31,7 @@ export default function GuiaCredencialesDigitales() {
         />
         <div className="relative z-10 max-w-4xl mx-auto">
           <AnimatedSection>
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-white/50 hover:text-white/80 text-sm mb-8 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" /> Blog &amp; Articles
-            </Link>
+            <BlogBackLink />
           </AnimatedSection>
           <AnimatedSection delay={0.05}>
             <div className="flex flex-wrap gap-2 mb-6">
@@ -927,12 +923,7 @@ export default function GuiaCredencialesDigitales() {
           {/* Back to blog */}
           <AnimatedSection>
             <div className="flex items-center justify-between pt-4 border-t border-white/10">
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 text-white/50 hover:text-white/80 text-sm transition-colors"
-              >
-                <ArrowLeft className="w-4 h-4" /> Volver al blog
-              </Link>
+              <BlogBackLink />
               <Link
                 href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true"
                 target="_blank"

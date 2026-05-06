@@ -64,7 +64,7 @@ export default function BlogEsPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* Artículo en español */}
               <Link
-                href="/blog/guia-credenciales-digitales"
+                href="/es/blog/guia-credenciales-digitales"
                 className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
               >
                 <div className="flex flex-wrap gap-2">
