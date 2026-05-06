@@ -60,6 +60,28 @@ export default function BlogPage() {
         <div className="relative z-10 max-w-6xl mx-auto">
           <AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* 2026 State of Education-Led Growth Report */}
+              <Link
+                href="/blog/2026-state-of-education-led-growth"
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">Report</span>
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">2026</span>
+                  <span className="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/8 text-white/70 text-xs font-medium tracking-widest uppercase">ELG</span>
+                </div>
+                <h2 className="text-white font-bold text-xl leading-snug group-hover:text-gradient-peach-purple transition-all">
+                  2026 State of Education-Led Growth Report
+                </h2>
+                <p className="text-white/55 text-sm leading-relaxed flex-1">
+                  How companies turn education into a strategic growth engine. Key findings from 190 enterprise respondents on AI adoption, revenue priorities, and measurement maturity.
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/08">
+                  <span className="text-white/30 text-xs">Intellum · 2026</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                </div>
+              </Link>
+
               {/* Article card — EdTech Partner Guide */}
               <Link
                 href="/blog/edtech-partner-continuing-education-guide"
