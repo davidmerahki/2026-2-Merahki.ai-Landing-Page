@@ -621,7 +621,7 @@ export default function EdtechPartnerContinuingEducationGuide() {
               <p className="text-xs font-bold tracking-widest uppercase text-purple-400/80 mb-4">Next step</p>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">Schedule a <span className="text-gradient-peach-purple">no-commitment</span> strategic session.</h3>
               <p className="text-white/60 text-base leading-relaxed mb-6 max-w-2xl">30 minutes with an education-led growth expert to assess your maturity model, identify your anchor corporate client, and define the 90-day roadmap.</p>
-              <Link href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm">
+              <Link href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm">
                 Schedule strategic session <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

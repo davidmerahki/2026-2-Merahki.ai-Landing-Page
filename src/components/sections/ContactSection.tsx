@@ -33,7 +33,7 @@ export default function ContactSection({
 
         <AnimatedSection delay={0.1}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            {/* Left: Clientify embedded form */}
+            {/* Left: HubSpot embedded form */}
             <div className="glass-card rounded-2xl overflow-hidden w-full">
               <ClientifyForm />
             </div>

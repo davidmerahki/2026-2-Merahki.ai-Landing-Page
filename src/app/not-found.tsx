@@ -26,7 +26,7 @@ export default function NotFound() {
             <Home className="w-4 h-4" /> Back to Home
           </Link>
           <Link
-            href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+            href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
           >
             Contact Us <ArrowRight className="w-4 h-4" />

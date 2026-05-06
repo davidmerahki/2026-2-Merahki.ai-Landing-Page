@@ -159,7 +159,7 @@ export default function WebsiteBuilderClient() {
               transition={{ duration: 0.5, delay: 0.3 }}
             >
               <Link
-                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true"
+                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
@@ -361,7 +361,7 @@ export default function WebsiteBuilderClient() {
             </ul>
             <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.4 }}>
               <Link
-                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true"
+                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
@@ -471,7 +471,7 @@ export default function WebsiteBuilderClient() {
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}>
             <Link
-              href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true"
+              href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"

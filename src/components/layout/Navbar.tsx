@@ -281,7 +281,7 @@ export default function Navbar() {
         {/* CTA */}
         <div className="hidden md:block">
           <Link
-            href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+            href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-accent-purple text-white hover:bg-accent-purple/85 transition-all"
           >
             Book a Demo <ArrowRight className="w-3.5 h-3.5" />
@@ -357,7 +357,7 @@ export default function Navbar() {
           ))}
           <div className="pt-3 border-t border-white/10">
             <Link
-              href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+              href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full text-sm font-semibold bg-accent-purple text-white hover:bg-accent-purple/85 transition-all"
             >
               Book a Demo <ArrowRight className="w-4 h-4" />

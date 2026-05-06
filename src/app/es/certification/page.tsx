@@ -209,7 +209,7 @@ export default function CertificationPageES() {
               <AnimatedSection immediate delay={0.3}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+                    href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
                   >
                     Accede a la versión 100% gratuita ahora <ArrowRight className="w-4 h-4" />
@@ -683,13 +683,13 @@ export default function CertificationPageES() {
           <AnimatedSection delay={0.15}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
               >
                 Comenzar <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all"
               >
                 Hablar con Ventas

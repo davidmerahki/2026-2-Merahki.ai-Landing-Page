@@ -396,7 +396,7 @@ export default function EducationLedGrowthPage() {
           <AnimatedSection delay={0.1}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
               >
                 Let&apos;s Get Started <ArrowRight className="w-4 h-4" />
@@ -501,7 +501,7 @@ export default function EducationLedGrowthPage() {
               </div>
               <div className="mt-10">
                 <Link
-                  href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true" target="_blank" rel="noopener noreferrer"
+                  href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
                 >
                   Start the Transformation <ArrowRight className="w-4 h-4" />

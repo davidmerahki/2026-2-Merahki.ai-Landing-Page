@@ -925,7 +925,7 @@ export default function GuiaCredencialesDigitales() {
             <div className="flex items-center justify-between pt-4 border-t border-white/10">
               <BlogBackLink />
               <Link
-                href="https://reuniones.clientify.com/#/davidmerahki/1a1/?v2=true"
+                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
