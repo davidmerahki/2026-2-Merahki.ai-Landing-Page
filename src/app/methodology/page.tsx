@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Methodology — Integral Virtualization | merahki.ai",
@@ -146,6 +148,23 @@ export default function MethodologyPage() {
             <p className="text-xs text-white/25 mt-1">
               Learning Design &amp; Instructional Design — Version 2.0 — 2025
             </p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.3}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
+              >
+                Book a Demo <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
+              >
+                Download Report <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>

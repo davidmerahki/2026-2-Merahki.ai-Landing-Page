@@ -231,13 +231,14 @@ export default function CertificationPage() {
                     href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
                   >
-                    Access to the 100% free version now <ArrowRight className="w-4 h-4" />
+                    Book a Demo <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
-                    href="https://certificates.the-world-university.com/c/5b7dd714-80e5-4c21-8beb-13130c3d0478" target="_blank" rel="noopener noreferrer"
+                    href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                    target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
                   >
-                    View an example <ExternalLink className="w-4 h-4" />
+                    Download Report <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </AnimatedSection>

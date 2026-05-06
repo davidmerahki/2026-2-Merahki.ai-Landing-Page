@@ -131,6 +131,13 @@ export default function InteractiveVideoEsPage() {
                 >
                   Agenda un Demo <ArrowRight className="w-4 h-4" />
                 </Link>
+                <Link
+                  href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
+                >
+                  Descarga el Reporte <ArrowRight className="w-4 h-4" />
+                </Link>
               </AnimatedSection>
             </div>
             <AnimatedSection delay={0.2} className="flex-1 w-full">
@@ -361,6 +368,13 @@ export default function InteractiveVideoEsPage() {
       <ContactSection
         heading="Haz que cada video cuente"
         subheading="Transforma el video pasivo en experiencias de aprendizaje interactivas y medibles — impulsadas por IA."
+        badge="Empieza Ahora"
+        trustItems={[
+          { title: "Demo personalizado de 30 min", desc: "Una demostración adaptada a tu caso de uso específico." },
+          { title: "Habla con un experto, no con un vendedor", desc: "Conversarás con alguien que entiende profundamente el crecimiento impulsado por educación." },
+          { title: "Roadmap de implementación incluido", desc: "Sal con un plan claro para lanzar tu primer programa." },
+          { title: "Usado por equipos en 8+ industrias", desc: "Desde salud hasta SaaS — hemos visto y resuelto tus desafíos." },
+        ]}
       />
     </div>
   );

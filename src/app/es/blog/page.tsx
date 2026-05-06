@@ -170,6 +170,13 @@ export default function BlogEsPage() {
       <ContactSection
         heading="¿Querés recibir nuevos artículos?"
         subheading="Sé de los primeros en recibir nuevas guías, reportes e insights sobre crecimiento basado en educación."
+        badge="Empieza Ahora"
+        trustItems={[
+          { title: "Demo personalizado de 30 min", desc: "Una demostración adaptada a tu caso de uso específico." },
+          { title: "Habla con un experto, no con un vendedor", desc: "Conversarás con alguien que entiende profundamente el crecimiento impulsado por educación." },
+          { title: "Roadmap de implementación incluido", desc: "Sal con un plan claro para lanzar tu primer programa." },
+          { title: "Usado por equipos en 8+ industrias", desc: "Desde salud hasta SaaS — hemos visto y resuelto tus desafíos." },
+        ]}
       />
     </div>
   );

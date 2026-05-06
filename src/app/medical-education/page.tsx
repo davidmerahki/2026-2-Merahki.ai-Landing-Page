@@ -286,6 +286,13 @@ export default function MedicalEducationPage() {
               >
                 Book a Demo <ArrowRight className="w-4 h-4" />
               </Link>
+              <Link
+                href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
+              >
+                Download Report <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </AnimatedSection>
         </div>

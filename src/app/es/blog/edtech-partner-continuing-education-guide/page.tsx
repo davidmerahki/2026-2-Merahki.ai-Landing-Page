@@ -632,6 +632,13 @@ export default function EdtechPartnerContinuingEducationGuideEs() {
       <ContactSection
         heading="¿Hablamos?"
         subheading="Agenda una sesión estratégica con el equipo de merahki.ai para evaluar el modelo de partnership correcto para tu institución."
+        badge="Empieza Ahora"
+        trustItems={[
+          { title: "Demo personalizado de 30 min", desc: "Una demostración adaptada a tu caso de uso específico." },
+          { title: "Habla con un experto, no con un vendedor", desc: "Conversarás con alguien que entiende profundamente el crecimiento impulsado por educación." },
+          { title: "Roadmap de implementación incluido", desc: "Sal con un plan claro para lanzar tu primer programa." },
+          { title: "Usado por equipos en 8+ industrias", desc: "Desde salud hasta SaaS — hemos visto y resuelto tus desafíos." },
+        ]}
       />
     </div>
   );

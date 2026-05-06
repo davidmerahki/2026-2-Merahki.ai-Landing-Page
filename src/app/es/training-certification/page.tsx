@@ -114,10 +114,11 @@ export default function TrainingCertificationPageES() {
                 Solicitar Cotización <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
               >
-                Agenda un Demo
+                Descarga el Reporte <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </AnimatedSection>
@@ -240,6 +241,13 @@ export default function TrainingCertificationPageES() {
       <ContactSection
         heading="Agenda tu Strategy Call"
         subheading="Todo lo que tu equipo necesita para crear formación rápida, con marca propia y en cumplimiento normativo."
+        badge="Empieza Ahora"
+        trustItems={[
+          { title: "Demo personalizado de 30 min", desc: "Una demostración adaptada a tu caso de uso específico." },
+          { title: "Habla con un experto, no con un vendedor", desc: "Conversarás con alguien que entiende profundamente el crecimiento impulsado por educación." },
+          { title: "Roadmap de implementación incluido", desc: "Sal con un plan claro para lanzar tu primer programa." },
+          { title: "Usado por equipos en 8+ industrias", desc: "Desde salud hasta SaaS — hemos visto y resuelto tus desafíos." },
+        ]}
       />
     </div>
   );

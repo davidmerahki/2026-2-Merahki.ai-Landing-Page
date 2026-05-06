@@ -186,8 +186,8 @@ export default function ContinuingEducationPageES() {
               <Link href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm">
                 Agenda un Demo <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="#course-showcase" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold border border-white/15 text-white/80 hover:bg-white/5 hover:text-white transition-all text-sm">
-                Ver un Curso de Ejemplo <ChevronRight className="w-4 h-4" />
+              <Link href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold border border-white/15 text-white/80 hover:bg-white/5 hover:text-white transition-all text-sm">
+                Descarga el Reporte <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </AnimatedSection>
@@ -737,6 +737,13 @@ export default function ContinuingEducationPageES() {
       <ContactSection
         heading="Escala tu educación continua"
         subheading="Descubre cómo merahki.ai ayuda a instituciones de educación superior a lanzar, operar y crecer programas virtuales B2B."
+        badge="Empieza Ahora"
+        trustItems={[
+          { title: "Demo personalizado de 30 min", desc: "Una demostración adaptada a tu caso de uso específico." },
+          { title: "Habla con un experto, no con un vendedor", desc: "Conversarás con alguien que entiende profundamente el crecimiento impulsado por educación." },
+          { title: "Roadmap de implementación incluido", desc: "Sal con un plan claro para lanzar tu primer programa." },
+          { title: "Usado por equipos en 8+ industrias", desc: "Desde salud hasta SaaS — hemos visto y resuelto tus desafíos." },
+        ]}
       />
     </div>
   );

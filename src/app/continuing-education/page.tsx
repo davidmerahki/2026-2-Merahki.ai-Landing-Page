@@ -637,10 +637,11 @@ export default function ContinuingEducationPage() {
                 Book a Demo <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="#course-showcase"
+                href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold border border-white/15 text-white/80 hover:bg-white/5 hover:text-white transition-all text-sm"
               >
-                See a Sample Course <ChevronRight className="w-4 h-4" />
+                Download Report <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </AnimatedSection>

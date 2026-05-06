@@ -153,14 +153,23 @@ export default function WebsiteBuilderClientEs() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <Link
-                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
-              >
-                Agenda un Demo <ArrowRight className="w-4 h-4" />
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
+                >
+                  Agenda un Demo <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
+                >
+                  Descarga el Reporte <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
             </motion.div>
           </div>
 
@@ -477,6 +486,13 @@ export default function WebsiteBuilderClientEs() {
       <ContactSection
         heading="Construyamos tu sitio web de academia"
         subheading="Cuéntanos sobre tu estrategia de educación y diseñaremos, construiremos y lanzaremos un sitio de academia conversion-first — desde cero."
+        badge="Empieza Ahora"
+        trustItems={[
+          { title: "Demo personalizado de 30 min", desc: "Una demostración adaptada a tu caso de uso específico." },
+          { title: "Habla con un experto, no con un vendedor", desc: "Conversarás con alguien que entiende profundamente el crecimiento impulsado por educación." },
+          { title: "Roadmap de implementación incluido", desc: "Sal con un plan claro para lanzar tu primer programa." },
+          { title: "Usado por equipos en 8+ industrias", desc: "Desde salud hasta SaaS — hemos visto y resuelto tus desafíos." },
+        ]}
       />
     </div>
   );

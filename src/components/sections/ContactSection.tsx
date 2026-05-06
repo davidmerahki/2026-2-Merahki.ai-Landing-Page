@@ -5,14 +5,42 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import { CheckCircle2 } from "lucide-react";
 import ClientifyForm from "@/components/ClientifyForm";
 
+interface TrustItem {
+  title: string;
+  desc: string;
+}
+
+const defaultTrustItems: TrustItem[] = [
+  {
+    title: "30-min personalized walkthrough",
+    desc: "A tailored demo of the platform matched to your specific use case.",
+  },
+  {
+    title: "Talk to an expert, not a sales rep",
+    desc: "You'll speak with someone who deeply understands education-led growth.",
+  },
+  {
+    title: "Implementation roadmap included",
+    desc: "Walk away with a clear plan for launching your first program.",
+  },
+  {
+    title: "Used by teams in 8+ industries",
+    desc: "From healthcare to SaaS — we've seen and solved your challenges.",
+  },
+];
+
 interface ContactSectionProps {
   heading?: string;
   subheading?: string;
+  badge?: string;
+  trustItems?: TrustItem[];
 }
 
 export default function ContactSection({
-  heading = "Book a Demo",
-  subheading = "See how merahki.ai can transform your education approach into a growth engine.",
+  heading = "Ready to turn education into your competitive advantage?",
+  subheading = "See how merahki.ai can transform your education strategy into a scalable growth engine.",
+  badge = "Get Started",
+  trustItems = defaultTrustItems,
 }: ContactSectionProps) {
   return (
     <section id="contact" className="relative py-24 px-6">
@@ -24,7 +52,7 @@ export default function ContactSection({
         <AnimatedSection>
           <div className="text-center mb-12">
             <span className="inline-block section-badge text-white/30 mb-4">
-              Get Started
+              {badge}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold mb-3">{heading}</h2>
             <p className="text-white/50 max-w-xl mx-auto">{subheading}</p>
@@ -40,24 +68,7 @@ export default function ContactSection({
 
             {/* Right: trust signals */}
             <div className="space-y-6 py-4">
-              {[
-                {
-                  title: "30-min personalized walkthrough",
-                  desc: "A tailored demo of the platform matched to your specific use case.",
-                },
-                {
-                  title: "Talk to an expert, not a sales rep",
-                  desc: "You'll speak with someone who deeply understands education-led growth.",
-                },
-                {
-                  title: "Implementation roadmap included",
-                  desc: "Walk away with a clear plan for launching your first program.",
-                },
-                {
-                  title: "Used by teams in 8+ industries",
-                  desc: "From healthcare to SaaS — we've seen and solved your challenges.",
-                },
-              ].map((item) => (
+              {trustItems.map((item) => (
                 <div key={item.title} className="flex gap-4">
                   <div className="w-5 h-5 rounded-full bg-accent-purple/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CheckCircle2 className="w-3 h-3 text-accent-purple" />
