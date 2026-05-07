@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
@@ -180,10 +179,6 @@ export default function RootLayout({
         <ELGReportBanner />
         <PerksCarousel />
         <Footer />
-        <Script
-          src="https://apps.clientify.net/widget-whatsapp2.0/app/assets/index-5yccDyx4.js?id=359676c1-a1ad-463d-8061-00a7b3de531f&path=https://plus.clientify.com"
-          strategy="lazyOnload"
-        />
         <Analytics />
         <SpeedInsights />
       </body>

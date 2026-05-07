@@ -372,6 +372,69 @@ export default function MicrocredencialesPost() {
             </div>
           </AnimatedSection>
 
+          {/* Bogotá */}
+          <AnimatedSection>
+            <div className="glass-card rounded-2xl p-6 mb-8">
+              <span className="text-xs font-bold text-accent-purple tracking-wider uppercase">Alcaldía Mayor de Bogotá</span>
+              <h3 className="text-xl font-bold mt-2 mb-3">Innovación ciudadana con microcredenciales en la capital</h3>
+              <div className="space-y-4 text-white/60 text-sm leading-relaxed">
+                <p>La Secretaría General de la Alcaldía Mayor de Bogotá lanzó la <strong className="text-white/80">Fábrica de Prototipos</strong> en el CEFE Chapinero: diseñadores y desarrolladores creando soluciones reales para una ciudad más ágil y eficiente. Un modelo donde la formación no vive en un aula — vive en la solución de problemas reales de una ciudad de 8 millones de personas.</p>
+                <Link
+                  href="https://www.linkedin.com/posts/nat-innovacion_innovaciaejnentraermites-ugcPost-7453575334555443200-t5qo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-xl overflow-hidden border border-white/10 hover:border-white/25 transition-all group"
+                >
+                  <div className="relative w-full aspect-[16/9]">
+                    <Image
+                      src="/images/blog/bogota-fabrica-prototipos.jpg"
+                      alt="Fábrica de Prototipos — Alcaldía Mayor de Bogotá en CEFE Chapinero"
+                      fill
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 700px"
+                    />
+                  </div>
+                  <div className="px-4 py-3 bg-white/[0.03] flex items-center justify-between">
+                    <span className="text-xs text-white/40">Ver publicación en LinkedIn</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-white/30 group-hover:text-white/60 transition-colors" />
+                  </div>
+                </Link>
+                <p>Bogotá transforma sus trámites con innovación ciudadana. Un ejemplo concreto de cómo el sector público en LATAM está adoptando modelos de formación por competencias ligados a resultados tangibles.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          {/* UEES */}
+          <AnimatedSection>
+            <div className="glass-card rounded-2xl p-6 mb-8">
+              <span className="text-xs font-bold text-accent-purple tracking-wider uppercase">Universidad Espíritu Santo — Ecuador</span>
+              <h3 className="text-xl font-bold mt-2 mb-3">EdTech News: Google y POK en la universidad</h3>
+              <div className="space-y-4 text-white/60 text-sm leading-relaxed">
+                <p>La Universidad Espíritu Santo (UEES) en Ecuador recibió a aliados de <strong className="text-white/80">Google</strong> y <strong className="text-white/80">POK Proof of Knowledge</strong> en su primer EdTech News de 2026 — un evento para resaltar el poder de la tecnología educativa. La UEES está liderando la conversación sobre cómo las universidades latinoamericanas pueden integrar microcredenciales y tecnología educativa de clase mundial.</p>
+                <Link
+                  href="https://www.linkedin.com/posts/rafamartinezcampoblanco_me-da-mucha-alegr%C3%ADa-recibir-en-la-universidad-activity-7437547539475804160-RSZF/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block rounded-xl overflow-hidden border border-white/10 hover:border-white/25 transition-all group"
+                >
+                  <div className="relative w-full aspect-[16/9]">
+                    <Image
+                      src="/images/blog/uees-edtech-news.jpg"
+                      alt="EdTech News en la Universidad Espíritu Santo — Google y POK"
+                      fill
+                      className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, 700px"
+                    />
+                  </div>
+                  <div className="px-4 py-3 bg-white/[0.03] flex items-center justify-between">
+                    <span className="text-xs text-white/40">Ver publicación en LinkedIn</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-white/30 group-hover:text-white/60 transition-colors" />
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
+
           {/* Patrón */}
           <AnimatedSection>
             <div className="bg-white/[0.03] border border-white/10 rounded-xl p-6 my-8">

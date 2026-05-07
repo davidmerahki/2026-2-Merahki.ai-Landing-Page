@@ -3,7 +3,7 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import GlowBackground from "@/components/ui/GlowBackground";
 import { CheckCircle2 } from "lucide-react";
-import ClientifyForm from "@/components/ClientifyForm";
+import HubSpotForm from "@/components/HubSpotForm";
 
 interface TrustItem {
   title: string;
@@ -63,7 +63,7 @@ export default function ContactSection({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             {/* Left: HubSpot embedded form */}
             <div className="glass-card rounded-2xl overflow-hidden w-full">
-              <ClientifyForm />
+              <HubSpotForm />
             </div>
 
             {/* Right: trust signals */}

@@ -65,7 +65,7 @@ const jobOpenings: JobOpening[] = [
       "Collaborative and inclusive company culture",
       "Opportunity to make a real impact in the education technology space"
     ],
-    applyLink: "https://reuniones.clientify.com/#/davidmerahki/2/?v2=true"
+    applyLink: "https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
   }
 ];
 
