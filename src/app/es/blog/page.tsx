@@ -62,6 +62,27 @@ export default function BlogEsPage() {
         <div className="relative z-10 max-w-6xl mx-auto">
           <AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Microcredenciales: la nueva arquitectura */}
+              <Link
+                href="/es/blog/microcredenciales-nueva-arquitectura-aprendizaje"
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">Thought Leadership</span>
+                  <span className="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/8 text-white/70 text-xs font-medium tracking-widest uppercase">Microcredenciales</span>
+                </div>
+                <h2 className="text-white font-bold text-xl leading-snug group-hover:text-gradient-peach-purple transition-all">
+                  Microcredenciales: la nueva arquitectura del aprendizaje
+                </h2>
+                <p className="text-white/55 text-sm leading-relaxed flex-1">
+                  Por qué no son educación más pequeña — y qué deben hacer las instituciones antes de que sea tarde. Casos de Singapur, Google, IBM, Walmart, MIT y Tec de Monterrey.
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/08">
+                  <span className="text-white/30 text-xs">David González · Mayo 2026</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                </div>
+              </Link>
+
               {/* Reporte 2026 ELG */}
               <Link
                 href="/es/blog/reporte-2026-education-led-growth"
@@ -119,6 +140,27 @@ export default function BlogEsPage() {
                 </h2>
                 <p className="text-white/55 text-sm leading-relaxed flex-1">
                   Cinco capas integradas para diseñar, producir, escalar y certificar programas con estándares globales. Conoce el ecosistema completo.
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/08">
+                  <span className="text-white/30 text-xs">merahki.ai · Mayo 2026</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                </div>
+              </Link>
+
+              {/* Reporte — Microcredenciales y Credenciales Digitales */}
+              <Link
+                href="/es/reports/microcredentials-digital-credentials-research"
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">Investigación</span>
+                  <span className="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/8 text-white/70 text-xs font-medium tracking-widest uppercase">Microcredenciales</span>
+                </div>
+                <h2 className="text-white font-bold text-xl leading-snug group-hover:text-gradient-peach-purple transition-all">
+                  Microcredenciales y Credenciales Digitales: Investigación, Casos de Uso y Marco Estratégico
+                </h2>
+                <p className="text-white/55 text-sm leading-relaxed flex-1">
+                  Reporte completo sobre el auge de las microcredenciales y las credenciales digitales — respaldado por datos globales, casos de uso institucionales y un marco estratégico para universidades y empresas que adoptan certificación verificable y basada en competencias a escala.
                 </p>
                 <div className="flex items-center justify-between pt-2 border-t border-white/08">
                   <span className="text-white/30 text-xs">merahki.ai · Mayo 2026</span>

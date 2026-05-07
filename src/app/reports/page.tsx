@@ -56,18 +56,31 @@ export default function ReportsPage() {
         </div>
       </section>
 
-      {/* Coming Soon */}
-      <section className="relative py-20 px-6">
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
+      {/* Reports Grid */}
+      <section className="relative py-16 px-6">
+        <div className="relative z-10 max-w-6xl mx-auto">
           <AnimatedSection>
-            <div className="glass-card rounded-2xl p-12 space-y-4">
-              <p className="text-5xl font-bold text-white/10">📄</p>
-              <h2 className="text-2xl font-bold text-white">Reports coming soon</h2>
-              <p className="text-white/50 leading-relaxed">
-                We&apos;re compiling industry research, benchmarks, and
-                Education-Led Growth guides. Drop your email below and
-                we&apos;ll send them directly to you on release.
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Report — Microcredentials & Digital Credentials */}
+              <Link
+                href="/reports/microcredentials-digital-credentials-research"
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">Research</span>
+                  <span className="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/8 text-white/70 text-xs font-medium tracking-widest uppercase">Microcredentials</span>
+                </div>
+                <h2 className="text-white font-bold text-xl leading-snug group-hover:text-gradient-peach-purple transition-all">
+                  Microcredentials &amp; Digital Credentials: Research, Use Cases &amp; Strategic Framework
+                </h2>
+                <p className="text-white/55 text-sm leading-relaxed flex-1">
+                  A comprehensive research report on the rise of microcredentials and digital credentials — backed by global data, institutional use cases, and a strategic framework for universities and enterprises adopting verifiable, skills-based certification at scale.
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/08">
+                  <span className="text-white/30 text-xs">merahki.ai · May 2026</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                </div>
+              </Link>
             </div>
           </AnimatedSection>
         </div>

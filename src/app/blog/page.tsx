@@ -123,6 +123,27 @@ export default function BlogPage() {
                   <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
                 </div>
               </Link>
+
+              {/* Report — Microcredentials & Digital Credentials */}
+              <Link
+                href="/reports/microcredentials-digital-credentials-research"
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">Research</span>
+                  <span className="px-3 py-1 rounded-full border border-purple-500/30 bg-purple-500/8 text-white/70 text-xs font-medium tracking-widest uppercase">Microcredentials</span>
+                </div>
+                <h2 className="text-white font-bold text-xl leading-snug group-hover:text-gradient-peach-purple transition-all">
+                  Microcredentials &amp; Digital Credentials: Research, Use Cases &amp; Strategic Framework
+                </h2>
+                <p className="text-white/55 text-sm leading-relaxed flex-1">
+                  A comprehensive research report on the rise of microcredentials and digital credentials — backed by global data, institutional use cases, and a strategic framework for universities and enterprises adopting verifiable, skills-based certification at scale.
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/08">
+                  <span className="text-white/30 text-xs">merahki.ai · May 2026</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                </div>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
