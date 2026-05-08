@@ -40,49 +40,54 @@ export default function HomePageES() {
             {/* Left: Text */}
             <div className="flex-1 space-y-8">
               <AnimatedSection immediate>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
-                  Education-Led Growth Ecosystem
-                </span>
+                <Link href="https://www.pok.tech/es" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+                  <Image src="/images/logos/pok.png" alt="POK - Proof of Knowledge" width={60} height={24} className="object-contain" />
+                  <span className="text-white/50 text-xs font-medium">Partner Global</span>
+                </Link>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight">
-                  Convierte tu estrategia de educación en un{" "}
-                  <span className="text-gradient-peach-purple">Growth Engine escalable.</span>
+                  La plataforma global de{" "}
+                  <span className="text-gradient-peach-purple">credenciales digitales verificables</span>{" "}
+                  para universidades, gobiernos y empresas
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-xl text-white/60 max-w-xl leading-relaxed">
-                  Diseñamos, producimos y lanzamos experiencias de aprendizaje potenciadas por IA para tus clientes, leads y partners. Transforma la educación en el driver más poderoso de retención, adopción y revenue.
+                  POK - Proof of Knowledge es la plataforma de referencia para emitir credenciales digitales verificables y microcredenciales. Más de 1.100 instituciones en 19 países la usan a diario.
+                </p>
+                <p className="text-sm text-white/40 mt-3">
+                  POK es el partner global de merahki.ai para la emisión de credenciales digitales verificables y microcredenciales.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.3}>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Link
-                    href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                    href="https://certificates.the-world-university.com/c/e238c839-155a-4294-9113-751bc2187971" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
                   >
-                    Agenda un Demo <ArrowRight className="w-4 h-4" />
+                    Ver Ejemplo <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
-                    href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                    href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
                     target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
                   >
-                    Descarga el Reporte <ArrowRight className="w-4 h-4" />
+                    Agenda un Demo <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.4}>
                 <div className="flex flex-wrap gap-8 text-sm text-white/40">
-                  <span>+100 estrategias probadas</span>
+                  <span>1.100+ instituciones</span>
                   <span className="text-white/20">·</span>
-                  <span>8 industrias atendidas</span>
+                  <span>19 países</span>
                   <span className="text-white/20">·</span>
-                  <span>Ecosistema AI-native</span>
+                  <span>Credenciales verificables</span>
                 </div>
               </AnimatedSection>
             </div>

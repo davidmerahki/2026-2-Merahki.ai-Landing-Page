@@ -54,49 +54,53 @@ export default function HomePage() {
             {/* Left: Text */}
             <div className="flex-1 space-y-8">
               <AnimatedSection immediate>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-white/60 text-xs font-medium tracking-widest uppercase">
-                  Education-Led Growth Ecosystem
-                </span>
+                <Link href="https://www.pok.tech/en" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+                  <Image src="/images/logos/pok.png" alt="POK - Proof of Knowledge" width={60} height={24} className="object-contain" />
+                  <span className="text-white/50 text-xs font-medium">Global Partner</span>
+                </Link>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight">
-                  Turn Your Education Strategy into a{" "}
-                  <span className="text-gradient-peach-purple">Scalable Growth Engine.</span>
+                  The global platform for verifiable{" "}
+                  <span className="text-gradient-peach-purple">digital credentials and microcredentials</span>
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-xl text-white/60 max-w-xl leading-relaxed">
-                  We design, produce, and launch AI-powered learning experiences for your customers, leads, and partners. Transform education into a high-impact driver of retention, adoption, and revenue.
+                  POK - Proof of Knowledge is the go-to platform for issuing verifiable digital credentials and microcredentials. Trusted by 1,100+ institutions in 19 countries.
+                </p>
+                <p className="text-sm text-white/40 mt-3">
+                  POK is merahki.ai global partner for issuing verifiable digital credentials and microcredentials.
                 </p>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.3}>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Link
-                    href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                    href="https://certificates.the-world-university.com/c/e238c839-155a-4294-9113-751bc2187971" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
                   >
-                    Book a Demo <ArrowRight className="w-4 h-4" />
+                    View Demo <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
-                    href="https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w"
+                    href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
                     target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
                   >
-                    Download Report <ArrowRight className="w-4 h-4" />
+                    Book a Demo <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.4}>
                 <div className="flex flex-wrap gap-8 text-sm text-white/40">
-                  <span>+100 proven strategies</span>
+                  <span>1,100+ institutions</span>
                   <span className="text-white/20">·</span>
-                  <span>8 industries served</span>
+                  <span>19 countries</span>
                   <span className="text-white/20">·</span>
-                  <span>AI-native ecosystem</span>
+                  <span>Verifiable credentials</span>
                 </div>
               </AnimatedSection>
             </div>
