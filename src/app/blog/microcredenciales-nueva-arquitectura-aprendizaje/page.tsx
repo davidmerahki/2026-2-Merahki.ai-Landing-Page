@@ -387,7 +387,7 @@ export default function MicrocredencialesPost() {
                 >
                   <div className="relative w-full aspect-[16/9]">
                     <Image
-                      src="/images/blog/bogota-fabrica-prototipos.jpg"
+                      src="/Blog post html/imagen post laboratorio IBO.png"
                       alt="Fábrica de Prototipos — Alcaldía Mayor de Bogotá en CEFE Chapinero"
                       fill
                       className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
@@ -419,7 +419,7 @@ export default function MicrocredencialesPost() {
                 >
                   <div className="relative w-full aspect-[16/9]">
                     <Image
-                      src="/images/blog/uees-edtech-news.jpg"
+                      src="/Blog post html/imagen post credenciales UEES.png"
                       alt="EdTech News en la Universidad Espíritu Santo — Google y POK"
                       fill
                       className="object-cover group-hover:scale-[1.02] transition-transform duration-300"
