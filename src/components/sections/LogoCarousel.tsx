@@ -43,13 +43,19 @@ const logos: { src: string; alt: string }[] = [
   { src: "/images/logos/query.png",                        alt: "Query" },
 ];
 
-export default function LogoCarousel() {
+interface LogoCarouselProps {
+  heading?: string;
+}
+
+export default function LogoCarousel({
+  heading = "Trusted by leading organizations worldwide",
+}: LogoCarouselProps) {
   const doubled = [...logos, ...logos];
 
   return (
     <section className="py-14 border-y border-white/5 overflow-hidden">
       <p className="text-center text-white/30 section-badge mb-8">
-        Trusted by leading organizations worldwide
+        {heading}
       </p>
       <div className="relative">
         <div className="flex">
