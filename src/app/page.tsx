@@ -6,6 +6,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Accordion from "@/components/ui/Accordion";
 import Collapsible from "@/components/ui/Collapsible";
 import Link from "next/link";
+import TestimonialsEN from "@/components/sections/TestimonialsEN";
 import {
   ArrowRight,
   PenTool,
@@ -17,7 +18,6 @@ import {
   Factory,
   GraduationCap,
   Monitor,
-  Quote,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -520,93 +520,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SECTION 7 — SOCIAL PROOF WALL ── */}
-      <section className="relative py-24 px-6">
-        <GlowBackground
-          indigoPosition={{ x: "60%", y: "50%" }}
-          rustPosition={{ x: "30%", y: "50%" }}
-        />
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Teams that stopped guessing and{" "}
-                <span className="text-gradient-blue-pink">
-                  started proving.
-                </span>
-              </h2>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                quote:
-                  "Merahki delivered our academy in 3 weeks. Student registration went up 52% in the first month — and we could see exactly which modules drove it.",
-                name: "Laura M.",
-                role: "VP of Customer Success",
-                company: "SaaS Co.",
-                result: "+52% registration, 3-week launch",
-                timeframe: "First month",
-              },
-              {
-                quote:
-                  "We tried to build this in-house for 6 months. Merahki shipped a better product in 4 weeks. The ROI dashboard is what sold our board on expanding the program.",
-                name: "Carlos R.",
-                role: "Chief Learning Officer",
-                company: "Healthcare Group",
-                result: "4-week delivery vs. 6 months in-house",
-                timeframe: "Q1 2025",
-              },
-              {
-                quote:
-                  "The conversion-focused design doubled our sign-up rate. But the real win was the cohort analytics — we finally had data to show our partners that training moves the needle.",
-                name: "Sofia T.",
-                role: "Head of Partnerships",
-                company: "Fintech Platform",
-                result: "2\u00D7 sign-up rate + first partner ROI report",
-                timeframe: "6 months",
-              },
-              {
-                quote:
-                  "Our education program became a pipeline driver overnight. Certified customers renew at 18% higher rates — and we can prove it in every QBR.",
-                name: "James K.",
-                role: "Director of Revenue",
-                company: "Tech Agency",
-                result: "+18% renewal rate for certified cohort",
-                timeframe: "First 2 quarters",
-              },
-              {
-                quote:
-                  "The demo was straight to the point. No fluff, no pressure. We signed and launched in under 6 weeks.",
-                name: "Daniela V.",
-                role: "Head of L&D",
-                company: "Manufacturing Co.",
-                result: "6-week end-to-end",
-                timeframe: "Ongoing",
-              },
-            ].map((t, i) => (
-              <AnimatedSection key={t.name} delay={(i % 3) * 0.1}>
-                <div className="glass-card rounded-2xl p-7 h-full flex flex-col gap-4">
-                  <Quote className="w-5 h-5 text-accent-purple/40" />
-                  <p className="text-white/70 text-sm leading-relaxed flex-1">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div className="pt-4 border-t border-white/10">
-                    <p className="text-white font-medium text-sm">{t.name}</p>
-                    <p className="text-white/40 text-xs mt-0.5">
-                      {t.role} · {t.company}
-                    </p>
-                    <p className="text-accent-purple/70 text-xs mt-2 font-medium">
-                      {t.result} · {t.timeframe}
-                    </p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── SECTION 7 — TESTIMONIALS ── */}
+      <TestimonialsEN />
 
       {/* ── CTA BREAK #2 ── */}
       <section className="py-20 px-6 border-y border-white/5">

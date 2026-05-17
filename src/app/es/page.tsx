@@ -6,6 +6,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Accordion from "@/components/ui/Accordion";
 import Collapsible from "@/components/ui/Collapsible";
 import Link from "next/link";
+import TestimonialsES from "@/components/sections/TestimonialsES";
 import {
   ArrowRight,
   PenTool,
@@ -17,7 +18,6 @@ import {
   Factory,
   GraduationCap,
   Monitor,
-  Quote,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -314,41 +314,8 @@ export default function HomePageES() {
         </div>
       </section>
 
-      {/* ── SECCIÓN 7 — MURO DE PRUEBA SOCIAL ── */}
-      <section className="relative py-24 px-6">
-        <GlowBackground indigoPosition={{ x: "60%", y: "50%" }} rustPosition={{ x: "30%", y: "50%" }} />
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Equipos que dejaron de adivinar y{" "}
-                <span className="text-gradient-blue-pink">empezaron a demostrar.</span>
-              </h2>
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { quote: "Merahki nos entregó la academy en 3 semanas. El registro de estudiantes subió 52% en el primer mes — y podíamos ver exactamente qué módulos lo generaron.", name: "Laura M.", role: "VP of Customer Success", company: "SaaS Co.", result: "+52% registro, lanzamiento en 3 semanas", timeframe: "Primer mes" },
-              { quote: "Intentamos construir esto internamente durante 6 meses. Merahki entregó un mejor producto en 4 semanas. El dashboard de ROI fue lo que convenció a nuestra junta de expandir el programa.", name: "Carlos R.", role: "Chief Learning Officer", company: "Healthcare Group", result: "4 semanas vs. 6 meses in-house", timeframe: "Q1 2025" },
-              { quote: "El diseño enfocado en conversión duplicó nuestra tasa de registro. Pero la verdadera victoria fue la analítica de cohortes — por fin teníamos datos para mostrar a nuestros partners que la formación mueve la aguja.", name: "Sofia T.", role: "Head of Partnerships", company: "Fintech Platform", result: "2× tasa de registro + primer reporte de ROI para partners", timeframe: "6 meses" },
-              { quote: "Nuestro programa de educación se convirtió en un pipeline driver de la noche a la mañana. Los clientes certificados renuevan a una tasa 18% mayor — y podemos demostrarlo en cada QBR.", name: "James K.", role: "Director of Revenue", company: "Tech Agency", result: "+18% tasa de renovación en cohorte certificada", timeframe: "Primeros 2 trimestres" },
-              { quote: "La demo fue directa al grano. Sin relleno, sin presión. Firmamos y lanzamos en menos de 6 semanas.", name: "Daniela V.", role: "Head of L&D", company: "Empresa de Manufactura", result: "6 semanas de punta a punta", timeframe: "En curso" },
-            ].map((t, i) => (
-              <AnimatedSection key={t.name} delay={(i % 3) * 0.1}>
-                <div className="glass-card rounded-2xl p-7 h-full flex flex-col gap-4">
-                  <Quote className="w-5 h-5 text-accent-purple/40" />
-                  <p className="text-white/70 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="pt-4 border-t border-white/10">
-                    <p className="text-white font-medium text-sm">{t.name}</p>
-                    <p className="text-white/40 text-xs mt-0.5">{t.role} · {t.company}</p>
-                    <p className="text-accent-purple/70 text-xs mt-2 font-medium">{t.result} · {t.timeframe}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ── SECCIÓN 7 — TESTIMONIOS ── */}
+      <TestimonialsES />
 
       {/* ── CORTE CTA #2 ── */}
       <section className="py-20 px-6 border-y border-white/5">

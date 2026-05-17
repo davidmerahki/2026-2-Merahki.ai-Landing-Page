@@ -4,6 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
 import OurProposal from "@/components/sections/OurProposal";
 import LogoCarousel from "@/components/sections/LogoCarousel";
+import TestimonialsEN from "@/components/sections/TestimonialsEN";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -478,23 +479,6 @@ const addOns = [
   },
 ];
 
-const testimonials = [
-  {
-    quote: "merahki.ai allowed us to launch 4 new B2B programs in a single quarter — we used to launch 1 per year. Completion rate went from 35% to 72% and every corporate client renewed their contract.",
-    author: "Director of Continuing Education",
-    org: "Private university, Colombia",
-  },
-  {
-    quote: "The AI support agent was a game changer. We reduced support queries by 65% and participants report the experience is better than platforms like Coursera.",
-    author: "Corporate Programs Coordinator",
-    org: "Higher education institution, Mexico",
-  },
-  {
-    quote: "The HubSpot integration let us prove our continuing education unit's ROI with data for the first time. The provost now understands the value of what we do.",
-    author: "VP of Academic Extension",
-    org: "University, Chile",
-  },
-];
 
 const audiences = [
   {
@@ -1451,94 +1435,7 @@ export default function ContinuingEducationPage() {
       </section>
 
       {/* ═══════════ SECTION 9 — SOCIAL PROOF ═══════════ */}
-      <section className="relative py-24 px-6">
-        <GlowBackground
-          indigoPosition={{ x: "50%", y: "50%" }}
-          rustPosition={{ x: "50%", y: "30%" }}
-        />
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Real Results.{" "}
-                <span className="text-gradient-peach-purple">
-                  Real Institutions.
-                </span>
-              </h2>
-            </div>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {testimonials.map((t, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 space-y-4 h-full flex flex-col">
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, j) => (
-                      <Star
-                        key={j}
-                        className="w-3.5 h-3.5 text-amber-400 fill-amber-400"
-                      />
-                    ))}
-                  </div>
-                  <p className="text-white/60 text-sm leading-relaxed flex-1 italic">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                  <div className="border-t border-white/5 pt-3">
-                    <p className="text-sm font-semibold text-white">
-                      {t.author}
-                    </p>
-                    <p className="text-xs text-white/35">{t.org}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-
-          {/* Results Table */}
-          <AnimatedSection delay={0.4}>
-            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-              <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
-                <span>Client</span>
-                <span>Result</span>
-                <span>Detail</span>
-              </div>
-              {[
-                {
-                  client: "University (Colombia)",
-                  result: "+40% completion rate",
-                  detail:
-                    "Corporate programs with Octalysis gamification + interactive video",
-                },
-                {
-                  client: "Higher Ed (Mexico)",
-                  result: "−65% support tickets",
-                  detail: "AI Learner Agent + integrated knowledge base",
-                },
-                {
-                  client: "University (Chile)",
-                  result: "3× programs/quarter",
-                  detail: "Full outsourcing of production + operations",
-                },
-              ].map((row, i) => (
-                <div
-                  key={row.client}
-                  className={`grid grid-cols-3 text-sm px-5 py-3 ${
-                    i % 2 === 0 ? "bg-white/[0.01]" : ""
-                  } ${i < 2 ? "border-b border-white/5" : ""}`}
-                >
-                  <span className="text-white/70 font-medium text-xs">
-                    {row.client}
-                  </span>
-                  <span className="text-emerald-400/80 font-semibold text-xs">
-                    {row.result}
-                  </span>
-                  <span className="text-white/45 text-xs">{row.detail}</span>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      <TestimonialsEN />
 
       {/* ═══════════ SECTION 10 — WHO THIS IS FOR ═══════════ */}
       <section className="relative py-24 px-6">

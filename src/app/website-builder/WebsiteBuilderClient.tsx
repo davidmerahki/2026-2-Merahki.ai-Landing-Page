@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import GlowBackground from "@/components/ui/GlowBackground";
 import ContactSection from "@/components/sections/ContactSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
+import TestimonialsEN from "@/components/sections/TestimonialsEN";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -64,12 +65,6 @@ const standardFeatures = [
   { icon: HeartHandshake, title: "Expert-led advisory", desc: "A dedicated success partner guides strategy, reviews metrics, and drives ongoing improvement." },
 ];
 
-const testimonials = [
-  { quote: "The merahki.ai team delivered our academy in 3 weeks. Student registration went up 52% in the first month.", name: "Laura M.", role: "VP of Customer Success, SaaS Co." },
-  { quote: "We tried to build this in-house for 6 months. merahki.ai shipped a better product in 4 weeks.", name: "Carlos R.", role: "Chief Learning Officer, Healthcare Group" },
-  { quote: "The conversion-focused design made a real difference — our sign-up rate doubled after launch.", name: "Sofia T.", role: "Head of Partnerships, Fintech Platform" },
-  { quote: "Not just a website — a full growth engine. Our education program became a pipeline driver overnight.", name: "James K.", role: "Director of Revenue, Tech Agency" },
-];
 
 const faqs = [
   { question: "What's included in the website creation service?", answer: "Every engagement includes strategic discovery, UX wireframing, visual design, full custom development, integrations setup, performance optimization, managed deployment, and 30 days of post-launch support." },
@@ -418,25 +413,7 @@ export default function WebsiteBuilderClient() {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="relative py-24 px-6 overflow-hidden">
-        <GlowBackground indigoPosition={{ x: "60%", y: "50%" }} rustPosition={{ x: "20%", y: "30%" }} />
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Trusted by those who build with education</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {testimonials.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={stagger(i)} className="glass-card rounded-2xl p-6 space-y-4 flex flex-col">
-                <p className="text-white/65 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-                <div>
-                  <p className="text-white font-semibold text-sm">{t.name}</p>
-                  <p className="text-white/40 text-xs">{t.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsEN />
 
       {/* ── FAQ ── */}
       <section className="relative py-24 px-6">
