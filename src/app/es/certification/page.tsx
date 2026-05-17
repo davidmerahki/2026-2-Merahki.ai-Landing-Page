@@ -180,13 +180,14 @@ export default function CertificationPageES() {
               </AnimatedSection>
               <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                  Emite credenciales digitales verificables y microcredenciales como NFTs en la blockchain.{" "}
-                  <span className="text-gradient-peach-purple">¡Prueba la versión 100% gratuita e ilimitada ahora!</span>
+                  La plataforma global de{" "}
+                  <span className="text-gradient-peach-purple">credenciales digitales verificables</span>{" "}
+                  para universidades, gobiernos y empresas
                 </h1>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-lg text-white/60 leading-relaxed">
-                  POK es el partner global de merahki.ai para la emisión de credenciales digitales verificables y microcredenciales.
+                  POK - Proof of Knowledge es la plataforma de referencia para emitir credenciales digitales verificables y microcredenciales. Más de 1.100 instituciones en 19 países la usan a diario.
                 </p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.25}>
@@ -209,7 +210,7 @@ export default function CertificationPageES() {
               <AnimatedSection immediate delay={0.3}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                    href="https://ulaiz.share.hsforms.com/2deq-FCkMRvuRnQqdQf9ouQ" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
                   >
                     Agenda un Demo <ArrowRight className="w-4 h-4" />
@@ -684,13 +685,13 @@ export default function CertificationPageES() {
           <AnimatedSection delay={0.15}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                href="https://ulaiz.share.hsforms.com/2deq-FCkMRvuRnQqdQf9ouQ" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
               >
                 Comenzar <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                href="https://ulaiz.share.hsforms.com/2deq-FCkMRvuRnQqdQf9ouQ" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all"
               >
                 Hablar con Ventas

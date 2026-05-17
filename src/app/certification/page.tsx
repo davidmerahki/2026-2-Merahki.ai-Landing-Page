@@ -199,13 +199,13 @@ export default function CertificationPage() {
               </AnimatedSection>
               <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                  Issue verifiable digital credentials and microcredentials as NFTs on the blockchain.{" "}
-                  <span className="text-gradient-peach-purple">Try the 100% free and unlimited version now!</span>
+                  The global platform for{" "}
+                  <span className="text-gradient-peach-purple">verifiable digital credentials and microcredentials</span>
                 </h1>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-lg text-white/60 leading-relaxed">
-                  POK is merahki.ai global partner for issuing verifiable digital credentials and microcredentials.
+                  POK - Proof of Knowledge is the go-to platform for issuing verifiable digital credentials and microcredentials. Trusted by 1,100+ institutions in 19 countries.
                 </p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.25}>
@@ -228,7 +228,7 @@ export default function CertificationPage() {
               <AnimatedSection immediate delay={0.3}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                    href="https://ulaiz.share.hsforms.com/2deq-FCkMRvuRnQqdQf9ouQ" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
                   >
                     Book a Demo <ArrowRight className="w-4 h-4" />
@@ -714,13 +714,13 @@ export default function CertificationPage() {
           <AnimatedSection delay={0.15}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                href="https://ulaiz.share.hsforms.com/2deq-FCkMRvuRnQqdQf9ouQ" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all"
               >
                 Get Started <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer"
+                href="https://ulaiz.share.hsforms.com/2deq-FCkMRvuRnQqdQf9ouQ" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all"
               >
                 Talk to Sales

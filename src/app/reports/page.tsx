@@ -81,6 +81,29 @@ export default function ReportsPage() {
                   <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
                 </div>
               </Link>
+
+              {/* Report — Education-Led Growth */}
+              <Link
+                href="https://hubs.ly/Q04gVqB10"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 hover:border-white/20 transition-all group"
+              >
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-3 py-1 rounded-full border border-white/10 bg-white/5 text-white/50 text-xs font-medium tracking-widest uppercase">Report</span>
+                  <span className="px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/8 text-white/70 text-xs font-medium tracking-widest uppercase">Education-Led Growth</span>
+                </div>
+                <h2 className="text-white font-bold text-xl leading-snug group-hover:text-gradient-peach-purple transition-all">
+                  Education-Led Growth: The ROI Framework for Training Programs
+                </h2>
+                <p className="text-white/55 text-sm leading-relaxed flex-1">
+                  Discover how structured education programs deliver 372% ROI over three years. This report covers the methodology, measurement hierarchy, and benchmarks behind Education-Led Growth — the strategy that turns training into a provable revenue driver.
+                </p>
+                <div className="flex items-center justify-between pt-2 border-t border-white/08">
+                  <span className="text-white/30 text-xs">merahki.ai · 2026</span>
+                  <ArrowRight className="w-4 h-4 text-white/40 group-hover:text-white/80 transition-colors" />
+                </div>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
