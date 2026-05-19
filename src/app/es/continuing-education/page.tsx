@@ -4,6 +4,7 @@ import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
 import OurProposal from "@/components/sections/OurProposal";
 import LogoCarousel from "@/components/sections/LogoCarousel";
+import TestimonialsES from "@/components/sections/TestimonialsES";
 import Link from "next/link";
 import {
   ArrowRight, Target, BookOpen, Gamepad2, Rocket, Headphones, BarChart3,
@@ -117,11 +118,6 @@ const addOns = [
   { title: "Retainer Estrategia ELG", desc: "Chief Learning Officer fraccional. Revisiones mensuales, KPIs, presentaciones ejecutivas trimestrales.", tiers: ["$2,500–$6,000 único", "$3,000/mes", ""] },
 ];
 
-const testimonials = [
-  { quote: "merahki.ai nos permitió lanzar 4 programas B2B en un trimestre — antes lanzábamos 1 por año. Finalización de 35% a 72%. Todos renovaron.", author: "Director de Educación Continua", org: "Universidad privada, Colombia" },
-  { quote: "El agente IA redujo consultas de soporte en 65%. Los participantes dicen que la experiencia es mejor que Coursera.", author: "Coordinador de Programas Corporativos", org: "Institución de educación superior, México" },
-  { quote: "La integración HubSpot nos permitió demostrar el ROI con datos por primera vez. El rector ahora entiende nuestro valor.", author: "VP de Extensión Académica", org: "Universidad, Chile" },
-];
 
 const audiences = [
   { icon: Briefcase, title: "Directores de Educación Continua", desc: "Más programas, más rápido, sin más personal." },
@@ -609,48 +605,7 @@ export default function ContinuingEducationPageES() {
       </section>
 
       {/* PRUEBA SOCIAL */}
-      <section className="relative py-24 px-6">
-        <GlowBackground indigoPosition={{ x: "50%", y: "50%" }} rustPosition={{ x: "50%", y: "30%" }} />
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold">Resultados Reales.{" "}<span className="text-gradient-peach-purple">Instituciones Reales.</span></h2>
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {testimonials.map((t, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-7 space-y-4 h-full flex flex-col">
-                  <div className="flex gap-0.5">{[...Array(5)].map((_, j) => (<Star key={j} className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />))}</div>
-                  <p className="text-white/60 text-sm leading-relaxed flex-1 italic">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="border-t border-white/5 pt-3">
-                    <p className="text-sm font-semibold text-white">{t.author}</p>
-                    <p className="text-xs text-white/35">{t.org}</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-          <AnimatedSection delay={0.4}>
-            <div className="mt-10 rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-              <div className="grid grid-cols-3 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
-                <span>Cliente</span><span>Resultado</span><span>Detalle</span>
-              </div>
-              {[
-                { client: "Universidad (Colombia)", result: "+40% finalización", detail: "Gamificación Octalysis + video interactivo" },
-                { client: "Edu. Superior (México)", result: "−65% tickets soporte", detail: "AI Learner Agent + knowledge base" },
-                { client: "Universidad (Chile)", result: "3× programas/trimestre", detail: "Outsourcing completo de producción + operaciones" },
-              ].map((row, i) => (
-                <div key={row.client} className={`grid grid-cols-3 text-sm px-5 py-3 ${i % 2 === 0 ? "bg-white/[0.01]" : ""} ${i < 2 ? "border-b border-white/5" : ""}`}>
-                  <span className="text-white/70 font-medium text-xs">{row.client}</span>
-                  <span className="text-emerald-400/80 font-semibold text-xs">{row.result}</span>
-                  <span className="text-white/45 text-xs">{row.detail}</span>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
+      <TestimonialsES />
 
       {/* PARA QUIÉN ES */}
       <section className="relative py-24 px-6">

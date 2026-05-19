@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import GlowBackground from "@/components/ui/GlowBackground";
 import ContactSection from "@/components/sections/ContactSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
+import TestimonialsES from "@/components/sections/TestimonialsES";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -62,13 +63,6 @@ const standardFeatures = [
   { icon: Zap, title: "Rendimiento siempre activo", desc: "SLA de 99.9% de uptime con infraestructura distribuida globalmente y failover instantáneo." },
   { icon: ShieldCheck, title: "Seguridad y cumplimiento", desc: "HTTPS obligatorio, GDPR-ready y manejo de datos encriptados en cada build." },
   { icon: HeartHandshake, title: "Asesoría de expertos", desc: "Un success partner dedicado guía la estrategia, revisa métricas e impulsa la mejora continua." },
-];
-
-const testimonials = [
-  { quote: "El equipo de merahki.ai entregó nuestra academia en 3 semanas. El registro de estudiantes subió un 52% en el primer mes.", name: "Laura M.", role: "VP de Customer Success, SaaS Co." },
-  { quote: "Intentamos construir esto internamente durante 6 meses. merahki.ai entregó un mejor producto en 4 semanas.", name: "Carlos R.", role: "Chief Learning Officer, Grupo Healthcare" },
-  { quote: "El diseño enfocado en conversión marcó una diferencia real — nuestra tasa de registro se duplicó después del lanzamiento.", name: "Sofía T.", role: "Head of Partnerships, Plataforma Fintech" },
-  { quote: "No solo un sitio web — un motor de crecimiento completo. Nuestro programa de educación se convirtió en un driver de pipeline de la noche a la mañana.", name: "James K.", role: "Director de Revenue, Agencia Tech" },
 ];
 
 const faqs = [
@@ -410,25 +404,7 @@ export default function WebsiteBuilderClientEs() {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="relative py-24 px-6 overflow-hidden">
-        <GlowBackground indigoPosition={{ x: "60%", y: "50%" }} rustPosition={{ x: "20%", y: "30%" }} />
-        <div className="relative z-10 max-w-6xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">De confianza para quienes construyen con educación</h2>
-          </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {testimonials.map((t, i) => (
-              <motion.div key={t.name} initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={stagger(i)} className="glass-card rounded-2xl p-6 space-y-4 flex flex-col">
-                <p className="text-white/65 text-sm leading-relaxed flex-1">&ldquo;{t.quote}&rdquo;</p>
-                <div>
-                  <p className="text-white font-semibold text-sm">{t.name}</p>
-                  <p className="text-white/40 text-xs">{t.role}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TestimonialsES />
 
       {/* ── FAQ ── */}
       <section className="relative py-24 px-6">
