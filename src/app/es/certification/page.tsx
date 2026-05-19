@@ -466,13 +466,16 @@ export default function CertificationPageES() {
         />
         <div className="relative z-10 max-w-3xl mx-auto">
           <AnimatedSection>
-            <div className="text-center mb-8 space-y-2">
+            <div className="text-center mb-8 space-y-3">
               <h2 className="text-3xl md:text-4xl font-bold">
-                NFT{" "}
-                <span className="text-gradient-peach-purple">Credentials</span>
+                Credenciales{" "}
+                <span className="text-gradient-peach-purple">NFT</span>
               </h2>
               <p className="text-white/60 font-medium">
-                Condiciones especiales de prepago *
+                Condiciones Especiales Prepago *
+              </p>
+              <p className="text-white/40 text-sm">
+                Condiciones preferenciales vigentes hasta el 31 de mayo de 2026. A partir de esa fecha aplicará el esquema estándar de precios.
               </p>
             </div>
           </AnimatedSection>
@@ -491,11 +494,12 @@ export default function CertificationPageES() {
                 </span>
               </div>
               {[
-                { qty: "1,000",   pack: "$2,500",   unit: "$2.50" },
-                { qty: "5,000",   pack: "$10,000",  unit: "$2.00" },
-                { qty: "10,000",  pack: "$16,500",  unit: "$1.65" },
-                { qty: "50,000",  pack: "$62,500",  unit: "$1.25" },
-                { qty: "100,000", pack: "$100,000", unit: "$1.00" },
+                { qty: "1.000",   pack: "$1.500",  unit: "$1,50" },
+                { qty: "5.000",   pack: "$6.250",  unit: "$1,25" },
+                { qty: "10.000",  pack: "$11.000", unit: "$1,10" },
+                { qty: "20.000",  pack: "$20.000", unit: "$1,00" },
+                { qty: "50.000",  pack: "$45.000", unit: "$0,90" },
+                { qty: "100.000", pack: "$80.000", unit: "$0,80" },
               ].map((row, i) => (
                 <div
                   key={row.qty}
@@ -519,9 +523,9 @@ export default function CertificationPageES() {
 
           <AnimatedSection delay={0.15}>
             <p className="mt-5 text-white/30 text-xs text-center leading-relaxed">
-              * Aplican condiciones de prepago. Los precios se fijan al momento de la compra y son válidos para el tamaño de pack acordado.
+              * POK se reserva el derecho de modificar el esquema de precios, las condiciones de emisión de certificados, los planes con descuento, los precios por volumen, entre otros.
               <br />
-              ** Todos los precios en USD. Pedido mínimo: 1,000 certificados.
+              ** Todos los precios están expresados en dólares estadounidenses (USD). Se añadirá IVA u otros impuestos aplicables. En el caso de que la facturación sea emitida desde la sede de POK en Uruguay, no aplica IVA. Si existieran retenciones en el pago, serán asumidas por la parte que realiza el pago.
             </p>
           </AnimatedSection>
         </div>
@@ -557,12 +561,10 @@ export default function CertificationPageES() {
           <AnimatedSection>
             <div className="text-center mb-8 space-y-1">
               <h2 className="text-3xl md:text-4xl font-bold">
-                Features{" "}
-                <span className="text-gradient-peach-purple">Premium</span>
+                Funcionalidades{" "}
+                <span className="text-gradient-peach-purple">Premium</span>{" "}
+                incluidas
               </h2>
-              <p className="text-accent-purple font-semibold">
-                Más poder, más control, más impacto
-              </p>
             </div>
           </AnimatedSection>
 
@@ -570,28 +572,36 @@ export default function CertificationPageES() {
             <div className="glass-card rounded-2xl p-8 space-y-5">
               {[
                 {
-                  title: "Learning Path Analytics:",
-                  body: "rastrea cuántos usuarios inician, completan y avanzan a través de cada learning path.",
+                  title: "Análisis de Rutas de Aprendizaje:",
+                  body: "sigue el rendimiento de los usuarios. Cuántos comienzan, completan y avanzan en cada ruta de aprendizaje.",
                 },
                 {
-                  title: "Leads on Pages:",
-                  body: "recopila datos de visitantes en tus páginas de visualización de certificados a través de formularios de leads personalizables.",
+                  title: "Leads en Páginas:",
+                  body: "recolecta datos de los visitantes en tus páginas de visualización de certificados mediante formularios de contacto personalizables.",
                 },
                 {
-                  title: "AdPages Performance Metrics:",
-                  body: "mide los clics y el engagement dentro de tus credenciales para optimizar tus campañas.",
+                  title: "Métricas de Rendimiento de AdPages:",
+                  body: "mide los clics y la interacción dentro de tus credenciales para optimizar tus campañas.",
                 },
                 {
-                  title: "Employability Insights:",
-                  body: "descubre cuántos aprendices consiguieron empleo o fueron promovidos tras compartir sus credenciales en LinkedIn.",
+                  title: "Empleabilidad:",
+                  body: "descubre cuántos estudiantes consiguieron trabajo o fueron ascendidos después de compartir sus credenciales en LinkedIn.",
                 },
                 {
-                  title: "Advanced Email Customization:",
-                  body: "personaliza contenido, idioma y diseño usando campos dinámicos y edición impulsada por IA.",
+                  title: "Personalización Avanzada de Correos:",
+                  body: "personaliza el contenido, idioma y diseño de los correos utilizando campos dinámicos y edición impulsada por IA.",
                 },
                 {
-                  title: "Custom Email Sender Domain:",
-                  body: "envía emails desde el dominio de tu institución en lugar de noreply@pok.tech para fortalecer tu marca.",
+                  title: "Dominio Personalizado de Remitente:",
+                  body: "envía correos desde el dominio de tu institución en lugar de noreply@pok.tech para fortalecer tu marca.",
+                },
+                {
+                  title: "Home Analytics:",
+                  body: "visualiza desde tu panel un resumen de envíos, aceptados, descargas y compartidos, con mapa de calor por país y gráficos comparativos por tipo de credencial.",
+                },
+                {
+                  title: "Wallet con Marca Propia:",
+                  body: "personaliza la billetera de tus receptores con tu logo, banner y estilos de marca.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
@@ -607,14 +617,8 @@ export default function CertificationPageES() {
 
           <AnimatedSection delay={0.15}>
             <div className="mt-6 text-center space-y-1">
-              <p className="font-bold text-white text-base">
-                Features Premium incluidas con tu{" "}
-                <span className="text-gradient-peach-purple">
-                  compra de créditos de $1,000
-                </span>
-              </p>
-              <p className="text-white/50 text-sm">
-                Desbloquea todas las herramientas Premium para tu institución — más alcance, más impacto, más control.
+              <p className="text-white/40 text-sm">
+                La activación de funcionalidades premium tiene una vigencia de 12 meses.
               </p>
             </div>
           </AnimatedSection>

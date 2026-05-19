@@ -486,13 +486,16 @@ export default function CertificationPage() {
         />
         <div className="relative z-10 max-w-3xl mx-auto">
           <AnimatedSection>
-            <div className="text-center mb-8 space-y-2">
+            <div className="text-center mb-8 space-y-3">
               <h2 className="text-3xl md:text-4xl font-bold">
                 NFT{" "}
                 <span className="text-gradient-peach-purple">Credentials</span>
               </h2>
               <p className="text-white/60 font-medium">
-                Special Prepayment Conditions *
+                Special Prepaid Conditions *
+              </p>
+              <p className="text-white/40 text-sm">
+                Preferential conditions valid through May 31, 2026. After that date, standard pricing will apply.
               </p>
             </div>
           </AnimatedSection>
@@ -513,11 +516,12 @@ export default function CertificationPage() {
               </div>
               {/* Table rows */}
               {[
-                { qty: "1,000",   pack: "$2,500",   unit: "$2.50" },
-                { qty: "5,000",   pack: "$10,000",  unit: "$2.00" },
-                { qty: "10,000",  pack: "$16,500",  unit: "$1.65" },
-                { qty: "50,000",  pack: "$62,500",  unit: "$1.25" },
-                { qty: "100,000", pack: "$100,000", unit: "$1.00" },
+                { qty: "1,000",   pack: "$1,500",  unit: "$1.50" },
+                { qty: "5,000",   pack: "$6,250",  unit: "$1.25" },
+                { qty: "10,000",  pack: "$11,000", unit: "$1.10" },
+                { qty: "20,000",  pack: "$20,000", unit: "$1.00" },
+                { qty: "50,000",  pack: "$45,000", unit: "$0.90" },
+                { qty: "100,000", pack: "$80,000", unit: "$0.80" },
               ].map((row, i) => (
                 <div
                   key={row.qty}
@@ -541,11 +545,9 @@ export default function CertificationPage() {
 
           <AnimatedSection delay={0.15}>
             <p className="mt-5 text-white/30 text-xs text-center leading-relaxed">
-              * Prepayment conditions apply. Prices are fixed at the time of
-              purchase and valid for the agreed certificate pack size.
+              * POK reserves the right to modify the pricing scheme, certificate issuance conditions, discount plans, volume pricing, and other terms.
               <br />
-              ** All prices in USD. Bulk pricing applies per pack purchased.
-              Minimum order 1,000 certificates.
+              ** All prices are expressed in U.S. dollars (USD). VAT or other applicable taxes will be added. If invoicing is issued from POK&apos;s headquarters in Uruguay, VAT does not apply. Any payment withholdings will be assumed by the paying party.
             </p>
           </AnimatedSection>
         </div>
@@ -581,12 +583,10 @@ export default function CertificationPage() {
           <AnimatedSection>
             <div className="text-center mb-8 space-y-1">
               <h2 className="text-3xl md:text-4xl font-bold">
-                Features{" "}
-                <span className="text-gradient-peach-purple">Premium</span>
+                Included{" "}
+                <span className="text-gradient-peach-purple">Premium</span>{" "}
+                Features
               </h2>
-              <p className="text-accent-purple font-semibold">
-                More Power, More Control, More Impact
-              </p>
             </div>
           </AnimatedSection>
 
@@ -595,27 +595,35 @@ export default function CertificationPage() {
               {[
                 {
                   title: "Learning Path Analytics:",
-                  body: "track how many users start, complete, and progress through each learning path.",
+                  body: "track user performance. See how many start, complete, and progress through each learning path.",
                 },
                 {
-                  title: "Leads on Pages:",
-                  body: "collect data from visitors on your certificate viewer pages through customizable lead forms.",
+                  title: "Page Leads:",
+                  body: "capture visitor data on your certificate viewing pages through customizable contact forms.",
                 },
                 {
                   title: "AdPages Performance Metrics:",
                   body: "measure clicks and engagement within your credentials to optimize your campaigns.",
                 },
                 {
-                  title: "Employability Insights:",
-                  body: "see how many learners landed a job or got promoted after sharing their credentials on LinkedIn.",
+                  title: "Employability:",
+                  body: "discover how many students got hired or were promoted after sharing their credentials on LinkedIn.",
                 },
                 {
-                  title: "Advanced Email Customization:",
-                  body: "personalize content, language, and layout using dynamic fields and AI-powered editing.",
+                  title: "Advanced Email Personalization:",
+                  body: "customize email content, language, and design using dynamic fields and AI-powered editing.",
                 },
                 {
-                  title: "Custom Email Sender Domain:",
+                  title: "Custom Sender Domain:",
                   body: "send emails from your institution's domain instead of noreply@pok.tech to strengthen your brand.",
+                },
+                {
+                  title: "Home Analytics:",
+                  body: "view from your dashboard a summary of sent, accepted, downloaded, and shared credentials, with a country heat map and comparative charts by credential type.",
+                },
+                {
+                  title: "Branded Wallet:",
+                  body: "customize your recipients' wallet with your logo, banner, and brand styling.",
                 },
               ].map((item) => (
                 <div key={item.title} className="flex items-start gap-3">
@@ -631,15 +639,8 @@ export default function CertificationPage() {
 
           <AnimatedSection delay={0.15}>
             <div className="mt-6 text-center space-y-1">
-              <p className="font-bold text-white text-base">
-                Premium Features included with your{" "}
-                <span className="text-gradient-peach-purple">
-                  $1,000 credit purchase
-                </span>
-              </p>
-              <p className="text-white/50 text-sm">
-                Unlock all Premium tools for your institution — more reach,
-                more impact, more control.
+              <p className="text-white/40 text-sm">
+                Premium feature activation is valid for 12 months.
               </p>
             </div>
           </AnimatedSection>
