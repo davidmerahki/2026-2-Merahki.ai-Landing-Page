@@ -163,30 +163,7 @@ export default function HomePageES() {
       {/* ── SECCIÓN 2 — LOGO BAR ── */}
       <LogoCarousel heading="Equipos que ya miden el impacto con Merahki" />
 
-      {/* ── SECCIÓN 3 — PROBLEMA / DOLOR (PAS) ── */}
-      <section className="relative py-24 px-6">
-        <GlowBackground indigoPosition={{ x: "50%", y: "50%" }} rustPosition={{ x: "80%", y: "30%" }} />
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              El 70% de los programas de formación{" "}
-              <span className="text-gradient-blue-pink">no pueden defender su presupuesto</span>{" "}
-              ante el CFO.
-            </h2>
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <div className="space-y-6 text-white/60 text-base leading-relaxed">
-              <p>Tu equipo crea cursos. Los participantes los completan. Los reportes muestran enrollments y tasas de aprobación. Llega la temporada de presupuesto — y el CFO pregunta: &ldquo;¿Qué cambió realmente?&rdquo;</p>
-              <p>No puedes decir cuántos tickets de soporte bajaron. No puedes mostrar qué cuentas renovaron porque fueron entrenadas. No puedes probar que los $200K que gastaste en educación de partners generaron un solo dólar de ingreso nuevo.</p>
-              <p>Sin esa conexión entre aprendizaje y resultados de negocio, formación es la primera línea que se recorta cuando hay presión.</p>
-              <p className="text-white/80 font-medium border-l-2 border-accent-purple/50 pl-5 italic">Cada trimestre sin datos de impacto es otro trimestre defendiendo tu programa con intuición en vez de prueba.</p>
-              <p className="text-white font-semibold">Merahki construye esa conexión. Del diseño a la credencial al dashboard de ROI — en semanas.</p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ── SECCIÓN 4 — SOLUCIÓN: 3 PILARES ── */}
+      {/* ── SECCIÓN 3 — SOLUCIÓN: 3 PILARES ── */}
       <section className="relative py-24 px-6">
         <GlowBackground indigoPosition={{ x: "80%", y: "50%" }} rustPosition={{ x: "20%", y: "70%" }} />
         <div className="relative z-10 max-w-7xl mx-auto">
@@ -221,43 +198,24 @@ export default function HomePageES() {
         </div>
       </section>
 
-      {/* ── SECCIÓN 5 — CASO DE ESTUDIO DESTACADO ── */}
+      {/* ── SECCIÓN 4 — PROBLEMA / DOLOR (PAS) ── */}
       <section className="relative py-24 px-6">
-        <GlowBackground indigoPosition={{ x: "30%", y: "40%" }} rustPosition={{ x: "70%", y: "60%" }} />
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <GlowBackground indigoPosition={{ x: "50%", y: "50%" }} rustPosition={{ x: "80%", y: "30%" }} />
+        <div className="relative z-10 max-w-3xl mx-auto">
           <AnimatedSection>
-            <div className="glass-card rounded-2xl p-8 md:p-12">
-              <span className="inline-block section-badge text-white/30 mb-4">Caso de Estudio</span>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                Cómo un vendor de ciberseguridad probó que{" "}
-                <span className="text-gradient-peach-purple">$50 en formación evitan el 25% de los incidentes.</span>
-              </h2>
-              <div className="space-y-4 text-white/60 text-sm leading-relaxed mb-8">
-                <p><span className="text-white font-semibold">Reto:</span> Una empresa de ciberseguridad que vende a operadores de telecomunicaciones no tenía forma de demostrar que entrenar a los equipos de sus clientes realmente reducía las brechas de seguridad. Los clientes cuestionaban el valor. Las renovaciones se estancaban.</p>
-                <p><span className="text-white font-semibold">Solución:</span> Merahki construyó un programa de cinco módulos con micro-credenciales — phishing, gestión de accesos, reporte de incidentes, protocolos seguros — con assessment gates y credenciales verificables. La analítica rastreó tasas de incidentes por cohorte entrenada vs. no entrenada desde el día uno.</p>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                {[
-                  { value: "\u201325%", label: "Incidentes de seguridad en la cohorte entrenada" },
-                  { value: "90 días", label: "Del lanzamiento al primer reporte de ROI" },
-                  { value: "$50", label: "Inversión por participante para producir el resultado" },
-                ].map((kpi) => (
-                  <div key={kpi.value} className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                    <p className="text-2xl font-bold text-gradient-peach-purple mb-1">{kpi.value}</p>
-                    <p className="text-white/40 text-xs">{kpi.label}</p>
-                  </div>
-                ))}
-              </div>
-              <blockquote className="border-l-2 border-accent-purple/50 pl-5 mb-6">
-                <p className="text-white/70 text-sm italic leading-relaxed">&ldquo;Ahora cada propuesta comercial incluye la línea: &lsquo;Nuestros clientes certificados tienen 25% menos incidentes.&rsquo; Eso cambió cómo vendemos.&rdquo;</p>
-                <footer className="mt-3">
-                  <p className="text-white font-medium text-sm">VP of Customer Success</p>
-                  <p className="text-white/40 text-xs">Empresa de Ciberseguridad</p>
-                </footer>
-              </blockquote>
-              <Link href="/case-studies" className="inline-flex items-center gap-2 text-sm font-medium text-accent-purple hover:text-accent-purple/80 transition-colors">
-                Leer el caso completo <ArrowRight className="w-4 h-4" />
-              </Link>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+              El 70% de los programas de formación{" "}
+              <span className="text-gradient-blue-pink">no pueden defender su presupuesto</span>{" "}
+              ante el CFO.
+            </h2>
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <div className="space-y-6 text-white/60 text-base leading-relaxed">
+              <p>Tu equipo crea cursos. Los participantes los completan. Los reportes muestran enrollments y tasas de aprobación. Llega la temporada de presupuesto — y el CFO pregunta: &ldquo;¿Qué cambió realmente?&rdquo;</p>
+              <p>No puedes decir cuántos tickets de soporte bajaron. No puedes mostrar qué cuentas renovaron porque fueron entrenadas. No puedes probar que los $200K que gastaste en educación de partners generaron un solo dólar de ingreso nuevo.</p>
+              <p>Sin esa conexión entre aprendizaje y resultados de negocio, formación es la primera línea que se recorta cuando hay presión.</p>
+              <p className="text-white/80 font-medium border-l-2 border-accent-purple/50 pl-5 italic">Cada trimestre sin datos de impacto es otro trimestre defendiendo tu programa con intuición en vez de prueba.</p>
+              <p className="text-white font-semibold">Merahki construye esa conexión. Del diseño a la credencial al dashboard de ROI — en semanas.</p>
             </div>
           </AnimatedSection>
         </div>

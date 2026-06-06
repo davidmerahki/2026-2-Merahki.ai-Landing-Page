@@ -194,58 +194,7 @@ export default function HomePage() {
       {/* ── SECTION 2 — LOGO BAR ── */}
       <LogoCarousel heading="Teams already measuring impact with Merahki" />
 
-      {/* ── SECTION 3 — PROBLEM / PAIN (PAS) ── */}
-      <section className="relative py-24 px-6">
-        <GlowBackground
-          indigoPosition={{ x: "50%", y: "50%" }}
-          rustPosition={{ x: "80%", y: "30%" }}
-        />
-        <div className="relative z-10 max-w-3xl mx-auto">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              70% of training programs{" "}
-              <span className="text-gradient-blue-pink">
-                can&apos;t defend their budget
-              </span>{" "}
-              to the CFO.
-            </h2>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <div className="space-y-6 text-white/60 text-base leading-relaxed">
-              <p>
-                Your team builds courses. Learners complete them. Reports show
-                enrollment numbers and pass rates. Then budget season arrives —
-                and the CFO asks: &ldquo;What did this actually change?&rdquo;
-              </p>
-              <p>
-                You can&apos;t say how many support tickets dropped. You
-                can&apos;t show which accounts renewed because they were
-                trained. You can&apos;t prove that the $200K you spent on
-                partner education created a single dollar of new revenue.
-              </p>
-              <p>
-                Without that link between learning and business outcomes,
-                training is the first budget cut when pressure hits.
-              </p>
-
-              {/* Agitate */}
-              <p className="text-white/80 font-medium border-l-2 border-accent-purple/50 pl-5 italic">
-                Every quarter without outcome data is another quarter defending
-                your program with gut feel instead of proof.
-              </p>
-
-              {/* Solution tease */}
-              <p className="text-white font-semibold">
-                Merahki builds that link. From design to credential to ROI
-                dashboard — in weeks.
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* ── SECTION 4 — SOLUTION: 3 PILLARS ── */}
+      {/* ── SECTION 3 — SOLUTION: 3 PILLARS ── */}
       <section className="relative py-24 px-6">
         <GlowBackground
           indigoPosition={{ x: "80%", y: "50%" }}
@@ -323,93 +272,52 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── SECTION 5 — FEATURED CASE STUDY ── */}
+      {/* ── SECTION 4 — PROBLEM / PAIN (PAS) ── */}
       <section className="relative py-24 px-6">
         <GlowBackground
-          indigoPosition={{ x: "30%", y: "40%" }}
-          rustPosition={{ x: "70%", y: "60%" }}
+          indigoPosition={{ x: "50%", y: "50%" }}
+          rustPosition={{ x: "80%", y: "30%" }}
         />
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="relative z-10 max-w-3xl mx-auto">
           <AnimatedSection>
-            <div className="glass-card rounded-2xl p-8 md:p-12">
-              <span className="inline-block section-badge text-white/30 mb-4">
-                Case Study
-              </span>
-              <h2 className="text-2xl md:text-3xl font-bold mb-6">
-                How a cybersecurity vendor proved{" "}
-                <span className="text-gradient-peach-purple">
-                  $50 in training saves 25% of incidents.
-                </span>
-              </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+              70% of training programs{" "}
+              <span className="text-gradient-blue-pink">
+                can&apos;t defend their budget
+              </span>{" "}
+              to the CFO.
+            </h2>
+          </AnimatedSection>
 
-              {/* Challenge */}
-              <div className="space-y-4 text-white/60 text-sm leading-relaxed mb-8">
-                <p>
-                  <span className="text-white font-semibold">Challenge:</span>{" "}
-                  A cybersecurity company selling to telecom operators had no
-                  way to show clients that training their teams actually reduced
-                  security breaches. Clients questioned the value. Renewals
-                  stalled.
-                </p>
-                <p>
-                  <span className="text-white font-semibold">Solution:</span>{" "}
-                  Merahki built a five-module micro-credential program —
-                  phishing, access management, incident reporting, secure
-                  protocols — with assessment gates and verifiable credentials.
-                  Analytics tracked incident rates by trained vs. untrained
-                  cohort from day one.
-                </p>
-              </div>
+          <AnimatedSection delay={0.1}>
+            <div className="space-y-6 text-white/60 text-base leading-relaxed">
+              <p>
+                Your team builds courses. Learners complete them. Reports show
+                enrollment numbers and pass rates. Then budget season arrives —
+                and the CFO asks: &ldquo;What did this actually change?&rdquo;
+              </p>
+              <p>
+                You can&apos;t say how many support tickets dropped. You
+                can&apos;t show which accounts renewed because they were
+                trained. You can&apos;t prove that the $200K you spent on
+                partner education created a single dollar of new revenue.
+              </p>
+              <p>
+                Without that link between learning and business outcomes,
+                training is the first budget cut when pressure hits.
+              </p>
 
-              {/* KPI cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
-                {[
-                  {
-                    value: "\u201325%",
-                    label: "Security incidents in trained cohort",
-                  },
-                  {
-                    value: "90 days",
-                    label: "From launch to first ROI report",
-                  },
-                  {
-                    value: "$50",
-                    label: "Investment per learner to produce the result",
-                  },
-                ].map((kpi) => (
-                  <div
-                    key={kpi.value}
-                    className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center"
-                  >
-                    <p className="text-2xl font-bold text-gradient-peach-purple mb-1">
-                      {kpi.value}
-                    </p>
-                    <p className="text-white/40 text-xs">{kpi.label}</p>
-                  </div>
-                ))}
-              </div>
+              {/* Agitate */}
+              <p className="text-white/80 font-medium border-l-2 border-accent-purple/50 pl-5 italic">
+                Every quarter without outcome data is another quarter defending
+                your program with gut feel instead of proof.
+              </p>
 
-              {/* Quote */}
-              <blockquote className="border-l-2 border-accent-purple/50 pl-5 mb-6">
-                <p className="text-white/70 text-sm italic leading-relaxed">
-                  &ldquo;Now every sales proposal includes the line:
-                  &lsquo;Our certified customers see 25% fewer
-                  incidents.&rsquo; That changed how we sell.&rdquo;
-                </p>
-                <footer className="mt-3">
-                  <p className="text-white font-medium text-sm">
-                    VP of Customer Success
-                  </p>
-                  <p className="text-white/40 text-xs">Cybersecurity Co.</p>
-                </footer>
-              </blockquote>
-
-              <Link
-                href="/case-studies"
-                className="inline-flex items-center gap-2 text-sm font-medium text-accent-purple hover:text-accent-purple/80 transition-colors"
-              >
-                Read the full case <ArrowRight className="w-4 h-4" />
-              </Link>
+              {/* Solution tease */}
+              <p className="text-white font-semibold">
+                Merahki builds that link. From design to credential to ROI
+                dashboard — in weeks.
+              </p>
             </div>
           </AnimatedSection>
         </div>
