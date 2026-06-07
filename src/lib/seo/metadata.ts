@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 type Language = "en" | "es";
-type PageType = "feature" | "solution" | "home" | "resource";
+type PageType = "feature" | "solution" | "home" | "resource" | "case-study";
 
 type SeoEntry = {
   slug: string;
@@ -451,6 +451,25 @@ export const seoEntries: Record<string, SeoEntry> = {
       ogImageAlt: "Merahki — Reportes estratégicos",
     },
   },
+  "case-studies/uniandes-sanofi-microbiota": {
+    slug: "case-studies/uniandes-sanofi-microbiota",
+    type: "case-study",
+    audience: "Medical education and university continuing education leaders",
+    en: {
+      title: "Uniandes × Sanofi CHC: Multinational Medical Education in 8 Weeks | Case Study | Merahki",
+      description: "How Merahki orchestrated two certified medical education programs in 8 weeks for Universidad de los Andes and Sanofi CHC. 200+ allergists, 95+ digital badges, 8 LATAM countries — and the start of a relationship that has driven ~USD $550K in continuing-education revenue.",
+      ogTitle: "Uniandes × Sanofi CHC: medical education in 8 weeks",
+      ogDescription: "Two clinical tracks, 200+ allergists, 95+ digital badges, 8 LATAM countries, and a relationship that has driven ~USD $550K in continuing-education revenue.",
+      ogImageAlt: "Uniandes × Sanofi CHC microbiota case study by Merahki",
+    },
+    es: {
+      title: "Uniandes × Sanofi CHC: educación médica multinacional en 8 semanas | Case Study | Merahki",
+      description: "Cómo merahki.ai orquestó dos programas certificados de educación médica continua en 8 semanas para la Universidad de los Andes y Sanofi CHC. +200 alergólogos, 95+ insignias digitales, 8 países de Latinoamérica — y el inicio de una relación que ha contribuido a ~USD $550K en facturación de educación continua.",
+      ogTitle: "Uniandes × Sanofi CHC: educación médica en 8 semanas",
+      ogDescription: "Dos tracks clínicos, +200 alergólogos, 95+ insignias digitales, 8 países de Latinoamérica y una relación que ha contribuido a ~USD $550K.",
+      ogImageAlt: "Case study Uniandes × Sanofi CHC microbiota por Merahki",
+    },
+  },
 };
 
 export function getPath(slug: string, lang: Language) {
@@ -482,7 +501,12 @@ export function buildMetadata(key: keyof typeof seoEntries, lang: Language): Met
   }
 
   const canonical = getUrl(entry.slug, lang);
-  const image = entry.slug === "" ? getImage("", lang) : getFallbackImage(lang);
+  const image =
+    entry.slug === "case-studies/uniandes-sanofi-microbiota"
+      ? getFallbackImage(lang)
+      : entry.slug === ""
+        ? getImage("", lang)
+        : getFallbackImage(lang);
 
   const languages = other
     ? {
@@ -554,6 +578,35 @@ export function buildServiceJsonLd(key: keyof typeof seoEntries, lang: Language)
     provider: { "@id": "https://merahki.ai/#organization" },
     ...(entry.type === "feature" ? { applicationCategory: "EducationalApplication" } : {}),
     ...(entry.audience ? { audience: { "@type": "Audience", audienceType: entry.audience } } : {}),
+  };
+}
+
+export function buildArticleJsonLd(
+  key: keyof typeof seoEntries,
+  lang: Language,
+  datePublished: string,
+) {
+  const entry = seoEntries[key];
+  const content = entry[lang];
+
+  if (!content) {
+    throw new Error(`Missing SEO content for ${String(key)} in ${lang}`);
+  }
+
+  const image = getFallbackImage(lang);
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${getUrl(entry.slug, lang)}#article`,
+    headline: content.ogTitle,
+    description: content.description,
+    author: { "@id": "https://merahki.ai/#organization" },
+    publisher: { "@id": "https://merahki.ai/#organization" },
+    datePublished,
+    image,
+    inLanguage: lang === "en" ? "en-US" : "es-CO",
+    mainEntityOfPage: getUrl(entry.slug, lang),
   };
 }
 

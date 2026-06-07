@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
-import ContactSection from "@/components/sections/ContactSection";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
@@ -67,27 +66,24 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      {/* Coming Soon */}
       <section className="relative py-20 px-6">
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
+        <div className="relative z-10 max-w-5xl mx-auto">
           <AnimatedSection>
-            <div className="glass-card rounded-2xl p-12 space-y-4">
-              <p className="text-5xl font-bold text-white/10">📊</p>
-              <h2 className="text-2xl font-bold text-white">Stories coming soon</h2>
-              <p className="text-white/50 leading-relaxed">
-                We&apos;re documenting the results our customers are achieving.
-                In the meantime, book a demo to hear directly from us about
-                what&apos;s possible.
+            <Link href="/case-studies/uniandes-sanofi-microbiota" className="block rounded-3xl border border-white/10 bg-white/[0.03] p-7 md:p-10 hover:bg-white/[0.05] transition-colors">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-peach">Uniandes × Sanofi CHC · Medical education</p>
+              <h2 className="mt-5 text-3xl md:text-4xl font-bold text-white leading-tight">
+                From 8 weeks to USD $550K: multinational medical education across Latin America.
+              </h2>
+              <p className="mt-5 text-white/60 text-base md:text-lg leading-relaxed">
+                Two clinical tracks, 200+ allergists, 95+ digital badges, and 8 countries reached.
               </p>
-            </div>
+              <span className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-accent-peach">
+                Read case study <ArrowRight className="w-4 h-4" />
+              </span>
+            </Link>
           </AnimatedSection>
         </div>
       </section>
-
-      <ContactSection
-        heading="See what's possible"
-        subheading="Talk to our team and learn how companies like yours are using education to drive growth."
-      />
     </div>
   );
 }
