@@ -21,7 +21,7 @@ export default function HomePageES() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(faqItems)) }}
       />
-      {/* â”€â”€ SECCIÃ“N 1 â€” HERO â”€â”€ */}
+      {/* ── SECCIÓN 1 — HERO ── */}
       <section className="relative min-h-screen flex items-center px-6 pt-24 pb-16">
         <GlowBackground
           indigoPosition={{ x: "25%", y: "40%" }}
@@ -32,20 +32,20 @@ export default function HomePageES() {
             <div className="flex-1 space-y-8">
               <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
-                  Personas y empresas ya estÃ¡n comprando microcredenciales.{" "}
-                  <span className="text-gradient-peach-purple">La Ãºnica pregunta es a quiÃ©n.</span>
+                  Personas y empresas ya están comprando microcredenciales.{" "}
+                  <span className="text-gradient-peach-purple">La única pregunta es a quién.</span>
                 </h1>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-xl text-white/60 max-w-xl leading-relaxed">
-                  Merahki diseÃ±a y virtualiza tus microcredenciales, mide su impacto con learning analytics y emite insignias digitales verificables. Convierte tu educaciÃ³n continua en un motor de crecimiento e ingreso recurrente.
+                  Merahki diseña y virtualiza tus microcredenciales, mide su impacto con learning analytics y emite insignias digitales verificables. Convierte tu educación continua en un motor de crecimiento e ingreso recurrente.
                 </p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.25}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 py-2 max-w-xl">
                   {[
-                    "DiseÃ±o y virtualizaciÃ³n en 6â€“12 semanas",
-                    "Ingreso recurrente para tu instituciÃ³n",
+                    "Diseño y virtualización en 6–12 semanas",
+                    "Ingreso recurrente para tu institución",
                     "Learning analytics con 95+ filtros",
                     "Insignias verificables en blockchain",
                   ].map((pillar) => (
@@ -68,39 +68,39 @@ export default function HomePageES() {
               </AnimatedSection>
               <AnimatedSection immediate delay={0.35}>
                 <p className="text-sm text-white/40 max-w-xl leading-relaxed border-l-2 border-accent-peach/40 pl-4">
-                  UNESCO abriÃ³ una ventana de 18â€“36 meses para que las universidades tomen posiciÃ³n. Las que se muevan primero se quedan con la Ãºltima milla hacia el empleo. El resto se la cede a Google y a los bootcamps.
+                  UNESCO abrió una ventana de 18–36 meses para que las universidades tomen posición. Las que se muevan primero se quedan con la última milla hacia el empleo. El resto se la cede a Google y a los bootcamps.
                 </p>
               </AnimatedSection>
             </div>
             <AnimatedSection immediate delay={0.2} className="flex-1 w-full">
               <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
-                <Image src="/images/Micro-credenciales microcredentials.png" alt="Dashboard de analÃ­tica Merahki â€” comparaciÃ³n de cohortes entrenadas vs. no entrenadas" width={900} height={720} className="w-full h-auto" sizes="(max-width: 768px) 100vw, 50vw" priority />
+                <Image src="/images/Micro-credenciales microcredentials.png" alt="Dashboard de analítica Merahki — comparación de cohortes entrenadas vs. no entrenadas" width={900} height={720} className="w-full h-auto" sizes="(max-width: 768px) 100vw, 50vw" priority />
               </div>
             </AnimatedSection>
           </div>
         </div>
       </section>
 
-      {/* â”€â”€ SECCIÃ“N 2 â€” LOGO BAR â”€â”€ */}
+      {/* ── SECCIÓN 2 — LOGO BAR ── */}
       <LogoCarousel heading="Equipos que ya miden el impacto con Merahki" />
 
-      {/* â”€â”€ SECCIÃ“N 3 â€” SOLUCIÃ“N: 3 PILARES â”€â”€ */}
+      {/* ── SECCIÓN 3 — SOLUCIÓN: 3 PILARES ── */}
       <section className="relative py-24 px-6">
         <GlowBackground indigoPosition={{ x: "80%", y: "50%" }} rustPosition={{ x: "20%", y: "70%" }} />
         <div className="relative z-10 max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Lo diseÃ±amos. Lo producimos.{" "}
+                Lo diseñamos. Lo producimos.{" "}
                 <span className="text-gradient-peach-purple">Probamos que funciona.</span>
               </h2>
             </div>
           </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: PenTool, title: "DiseÃ±o y producciÃ³n", desc: "Construimos el programa completo â€” cursos, videos, assessments y credenciales â€” con IA y frameworks de diseÃ±o instruccional. TÃº traes la experiencia. Nosotros nos encargamos de todo lo demÃ¡s.", link: { label: "Ver cÃ³mo construimos", href: "/methodology" }, color: "text-accent-peach", bg: "bg-accent-peach/10" },
-              { icon: Rocket, title: "Lanzamiento y credencial", desc: "Tu academy con marca propia sale en vivo en semanas â€” con adaptive learning, app mÃ³vil, sesiones en vivo y micro-credenciales verificables que tus participantes comparten en LinkedIn.", link: { label: "Ver una academy en vivo", href: "/case-studies" }, color: "text-accent-purple", bg: "bg-accent-purple/10" },
-              { icon: BarChart3, title: "MediciÃ³n y prueba de ROI", desc: "Nuestra analÃ­tica conecta datos de aprendizaje con resultados de negocio. Compara cohortes entrenadas vs. no entrenadas. Ve ticket deflection, adoption lift y tasas de renovaciÃ³n â€” en tiempo real, no trimestralmente.", link: { label: "Ver el dashboard", href: "/analytics-reports" }, color: "text-accent-blue", bg: "bg-accent-blue/10" },
+              { icon: PenTool, title: "Diseño y producción", desc: "Construimos el programa completo — cursos, videos, assessments y credenciales — con IA y frameworks de diseño instruccional. Tú traes la experiencia. Nosotros nos encargamos de todo lo demás.", link: { label: "Ver cómo construimos", href: "/methodology" }, color: "text-accent-peach", bg: "bg-accent-peach/10" },
+              { icon: Rocket, title: "Lanzamiento y credencial", desc: "Tu academy con marca propia sale en vivo en semanas — con adaptive learning, app móvil, sesiones en vivo y micro-credenciales verificables que tus participantes comparten en LinkedIn.", link: { label: "Ver una academy en vivo", href: "/case-studies" }, color: "text-accent-purple", bg: "bg-accent-purple/10" },
+              { icon: BarChart3, title: "Medición y prueba de ROI", desc: "Nuestra analítica conecta datos de aprendizaje con resultados de negocio. Compara cohortes entrenadas vs. no entrenadas. Ve ticket deflection, adoption lift y tasas de renovación — en tiempo real, no trimestralmente.", link: { label: "Ver el dashboard", href: "/analytics-reports" }, color: "text-accent-blue", bg: "bg-accent-blue/10" },
             ].map((item, i) => (
               <AnimatedSection key={item.title} delay={i * 0.1}>
                 <div className="relative rounded-2xl p-7 border border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04] transition-all h-full flex flex-col">
@@ -119,7 +119,7 @@ export default function HomePageES() {
         </div>
       </section>
 
-      {/* â”€â”€ SECCIÃ“N 4 â€” PROBLEMA / DOLOR (PAS) â”€â”€ */}
+      {/* ── SECCIÓN 4 — PROBLEMA / DOLOR (PAS) ── */}
       <section id="nueva-realidad" className="relative py-20 md:py-32 px-6 bg-white/[0.03] border-y border-white/5">
         <div className="relative z-10 max-w-[760px] mx-auto">
           <AnimatedSection>
@@ -130,16 +130,16 @@ export default function HomePageES() {
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <div className="space-y-7 text-white/70 text-lg md:text-xl leading-[1.7]">
-              <p>Primero cuando se gradÃºan y no vuelven. DespuÃ©s cuando deciden seguir aprendiendo â€”y lo hacen en Coursera, en Google, en un bootcamp de seis semanas.</p>
-              <p>Cada vez que pasa, no pierdes solo el ingreso. Pierdes la relevancia que define a tu instituciÃ³n.</p>
-              <p>La matrÃ­cula de pregrado cae. Solo 2 de cada 10 jÃ³venes terminan la educaciÃ³n tradicional. El 70% de tus egresados quiere seguir aprendiendo â€”si les ofreces algo relevanteâ€”. Y las empresas no encuentran el talento que las universidades no certifican: la escasez global llega al 75%.</p>
-              <p className="text-white font-medium border-l-4 border-accent-purple/70 bg-white/[0.04] rounded-r-2xl px-6 py-5">Coursera tiene 13 aÃ±os. Tu instituciÃ³n lleva dÃ©cadas construyendo autoridad acadÃ©mica. Pero hoy es Coursera la que pone su sello sobre el egresado que tÃº formaste.</p>
+              <p>Primero cuando se gradúan y no vuelven. Después cuando deciden seguir aprendiendo —y lo hacen en Coursera, en Google, en un bootcamp de seis semanas.</p>
+              <p>Cada vez que pasa, no pierdes solo el ingreso. Pierdes la relevancia que define a tu institución.</p>
+              <p>La matrícula de pregrado cae. Solo 2 de cada 10 jóvenes terminan la educación tradicional. El 70% de tus egresados quiere seguir aprendiendo —si les ofreces algo relevante—. Y las empresas no encuentran el talento que las universidades no certifican: la escasez global llega al 75%.</p>
+              <p className="text-white font-medium border-l-4 border-accent-purple/70 bg-white/[0.04] rounded-r-2xl px-6 py-5">Coursera tiene 13 años. Tu institución lleva décadas construyendo autoridad académica. Pero hoy es Coursera la que pone su sello sobre el egresado que tú formaste.</p>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
               {[
-                { value: "2 de 10", label: "jÃ³venes que terminan la educaciÃ³n tradicional" },
+                { value: "2 de 10", label: "jóvenes que terminan la educación tradicional" },
                 { value: "70%", label: "de egresados quiere seguir aprendiendo" },
                 { value: "75%", label: "escasez global de talento" },
               ].map((stat) => (
@@ -154,7 +154,7 @@ export default function HomePageES() {
       </section>
 
       <HomeBodyV2 locale="es">
-        {/* -- SECCIÓN 9 — PRUEBA / TESTIMONIOS -- */}
+        {/* ── SECCIÓN 9 — PRUEBA / TESTIMONIOS ── */}
         <TestimonialsES />
       </HomeBodyV2>
 
