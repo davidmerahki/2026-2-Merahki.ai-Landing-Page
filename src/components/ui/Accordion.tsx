@@ -15,45 +15,71 @@ interface AccordionProps {
 }
 
 export default function Accordion({ items }: AccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
   return (
     <div className="space-y-3">
-      {items.map((item, i) => (
-        <div
-          key={i}
-          className="border border-white/10 rounded-xl overflow-hidden bg-white/[0.02]"
-        >
-          <button
-            onClick={() => setOpenIndex(openIndex === i ? null : i)}
-            className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-white/[0.03] transition-colors"
+      {items.map((item, i) => {
+        const isOpen = openIndexes.includes(i);
+        const panelId = `faq-panel-${i}`;
+        const buttonId = `faq-button-${i}`;
+
+        return (
+          <div
+            key={i}
+            className="border border-white/10 rounded-xl overflow-hidden bg-white/[0.02]"
           >
-            <span className="text-white font-semibold text-sm pr-4">
-              {item.question}
-            </span>
-            <ChevronDown
-              className={`w-4 h-4 text-white/50 flex-shrink-0 transition-transform duration-200 ${
-                openIndex === i ? "rotate-180" : ""
+            <button
+              id={buttonId}
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              onClick={() =>
+                setOpenIndexes((current) =>
+                  current.includes(i)
+                    ? current.filter((index) => index !== i)
+                    : [...current, i],
+                )
+              }
+              className="w-full flex items-center justify-between px-6 py-5 text-left hover:bg-white/[0.03] transition-colors"
+            >
+              <span className="text-white font-semibold text-sm pr-4">
+                {item.question}
+              </span>
+              <ChevronDown
+                aria-hidden="true"
+                className={`w-4 h-4 text-white/50 flex-shrink-0 transition-transform duration-200 ${
+                  isOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+            <div
+              id={panelId}
+              role="region"
+              aria-labelledby={buttonId}
+              className={`grid transition-all duration-200 ${
+                isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
               }`}
-            />
-          </button>
-          {openIndex === i && (
-            <div className="px-6 pb-5">
-              <p className="text-white/60 text-sm leading-relaxed">
-                {item.answer}
-              </p>
-              {item.cta && (
-                <Link
-                  href={item.cta.href}
-                  className="inline-flex items-center gap-1 text-accent-purple text-sm font-medium mt-3 hover:text-accent-purple/80 transition-colors"
-                >
-                  {item.cta.label} →
-                </Link>
-              )}
+            >
+              <div className="overflow-hidden">
+                <div className="px-6 pb-5">
+                  <p className="text-white/60 text-sm leading-relaxed">
+                    {item.answer}
+                  </p>
+                  {item.cta && (
+                    <Link
+                      href={item.cta.href}
+                      className="inline-flex items-center gap-1 text-accent-purple text-sm font-medium mt-3 hover:text-accent-purple/80 transition-colors"
+                    >
+                      {item.cta.label} →
+                    </Link>
+                  )}
+                </div>
+              </div>
             </div>
-          )}
-        </div>
-      ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
