@@ -18,6 +18,7 @@ import {
   Factory,
   GraduationCap,
   Monitor,
+  Check,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -115,30 +116,30 @@ export default function HomePageES() {
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
             <div className="flex-1 space-y-8">
               <AnimatedSection immediate delay={0.1}>
-                <h1 className="text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight">
-                  Demuestra el ROI de cada{" "}
-                  <span className="text-gradient-peach-purple">programa de formación.</span>
+                <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
+                  Personas y empresas ya están comprando microcredenciales.{" "}
+                  <span className="text-gradient-peach-purple">La única pregunta es a quién.</span>
                 </h1>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-xl text-white/60 max-w-xl leading-relaxed">
-                  La plataforma con IA que te ayuda a medir el impacto real de tus programas de educación — del enrollment al reporte para el CFO.
+                  Merahki diseña y virtualiza tus microcredenciales, mide su impacto con learning analytics y emite insignias digitales verificables. Convierte tu educación continua en un motor de crecimiento e ingreso recurrente.
                 </p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.25}>
-                <div className="flex flex-wrap gap-8 py-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 py-2 max-w-xl">
                   {[
-                    { value: "372%", label: "ROI a 3 años de programas de educación estructurados" },
-                    { value: "$6.71", label: "Retorno por cada $1 invertido en el año 3" },
-                    { value: "96%", label: "De los programas reportan ROI positivo" },
-                  ].map((stat) => (
-                    <div key={stat.value} className="flex flex-col">
-                      <span className="text-2xl font-bold text-gradient-peach-purple">{stat.value}</span>
-                      <span className="text-xs text-white/40 max-w-[160px] leading-tight mt-1">{stat.label}</span>
+                    "Diseño y virtualización en 6–12 semanas",
+                    "Ingreso recurrente para tu institución",
+                    "Learning analytics con 95+ filtros",
+                    "Insignias verificables en blockchain",
+                  ].map((pillar) => (
+                    <div key={pillar} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent-peach" />
+                      <span className="text-sm text-white/70 leading-snug">{pillar}</span>
                     </div>
                   ))}
                 </div>
-                <p className="text-[10px] text-white/25 mt-1">Fuente: Forrester/Intellum 2024</p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.3}>
                 <div className="flex flex-col sm:flex-row items-start gap-4">
@@ -150,10 +151,15 @@ export default function HomePageES() {
                   </Link>
                 </div>
               </AnimatedSection>
+              <AnimatedSection immediate delay={0.35}>
+                <p className="text-sm text-white/40 max-w-xl leading-relaxed border-l-2 border-accent-peach/40 pl-4">
+                  UNESCO abrió una ventana de 18–36 meses para que las universidades tomen posición. Las que se muevan primero se quedan con la última milla hacia el empleo. El resto se la cede a Google y a los bootcamps.
+                </p>
+              </AnimatedSection>
             </div>
             <AnimatedSection immediate delay={0.2} className="flex-1 w-full">
               <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
-                <Image src="/images/feature-adoption-tracker.png" alt="Dashboard de analítica Merahki — comparación de cohortes entrenadas vs. no entrenadas" width={900} height={720} className="w-full h-auto" sizes="(max-width: 768px) 100vw, 50vw" priority />
+                <Image src="/images/Micro-credenciales microcredentials.png" alt="Dashboard de analítica Merahki — comparación de cohortes entrenadas vs. no entrenadas" width={900} height={720} className="w-full h-auto" sizes="(max-width: 768px) 100vw, 50vw" priority />
               </div>
             </AnimatedSection>
           </div>

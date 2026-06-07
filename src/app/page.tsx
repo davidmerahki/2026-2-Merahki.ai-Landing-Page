@@ -18,6 +18,7 @@ import {
   Factory,
   GraduationCap,
   Monitor,
+  Check,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -113,42 +114,40 @@ export default function HomePage() {
             {/* Left: Text */}
             <div className="flex-1 space-y-8">
               <AnimatedSection immediate delay={0.1}>
-                <h1 className="text-5xl md:text-6xl font-bold leading-[1.08] tracking-tight">
-                  Prove the ROI of every{" "}
+                <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
+                  People and companies are already buying micro-credentials.{" "}
                   <span className="text-gradient-peach-purple">
-                    training program.
+                    The only question is who they buy them from.
                   </span>
                 </h1>
               </AnimatedSection>
 
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-xl text-white/60 max-w-xl leading-relaxed">
-                  The AI-powered platform that helps education leaders measure
-                  business impact — from enrollment to credential to CFO report.
+                  Merahki designs and virtualizes your micro-credentials,
+                  measures their impact with learning analytics, and issues
+                  verifiable digital badges. Turn your continuing education into
+                  a growth engine and a recurring revenue stream.
                 </p>
               </AnimatedSection>
 
-              {/* Stats Bar */}
+              {/* Pillars */}
               <AnimatedSection immediate delay={0.25}>
-                <div className="flex flex-wrap gap-8 py-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 py-2 max-w-xl">
                   {[
-                    { value: "372%", label: "3-year ROI of structured education programs" },
-                    { value: "$6.71", label: "Return per $1 invested by year 3" },
-                    { value: "96%", label: "Of programs report positive ROI" },
-                  ].map((stat) => (
-                    <div key={stat.value} className="flex flex-col">
-                      <span className="text-2xl font-bold text-gradient-peach-purple">
-                        {stat.value}
-                      </span>
-                      <span className="text-xs text-white/40 max-w-[160px] leading-tight mt-1">
-                        {stat.label}
+                    "Design and virtualization in 6–12 weeks",
+                    "Recurring revenue for your institution",
+                    "Learning analytics with 95+ filters",
+                    "Blockchain-verifiable badges",
+                  ].map((pillar) => (
+                    <div key={pillar} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent-peach" />
+                      <span className="text-sm text-white/70 leading-snug">
+                        {pillar}
                       </span>
                     </div>
                   ))}
                 </div>
-                <p className="text-[10px] text-white/25 mt-1">
-                  Source: Forrester/Intellum 2024
-                </p>
               </AnimatedSection>
 
               {/* CTAs */}
@@ -160,16 +159,25 @@ export default function HomePage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
                   >
-                    Schedule my 20-min demo{" "}
+                    Book my 20-min demo{" "}
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                   <Link
                     href="/reports"
                     className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm"
                   >
-                    Get the ROI Framework free
+                    Get the free ROI Framework
                   </Link>
                 </div>
+              </AnimatedSection>
+
+              {/* Urgency microcopy */}
+              <AnimatedSection immediate delay={0.35}>
+                <p className="text-sm text-white/40 max-w-xl leading-relaxed border-l-2 border-accent-peach/40 pl-4">
+                  UNESCO opened an 18–36 month window for universities to take
+                  position. The ones that move first own the last mile to
+                  employment. The rest hand it to Google and the bootcamps.
+                </p>
               </AnimatedSection>
             </div>
 
@@ -177,7 +185,7 @@ export default function HomePage() {
             <AnimatedSection immediate delay={0.2} className="flex-1 w-full">
               <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
                 <Image
-                  src="/images/feature-adoption-tracker.png"
+                  src="/images/Micro-credenciales microcredentials.png"
                   alt="Merahki analytics dashboard — trained vs. untrained cohort comparison"
                   width={900}
                   height={720}
