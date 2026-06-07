@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -9,42 +9,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Zap, TrendingUp, Award } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Partner Academies",
-  description:
-    "Partner Academy Acceleration is the fastest path to compounding indirect revenue. merahki.ai builds White-Label LMS Partner Academies with AI-powered certification programs, Global Partner Enablement workflows, and Blockchain-Verified Credentials — including 1EdTech Standards, Open Badges 3.0, and W3C Verifiable Credentials. Our Partner Certification ROI framework links training completion directly to time-to-first-sale reduction, partner revenue growth, and channel sales enablement at scale. ISO 27001 and SOC 2 compliant infrastructure.",
-  keywords: [
-    "Partner Academy Acceleration",
-    "partner certification ROI",
-    "channel sales enablement",
-    "Global Partner Enablement",
-    "White-Label LMS for Enterprises",
-    "scaling indirect sales",
-    "rapid partner onboarding",
-    "time-to-first-sale acceleration",
-    "partner training programs",
-    "how to increase partner revenue",
-    "best platforms for partner certification",
-    "white-label partner academies",
-    "NFT Certifications",
-    "Fraud-Resistant Credentials",
-    "1EdTech Standards",
-    "Open Badges 3.0",
-    "W3C Verifiable Credentials",
-    "Blockchain-Verified Professional Mastery",
-    "POK Infrastructure",
-    "ISO 27001 SOC 2 Compliance",
-    "Revenue Expansion Programs",
-    "Workforce Readiness",
-  ],
-  openGraph: {
-    title: "Partner Academies — Certify & Scale Your Channel | merahki.ai",
-    description:
-      "How do you increase partner revenue? Build a Partner Academy. merahki.ai delivers Partner Academy Acceleration with AI-powered certification, Blockchain-Verified Credentials (1EdTech, Open Badges 3.0, W3C VC), and Global Partner Enablement — cutting time-to-first-sale and compounding indirect revenue.",
-    url: "https://merahki.ai/partner-academies",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("partner-academies", "en");
 
 const features = [
   {
@@ -160,9 +125,15 @@ const faqJsonLd = {
   ],
 };
 
+const serviceJsonLd = buildServiceJsonLd("partner-academies", "en");
+
 export default function PartnerAcademiesPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

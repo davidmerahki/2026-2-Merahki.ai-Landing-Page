@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -6,22 +6,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Sparkles, ClipboardList, BarChart3 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "AI Assistant",
-  description:
-    "Construye experiencias de aprendizaje de mayor calidad con IA. Genera esquemas completos de cursos, evaluaciones y ebooks en minutos.",
-  openGraph: {
-    title: "AI Assistant — merahki.ai",
-    description:
-      "Creación de cursos impulsada por IA: Course Planner, Assessment Designer e AI Insights — todo en una plataforma AI-native.",
-    url: "https://merahki.ai/es/ai-assistant",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://merahki.ai/es/ai-assistant",
-    languages: { en: "https://merahki.ai/ai-assistant" },
-  },
-};
+export const metadata = buildMetadata("ai-assistant", "es");
 
 const features = [
   {
@@ -64,9 +49,15 @@ const stats = [
   { value: "100%", label: "Tu contenido, tu copyright" },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("ai-assistant", "es");
+
 export default function AIAssistantEsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

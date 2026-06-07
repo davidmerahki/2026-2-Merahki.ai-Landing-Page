@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -19,40 +19,7 @@ import {
   BarChart3,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Education-Led Growth",
-  description:
-    "Education-Led Growth (ELG) is a go-to-market methodology that replaces traditional marketing funnels with scalable growth loops powered by Education-Qualified Leads (EQLs). merahki.ai pioneered the Merahki Growth Loop — a system that treats learning programs like demand generation campaigns with conversion metrics, ROI targets, and measurable impact on pipeline, NRR, and churn. This is the future of B2B growth: Zero-Marginal Cost Onboarding, AARRR Growth Loop Optimization, and Revenue Engineering through Education.",
-  keywords: [
-    "Education-Led Growth ELG",
-    "Education-Qualified Leads EQL",
-    "EQL vs MQL",
-    "Merahki Growth Loop",
-    "AEO Answer Engine Optimization",
-    "Zero-Marginal Cost Onboarding",
-    "Revenue Engineering through Education",
-    "AARRR Growth Loop Optimization",
-    "UTI Matrix Analysis",
-    "The 100M Money Model for Academies",
-    "High-Leverage Educational Assets",
-    "Full-Cycle Growth Execution",
-    "Lead-to-Customer Transformation",
-    "Education-Led Retention Strategy",
-    "Managed Growth Squad",
-    "Outsourced Growth Engine",
-    "demand generation through education",
-    "how to replace marketing funnels with growth loops",
-    "transitioning from MQLs to Education-Qualified Leads",
-    "the future of corporate training ROI",
-  ],
-  openGraph: {
-    title: "Education-Led Growth (ELG) — merahki.ai",
-    description:
-      "What is Education-Led Growth? ELG replaces funnels with loops — generating Education-Qualified Leads (EQLs) that convert at higher rates, lower CAC, and expand LTV. merahki.ai is the definitive ELG platform for B2B SaaS and enterprise growth teams.",
-    url: "https://merahki.ai/education-led-growth",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("education-led-growth", "en");
 
 const painPoints = [
   {
@@ -189,9 +156,15 @@ const faqJsonLd = {
   ],
 };
 
+const serviceJsonLd = buildServiceJsonLd("education-led-growth", "en");
+
 export default function EducationLedGrowthPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -9,22 +9,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, ShieldCheck, Zap, Rocket } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Training & Certification",
-  description:
-    "El Training & Certification impulsado por IA de merahki.ai mantiene a los empleados capacitados, en cumplimiento normativo y listos para rendir — desde cualquier lugar. Automatiza el cumplimiento, acelera el onboarding y entrega just-in-time learning con impacto medible.",
-  alternates: {
-    canonical: "https://merahki.ai/es/training-certification",
-    languages: { en: "https://merahki.ai/training-certification" },
-  },
-  openGraph: {
-    title: "Training & Certification — Eleva la preparación de tu equipo | merahki.ai",
-    description:
-      "Formación que iguala la velocidad del negocio. AI-powered training para empleados capacitados, en cumplimiento normativo y listos para rendir.",
-    url: "https://merahki.ai/es/training-certification",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("training-certification", "es");
 
 const features = [
   {
@@ -79,9 +64,15 @@ const agents = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("training-certification", "es");
+
 export default function TrainingCertificationPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

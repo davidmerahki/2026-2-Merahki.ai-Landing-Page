@@ -1,21 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Blog & Articles",
-  description:
-    "Stay ahead with the merahki.ai blog — insights, trends, and best practices on LMS technology, training, and enterprise learning.",
-  openGraph: {
-    title: "Blog & Articles",
-    description: "Insights, trends, and best practices on education-led growth.",
-    url: "https://merahki.ai/blog",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("blog", "en");
 
 export default function BlogPage() {
   return (

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -9,42 +9,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Users, BarChart3, Rocket } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Product Adoption & Onboarding",
-  description:
-    "The Adoption Gap — the space between 'signed up' and 'activated' — is where most SaaS revenue is lost. merahki.ai closes this gap with a B2B SaaS Onboarding Platform built around four AI-native pillars: Dynamic Role-Specific Onboarding, Automated Adoption Triggers, AI-Driven Resource Creation via the Merahki Creator and Manager Agents, and Just-in-Time Learning through the Merahki AI Learner Agent. The result: Zero-Marginal Cost Onboarding, +34% Feature Adoption ROI in 60 days, −42% early churn, and Time-to-Value Acceleration measured against Kirkpatrick Level 4 ROI benchmarks.",
-  keywords: [
-    "product adoption platform",
-    "B2B SaaS onboarding platform",
-    "Adaptive Onboarding Sequences",
-    "Zero-Marginal Cost Onboarding",
-    "Time-to-Value TTV Acceleration",
-    "Feature Adoption ROI",
-    "Silent Churn Prevention",
-    "In-app Mastery Guides",
-    "Just-in-Time Learning",
-    "Merahki AI Creator Agent",
-    "Merahki AI Manager Agent",
-    "Merahki AI Learner Agent",
-    "Autonomous Course Synthesis",
-    "Context-Aware AI Tutor",
-    "Modular Intent Framework",
-    "what is the Adoption Gap in SaaS",
-    "how to increase product adoption",
-    "best strategies for product adoption",
-    "scaling customer success with AI agents",
-    "Kirkpatrick Level 4 ROI",
-    "Academy ROI Tracking",
-    "Education-Led Retention Strategy",
-  ],
-  openGraph: {
-    title: "Product Adoption & Onboarding — Close the Adoption Gap | merahki.ai",
-    description:
-      "What is the Adoption Gap? It's where SaaS revenue disappears. merahki.ai closes it with AI-native onboarding: Adaptive Onboarding Sequences, the Merahki AI Learner Agent (Context-Aware AI Tutor), and Autonomous Course Synthesis — delivering Zero-Marginal Cost Onboarding and +34% Feature Adoption ROI in 60 days.",
-    url: "https://merahki.ai/product-adoption",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("product-adoption", "en");
 
 const features = [
   {
@@ -160,9 +125,15 @@ const faqJsonLd = {
   ],
 };
 
+const serviceJsonLd = buildServiceJsonLd("product-adoption", "en");
+
 export default function ProductAdoptionPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

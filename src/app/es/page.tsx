@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildFaqJsonLd, buildMetadata } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -21,40 +21,7 @@ import {
   Check,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "merahki.ai — Demuestra el ROI de cada programa de formación",
-  description:
-    "La plataforma con IA que te ayuda a medir el impacto real de tus programas de educación — del enrollment al reporte para el CFO. Diseña, lanza y prueba el ROI en semanas.",
-  alternates: {
-    canonical: "https://merahki.ai/es",
-    languages: { en: "https://merahki.ai" },
-  },
-  keywords: [
-    "ROI de formación",
-    "plataforma de educación ROI",
-    "analítica de educación",
-    "micro-credenciales",
-    "credenciales verificables",
-    "certificación de partners",
-    "analítica de aprendizaje",
-    "impacto de negocio formación",
-    "programa de credenciales",
-    "education-led growth",
-    "plataforma de academy",
-    "diseño instruccional",
-    "formación con IA",
-    "analítica de cohortes",
-    "ticket deflection formación",
-    "plataforma educación B2B",
-  ],
-  openGraph: {
-    title: "merahki.ai — Demuestra el ROI de cada programa de formación",
-    description:
-      "Diseña, lanza y prueba el impacto de negocio de cada programa de formación. Plataforma con IA para líderes de educación que necesitan mostrar resultados, no solo completions.",
-    url: "https://merahki.ai/es",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("home", "es");
 
 export default function HomePageES() {
   const demoUrl =
@@ -106,6 +73,10 @@ export default function HomePageES() {
 
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(faqItems)) }}
+      />
       {/* ── SECCIÓN 1 — HERO ── */}
       <section className="relative min-h-screen flex items-center px-6 pt-24 pb-16">
         <GlowBackground
@@ -205,23 +176,34 @@ export default function HomePageES() {
       </section>
 
       {/* ── SECCIÓN 4 — PROBLEMA / DOLOR (PAS) ── */}
-      <section className="relative py-24 px-6">
-        <GlowBackground indigoPosition={{ x: "50%", y: "50%" }} rustPosition={{ x: "80%", y: "30%" }} />
-        <div className="relative z-10 max-w-3xl mx-auto">
+      <section id="nueva-realidad" className="relative py-20 md:py-32 px-6 bg-white/[0.03] border-y border-white/5">
+        <div className="relative z-10 max-w-[760px] mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              El 70% de los programas de formación{" "}
-              <span className="text-gradient-blue-pink">no pueden defender su presupuesto</span>{" "}
-              ante el CFO.
-            </h2>
+            <div className="text-center mb-10">
+              <p className="text-xs font-semibold tracking-[0.28em] uppercase text-accent-purple mb-4">La nueva realidad</p>
+              <h2 className="text-4xl md:text-6xl font-bold leading-tight">Pierdes a tus estudiantes dos veces.</h2>
+            </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <div className="space-y-6 text-white/60 text-base leading-relaxed">
-              <p>Tu equipo crea cursos. Los participantes los completan. Los reportes muestran enrollments y tasas de aprobación. Llega la temporada de presupuesto — y el CFO pregunta: &ldquo;¿Qué cambió realmente?&rdquo;</p>
-              <p>No puedes decir cuántos tickets de soporte bajaron. No puedes mostrar qué cuentas renovaron porque fueron entrenadas. No puedes probar que los $200K que gastaste en educación de partners generaron un solo dólar de ingreso nuevo.</p>
-              <p>Sin esa conexión entre aprendizaje y resultados de negocio, formación es la primera línea que se recorta cuando hay presión.</p>
-              <p className="text-white/80 font-medium border-l-2 border-accent-purple/50 pl-5 italic">Cada trimestre sin datos de impacto es otro trimestre defendiendo tu programa con intuición en vez de prueba.</p>
-              <p className="text-white font-semibold">Merahki construye esa conexión. Del diseño a la credencial al dashboard de ROI — en semanas.</p>
+            <div className="space-y-7 text-white/70 text-lg md:text-xl leading-[1.7]">
+              <p>Primero cuando se gradúan y no vuelven. Después cuando deciden seguir aprendiendo —y lo hacen en Coursera, en Google, en un bootcamp de seis semanas.</p>
+              <p>Cada vez que pasa, no pierdes solo el ingreso. Pierdes la relevancia que define a tu institución.</p>
+              <p>La matrícula de pregrado cae. Solo 2 de cada 10 jóvenes terminan la educación tradicional. El 70% de tus egresados quiere seguir aprendiendo —si les ofreces algo relevante—. Y las empresas no encuentran el talento que las universidades no certifican: la escasez global llega al 75%.</p>
+              <p className="text-white font-medium border-l-4 border-accent-purple/70 bg-white/[0.04] rounded-r-2xl px-6 py-5">Coursera tiene 13 años. Tu institución lleva décadas construyendo autoridad académica. Pero hoy es Coursera la que pone su sello sobre el egresado que tú formaste.</p>
+            </div>
+          </AnimatedSection>
+          <AnimatedSection delay={0.2}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {[
+                { value: "2 de 10", label: "jóvenes que terminan la educación tradicional" },
+                { value: "70%", label: "de egresados quiere seguir aprendiendo" },
+                { value: "75%", label: "escasez global de talento" },
+              ].map((stat) => (
+                <div key={stat.value} className="border-t border-white/15 pt-5 text-center md:text-left">
+                  <p className="text-4xl md:text-5xl font-bold text-gradient-blue-pink">{stat.value}</p>
+                  <p className="text-white/55 text-sm leading-relaxed mt-2">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
         </div>
@@ -240,41 +222,49 @@ export default function HomePageES() {
       </section>
 
       {/* ── SECCIÓN 6 — CÓMO FUNCIONA ── */}
-      <section className="relative py-24 px-6">
+      <section id="como-trabajamos" className="relative py-20 md:py-32 px-6">
         <GlowBackground indigoPosition={{ x: "20%", y: "60%" }} rustPosition={{ x: "80%", y: "40%" }} />
-        <div className="relative z-10 max-w-5xl mx-auto">
+        <div className="relative z-10 max-w-6xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Tres pasos. Seis semanas.{" "}
-                <span className="text-gradient-peach-purple">Primer reporte de ROI.</span>
+              <p className="text-xs font-semibold tracking-[0.28em] uppercase text-accent-peach mb-4">Cómo trabajamos contigo</p>
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
+                De una conversación a la primera credencial emitida.{" "}
+                <span className="text-gradient-peach-purple">En menos de dos meses.</span>
               </h2>
             </div>
           </AnimatedSection>
           <div className="relative">
-            <div className="hidden md:block absolute top-8 left-[calc(16.67%-1px)] right-[calc(16.67%-1px)] h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="hidden lg:block absolute top-11 left-[calc(16.67%-1px)] right-[calc(16.67%-1px)] h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {[
-                { step: "01", title: "Diagnosticar", desc: "Mapeamos tus objetivos de negocio a resultados de aprendizaje. ¿Qué métrica necesita moverse? ¿Quién necesita aprender qué? Definimos la línea base y etiquetamos cohortes antes de construir nada.", deliverable: "Program Blueprint", time: "Semana 1–2", color: "text-accent-peach", border: "border-accent-peach/30", bg: "bg-accent-peach/10" },
-                { step: "02", title: "Diseñar y lanzar", desc: "Nuestro equipo produce la experiencia completa — cursos adaptativos, video interactivo, assessments, credenciales — con herramientas potenciadas por IA. Tu academy sale en vivo con analítica activa desde el día uno.", deliverable: "Academy en vivo + app móvil", time: "Semana 3–6", color: "text-accent-purple", border: "border-accent-purple/30", bg: "bg-accent-purple/10" },
-                { step: "03", title: "Medir y optimizar", desc: "Dashboards automatizados rastrean leading indicators semanalmente. Las métricas de business outcomes se actualizan mensualmente. Reportes ejecutivos trimestrales conectan el gasto del programa con el ROI en el idioma que habla tu CFO.", deliverable: "Reportes de ROI continuos", time: "Semana 6+ continuo", color: "text-accent-blue", border: "border-accent-blue/30", bg: "bg-accent-blue/10" },
+                { step: "01", title: "Diagnóstico", desc: "Mapeamos los objetivos de tu institución —ingresos, empleabilidad, pertinencia— a competencias específicas. Definimos qué microcredencial lanzar primero y el programa académico que la sostiene.", deliverable: "Program Blueprint listo para sustentar.", time: "Semana 1–2", color: "text-accent-peach", border: "border-accent-peach/30", bg: "bg-accent-peach/10" },
+                { step: "02", title: "Diseño y lanzamiento", desc: "Producimos la experiencia completa con IA: cursos adaptativos, video interactivo, evaluaciones, rutas de aprendizaje y arquitectura de credencial. Tu academia de marca propia sale en vivo, con analítica activa desde el día uno.", deliverable: "academia funcionando y primeras inscripciones.", time: "Semana 3–6", color: "text-accent-purple", border: "border-accent-purple/30", bg: "bg-accent-purple/10" },
+                { step: "03", title: "Medir y crecer", desc: "Dashboards automáticos rastrean cohorte a cohorte: ingresos, finalización, empleabilidad y NPS. Optimizamos en tiempo real. Reportes trimestrales en el idioma que habla tu junta.", deliverable: "sustento continuo de impacto.", time: "Semana 6 en adelante", color: "text-accent-blue", border: "border-accent-blue/30", bg: "bg-accent-blue/10" },
               ].map((item, i) => (
                 <AnimatedSection key={item.step} delay={i * 0.15}>
-                  <div className="flex flex-col items-start gap-5">
-                    <div className={`w-14 h-14 rounded-2xl ${item.bg} border ${item.border} flex items-center justify-center flex-shrink-0`}>
-                      <span className={`font-bold text-lg ${item.color}`}>{item.step}</span>
-                    </div>
+                  <div className="h-full rounded-3xl border border-white/10 bg-white/[0.03] p-7 md:p-8 flex flex-col gap-5">
                     <div>
-                      <h3 className="text-xl font-semibold text-white mb-3">{item.title}</h3>
-                      <p className="text-white/50 text-sm leading-relaxed mb-3">{item.desc}</p>
-                      <p className="text-xs text-white/30"><span className="text-white/50 font-medium">Entregable:</span> {item.deliverable}</p>
-                      <p className="text-xs text-white/30 mt-1">{item.time}</p>
+                      <span aria-hidden="true" className={`text-6xl md:text-7xl font-bold leading-none ${item.color}`}>{item.step}</span>
                     </div>
+                    <p className={`inline-flex w-fit rounded-full border ${item.border} ${item.bg} px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70`}>{item.time}</p>
+                    <div className="space-y-4 flex-1">
+                      <h3 className="text-2xl md:text-[28px] font-semibold text-white">{item.title}</h3>
+                      <p className="text-white/60 text-base leading-relaxed">{item.desc}</p>
+                    </div>
+                    <p className="border-t border-white/10 bg-white/[0.03] rounded-2xl px-4 py-3 text-sm text-white/65 leading-relaxed"><span className="text-white font-semibold">Entregable:</span> {item.deliverable}</p>
                   </div>
                 </AnimatedSection>
               ))}
             </div>
           </div>
+          <AnimatedSection delay={0.3}>
+            <div className="text-center mt-14">
+              <Link href={demoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm">
+                Agendar mi demo de 20 min <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

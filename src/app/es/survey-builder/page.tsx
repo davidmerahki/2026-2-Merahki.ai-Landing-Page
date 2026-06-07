@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -16,22 +16,7 @@ import {
   Share2,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Survey Builder",
-  description:
-    "Crea formularios y encuestas con tu marca con merahki.ai. Captura leads, recopila feedback, mide NPS y analiza respuestas — todo desde un dashboard.",
-  openGraph: {
-    title: "Survey Builder — merahki.ai",
-    description:
-      "Captura leads, feedback e insights sin salir de tu academia. Formularios y encuestas impulsados por IA construidos para education-led growth.",
-    url: "https://merahki.ai/es/survey-builder",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://merahki.ai/es/survey-builder",
-    languages: { en: "https://merahki.ai/survey-builder" },
-  },
-};
+export const metadata = buildMetadata("survey-builder", "es");
 
 const stats = [
   { value: "10+", label: "Tipos de preguntas soportados" },
@@ -118,9 +103,15 @@ const industries = [
   { name: "Coaching", desc: "Califica leads, recopila detalles de intake de clientes y mide puntuaciones de satisfacción de sesiones." },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("survey-builder", "es");
+
 export default function SurveyBuilderEsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
 
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 px-6 text-center">

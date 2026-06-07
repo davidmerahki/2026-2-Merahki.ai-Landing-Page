@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -7,22 +7,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Smartphone, Layers, BarChart3 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Mobile App Builder",
-  description:
-    "Tu propia app de elearning con tu marca — sin una línea de código. Construye, previsualiza y lanza una app de aprendizaje móvil completamente white-label en iOS y Android en menos de un mes.",
-  openGraph: {
-    title: "Mobile App Builder — merahki.ai",
-    description:
-      "Constructor sin código para apps de elearning. Lanza una app completamente white-label en iOS y Android en semanas.",
-    url: "https://merahki.ai/es/mobile-app-builder",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://merahki.ai/es/mobile-app-builder",
-    languages: { en: "https://merahki.ai/mobile-app-builder" },
-  },
-};
+export const metadata = buildMetadata("mobile-app-builder", "es");
 
 const features = [
   {
@@ -73,9 +58,15 @@ const stats = [
   { value: "2–4 sem", label: "De la entrega al lanzamiento en vivo" },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("mobile-app-builder", "es");
+
 export default function MobileAppBuilderEsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -25,22 +25,7 @@ import {
   Target,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Marketing Your Courses",
-  description:
-    "El Managed Growth Squad de merahki.ai gestiona todo tu funnel de academy: infraestructura de conversión, integración de stack y automatización, tráfico y visibilidad, y atribución de revenue. Ejecución end-to-end sin aumentar tu headcount interno.",
-  alternates: {
-    canonical: "https://merahki.ai/es/marketing-your-courses",
-    languages: { en: "https://merahki.ai/marketing-your-courses" },
-  },
-  openGraph: {
-    title: "Marketing Your Courses — Tu Growth Engine tercerizado | merahki.ai",
-    description:
-      "Tu Growth Engine tercerizado para academies. Un squad dedicado que gestiona tu motor de marketing de extremo a extremo — desde el tráfico calificado hasta la retención de estudiantes.",
-    url: "https://merahki.ai/es/marketing-your-courses",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("marketing-your-courses", "es");
 
 const pillars = [
   { icon: TrendingUp, text: "Convertimos tu tráfico en un pipeline de estudiantes calificados." },
@@ -150,9 +135,15 @@ const faqs = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("marketing-your-courses", "es");
+
 export default function MarketingYourCoursesPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
 
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 px-6 text-center">

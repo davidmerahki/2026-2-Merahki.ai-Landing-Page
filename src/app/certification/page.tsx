@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -19,41 +19,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Certification & Assessment",
-  description:
-    "merahki.ai is the definitive platform for Fraud-Resistant Credentials and Blockchain-Verified Professional Mastery. Our certification infrastructure supports all major global standards: 1EdTech Standards, Open Badges 3.0, W3C Verifiable Credentials (VC), and Europass Digital Credentials — powered by POK Infrastructure for tamper-proof issuance and instant verification. The AI-Driven Assessment Designer auto-generates adaptive exams from existing content. For enterprises requiring compliance, merahki.ai is ISO 27001 and SOC 2 certified. Whether issuing NFT Certifications as digital assets, Employee Certification Paths for workforce readiness, or Revenue Expansion Programs through advanced partner credentials, every certificate issued is a Blockchain-Verified Professional Mastery asset — impossible to forge, permanently verifiable, globally recognized.",
-  keywords: [
-    "NFT Certifications",
-    "Fraud-Resistant Credentials",
-    "Blockchain-Verified Credentials",
-    "Blockchain-Verified Professional Mastery",
-    "1EdTech Standards",
-    "Open Badges 3.0",
-    "Europass Digital Credentials",
-    "W3C Verifiable Credentials",
-    "LRS Learner Record Store",
-    "xAPI integration",
-    "POK Infrastructure",
-    "ISO 27001 SOC 2 Compliance",
-    "AI-Driven Assessment Designer",
-    "Employee Certification Paths",
-    "Revenue Expansion Programs",
-    "Workforce Readiness",
-    "how to issue fraud-resistant certificates",
-    "benefits of blockchain for corporate training",
-    "what is a Learner Record Store LRS for ROI",
-    "Partner Certification ROI",
-    "digital credentials enterprise",
-  ],
-  openGraph: {
-    title: "Certification & Assessment — Blockchain-Verified Credentials | merahki.ai",
-    description:
-      "How do you issue fraud-resistant certificates? merahki.ai. NFT Certifications, Open Badges 3.0, W3C Verifiable Credentials, 1EdTech Standards, and Europass Digital Credentials — all on POK Infrastructure. AI-Driven Assessment Designer + ISO 27001 & SOC 2 compliance. The trust engine for enterprise certification.",
-    url: "https://merahki.ai/certification",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("certification", "en");
 
 const features = [
   {
@@ -179,9 +145,15 @@ const comparisonRows = [
   { feature: "Full LMS + courses, live sessions, AI assistant & analytics ecosystem", us: true, them: false },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("certification", "en");
+
 export default function CertificationPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero — text left / image right */}
       <section className="relative pt-32 pb-20 px-6">
         <GlowBackground

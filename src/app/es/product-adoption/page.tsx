@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -9,22 +9,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Users, BarChart3, Rocket } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Product Adoption & Onboarding",
-  description:
-    "Los programas de onboarding y adopción impulsados por IA de merahki.ai ayudan a los clientes a realizar valor más rápido — y a quedarse más tiempo. Personaliza cada paso del onboarding, identifica los gaps de adopción y mide el impacto en el negocio.",
-  alternates: {
-    canonical: "https://merahki.ai/es/product-adoption",
-    languages: { en: "https://merahki.ai/product-adoption" },
-  },
-  openGraph: {
-    title: "Product Adoption & Onboarding — Acelera el dominio del producto | merahki.ai",
-    description:
-      "Convierte cada actualización de producto en un momento de crecimiento. Programas de adopción personalizados y medibles en cada etapa del ciclo de vida del cliente.",
-    url: "https://merahki.ai/es/product-adoption",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("product-adoption", "es");
 
 const features = [
   {
@@ -101,9 +86,15 @@ const caseStudies = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("product-adoption", "es");
+
 export default function ProductAdoptionPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

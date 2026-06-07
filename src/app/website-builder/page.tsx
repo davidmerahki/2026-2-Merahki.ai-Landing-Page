@@ -1,19 +1,18 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import WebsiteBuilderClient from "./WebsiteBuilderClient";
 
-export const metadata: Metadata = {
-  title: "Website Builder",
-  description:
-    "We build conversion-first academy websites from the ground up. Our expert team handles the entire lifecycle — from strategic design to technical deployment.",
-  openGraph: {
-    title: "Website Builder — merahki.ai",
-    description:
-      "Conversion-first academy websites built by education growth experts. Strategy, design, development, and deployment — end to end.",
-    url: "https://merahki.ai/website-builder",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("website-builder", "en");
+
+const serviceJsonLd = buildServiceJsonLd("website-builder", "en");
 
 export default function WebsiteBuilderPage() {
-  return <WebsiteBuilderClient />;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
+      <WebsiteBuilderClient />
+    </>
+  );
 }

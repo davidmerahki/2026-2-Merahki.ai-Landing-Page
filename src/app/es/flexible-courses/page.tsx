@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -7,22 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles, BookOpen, Route } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Flexible Courses",
-  description:
-    "Crea experiencias de aprendizaje personalizadas que se adaptan a cada estudiante. Herramientas de aprendizaje adaptativo potenciadas por IA con interfaz drag-and-drop.",
-  openGraph: {
-    title: "Flexible Courses — merahki.ai",
-    description:
-      "Construye experiencias de aprendizaje adaptativas con herramientas potenciadas por IA. Personalizadas, interactivas y flexibles para cualquier escala.",
-    url: "https://merahki.ai/es/flexible-courses",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://merahki.ai/es/flexible-courses",
-    languages: { en: "https://merahki.ai/flexible-courses" },
-  },
-};
+export const metadata = buildMetadata("flexible-courses", "es");
 
 const features = [
   {
@@ -68,15 +53,15 @@ const features = [
   },
 ];
 
-const stats = [
-  { value: "800k", label: "Cursos creados" },
-  { value: "$1B+", label: "Revenue generado para clientes" },
-  { value: "2M", label: "Aprendices activos por mes" },
-];
+const serviceJsonLd = buildServiceJsonLd("flexible-courses", "es");
 
 export default function FlexibleCoursesEsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground
@@ -126,24 +111,6 @@ export default function FlexibleCoursesEsPage() {
       </section>
 
       <LogoCarousel />
-
-      {/* Stats Bar */}
-      <section className="py-12 px-6 border-y border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
-            <div className="grid grid-cols-3 gap-8 text-center">
-              {stats.map((stat) => (
-                <div key={stat.label} className="space-y-1">
-                  <p className="text-3xl md:text-4xl font-bold text-gradient-blue-pink">
-                    {stat.value}
-                  </p>
-                  <p className="text-white/50 text-sm">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* Narrative */}
       <section className="relative py-16 px-6">

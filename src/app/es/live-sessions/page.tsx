@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -22,22 +22,7 @@ import {
   Radio,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Live Sessions",
-  description:
-    "Conecta con tus aprendices usando el LMS de aula virtual de merahki.ai para sesiones en vivo y crea experiencias de aprendizaje compartidas y poderosas con Zoom, Webex, Microsoft Teams y Calendly.",
-  openGraph: {
-    title: "Live Sessions — merahki.ai",
-    description:
-      "LMS de aula virtual para sesiones en vivo. Sesiones individuales y grupales potenciadas por Zoom, Webex, Teams y Calendly.",
-    url: "https://merahki.ai/es/live-sessions",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://merahki.ai/es/live-sessions",
-    languages: { en: "https://merahki.ai/live-sessions" },
-  },
-};
+export const metadata = buildMetadata("live-sessions", "es");
 
 const stats = [
   { value: "73,000+", label: "Horas de formación ahorradas" },
@@ -184,9 +169,15 @@ const efficiencyBenefits = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("live-sessions", "es");
+
 export default function LiveSessionsEsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
 
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 px-6 text-center">

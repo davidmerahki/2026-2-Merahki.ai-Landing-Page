@@ -1,25 +1,21 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Reports & Resources",
-  description:
-    "Access merahki.ai's reports and resources to learn about LMS strategy, enterprise learning, and corporate education best practices.",
-  openGraph: {
-    title: "Reports & Resources",
-    description: "Access Education-Led Growth research & guides.",
-    url: "https://merahki.ai/reports",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("reports", "en");
+
+const serviceJsonLd = buildServiceJsonLd("reports", "en");
 
 export default function ReportsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-24 px-6 text-center">
         <GlowBackground

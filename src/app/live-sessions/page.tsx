@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -22,18 +22,7 @@ import {
   Radio,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Live Sessions",
-  description:
-    "Connect with your learners using merahki.ai's virtual classroom LMS for live sessions and build powerful shared learning experiences with Zoom, Webex, Microsoft Teams, and Calendly.",
-  openGraph: {
-    title: "Live Sessions — merahki.ai",
-    description:
-      "Virtual classroom LMS for live sessions. One-on-one and group sessions powered by Zoom, Webex, Teams & Calendly.",
-    url: "https://merahki.ai/live-sessions",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("live-sessions", "en");
 
 const stats = [
   { value: "73,000+", label: "Training hours saved" },
@@ -233,9 +222,15 @@ const faqs = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("live-sessions", "en");
+
 export default function LiveSessionsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
 
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 px-6 text-center">

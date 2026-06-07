@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -9,22 +9,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Award, Brain, Zap } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Customer Education",
-  description:
-    "Los programas de onboarding, adopción y expansión impulsados por IA de merahki.ai convierten a los usuarios en promotores. Reduce el Time-to-Value, aumenta la adopción y desbloquea oportunidades de expansión sin aumentar la carga de trabajo de tu equipo.",
-  alternates: {
-    canonical: "https://merahki.ai/es/customer-education",
-    languages: { en: "https://merahki.ai/customer-education" },
-  },
-  openGraph: {
-    title: "Customer Education — Haz crecer a tus clientes más rápido | merahki.ai",
-    description:
-      "Reduce el Time-to-Value, aumenta la adopción y desbloquea la expansión a través de experiencias de aprendizaje personalizadas potenciadas por IA.",
-    url: "https://merahki.ai/es/customer-education",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("customer-education", "es");
 
 const features = [
   {
@@ -101,9 +86,15 @@ const caseStudies = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("customer-education", "es");
+
 export default function CustomerEducationPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

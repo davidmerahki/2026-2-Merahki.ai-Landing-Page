@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -19,39 +19,7 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Medical Education",
-  description:
-    "merahki.ai's Medical Education platform delivers AI-powered Continuing Medical Education (CME), accreditation management, clinical simulation, and competency-based assessments for healthcare professionals. Reduce time-to-competency, ensure regulatory compliance, and scale clinical training programs with measurable Kirkpatrick Level 4 outcomes.",
-  keywords: [
-    "medical education platform",
-    "continuing medical education CME",
-    "CME compliance tracking",
-    "healthcare accreditation management",
-    "clinical simulation training",
-    "competency-based medical assessment",
-    "AI-powered medical training",
-    "Kirkpatrick Level 4 healthcare ROI",
-    "pharmaceutical training platform",
-    "healthcare professional development",
-    "medical certification programs",
-    "clinical case simulation",
-    "gamification in medical education",
-    "adaptive learning healthcare",
-    "medical education analytics",
-    "ACCME compliance",
-    "healthcare workforce readiness",
-    "digital credentials healthcare",
-  ],
-  openGraph: {
-    title:
-      "Medical Education — AI-Powered CME & Clinical Training | merahki.ai",
-    description:
-      "Transform medical education with AI-powered CME tracking, accreditation management, clinical simulations, and competency-based assessments. merahki.ai helps healthcare organizations scale training while ensuring regulatory compliance.",
-    url: "https://merahki.ai/medical-education",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("medical-education", "en");
 
 const pillars = [
   {
@@ -244,9 +212,15 @@ const faqJsonLd = {
   ],
 };
 
+const serviceJsonLd = buildServiceJsonLd("medical-education", "en");
+
 export default function MedicalEducationPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

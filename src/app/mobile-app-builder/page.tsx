@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -7,18 +7,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Smartphone, Layers, BarChart3 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Mobile App Builder",
-  description:
-    "Build your own fully branded mobile elearning app — without a single line of code. Publish to iOS and Android in under a month.",
-  openGraph: {
-    title: "Mobile App Builder",
-    description:
-      "No-code mobile app builder for elearning. Launch a fully branded app to iOS and Android in weeks.",
-    url: "https://merahki.ai/mobile-app-builder",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("mobile-app-builder", "en");
 
 const features = [
   {
@@ -69,9 +58,15 @@ const stats = [
   { value: "2–4 wks", label: "From submission to live" },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("mobile-app-builder", "en");
+
 export default function MobileAppBuilderPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

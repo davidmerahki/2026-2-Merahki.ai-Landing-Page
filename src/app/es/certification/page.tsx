@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -19,22 +19,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Certifications at Scale",
-  description:
-    "Emite credenciales digitales verificables y microcredenciales como NFTs en la blockchain con merahki.ai y POK. Soportamos Open Badges 3.0, W3C VC, ELM/Europass, ISO 27001 y SOC 2. 1,100+ instituciones en 19+ países. Versión 100% gratuita e ilimitada disponible ahora.",
-  alternates: {
-    canonical: "https://merahki.ai/es/certification",
-    languages: { en: "https://merahki.ai/certification" },
-  },
-  openGraph: {
-    title: "Certifications at Scale — Credenciales digitales verificables | merahki.ai",
-    description:
-      "Emite credenciales digitales verificables y microcredenciales como NFTs en la blockchain. POK + merahki.ai: Open Badges 3.0, W3C VC, Europass, ISO 27001 & SOC 2.",
-    url: "https://merahki.ai/es/certification",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("certification", "es");
 
 const features = [
   {
@@ -160,9 +145,15 @@ const comparisonRows = [
   { feature: "LMS completo + cursos, sesiones en vivo, AI assistant y Ecosystem de analytics", us: true, them: false },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("certification", "es");
+
 export default function CertificationPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero — text left / image right */}
       <section className="relative pt-32 pb-20 px-6">
         <GlowBackground

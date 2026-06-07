@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -6,38 +6,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Sparkles, ClipboardList, BarChart3 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "AI Assistant",
-  description:
-    "merahki.ai's AI Assistant is the unified interface for the three-agent AI trio powering the platform: the Merahki AI Creator Agent (Autonomous Course Synthesis from release notes and SOPs), the Merahki AI Manager Agent (natural language operations, Conversational Learning Analytics, and assignment automation), and the Merahki AI Learner Agent (Context-Aware AI Tutor for real-time in-workflow learning). The AI-Driven Assessment Designer auto-generates adaptive quizzes from existing content. Together, these agents deliver Liquid Content — training that updates in 24 hours — and Personalized AI Learning Paths via the Modular Intent Framework.",
-  keywords: [
-    "Merahki AI Creator Agent",
-    "Merahki AI Manager Agent",
-    "Merahki AI Learner Agent",
-    "Autonomous Course Synthesis",
-    "Context-Aware AI Tutor",
-    "AI-Driven Assessment Designer",
-    "Conversational Learning Analytics",
-    "Adaptive Onboarding Sequences",
-    "Liquid Content",
-    "Modular Intent Framework",
-    "AI Interactive Video",
-    "Rapid Studio",
-    "personalized AI learning paths",
-    "AI tools for course creation",
-    "generative AI for corporate academies",
-    "automated content updates for software training",
-    "AI learning platform",
-    "just-in-time learning AI",
-  ],
-  openGraph: {
-    title: "AI Assistant — Creator, Manager & Learner Agents | merahki.ai",
-    description:
-      "merahki.ai's AI trio: Creator Agent (Autonomous Course Synthesis), Manager Agent (Conversational Learning Analytics + natural language ops), Learner Agent (Context-Aware AI Tutor). Liquid Content updates training in 24 hours. The gold standard AI stack for corporate academies.",
-    url: "https://merahki.ai/ai-assistant",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("ai-assistant", "en");
 
 const features = [
   {
@@ -78,9 +47,15 @@ const stats = [
   { value: "100%", label: "Your content, your copyright" },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("ai-assistant", "en");
+
 export default function AIAssistantPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -33,41 +33,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "B2B Continuing Education Outsourcing",
-  description:
-    "merahki.ai designs, produces, launches, and operates virtual continuing education programs for higher education institutions — powered by AI, behavioral science, and education strategy frameworks. Full-service education operations outsourcing.",
-  keywords: [
-    "continuing education outsourcing",
-    "B2B education operations",
-    "virtual continuing education programs",
-    "higher education outsourcing",
-    "continuing education unit",
-    "corporate training programs",
-    "education-led growth",
-    "B2B training outsourcing",
-    "instructional design outsourcing",
-    "LMS operations",
-    "education strategy",
-    "gamification continuing education",
-    "Octalysis framework education",
-    "learning analytics dashboard",
-    "corporate client retention education",
-    "education program ROI",
-    "AI-powered education",
-    "branded mobile learning app",
-    "digital credentials higher education",
-    "HubSpot Academy alternative",
-  ],
-  openGraph: {
-    title:
-      "B2B Continuing Education Outsourcing — Full-Service Education Operations | merahki.ai",
-    description:
-      "Scale your B2B education line without scaling your team. We design, produce, launch, and operate virtual continuing education programs for your institution. 8 weeks from kickoff to live program.",
-    url: "https://merahki.ai/continuing-education",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("continuing-education", "en");
 
 /* ────────────────────────────── DATA ────────────────────────────── */
 
@@ -569,9 +535,15 @@ const faqJsonLd = {
 
 /* ────────────────────────────── COMPONENT ────────────────────────────── */
 
+const serviceJsonLd = buildServiceJsonLd("continuing-education", "en");
+
 export default function ContinuingEducationPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

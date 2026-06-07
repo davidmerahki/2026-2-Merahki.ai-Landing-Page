@@ -1,22 +1,11 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Methodology — Integral Virtualization | merahki.ai",
-  description:
-    "AICET Standard · Agile Delivery · Octalysis Gamification · ICAP Framework · Kirkpatrick 4 Levels — the complete methodology powering every merahki.ai learning experience.",
-  openGraph: {
-    title: "Integral Virtualization Methodology — merahki.ai",
-    description:
-      "AICET · Agile · Octalysis · ICAP · Kirkpatrick — applied to the 6 merahki.ai solutions.",
-    url: "https://merahki.ai/methodology",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("methodology", "en");
 
 /* ────────────────────────── tiny helpers ────────────────────────── */
 const Badge = ({ children }: { children: React.ReactNode }) => (
@@ -111,6 +100,8 @@ const Callout = ({ children }: { children: React.ReactNode }) => (
 );
 
 /* ──────────────────────────── PAGE ──────────────────────────── */
+const serviceJsonLd = buildServiceJsonLd("methodology", "en");
+
 export default function MethodologyPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden text-white">

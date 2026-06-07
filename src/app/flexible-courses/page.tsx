@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -7,18 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Sparkles, BookOpen, Route } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Flexible Courses",
-  description:
-    "Create personalized learning experiences that adapt to every student. AI-powered adaptive learning tools with drag-and-drop interface.",
-  openGraph: {
-    title: "Flexible Courses",
-    description:
-      "Build adaptive learning experiences with AI-powered tools. Personalized, interactive, and flexible course creation at any scale.",
-    url: "https://merahki.ai/flexible-courses",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("flexible-courses", "en");
 
 const features = [
   {
@@ -64,15 +53,15 @@ const features = [
   },
 ];
 
-const stats = [
-  { value: "800k", label: "Courses created" },
-  { value: "$1B+", label: "Customer revenue generated" },
-  { value: "2M", label: "Active learners per month" },
-];
+const serviceJsonLd = buildServiceJsonLd("flexible-courses", "en");
 
 export default function FlexibleCoursesPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground
@@ -120,24 +109,6 @@ export default function FlexibleCoursesPage() {
       </section>
 
       <LogoCarousel />
-
-      {/* Stats Bar */}
-      <section className="py-12 px-6 border-y border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
-            <div className="grid grid-cols-3 gap-8 text-center">
-              {stats.map((stat) => (
-                <div key={stat.label} className="space-y-1">
-                  <p className="text-3xl md:text-4xl font-bold text-gradient-blue-pink">
-                    {stat.value}
-                  </p>
-                  <p className="text-white/50 text-sm">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* Narrative */}
       <section className="relative py-16 px-6">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -25,38 +25,7 @@ import {
   Target,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Marketing Your Courses",
-  description:
-    "merahki.ai's Outsourced Growth Engine is a Managed Growth Squad that closes the Execution Gap — the space between having a marketing strategy and actually running it. Using the $100M Money Model for Academies and Full-Cycle Growth Execution, our squad manages your entire academy funnel: Conversion Asset Infrastructure, Stack Integration & Automation (HubSpot, Salesforce, LMS Workflow Architecture Optimization), Traffic & Visibility Engine (Technical SEO + retargeting), and Analytics & Revenue Attribution (CAC, LTV, NRR). The result: Lead-to-Customer Transformation via education, AARRR Growth Loop Optimization, and Education-Led Retention Strategy — all executed without adding internal headcount.",
-  keywords: [
-    "Outsourced Growth Engine",
-    "Managed Growth Squad",
-    "Full-Cycle Growth Execution",
-    "AARRR Growth Loop Optimization",
-    "The 100M Money Model for Academies",
-    "Lead-to-Customer Transformation",
-    "Education-Led Retention Strategy",
-    "Education-Qualified Leads EQL",
-    "Demand Generation through Education",
-    "UTI Matrix Analysis",
-    "Workflow Architecture Optimization HubSpot Salesforce LMS",
-    "Customer Acquisition Cost CAC Optimization",
-    "Customer Lifetime Value LTV Expansion",
-    "Net Revenue Retention NRR",
-    "High-Leverage Educational Assets",
-    "academy marketing automation",
-    "course enrollment growth",
-    "education marketing funnel",
-  ],
-  openGraph: {
-    title: "Marketing Your Courses — Outsourced Growth Engine | merahki.ai",
-    description:
-      "merahki.ai's Managed Growth Squad runs your entire academy funnel — from Conversion Asset Infrastructure to Full-Cycle Growth Execution. The $100M Money Model for Academies applied to your marketing stack: AARRR Growth Loop Optimization, Lead-to-Customer Transformation via EQLs, and NRR-linked attribution.",
-    url: "https://merahki.ai/marketing-your-courses",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("marketing-your-courses", "en");
 
 const pillars = [
   { icon: TrendingUp, text: "We turn your traffic into a pipeline of qualified students." },
@@ -166,9 +135,15 @@ const faqs = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("marketing-your-courses", "en");
+
 export default function MarketingYourCoursesPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
 
       {/* ── Hero ── */}
       <section className="relative pt-32 pb-20 px-6 text-center">

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -22,39 +22,7 @@ import {
   RefreshCcw,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Growth for Universities",
-  description:
-    "merahki.ai helps universities and higher education institutions scale enrollment, boost student retention, and deliver lifelong learning programs with AI-powered academies. From undergraduate recruitment to continuing education, our platform turns education into a measurable growth engine.",
-  keywords: [
-    "university growth platform",
-    "higher education enrollment growth",
-    "student retention strategies",
-    "lifelong learning platform",
-    "continuing education university",
-    "AI-powered university programs",
-    "higher education marketing",
-    "university digital transformation",
-    "online degree programs platform",
-    "student engagement AI",
-    "education-led growth universities",
-    "university certification programs",
-    "micro-credentials higher education",
-    "adaptive learning university",
-    "student onboarding automation",
-    "alumni engagement platform",
-    "university analytics dashboard",
-    "enrollment funnel optimization",
-  ],
-  openGraph: {
-    title:
-      "Growth for Universities — Scale Enrollment & Lifelong Learning | merahki.ai",
-    description:
-      "AI-powered platform that helps universities scale enrollment, improve student retention, launch continuing education programs, and turn alumni into lifelong learners.",
-    url: "https://merahki.ai/growth-for-universities",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("growth-for-universities", "en");
 
 const capabilities = [
   {
@@ -252,9 +220,15 @@ const faqJsonLd = {
   ],
 };
 
+const serviceJsonLd = buildServiceJsonLd("growth-for-universities", "en");
+
 export default function GrowthForUniversitiesPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

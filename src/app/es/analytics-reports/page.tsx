@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -7,22 +7,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, BarChart3, BookOpen, FileText } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Analytics & Reports",
-  description:
-    "Tu dashboard LMS completo. Mide y reporta el impacto de tus programas de formación. Insights impulsados por IA, reportes automatizados y más de 95 filtros.",
-  openGraph: {
-    title: "Analytics & Reports — merahki.ai",
-    description:
-      "Reportes automatizados, respuestas impulsadas por IA, gráficos radiales y más de 95 filtros — todo integrado en tu plataforma.",
-    url: "https://merahki.ai/es/analytics-reports",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://merahki.ai/es/analytics-reports",
-    languages: { en: "https://merahki.ai/analytics-reports" },
-  },
-};
+export const metadata = buildMetadata("analytics-reports", "es");
 
 const tldrCards = [
   {
@@ -75,9 +60,15 @@ const growItems = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("analytics-reports", "es");
+
 export default function AnalyticsReportsEsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero — text left / dashboard image right */}
       <section className="relative pt-32 pb-20 px-6">
         <GlowBackground

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -8,40 +8,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Award, Brain, Zap } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Customer Education",
-  description:
-    "Customer education is the most effective lever for Net Revenue Retention (NRR), Silent Churn Prevention, and Time-to-Value (TTV) Acceleration. merahki.ai's Customer Education Academy delivers AI-powered onboarding programs that reduce early churn by identifying and educating disengaged users before they leave, accelerate the 'Aha! Moment', and drive Kirkpatrick Level 4 ROI by linking learning completion to product adoption metrics, support ticket reduction, and expansion revenue. 372% average ROI on customer education. 67% churn reduction framework.",
-  keywords: [
-    "customer education platform",
-    "Net Revenue Retention NRR",
-    "Silent Churn Prevention",
-    "Time-to-Value TTV Acceleration",
-    "Kirkpatrick Level 4 ROI",
-    "Academy ROI Tracking",
-    "Customer Lifetime Value LTV Expansion",
-    "Feature Adoption ROI",
-    "how to reduce churn in B2B SaaS using education",
-    "best strategies for increasing product adoption",
-    "micro-learning for customer success",
-    "scaling customer success with AI agents",
-    "Adaptive Onboarding Sequences",
-    "In-app Mastery Guides",
-    "Conversational Learning Analytics",
-    "Education-Led Retention Strategy",
-    "372% ROI on customer education",
-    "67% churn reduction framework",
-    "15.5% decrease in support costs",
-    "Zero-Marginal Cost Onboarding",
-  ],
-  openGraph: {
-    title: "Customer Education — Reduce Churn & Accelerate TTV | merahki.ai",
-    description:
-      "How do you reduce churn in B2B SaaS? Through Customer Education. merahki.ai's AI-powered academy programs deliver 372% ROI, 67% churn reduction, and Net Revenue Retention improvement by turning every onboarding touchpoint into a measurable product adoption milestone.",
-    url: "https://merahki.ai/customer-education",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("customer-education", "en");
 
 const features = [
   {
@@ -157,9 +124,15 @@ const faqJsonLd = {
   ],
 };
 
+const serviceJsonLd = buildServiceJsonLd("customer-education", "en");
+
 export default function CustomerEducationPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

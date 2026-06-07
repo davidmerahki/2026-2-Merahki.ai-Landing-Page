@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
@@ -13,21 +13,7 @@ import {
   Building2, CheckCircle2, ChevronRight, Lightbulb,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Outsourcing de Educación Continua B2B",
-  description:
-    "merahki.ai diseña, produce, lanza y opera programas virtuales de educación continua para instituciones de educación superior — impulsado por IA, ciencia del comportamiento y marcos de estrategia educativa.",
-  alternates: {
-    canonical: "https://merahki.ai/es/continuing-education",
-    languages: { en: "https://merahki.ai/continuing-education" },
-  },
-  openGraph: {
-    title: "Outsourcing de Educación Continua B2B — Operaciones Educativas | merahki.ai",
-    description: "Escala tu línea de educación B2B sin escalar tu equipo. 8 semanas desde el inicio hasta el programa en vivo.",
-    url: "https://merahki.ai/es/continuing-education",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("continuing-education", "es");
 
 const heroStats = [
   { value: "+40%", label: "Tasa de finalización promedio en programas operados por merahki.ai" },
@@ -152,9 +138,15 @@ const faqJsonLd = {
 
 /* ────────────────────────────── COMPONENT ────────────────────────────── */
 
+const serviceJsonLd = buildServiceJsonLd("continuing-education", "es");
+
 export default function ContinuingEducationPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* HERO */}

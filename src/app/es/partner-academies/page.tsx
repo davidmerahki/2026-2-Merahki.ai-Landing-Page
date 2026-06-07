@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -9,22 +9,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Zap, TrendingUp, Award } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Partner Academies",
-  description:
-    "Los programas de enablement impulsados por IA de merahki.ai ayudan a los partners a vender más, antes — con menos esfuerzo de tu equipo. Automatiza el onboarding de partners, acelera la certificación y personaliza el enablement a escala global.",
-  alternates: {
-    canonical: "https://merahki.ai/es/partner-academies",
-    languages: { en: "https://merahki.ai/partner-academies" },
-  },
-  openGraph: {
-    title: "Partner Academies — Activa a tus partners rápidamente | merahki.ai",
-    description:
-      "Activa un ecosistema global de partners para cerrar ventas más rápido con onboarding y certificación personalizados por IA.",
-    url: "https://merahki.ai/es/partner-academies",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("partner-academies", "es");
 
 const features = [
   {
@@ -101,9 +86,15 @@ const caseStudies = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("partner-academies", "es");
+
 export default function PartnerAcademiesPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -20,22 +20,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Integrations",
-  description:
-    "El hub de integraciones LMS definitivo. Más de 50 integraciones nativas para pagos, CRM, video y marketing — más API y webhooks para flujos de trabajo completamente personalizados.",
-  openGraph: {
-    title: "Integrations — merahki.ai",
-    description:
-      "Conecta merahki.ai a más de 50 herramientas como Stripe, HubSpot, Zoom y Mailchimp — o construye flujos de trabajo personalizados con API y webhooks.",
-    url: "https://merahki.ai/es/integrations",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://merahki.ai/es/integrations",
-    languages: { en: "https://merahki.ai/integrations" },
-  },
-};
+export const metadata = buildMetadata("integrations", "es");
 
 const tldrCards = [
   {
@@ -180,9 +165,15 @@ const apiTools = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("integrations", "es");
+
 export default function IntegrationsEsPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6">
         <GlowBackground

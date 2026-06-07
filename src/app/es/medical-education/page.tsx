@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -19,23 +19,7 @@ import {
   ClipboardCheck,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Educación Médica",
-  description:
-    "La plataforma de Educación Médica de merahki.ai ofrece Educación Médica Continua (EMC) impulsada por IA, gestión de acreditación, simulación clínica y evaluaciones basadas en competencias para profesionales de la salud. Reduce el tiempo de competencia, asegura el cumplimiento regulatorio y escala programas de formación clínica con resultados medibles de Kirkpatrick Nivel 4.",
-  alternates: {
-    canonical: "https://merahki.ai/es/medical-education",
-    languages: { en: "https://merahki.ai/medical-education" },
-  },
-  openGraph: {
-    title:
-      "Educación Médica — EMC y Formación Clínica con IA | merahki.ai",
-    description:
-      "Transforma la educación médica con seguimiento de EMC impulsado por IA, gestión de acreditación, simulaciones clínicas y evaluaciones basadas en competencias.",
-    url: "https://merahki.ai/es/medical-education",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("medical-education", "es");
 
 const pillars = [
   {
@@ -189,9 +173,15 @@ const plans = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("medical-education", "es");
+
 export default function MedicalEducationPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

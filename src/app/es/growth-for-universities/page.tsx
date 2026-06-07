@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -22,23 +22,7 @@ import {
   RefreshCcw,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Crecimiento para Universidades",
-  description:
-    "merahki.ai ayuda a universidades e instituciones de educación superior a escalar la matrícula, mejorar la retención estudiantil y ofrecer programas de aprendizaje permanente con academias impulsadas por IA. Desde el reclutamiento de pregrado hasta la educación continua.",
-  alternates: {
-    canonical: "https://merahki.ai/es/growth-for-universities",
-    languages: { en: "https://merahki.ai/growth-for-universities" },
-  },
-  openGraph: {
-    title:
-      "Crecimiento para Universidades — Escala Matrícula y Aprendizaje Permanente | merahki.ai",
-    description:
-      "Plataforma impulsada por IA que ayuda a universidades a escalar la matrícula, mejorar la retención estudiantil, lanzar programas de educación continua y convertir a los egresados en aprendices permanentes.",
-    url: "https://merahki.ai/es/growth-for-universities",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("growth-for-universities", "es");
 
 const capabilities = [
   {
@@ -197,9 +181,15 @@ const plans = [
   },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("growth-for-universities", "es");
+
 export default function GrowthForUniversitiesPageES() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative pt-32 pb-20 px-6 text-center">
         <GlowBackground

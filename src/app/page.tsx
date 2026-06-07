@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildFaqJsonLd, buildMetadata } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -21,36 +21,7 @@ import {
   Check,
 } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "merahki.ai — Prove the ROI of Every Training Program",
-  description:
-    "The AI-powered platform that helps education leaders measure business impact — from enrollment to credential to CFO report. Design, launch, and prove ROI in weeks.",
-  keywords: [
-    "training ROI",
-    "education ROI platform",
-    "customer education analytics",
-    "micro-credentials",
-    "verifiable credentials",
-    "partner certification",
-    "learning analytics",
-    "training business impact",
-    "credential program",
-    "education-led growth",
-    "academy platform",
-    "instructional design",
-    "AI-powered training",
-    "cohort analytics",
-    "ticket deflection training",
-    "B2B education platform",
-  ],
-  openGraph: {
-    title: "merahki.ai — Prove the ROI of Every Training Program",
-    description:
-      "Design, launch, and prove the business impact of every training program. AI-powered platform for education leaders who need to show results, not just completions.",
-    url: "https://merahki.ai",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("home", "en");
 
 export default function HomePage() {
   const demoUrl =
@@ -102,6 +73,10 @@ export default function HomePage() {
 
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(buildFaqJsonLd(faqItems)) }}
+      />
       {/* ── SECTION 1 — HERO ── */}
       <section className="relative min-h-screen flex items-center px-6 pt-24 pb-16">
         <GlowBackground
@@ -281,51 +256,73 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 4 — PROBLEM / PAIN (PAS) ── */}
-      <section className="relative py-24 px-6">
-        <GlowBackground
-          indigoPosition={{ x: "50%", y: "50%" }}
-          rustPosition={{ x: "80%", y: "30%" }}
-        />
-        <div className="relative z-10 max-w-3xl mx-auto">
+      <section id="nueva-realidad" className="relative py-20 md:py-32 px-6 bg-white/[0.03] border-y border-white/5">
+        <div className="relative z-10 max-w-[760px] mx-auto">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              70% of training programs{" "}
-              <span className="text-gradient-blue-pink">
-                can&apos;t defend their budget
-              </span>{" "}
-              to the CFO.
-            </h2>
+            <div className="text-center mb-10">
+              <p className="text-xs font-semibold tracking-[0.28em] uppercase text-accent-purple mb-4">
+                The new reality
+              </p>
+              <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+                You lose your students twice.
+              </h2>
+            </div>
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <div className="space-y-6 text-white/60 text-base leading-relaxed">
+            <div className="space-y-7 text-white/70 text-lg md:text-xl leading-[1.7]">
               <p>
-                Your team builds courses. Learners complete them. Reports show
-                enrollment numbers and pass rates. Then budget season arrives —
-                and the CFO asks: &ldquo;What did this actually change?&rdquo;
+                First when they graduate and don&apos;t come back. Then when
+                they decide to keep learning —and they do it on Coursera, on
+                Google, in a six-week bootcamp.
               </p>
               <p>
-                You can&apos;t say how many support tickets dropped. You
-                can&apos;t show which accounts renewed because they were
-                trained. You can&apos;t prove that the $200K you spent on
-                partner education created a single dollar of new revenue.
+                Every time it happens, it isn&apos;t just revenue you lose.
+                It&apos;s the relevance that defines your institution.
               </p>
               <p>
-                Without that link between learning and business outcomes,
-                training is the first budget cut when pressure hits.
+                Undergraduate enrollment is falling. Only 2 in 10 young people
+                finish traditional higher education. 70% of your graduates want
+                to keep learning —if you offer them something relevant. And
+                companies can&apos;t find the talent universities don&apos;t
+                certify: the global shortage reaches 75%.
               </p>
+              <p className="text-white font-medium border-l-4 border-accent-purple/70 bg-white/[0.04] rounded-r-2xl px-6 py-5">
+                Coursera is 13 years old. Your institution has spent decades
+                building academic authority. But today it&apos;s Coursera
+                putting its seal on the graduate you trained.
+              </p>
+            </div>
+          </AnimatedSection>
 
-              {/* Agitate */}
-              <p className="text-white/80 font-medium border-l-2 border-accent-purple/50 pl-5 italic">
-                Every quarter without outcome data is another quarter defending
-                your program with gut feel instead of proof.
-              </p>
-
-              {/* Solution tease */}
-              <p className="text-white font-semibold">
-                Merahki builds that link. From design to credential to ROI
-                dashboard — in weeks.
-              </p>
+          <AnimatedSection delay={0.2}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {[
+                {
+                  value: "2 in 10",
+                  label: "young people who finish traditional higher education",
+                },
+                {
+                  value: "70%",
+                  label: "of graduates want to keep learning",
+                },
+                {
+                  value: "75%",
+                  label: "global talent shortage",
+                },
+              ].map((stat) => (
+                <div
+                  key={stat.value}
+                  className="border-t border-white/15 pt-5 text-center md:text-left"
+                >
+                  <p className="text-4xl md:text-5xl font-bold text-gradient-blue-pink">
+                    {stat.value}
+                  </p>
+                  <p className="text-white/55 text-sm leading-relaxed mt-2">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
         </div>
@@ -351,33 +348,36 @@ export default function HomePage() {
       </section>
 
       {/* ── SECTION 6 — HOW IT WORKS ── */}
-      <section className="relative py-24 px-6">
+      <section id="como-trabajamos" className="relative py-20 md:py-32 px-6">
         <GlowBackground
           indigoPosition={{ x: "20%", y: "60%" }}
           rustPosition={{ x: "80%", y: "40%" }}
         />
-        <div className="relative z-10 max-w-5xl mx-auto">
+        <div className="relative z-10 max-w-6xl mx-auto">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                Three steps. Six weeks.{" "}
+              <p className="text-xs font-semibold tracking-[0.28em] uppercase text-accent-peach mb-4">
+                How we work with you
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold leading-tight max-w-4xl mx-auto">
+                From a conversation to your first credential issued.{" "}
                 <span className="text-gradient-peach-purple">
-                  First ROI report.
+                  In under two months.
                 </span>
               </h2>
             </div>
           </AnimatedSection>
 
           <div className="relative">
-            <div className="hidden md:block absolute top-8 left-[calc(16.67%-1px)] right-[calc(16.67%-1px)] h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+            <div className="hidden lg:block absolute top-11 left-[calc(16.67%-1px)] right-[calc(16.67%-1px)] h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
               {[
                 {
                   step: "01",
                   title: "Diagnose",
-                  desc: "We map your business goals to learning outcomes. What metric needs to move? Who needs to learn what? We set the baseline and tag cohorts before anything is built.",
-                  deliverable: "Program Blueprint",
+                  desc: "We map your institution's goals —revenue, employability, relevance— to specific competencies. We define which micro-credential to launch first and the academic program that sustains it.",
+                  deliverable: "Program Blueprint, ready to present.",
                   time: "Week 1\u20132",
                   color: "text-accent-peach",
                   border: "border-accent-peach/30",
@@ -385,9 +385,9 @@ export default function HomePage() {
                 },
                 {
                   step: "02",
-                  title: "Design & launch",
-                  desc: "Our team produces the full experience — adaptive courses, interactive video, assessments, credentials — using AI-powered tools. Your academy goes live with analytics active from day one.",
-                  deliverable: "Live academy + mobile app",
+                  title: "Design and launch",
+                  desc: "We produce the full experience with AI: adaptive courses, interactive video, assessments, learning paths, and credential architecture. Your branded academy goes live, with active analytics from day one.",
+                  deliverable: "a working academy and first enrollments.",
                   time: "Week 3\u20136",
                   color: "text-accent-purple",
                   border: "border-accent-purple/30",
@@ -395,44 +395,60 @@ export default function HomePage() {
                 },
                 {
                   step: "03",
-                  title: "Measure & optimize",
-                  desc: "Automated dashboards track leading indicators weekly. Business-outcome metrics update monthly. Quarterly executive reports connect program spend to ROI in the language your CFO speaks.",
-                  deliverable: "Ongoing ROI reporting",
-                  time: "Week 6+ ongoing",
+                  title: "Measure and grow",
+                  desc: "Automated dashboards track every cohort: revenue, completion, employability, and NPS. We optimize in real time. Quarterly reports in the language your board speaks.",
+                  deliverable: "continuous impact evidence.",
+                  time: "Week 6 onward",
                   color: "text-accent-blue",
                   border: "border-accent-blue/30",
                   bg: "bg-accent-blue/10",
                 },
               ].map((item, i) => (
                 <AnimatedSection key={item.step} delay={i * 0.15}>
-                  <div className="flex flex-col items-start gap-5">
-                    <div
-                      className={`w-14 h-14 rounded-2xl ${item.bg} border ${item.border} flex items-center justify-center flex-shrink-0`}
-                    >
-                      <span className={`font-bold text-lg ${item.color}`}>
+                  <div className="h-full rounded-3xl border border-white/10 bg-white/[0.03] p-7 md:p-8 flex flex-col gap-5">
+                    <div>
+                      <span
+                        aria-hidden="true"
+                        className={`text-6xl md:text-7xl font-bold leading-none ${item.color}`}
+                      >
                         {item.step}
                       </span>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-white mb-3">
+                    <p className={`inline-flex w-fit rounded-full border ${item.border} ${item.bg} px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/70`}>
+                      {item.time}
+                    </p>
+                    <div className="space-y-4 flex-1">
+                      <h3 className="text-2xl md:text-[28px] font-semibold text-white">
                         {item.title}
                       </h3>
-                      <p className="text-white/50 text-sm leading-relaxed mb-3">
+                      <p className="text-white/60 text-base leading-relaxed">
                         {item.desc}
                       </p>
-                      <p className="text-xs text-white/30">
-                        <span className="text-white/50 font-medium">
-                          Deliverable:
-                        </span>{" "}
-                        {item.deliverable}
-                      </p>
-                      <p className="text-xs text-white/30 mt-1">{item.time}</p>
                     </div>
+                    <p className="border-t border-white/10 bg-white/[0.03] rounded-2xl px-4 py-3 text-sm text-white/65 leading-relaxed">
+                      <span className="text-white font-semibold">
+                        Deliverable:
+                      </span>{" "}
+                      {item.deliverable}
+                    </p>
                   </div>
                 </AnimatedSection>
               ))}
             </div>
           </div>
+
+          <AnimatedSection delay={0.3}>
+            <div className="text-center mt-14">
+              <Link
+                href={demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm"
+              >
+                Book my 20-min demo <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

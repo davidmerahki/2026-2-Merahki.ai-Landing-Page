@@ -1,60 +1,51 @@
 import { MetadataRoute } from "next";
+import { getPath, pairedSeoRoutes } from "@/lib/seo/metadata";
 
 const BASE_URL = "https://merahki.ai";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    "",
-    "/education-led-growth",
-    "/customer-education",
-    "/partner-academies",
-    "/product-adoption",
-    "/training-certification",
-    "/certification",
-    "/flexible-courses",
-    "/ai-assistant",
-    "/mobile-app-builder",
-    "/interactive-video",
-    "/analytics-reports",
-    "/integrations",
-    "/blog",
+  const staticRoutes = [
     "/case-studies",
-    "/reports",
-    "/webinars",
+    "/careers",
     "/events",
+    "/webinars",
+    "/privacy-policy",
   ];
 
-  const esRoutes = [
-    "/es",
-    "/es/customer-education",
-    "/es/partner-academies",
-    "/es/product-adoption",
-    "/es/training-certification",
-    "/es/certification",
-    "/es/marketing-your-courses",
-    "/es/flexible-courses",
-    "/es/mobile-app-builder",
-    "/es/analytics-reports",
-    "/es/website-builder",
-    "/es/interactive-video",
-    "/es/survey-builder",
-    "/es/ai-assistant",
-    "/es/live-sessions",
-    "/es/integrations",
-  ];
+  const pairedRoutes = pairedSeoRoutes.flatMap((entry) => {
+    const enPath = getPath(entry.slug, "en");
+    const esPath = getPath(entry.slug, "es");
+    const languages = {
+      "en-US": `${BASE_URL}${enPath === "/" ? "/" : enPath}`,
+      "es-CO": `${BASE_URL}${esPath}`,
+      "x-default": `${BASE_URL}${enPath === "/" ? "/" : enPath}`,
+    };
+
+    return [
+      {
+        url: languages["en-US"],
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: entry.slug === "" ? 1 : 0.8,
+        alternates: { languages },
+      },
+      {
+        url: languages["es-CO"],
+        lastModified: new Date(),
+        changeFrequency: "monthly" as const,
+        priority: entry.slug === "" ? 0.9 : 0.7,
+        alternates: { languages },
+      },
+    ];
+  });
 
   return [
-    ...routes.map((route) => ({
+    ...pairedRoutes,
+    ...staticRoutes.map((route) => ({
       url: `${BASE_URL}${route}`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
-      priority: route === "" ? 1 : 0.8,
-    })),
-    ...esRoutes.map((route) => ({
-      url: `${BASE_URL}${route}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: route === "/es" ? 0.9 : 0.7,
+      priority: 0.6,
     })),
   ];
 }

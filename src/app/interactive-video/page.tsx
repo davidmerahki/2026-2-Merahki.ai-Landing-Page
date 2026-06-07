@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
@@ -7,18 +7,7 @@ import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import { ArrowRight, Play, Zap, FileText, Layers } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Interactive Video",
-  description:
-    "Turn passive watching into active learning. AI-powered interactive video with subtitles, quizzes, pop-ups, and detailed engagement analytics.",
-  openGraph: {
-    title: "Interactive Video",
-    description:
-      "Transform any video into an engaging, trackable learning experience with AI-powered interactivity and built-in analytics.",
-    url: "https://merahki.ai/interactive-video",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata("interactive-video", "en");
 
 const features = [
   {
@@ -84,9 +73,15 @@ const stats = [
   { value: "Deep", label: "Analytics on every interaction" },
 ];
 
+const serviceJsonLd = buildServiceJsonLd("interactive-video", "en");
+
 export default function InteractiveVideoPage() {
   return (
     <div className="relative min-h-screen bg-void overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
       {/* Hero — text left / video right */}
       <section className="relative pt-32 pb-20 px-6">
         <GlowBackground
