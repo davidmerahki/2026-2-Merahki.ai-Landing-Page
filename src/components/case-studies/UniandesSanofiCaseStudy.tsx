@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowDown, ArrowRight, BarChart3, Boxes, Check, Layers, PenTool } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import GlowBackground from "@/components/ui/GlowBackground";
@@ -13,6 +14,25 @@ type Locale = "en" | "es";
 
 const hubspotUrl = "https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w";
 const caseStudyDocUrl = "/assets/case-studies/uniandes-sanofi-microbiota/case_study_v4.docx";
+
+const allyLogos = [
+  {
+    src: "/images/logos/universidad-de-los-andes.png",
+    alt: "Universidad de los Andes logo",
+  },
+  {
+    src: "/images/logos/sanofi.png",
+    alt: "Sanofi CHC logo",
+  },
+  {
+    src: "/images/logos/sociedad iberoamericana de microbiota prebioticos y probioticos.jpg",
+    alt: "Sociedad Iberoamericana de Microbiota, Probióticos y Prebióticos logo",
+  },
+  {
+    src: "/images/logos/merahki blanco.png",
+    alt: "merahki.ai logo",
+  },
+];
 
 const content = {
   es: {
@@ -276,8 +296,15 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
               <AnimatedSection key={ally.name} delay={index * 0.07}>
                 <article className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-6 shadow-2xl shadow-black/15 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-accent-purple/30 hover:bg-white/[0.06]">
                   <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent-blue/10 blur-3xl opacity-0 transition-opacity group-hover:opacity-100" />
-                  {/* TODO: logo */}
-                  <div className="relative mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-sm font-bold text-accent-peach">{index + 1}</div>
+                  <div className="relative mb-6 flex h-16 items-center rounded-2xl border border-white/10 bg-white/[0.06] px-4">
+                    <Image
+                      src={allyLogos[index].src}
+                      alt={allyLogos[index].alt}
+                      width={180}
+                      height={64}
+                      className="max-h-10 w-auto object-contain"
+                    />
+                  </div>
                   <h3 className="relative text-lg font-semibold text-white leading-tight">{ally.name}</h3>
                   <p className="relative mt-3 text-sm leading-relaxed text-white/58">{ally.role}</p>
                 </article>
