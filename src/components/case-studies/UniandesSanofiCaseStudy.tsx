@@ -15,7 +15,7 @@ type Locale = "en" | "es";
 const hubspotUrl = "https://ulaiz.share.hsforms.com/2E5fbICR4QJejlPcle2rN1w";
 const caseStudyDocUrl = "/assets/case-studies/uniandes-sanofi-microbiota/case_study_v4.docx";
 
-const allyLogos = [
+const allyLogos: { src: string; alt: string; lightBg?: boolean }[] = [
   {
     src: "/images/logos/universidad-de-los-andes.png",
     alt: "Universidad de los Andes logo",
@@ -27,6 +27,7 @@ const allyLogos = [
   {
     src: "/images/logos/sociedad iberoamericana de microbiota prebioticos y probioticos.jpg",
     alt: "Sociedad Iberoamericana de Microbiota, Probióticos y Prebióticos logo",
+    lightBg: true,
   },
   {
     src: "/images/logos/merahki blanco.png",
@@ -296,13 +297,21 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
               <AnimatedSection key={ally.name} delay={index * 0.07}>
                 <article className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-6 shadow-2xl shadow-black/15 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-accent-purple/30 hover:bg-white/[0.06]">
                   <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent-blue/10 blur-3xl opacity-0 transition-opacity group-hover:opacity-100" />
-                  <div className="relative mb-6 flex h-16 items-center rounded-2xl border border-white/10 bg-white/[0.06] px-4">
+                  <div
+                    className={`relative mb-6 flex h-20 items-center justify-center rounded-2xl border px-5 ${
+                      allyLogos[index].lightBg
+                        ? "border-white/20 bg-white"
+                        : "border-white/10 bg-white/[0.08]"
+                    }`}
+                  >
                     <Image
                       src={allyLogos[index].src}
                       alt={allyLogos[index].alt}
-                      width={180}
-                      height={64}
-                      className="max-h-10 w-auto object-contain"
+                      width={160}
+                      height={56}
+                      className={`w-auto object-contain ${
+                        allyLogos[index].lightBg ? "max-h-12" : "max-h-9"
+                      }`}
                     />
                   </div>
                   <h3 className="relative text-lg font-semibold text-white leading-tight">{ally.name}</h3>
