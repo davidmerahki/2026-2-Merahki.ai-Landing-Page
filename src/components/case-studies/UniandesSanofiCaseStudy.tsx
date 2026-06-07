@@ -16,10 +16,10 @@ const caseStudyDocUrl = "/assets/case-studies/uniandes-sanofi-microbiota/case_st
 
 const content = {
   es: {
-    eyebrow: "Case Study · Uniandes × Sanofi CHC · 2022",
-    h1Lead: "De 8 semanas a USD $550K:",
-    h1Rest: " cómo virtualizamos un programa de educación médica multinacional bajo presión — y arrancamos la relación que más ha crecido la facturación de educación continua de Uniandes Medicina.",
-    subheading: "Dos tracks clínicos. 200+ alergólogos. 95+ insignias digitales. 8 países. Orquestado de punta a punta por merahki.ai.",
+    eyebrow: "Case study · Uniandes × Sanofi CHC · 2022",
+    h1Lead: "Antes de que las micro-credenciales fueran tendencia,",
+    h1Rest: " ya las diseñábamos y producíamos.",
+    subheading: "Caso Uniandes × Sanofi CHC, 2022. 8 semanas. 95+ insignias digitales en 8 países LATAM, +200 alergólogos certificados, 68% de adherencia. ROI de 8.17x y ~USD $550K acumulados en facturación de educación continua para la Facultad de Medicina de Uniandes.",
     cta: "Hablar con merahki.ai",
     videoCta: "Ver el testimonio",
     metrics: [
@@ -94,10 +94,10 @@ const content = {
     downloadLabel: "Descargar el caso completo (.docx)",
   },
   en: {
-    eyebrow: "Case Study · Uniandes × Sanofi CHC · 2022",
-    h1Lead: "From 8 weeks to USD $550K:",
-    h1Rest: " how we virtualized a multinational medical education program under pressure — and kickstarted the relationship that has driven the largest growth in Uniandes Medicine's continuing-education revenue.",
-    subheading: "Two clinical tracks. 200+ allergists. 95+ digital badges. 8 countries. End-to-end orchestrated by merahki.ai.",
+    eyebrow: "Case study · Uniandes × Sanofi CHC · 2022",
+    h1Lead: "Before micro-credentials went mainstream,",
+    h1Rest: " we were already designing and producing them.",
+    subheading: "Case study Uniandes × Sanofi CHC, 2022. 8 weeks. 95+ digital badges across 8 LATAM countries, 200+ allergists certified, 68% program adherence. 8.17x ROI and ~USD $550K in accumulated continuing-education revenue for Uniandes Medicine.",
     cta: "Talk to merahki.ai",
     videoCta: "Watch the testimonial",
     metrics: [
@@ -210,7 +210,7 @@ function SectionTitle({ eyebrow, title }: { eyebrow?: string; title: string }) {
   return (
     <div className="space-y-4">
       {eyebrow && <p className="text-xs font-semibold tracking-[0.24em] uppercase text-accent-peach">{eyebrow}</p>}
-      <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white">{title}</h2>
+      <h2 className="max-w-4xl text-3xl md:text-5xl font-bold leading-tight tracking-tight text-white">{title}</h2>
     </div>
   );
 }
@@ -220,32 +220,33 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
   const quotes = quoteGroups[locale];
 
   return (
-    <div className="relative min-h-screen bg-void overflow-x-hidden">
+    <div className="relative min-h-screen bg-void overflow-x-hidden text-white">
+      <div className="pointer-events-none fixed inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.16),transparent_34rem),linear-gradient(180deg,rgba(255,255,255,0.035),transparent_22rem)]" aria-hidden="true" />
       <section className="relative px-6 pt-32 pb-20 md:pt-40 md:pb-28">
-        <GlowBackground indigoPosition={{ x: "22%", y: "36%" }} rustPosition={{ x: "78%", y: "45%" }} />
+        <GlowBackground indigoPosition={{ x: "18%", y: "24%" }} rustPosition={{ x: "72%", y: "34%" }} />
         <div className="relative z-10 max-w-7xl mx-auto">
           <AnimatedSection>
-            <span className="inline-flex min-h-9 items-center rounded-full border border-white/10 bg-white/[0.05] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/65">{t.eyebrow}</span>
+            <span className="inline-flex min-h-9 items-center rounded-full border border-accent-peach/20 bg-white/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-white/75 shadow-2xl shadow-accent-purple/10 backdrop-blur-xl">{t.eyebrow}</span>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <h1 className="mt-8 max-w-6xl text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-white">
+            <h1 className="mt-8 max-w-6xl text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.02] tracking-[-0.04em] text-white">
               <GradientText>{t.h1Lead}</GradientText>{t.h1Rest}
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <p className="mt-7 max-w-4xl text-lg md:text-xl leading-relaxed text-white/70">{t.subheading}</p>
+            <p className="mt-7 max-w-4xl text-lg md:text-2xl leading-relaxed text-white/72">{t.subheading}</p>
           </AnimatedSection>
           <AnimatedSection delay={0.3}>
-            <div className="mt-10 max-w-5xl">
+            <div className="mt-10 max-w-6xl">
               <MetricStrip metrics={t.metrics} />
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.4}>
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <Link href={hubspotUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent-peach to-accent-purple px-7 py-3.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02]">
+              <Link href={hubspotUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-accent-peach to-accent-purple px-7 py-3.5 text-sm font-semibold text-white shadow-2xl shadow-accent-purple/25 transition-all hover:scale-[1.02] hover:shadow-accent-purple/40">
                 {t.cta} <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="#juliana-testimonial" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-semibold text-white/80 transition-colors hover:bg-white/[0.05]">
+              <Link href="#juliana-testimonial" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.035] px-7 py-3.5 text-sm font-semibold text-white/80 backdrop-blur-xl transition-colors hover:bg-white/[0.07]">
                 {t.videoCta} <ArrowDown className="w-4 h-4" />
               </Link>
             </div>
@@ -253,14 +254,16 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
         </div>
       </section>
 
-      <section id="juliana-testimonial" className="relative px-6 py-20 md:py-28 border-y border-white/5 bg-white/[0.02]">
+      <section id="juliana-testimonial" className="relative px-6 py-20 md:py-28 border-y border-white/5 bg-white/[0.025]">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <AnimatedSection className="lg:col-span-7 lg:order-2">
             <CaseStudyVideo videoId="1060513524" title="Universidad de los Andes — Juliana González" caption={t.julianaCaption} />
           </AnimatedSection>
           <AnimatedSection delay={0.1} className="lg:col-span-5 lg:order-1">
-            <SectionTitle title={t.summaryTitle} />
-            <SummaryText locale={locale} />
+            <div className="rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 md:p-8 shadow-2xl shadow-black/20 backdrop-blur-xl">
+              <SectionTitle title={t.summaryTitle} />
+              <SummaryText locale={locale} />
+            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -271,11 +274,12 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {t.allies.map((ally, index) => (
               <AnimatedSection key={ally.name} delay={index * 0.07}>
-                <article className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+                <article className="group relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-6 shadow-2xl shadow-black/15 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-accent-purple/30 hover:bg-white/[0.06]">
+                  <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-accent-blue/10 blur-3xl opacity-0 transition-opacity group-hover:opacity-100" />
                   {/* TODO: logo */}
-                  <div className="mb-5 h-12 rounded-xl border border-dashed border-white/10 bg-white/[0.02]" />
-                  <h3 className="text-lg font-semibold text-white leading-tight">{ally.name}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/55">{ally.role}</p>
+                  <div className="relative mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] text-sm font-bold text-accent-peach">{index + 1}</div>
+                  <h3 className="relative text-lg font-semibold text-white leading-tight">{ally.name}</h3>
+                  <p className="relative mt-3 text-sm leading-relaxed text-white/58">{ally.role}</p>
                 </article>
               </AnimatedSection>
             ))}
@@ -283,12 +287,16 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
         </div>
       </section>
 
-      <section className="relative px-6 py-20 md:py-28 border-y border-white/5 bg-white/[0.02]">
+      <section className="relative px-6 py-20 md:py-28 border-y border-white/5 bg-white/[0.025]">
         <div className="max-w-5xl mx-auto space-y-10">
           <AnimatedSection><SectionTitle title={t.challengeTitle} /></AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <div className="space-y-6 text-base md:text-lg leading-[1.75] text-white/70">
-              {t.challenge.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+            <div className="grid gap-4 text-base md:text-lg leading-[1.75] text-white/70">
+              {t.challenge.map((paragraph, index) => (
+                <p key={paragraph} className={index > 1 ? "rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 text-white/78" : ""}>
+                  {paragraph}
+                </p>
+              ))}
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
@@ -316,7 +324,8 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
           <div className="mt-12 space-y-5">
             {t.methodology.map((step, index) => (
               <AnimatedSection key={step} delay={index * 0.06}>
-                <div className="flex gap-5 rounded-2xl border border-white/10 bg-white/[0.03] p-5 md:p-6">
+                <div className="group relative overflow-hidden flex gap-5 rounded-3xl border border-white/10 bg-white/[0.04] p-5 md:p-6 shadow-2xl shadow-black/15 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.06]">
+                  <div className="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-accent-peach via-accent-purple to-transparent" />
                   <span className="text-3xl md:text-4xl font-bold leading-none text-accent-peach">{String(index + 1).padStart(2, "0")}</span>
                   <p className="pt-1 text-lg md:text-xl font-semibold text-white">{step}</p>
                 </div>
@@ -332,9 +341,12 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {t.tracks.map((track, index) => (
               <AnimatedSection key={track.title} delay={index * 0.08}>
-                <article className="h-full rounded-3xl border border-white/10 bg-white/[0.03] p-7 md:p-8">
-                  <h3 className="text-2xl md:text-3xl font-semibold text-white leading-tight">{track.title}</h3>
-                  <p className="mt-5 text-xl text-gradient-peach-purple font-bold">{track.body}</p>
+                <article className="relative h-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-7 md:p-8 shadow-2xl shadow-black/20 backdrop-blur-xl">
+                  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent-peach/70 to-transparent" />
+                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-accent-purple/10 blur-3xl" />
+                  <span className="relative text-xs font-semibold uppercase tracking-[0.22em] text-accent-peach/80">Phase 0{index + 1}</span>
+                  <h3 className="relative mt-4 text-2xl md:text-3xl font-semibold text-white leading-tight">{track.title}</h3>
+                  <p className="relative mt-5 text-base md:text-lg leading-relaxed text-white/72">{track.body}</p>
                 </article>
               </AnimatedSection>
             ))}
@@ -351,11 +363,12 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
           <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
             {t.results.map((result, index) => (
               <AnimatedSection key={result.title} delay={index * 0.08}>
-                <article className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                  <h3 className="text-xl font-semibold text-white">{result.title}</h3>
+                <article className="relative h-full overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/15 backdrop-blur-xl">
+                  <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent-blue/10 blur-2xl" />
+                  <h3 className="relative text-xl font-semibold text-white">{result.title}</h3>
                   <ul className="mt-5 space-y-3">
                     {result.bullets.map((bullet) => (
-                      <li key={bullet} className="flex gap-3 text-sm leading-relaxed text-white/65">
+                      <li key={bullet} className="relative flex gap-3 text-sm leading-relaxed text-white/68">
                         <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent-peach" />
                         <span>{bullet}</span>
                       </li>
@@ -366,10 +379,11 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
             ))}
           </div>
           <AnimatedSection delay={0.25}>
-            <article className="mt-8 rounded-3xl border border-accent-purple/30 bg-white/[0.04] p-7 md:p-10">
-              <h3 className="text-2xl font-semibold text-white">{t.businessTitle}</h3>
-              <p className="mt-4 text-4xl md:text-6xl font-bold text-gradient-peach-purple">{t.businessMetric}</p>
-              <p className="mt-5 max-w-3xl text-base md:text-lg leading-relaxed text-white/65">{t.businessBody}</p>
+            <article className="relative mt-8 overflow-hidden rounded-[2rem] border border-accent-purple/30 bg-white/[0.05] p-7 md:p-10 shadow-2xl shadow-accent-purple/10 backdrop-blur-xl">
+              <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-accent-purple/15 blur-3xl" />
+              <h3 className="relative text-2xl font-semibold text-white">{t.businessTitle}</h3>
+              <p className="relative mt-4 text-4xl md:text-7xl font-bold tracking-tight text-gradient-peach-purple">{t.businessMetric}</p>
+              <p className="relative mt-5 max-w-3xl text-base md:text-lg leading-relaxed text-white/68">{t.businessBody}</p>
               <Link href="#juliana-testimonial" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-peach hover:text-accent-peach/80">
                 {t.videoCta} <ArrowDown className="w-4 h-4" />
               </Link>
@@ -398,8 +412,10 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {t.replicable.map((item, index) => (
               <AnimatedSection key={item} delay={index * 0.06}>
-                <article className="h-full rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-                  <Layers className="h-6 w-6 text-accent-blue" />
+                <article className="group h-full rounded-3xl border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/15 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-accent-blue/30 hover:bg-white/[0.06]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-accent-blue/20 bg-accent-blue/10">
+                    <Layers className="h-5 w-5 text-accent-blue" />
+                  </div>
                   <p className="mt-5 text-white/75 leading-relaxed">{item}</p>
                 </article>
               </AnimatedSection>
@@ -410,7 +426,7 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
 
       <section className="relative px-6 py-24 md:py-36 text-center">
         <GlowBackground indigoPosition={{ x: "30%", y: "45%" }} rustPosition={{ x: "70%", y: "45%" }} />
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="relative z-10 max-w-5xl mx-auto rounded-[2.5rem] border border-white/10 bg-white/[0.04] px-6 py-14 md:px-12 md:py-20 shadow-2xl shadow-accent-purple/10 backdrop-blur-xl">
           <AnimatedSection>
             <h2 className="text-4xl md:text-6xl font-bold leading-tight text-white">{t.closingTitle}</h2>
             <p className="mt-7 text-lg md:text-xl leading-relaxed text-white/70">{t.closingBody}</p>
