@@ -33,15 +33,15 @@ const navGroups: NavGroup[] = [
   {
     label: "Solutions",
     items: [
+      { label: "Continuing Education", desc: "Full-service B2B education operations for higher education institutions.", href: "/continuing-education" },
+      { label: "Training & Certification", desc: "Build and deliver training at speed.", href: "/training-certification" },
       { label: "Customer Education", desc: "Drive retention and revenue with education.", href: "/customer-education" },
       { label: "Partner Education", desc: "Accelerate partner success with training.", href: "/partner-academies" },
-      { label: "Training & Certification", desc: "Build and deliver training at speed.", href: "/training-certification" },
-      { label: "Product Adoption & Onboarding", desc: "Increase product adoption with education.", href: "/product-adoption" },
+      { label: "Medical Education", desc: "AI-powered CME, accreditation & clinical training for healthcare.", href: "/medical-education" },
       { label: "Certifications at Scale", desc: "Deliver training and certification at scale.", href: "/certification" },
+      { label: "Product Adoption & Onboarding", desc: "Increase product adoption with education.", href: "/product-adoption" },
       { label: "Marketing Your Courses", desc: "Your outsourced growth squad to turn traffic into enrolled students.", href: "/marketing-your-courses" },
       { label: "Growth for Universities", desc: "Scale enrollment, retention & lifelong learning with AI.", href: "/growth-for-universities" },
-      { label: "Medical Education", desc: "AI-powered CME, accreditation & clinical training for healthcare.", href: "/medical-education" },
-      { label: "Continuing Education", desc: "Full-service B2B education operations for higher education institutions.", href: "/continuing-education" },
     ],
   },
   {
@@ -299,7 +299,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/10 px-6 py-4 space-y-1">
+        <div className="md:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-black/95 backdrop-blur-xl border-t border-white/10 px-6 py-4 space-y-1">
           {navGroups.map((group) => (
             <div key={group.label}>
               <button

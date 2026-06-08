@@ -110,6 +110,11 @@ const content = {
       "Activos académicos modulares (lego pedagógico)",
       "Credenciales digitales como parte del entregable, con mención a la alianza con Pok.tech y Open Badges 3.0",
     ],
+    webinarTitle: "David González en ACIET — Casos de Estudio de Micro Credenciales",
+    webinarHost: "Asociación Colombiana de Instituciones de Educación Superior (ACIET)",
+    webinarHostDesc: "Único gremio en el Sistema Colombiano de Educación Superior que integra IES públicas y privadas, de todos los niveles de formación, naturaleza jurídica y carácter académico.",
+    webinarSpeaker: "David González · Founder, merahki.ai",
+    webinarCaption: "Ponencia de David González sobre casos de estudio de micro-credenciales en la industria de educación continua, presentada ante el gremio de instituciones de educación superior de Colombia.",
     closingTitle: "¿Tu institución tiene una ventana corta para lanzar un programa certificado de alto impacto?",
     closingBody: "El mismo modelo que orquestó este caso está disponible para tu equipo.",
     downloadLabel: "Descargar el caso completo (.docx)",
@@ -188,6 +193,11 @@ const content = {
       "Modular academic assets (pedagogical lego)",
       "Digital credentials as part of the deliverable, with Pok.tech and Open Badges 3.0",
     ],
+    webinarTitle: "David González at ACIET — Micro-Credential Case Studies",
+    webinarHost: "Asociación Colombiana de Instituciones de Educación Superior (ACIET)",
+    webinarHostDesc: "The only trade association in the Colombian Higher Education System, integrating public and private HEIs across all levels of education, legal nature, and academic character.",
+    webinarSpeaker: "David González · Founder, merahki.ai",
+    webinarCaption: "David González's talk on micro-credential case studies in the continuing education industry, presented to Colombia's association of higher education institutions.",
     closingTitle: "Does your institution have a tight window to launch a high-impact certified program?",
     closingBody: "The same model that orchestrated this case is available for your team.",
     downloadLabel: "Download the full case study (.docx)",
@@ -457,6 +467,48 @@ export default function UniandesSanofiCaseStudy({ locale }: { locale: Locale }) 
               </AnimatedSection>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="relative px-6 py-20 md:py-28 border-y border-white/5 bg-white/[0.025]">
+        <div className="max-w-5xl mx-auto">
+          <AnimatedSection>
+            <SectionTitle title={t.webinarTitle} />
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <div className="mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+              <div className="lg:col-span-8">
+                <div className="relative rounded-[2rem] bg-gradient-to-br from-accent-blue/25 via-accent-purple/20 to-accent-peach/15 p-px shadow-2xl shadow-accent-blue/10">
+                  <div className="relative w-full aspect-video overflow-hidden rounded-[calc(2rem-1px)] border border-white/10 bg-black/50">
+                    <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-tr from-black/20 via-transparent to-white/5" />
+                    <iframe
+                      src="https://www.youtube.com/embed/uTBgYiH5GnM?si=UwScPrcI5Snd4c1i"
+                      title={t.webinarTitle}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                      className="absolute inset-0 w-full h-full"
+                    />
+                  </div>
+                </div>
+                {t.webinarCaption && (
+                  <p className="mt-4 text-sm leading-relaxed text-white/50">{t.webinarCaption}</p>
+                )}
+              </div>
+              <div className="lg:col-span-4 flex flex-col gap-5">
+                <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-xl shadow-black/15 backdrop-blur-xl">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-peach">Speaker</p>
+                  <p className="mt-2 text-base font-semibold text-white">{t.webinarSpeaker}</p>
+                </div>
+                <div className="rounded-2xl border border-accent-blue/25 bg-white/[0.04] p-5 shadow-xl shadow-black/15 backdrop-blur-xl">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-blue">Host</p>
+                  <p className="mt-2 text-base font-semibold text-white">{t.webinarHost}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/60">{t.webinarHostDesc}</p>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import GlowBackground from "@/components/ui/GlowBackground";
+import HubSpotForm from "@/components/HubSpotForm";
 import Accordion from "@/components/ui/Accordion";
 
 export type Locale = "en" | "es";
@@ -178,7 +180,7 @@ const copy = {
     workId: "how-we-work",
     workEyebrow: "HOW WE WORK",
     workTitle: "From a conversation to your first credential issued. In under two months.",
-    workCta: "Book my 20-min demo",
+    workCta: "Book my 30-min demo",
     steps: [
       { step: "01", time: "Week 1–2", title: "Co-design", body: "We understand which credential you need to issue and for whom: the B2C market of your graduates, the B2B market of companies in your region, or both. Together with your academic experts, we define the learning outcomes, the competency indicators, and the observable behaviors the micro-credential will validate.", deliverable: "a co-designed micro-credential with learning outcomes, indicators, and assessment rubrics." },
       { step: "02", time: "Week 3–6", title: "Production and launch", body: "We produce the full experience with AI: adaptive courses, interactive video, interactive activities and content, rigorous assessments, and learning paths. Your branded academy goes live, with active analytics from day one.", deliverable: "a working academy with your micro-credential ready for enrollments." },
@@ -187,11 +189,16 @@ const copy = {
     deliverableLabel: "Deliverable:",
     faqTitle: "What your board will ask.",
     closingId: "closing",
-    closingTitle: "Every semester that passes without this is a semester you hand to the university next door.",
-    closingBody: "Micro-credentials are what the market wants to buy. Your university already has the academic authority to issue them. What's missing is the mechanism —and the decision to move now.",
-    primaryCta: "Book my 20-min demo",
-    secondaryCta: "Get the free ROI Framework",
-    microcopy: "20 minutes. No commitment. You leave with the map of your first micro-credential, its estimated ROI, and the next steps.",
+    closingH2: "Let's start co-designing your micro-credential. Book a 30-minute call.",
+    closingH2Gradient: "co-designing your micro-credential.",
+    closingSubtitle: "A working session to understand what makes micro-credentials actually work, with insights drawn from 20 countries. You leave the call with the blueprint for your first micro-credential and the estimated ROI per cohort.",
+    closingFormTitle: "Book a call with Merahki",
+    closingBullets: [
+      { lead: "Live co-design, not a slide deck.", body: "We come with questions about your institution. You leave with a draft blueprint." },
+      { lead: "You talk to the person who designs micro-credentials with Uniandes, Universidad del Valle, and Escuela Nacional del Deporte.", body: "Not an SDR." },
+      { lead: "You leave with three concrete deliverables.", body: "A map of your first micro-credential · estimated ROI per cohort · the next operational step." },
+      { lead: "30 minutes flat. No commitment, no contract.", body: "If it's not for you, you say so and we move on." },
+    ],
   },
   es: {
     game: {
@@ -250,7 +257,7 @@ const copy = {
     workId: "como-trabajamos",
     workEyebrow: "CÓMO TRABAJAMOS",
     workTitle: "De una conversación a la primera credencial emitida. En menos de dos meses.",
-    workCta: "Agendar mi demo de 20 min",
+    workCta: "Agendar mi demo de 30 min",
     steps: [
       { step: "01", time: "Semana 1–2", title: "Co-diseño", body: "Entendemos qué credencial necesitas emitir y para quién: el mercado B2C de tus egresados, el B2B de las empresas de tu región o ambos. Con tus expertos académicos definimos los resultados de aprendizaje, los indicadores de competencia y las conductas observables que la microcredencial va a validar.", deliverable: "microcredencial co-diseñada con resultados de aprendizaje, indicadores y rúbricas de evaluación." },
       { step: "02", time: "Semana 3–6", title: "Producción y lanzamiento", body: "Producimos la experiencia completa con IA: cursos adaptativos, video interactivo, actividades y contenidos interactivos, evaluaciones rigurosas y rutas de aprendizaje. Tu academia de marca propia sale en vivo, con analítica activa desde el día uno.", deliverable: "academia funcionando con la microcredencial lista para inscripciones." },
@@ -259,11 +266,16 @@ const copy = {
     deliverableLabel: "Entregable:",
     faqTitle: "Lo que tu junta va a preguntar.",
     closingId: "cierre",
-    closingTitle: "Cada semestre que pasa sin esto es un semestre que entregas al competidor de al lado.",
-    closingBody: "Las microcredenciales son lo que el mercado quiere comprar. Tu universidad ya tiene la autoridad académica para emitirlas. Lo que falta es el mecanismo —y la decisión de moverse ahora.",
-    primaryCta: "Agendar mi demo de 20 min",
-    secondaryCta: "Quiero el Framework de ROI gratis",
-    microcopy: "20 minutos. Sin compromiso. Sales con el mapa de tu primera microcredencial, su ROI estimado y los próximos pasos.",
+    closingH2: "Empecemos a co-diseñar tu microcredencial. Agenda una llamada de 30 minutos.",
+    closingH2Gradient: "co-diseñar tu microcredencial.",
+    closingSubtitle: "Una sesión para entender qué tienen las microcredenciales que sí funcionan e insights de 20 países en todo el mundo. Sales del call con el blueprint de tu primera microcredencial y el ROI estimado por cohorte.",
+    closingFormTitle: "Agenda una llamada con Merahki",
+    closingBullets: [
+      { lead: "Co-diseño en vivo, no presentación de slides.", body: "Llegamos con preguntas sobre tu institución. Sales con un blueprint borrador." },
+      { lead: "Hablas con quien diseña microcredenciales con Uniandes, Univalle y la Escuela Nacional del Deporte.", body: "No con un SDR." },
+      { lead: "Te llevas tres entregables concretos.", body: "Mapa de tu primera microcredencial · ROI estimado por cohorte · siguiente paso operativo." },
+      { lead: "30 minutos exactos. Sin compromiso, sin contrato.", body: "Si no es para ti, lo dices y seguimos." },
+    ],
   },
 };
 
@@ -422,20 +434,39 @@ export default function HomeBodyV2({
         </div>
       </section>
 
-      <section id={t.closingId} className="relative py-24 md:py-40 px-6 bg-white/[0.04] border-t border-white/10">
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
+      <section id={t.closingId} className="relative py-20 md:py-32 px-6 overflow-hidden">
+        <GlowBackground
+          indigoPosition={{ x: "20%", y: "30%" }}
+          rustPosition={{ x: "80%", y: "70%" }}
+        />
+        <div className="relative z-10 max-w-6xl mx-auto">
           <AnimatedSection>
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight text-white">{t.closingTitle}</h2>
-            <p className="mt-7 text-white/70 text-lg md:text-xl leading-[1.65] max-w-[720px] mx-auto">{t.closingBody}</p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href={demoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm">
-                {t.primaryCta} <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link href="/reports" className="inline-flex min-h-12 items-center justify-center gap-2 px-8 py-3.5 rounded-full font-semibold text-white border border-white/20 hover:bg-white/5 transition-all text-sm">
-                {t.secondaryCta} <ArrowRight className="w-4 h-4" />
-              </Link>
+            <div className="text-center mx-auto max-w-[840px]">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white tracking-tight leading-tight">{t.closingH2}</h2>
+              <p className="mt-6 text-lg md:text-xl text-white/70 leading-relaxed max-w-[720px] mx-auto">{t.closingSubtitle}</p>
             </div>
-            <p className="mt-7 max-w-[580px] mx-auto text-white/45 text-sm leading-relaxed">{t.microcopy}</p>
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
+            <div className="mt-16 md:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+              {/* Left: HubSpot form */}
+              <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-2 md:p-4 order-1">
+                <HubSpotForm />
+              </div>
+              {/* Right: benefits */}
+              <ul className="space-y-8 order-2">
+                {t.closingBullets.map((bullet, index) => (
+                  <li key={index} className="flex gap-4">
+                    <span className="flex-shrink-0 mt-1">
+                      <Check className="w-5 h-5 text-accent-peach" aria-hidden="true" />
+                    </span>
+                    <div>
+                      <p className="text-white font-medium text-base md:text-lg leading-snug">{bullet.lead}</p>
+                      <p className="mt-2 text-white/60 text-sm md:text-base leading-relaxed">{bullet.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </AnimatedSection>
         </div>
       </section>

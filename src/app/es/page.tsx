@@ -32,13 +32,12 @@ export default function HomePageES() {
             <div className="flex-1 space-y-8">
               <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
-                  Personas y empresas ya están comprando microcredenciales.{" "}
-                  <span className="text-gradient-peach-purple">La única pregunta es a quién.</span>
+                  Personas y empresas ya están comprando microcredenciales.
                 </h1>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-xl text-white/60 max-w-xl leading-relaxed">
-                  Merahki diseña y virtualiza tus microcredenciales, mide su impacto con learning analytics y emite insignias digitales verificables. Convierte tu educación continua en un motor de crecimiento e ingreso recurrente.
+                  Merahki te ayuda a co-diseñar y virtualizar tus microcredenciales, medir su impacto con learning analytics y emitir insignias digitales verificables. Convierte tu educación continua en un motor de crecimiento e ingreso recurrente.
                 </p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.25}>
@@ -116,40 +115,6 @@ export default function HomePageES() {
               </AnimatedSection>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── SECCIÓN 4 — PROBLEMA / DOLOR (PAS) ── */}
-      <section id="nueva-realidad" className="relative py-20 md:py-32 px-6 bg-white/[0.03] border-y border-white/5">
-        <div className="relative z-10 max-w-[760px] mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-10">
-              <p className="text-xs font-semibold tracking-[0.28em] uppercase text-accent-purple mb-4">La nueva realidad</p>
-              <h2 className="text-4xl md:text-6xl font-bold leading-tight">Pierdes a tus estudiantes dos veces.</h2>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <div className="space-y-7 text-white/70 text-lg md:text-xl leading-[1.7]">
-              <p>Primero cuando se gradúan y no vuelven. Después cuando deciden seguir aprendiendo —y lo hacen en Coursera, en Google, en un bootcamp de seis semanas.</p>
-              <p>Cada vez que pasa, no pierdes solo el ingreso. Pierdes la relevancia que define a tu institución.</p>
-              <p>La matrícula de pregrado cae. Solo 2 de cada 10 jóvenes terminan la educación tradicional. El 70% de tus egresados quiere seguir aprendiendo —si les ofreces algo relevante—. Y las empresas no encuentran el talento que las universidades no certifican: la escasez global llega al 75%.</p>
-              <p className="text-white font-medium border-l-4 border-accent-purple/70 bg-white/[0.04] rounded-r-2xl px-6 py-5">Coursera tiene 13 años. Tu institución lleva décadas construyendo autoridad académica. Pero hoy es Coursera la que pone su sello sobre el egresado que tú formaste.</p>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-              {[
-                { value: "2 de 10", label: "jóvenes que terminan la educación tradicional" },
-                { value: "70%", label: "de egresados quiere seguir aprendiendo" },
-                { value: "75%", label: "escasez global de talento" },
-              ].map((stat) => (
-                <div key={stat.value} className="border-t border-white/15 pt-5 text-center md:text-left">
-                  <p className="text-4xl md:text-5xl font-bold text-gradient-blue-pink">{stat.value}</p>
-                  <p className="text-white/55 text-sm leading-relaxed mt-2">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 
