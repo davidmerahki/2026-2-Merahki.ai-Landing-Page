@@ -1,12 +1,12 @@
 ﻿import { buildFaqJsonLd, buildMetadata } from "@/lib/seo/metadata";
-import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
 import TestimonialsES from "@/components/sections/TestimonialsES";
 import HomeBodyV2, { getHomeFaqItems } from "@/components/landing/HomeBodyV2";
-import { ArrowRight, PenTool, Rocket, BarChart3, Check } from "lucide-react";
+import HeroPipeline from "@/components/landing/HeroPipeline";
+import { ArrowRight, PenTool, Rocket, BarChart3, Check, BadgeCheck } from "lucide-react";
 export const metadata = buildMetadata("home", "es");
 
 export default function HomePageES() {
@@ -30,23 +30,30 @@ export default function HomePageES() {
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
             <div className="flex-1 space-y-8">
+              <AnimatedSection immediate delay={0.05}>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full section-badge bg-white/10 text-white/70 border border-white/15">
+                  <BadgeCheck className="w-3.5 h-3.5 text-accent-peach" />
+                  POK Official Partner
+                </span>
+              </AnimatedSection>
               <AnimatedSection immediate delay={0.1}>
                 <h1 className="text-4xl md:text-5xl font-bold leading-[1.1] tracking-tight">
-                  Personas y empresas ya están comprando microcredenciales.
+                  Virtualiza tu conocimiento una vez. Capacita, certifica y revende{" "}
+                  <span className="text-gradient-peach-purple whitespace-nowrap">n veces</span>.
                 </h1>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-xl text-white/60 max-w-xl leading-relaxed">
-                  Merahki te ayuda a co-diseñar y virtualizar tus microcredenciales, medir su impacto con learning analytics y emitir insignias digitales verificables. Convierte tu educación continua en un motor de crecimiento e ingreso recurrente.
+                  Co-diseñamos y virtualizamos tus microcredenciales, producimos el contenido, medimos el impacto con learning analytics y emitimos credenciales verificadas por POK. Un solo partner, de punta a punta. ROI claro y medible para tu talento, tus clientes corporativos y tus estudiantes.
                 </p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.25}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 py-2 max-w-xl">
                   {[
-                    "Diseño y virtualización en 6–12 semanas",
-                    "Ingreso recurrente para tu institución",
+                    "En vivo en 6–12 semanas",
+                    "Ingreso recurrente, cohorte tras cohorte",
                     "Learning analytics con 95+ filtros",
-                    "Insignias verificables en blockchain",
+                    "Credenciales verificables en blockchain",
                   ].map((pillar) => (
                     <div key={pillar} className="flex items-start gap-2">
                       <Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-accent-peach" />
@@ -71,10 +78,8 @@ export default function HomePageES() {
                 </p>
               </AnimatedSection>
             </div>
-            <AnimatedSection immediate delay={0.2} className="flex-1 w-full">
-              <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
-                <Image src="/images/Micro-credenciales microcredentials.png" alt="Dashboard de analítica Merahki — comparación de cohortes entrenadas vs. no entrenadas" width={900} height={720} className="w-full h-auto" sizes="(max-width: 768px) 100vw, 50vw" priority />
-              </div>
+            <AnimatedSection immediate delay={0.2} className="flex-1 w-full max-w-xl md:max-w-none">
+              <HeroPipeline lang="es" />
             </AnimatedSection>
           </div>
         </div>
