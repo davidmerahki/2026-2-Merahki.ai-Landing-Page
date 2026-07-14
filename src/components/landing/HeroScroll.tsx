@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import CtaLink from "@/components/landing/CtaLink";
+import GlowBackground from "@/components/ui/GlowBackground";
 
 type HeroCopy = {
   h1a: string;
@@ -76,8 +77,12 @@ export default function HeroScroll({
   return (
     <section ref={ref} className={reduced ? "relative" : "relative h-[190vh]"}>
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center px-6 pt-20 pb-8">
-        {/* Fondo: video (desktop) sobre void */}
+        {/* Fondo: glow de marca (base, visible en móvil sin video) + video (desktop) */}
         <div className="absolute inset-0" aria-hidden="true">
+          <GlowBackground
+            indigoPosition={{ x: "22%", y: "35%" }}
+            rustPosition={{ x: "80%", y: "70%" }}
+          />
           {showVideo && (
             <video
               className="absolute inset-0 w-full h-full object-cover"

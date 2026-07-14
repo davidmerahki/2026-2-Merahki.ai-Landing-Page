@@ -42,21 +42,26 @@ const AREA_LABEL: Record<Locale, Record<CourseArea, string>> = {
   en: { salud: "Health", gobierno: "Government", negocios: "Business", ia: "Artificial Intelligence", sostenibilidad: "Sustainability" },
 };
 
+/* Casos con logo de cliente final real disponible en el repo. Clientes diversos;
+   Universidad de los Andes una sola vez (su programa insignia de IA).
+   Fuente: "Cursos Virtualizados.xlsx" (hoja SOAR). */
 const COURSES: { title: string; client: string; year: string; area: CourseArea; logo?: string }[] = [
   { title: "Alergología para Médicos no Alergólogos", client: "Sanofi × Universidad de los Andes", year: "2023", area: "salud", logo: "/images/logos/sanofi.png" },
   { title: "Políticas Públicas para la Productividad y el Crecimiento", client: "BID × Universidad de los Andes", year: "2024", area: "gobierno", logo: "/images/logos/bid.png" },
-  { title: "Inteligencia Artificial para la Administración de Justicia", client: "Universidad de los Andes", year: "2024", area: "ia", logo: "/images/logos/universidad-de-los-andes.png" },
-  { title: "Microbiota, Probióticos y Prebióticos", client: "Universidad de los Andes", year: "2022", area: "salud", logo: "/images/logos/universidad-de-los-andes.png" },
   { title: "Actualización en Insuficiencia Cardíaca", client: "AstraZeneca × Universidad de los Andes", year: "2022", area: "salud", logo: "/images/logos/astrazeneca.png" },
-  { title: "Sostenibilidad para las Organizaciones", client: "Universidad de los Andes", year: "2024", area: "sostenibilidad", logo: "/images/logos/universidad-de-los-andes.png" },
-  { title: "Juntos X la Transparencia", client: "Escuela de Gobierno · Universidad de los Andes", year: "2022", area: "gobierno", logo: "/images/logos/universidad-de-los-andes.png" },
-  { title: "Manejo Multidisciplinario de la Obesidad", client: "Novo Nordisk × Universidad de los Andes", year: "2023", area: "salud" },
   { title: "Dolor Lumbar y Espondiloartritis", client: "Novartis × Universidad de los Andes", year: "2022", area: "salud", logo: "/images/logos/novartis.png" },
+  { title: "Emprendimiento y toma de decisiones", client: "Abbott × Innovandes", year: "2020", area: "negocios", logo: "/images/logos/abbott.png" },
   { title: "Ciclo de Gestión de Proyectos", client: "Fundación Aflora", year: "2023", area: "negocios", logo: "/images/logos/fundacion-aflora.png" },
-  { title: "Gestión de la Atención de la Hemofilia", client: "Novo Nordisk × Universidad de los Andes", year: "2023", area: "salud" },
-  { title: "Formación de Profesionales en Gobierno", client: "Escuela de Gobierno · Universidad de los Andes", year: "2022", area: "gobierno", logo: "/images/logos/universidad-de-los-andes.png" },
-  { title: "Riesgo Cardiovascular, Dislipidemia y Aterosclerosis", client: "Universidad de los Andes", year: "2021", area: "salud", logo: "/images/logos/universidad-de-los-andes.png" },
-  { title: "Programa Profesional en Microbiota", client: "Care-ED × Universidad de los Andes", year: "2022", area: "salud", logo: "/images/logos/universidad-de-los-andes.png" },
+  { title: "Academia de formación corporativa", client: "Parque Arauco", year: "2022", area: "negocios", logo: "/images/logos/parque-arauco.png" },
+  { title: "Programa Virtual de Emprendimiento", client: "DRC", year: "2023", area: "negocios", logo: "/images/logos/drc.png" },
+  { title: "Programa de Empleabilidad", client: "DRC", year: "2023", area: "gobierno", logo: "/images/logos/drc.png" },
+  { title: "Certificación en Gestión de Proyectos", client: "PMI Colombia", year: "2024", area: "negocios", logo: "/images/logos/pmi.png" },
+  { title: "Integración Ambiental, Social y de Gobernanza (ESG)", client: "UK PACT × Universidad de los Andes", year: "2024", area: "sostenibilidad", logo: "/images/logos/uk-pact.png" },
+  { title: "Programa de formación ejecutiva", client: "Consultoría Vásquez Kennedy", year: "2024", area: "negocios", logo: "/images/logos/vasquez-kennedy.png" },
+  { title: "Liderazgo por Bogotá", client: "Alcaldía Mayor de Bogotá", year: "2023", area: "gobierno", logo: "/images/logos/alcaldia-mayor-bogota.png" },
+  { title: "Estrategias de Marketing para el Sector de las Artes", client: "Idartes · Secretaría de Cultura", year: "2024", area: "negocios", logo: "/images/logos/idartes.png" },
+  { title: "Dirección de Proyectos", client: "PMI Colombia", year: "2025", area: "negocios", logo: "/images/logos/pmi.png" },
+  { title: "Inteligencia Artificial para la Administración de Justicia", client: "Universidad de los Andes", year: "2024", area: "ia", logo: "/images/logos/universidad-de-los-andes.png" },
 ];
 
 export function getCourses(locale: Locale) {

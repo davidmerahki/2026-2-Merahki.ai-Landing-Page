@@ -136,18 +136,29 @@ export default function CourseCarousel({
                   <span className="text-white/40 text-sm font-medium">{course.year}</span>
                 </div>
 
+                {/* Logo del cliente: centrado arriba, grande y protagonista (logos blancos → chip oscuro).
+                    h fija + w-auto + object-contain preservan el aspecto (sin distorsión). */}
+                {course.logo && (
+                  <div className="mt-8 flex justify-center relative z-10">
+                    <span className="inline-flex items-center justify-center rounded-2xl bg-white/10 border border-white/15 px-7 py-4">
+                      <Image
+                        src={course.logo}
+                        alt=""
+                        width={260}
+                        height={72}
+                        className="h-12 md:h-16 w-auto max-w-[200px] object-contain"
+                      />
+                    </span>
+                  </div>
+                )}
+
                 <h3 className="mt-auto text-xl md:text-2xl font-bold text-white leading-snug relative z-10">
                   {course.title}
                 </h3>
 
-                <div className="mt-5 flex items-center gap-3 relative z-10">
-                  {course.logo && (
-                    <span className="inline-flex items-center rounded-lg bg-white/95 px-2.5 py-1.5">
-                      <Image src={course.logo} alt="" width={90} height={24} className="h-5 w-auto object-contain" />
-                    </span>
-                  )}
-                  <span className="text-white/55 text-xs leading-snug">{course.client}</span>
-                </div>
+                <span className="mt-3 block text-white/55 text-xs leading-snug relative z-10">
+                  {course.client}
+                </span>
               </article>
             </motion.div>
           );
