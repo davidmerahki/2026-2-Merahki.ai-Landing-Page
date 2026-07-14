@@ -60,7 +60,9 @@ body {
   font-family: var(--font-inter), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  /* clip evita el scroll horizontal SIN convertir al body en contenedor de scroll
+     (overflow-x: hidden rompía window.scrollY, los anchors y el hero scroll-driven) */
+  overflow-x: clip;
 }
 
 @layer utilities {

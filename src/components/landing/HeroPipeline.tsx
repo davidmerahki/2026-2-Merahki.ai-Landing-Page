@@ -23,29 +23,29 @@ const COPY: Record<
   }
 > = {
   en: {
-    header: "The merahki cycle",
+    header: "Five layers. One delivery.",
     stages: [
-      { title: "Co-design", desc: "Your expertise + our instructional design" },
-      { title: "Virtualization", desc: "From classroom to scalable digital program" },
-      { title: "Content production", desc: "Video, assessments, interactive lessons" },
-      { title: "Learning analytics", desc: "Impact measured with 95+ filters" },
-      { title: "Credentials", desc: "POK-verified, shared on LinkedIn" },
+      { title: "Design", desc: "Learning outcomes and rubrics with your experts" },
+      { title: "Production & implementation", desc: "AI-produced video and courses, on your LMS" },
+      { title: "Delivery & communications", desc: "Cohorts run for you: enrollment, engagement, support" },
+      { title: "Analytics", desc: "95+ filters, Kirkpatrick, trained vs. untrained" },
+      { title: "Verifiable credentials", desc: "Issued via POK: Open Badge 3.0 + W3C VC" },
     ],
     credTitle: "Micro-credential",
-    credVerified: "Verified by POK",
+    credVerified: "Verified via POK",
     credNote: "Virtualize once: issue it cohort after cohort",
   },
   es: {
-    header: "El ciclo merahki",
+    header: "Cinco capas. Una sola entrega.",
     stages: [
-      { title: "Co-diseño", desc: "Tu experticia + nuestro diseño instruccional" },
-      { title: "Virtualización", desc: "Del aula a un programa digital escalable" },
-      { title: "Producción de contenidos", desc: "Video, assessments, lecciones interactivas" },
-      { title: "Learning analytics", desc: "Impacto medido con 95+ filtros" },
-      { title: "Credenciales", desc: "Verificadas por POK, compartidas en LinkedIn" },
+      { title: "Diseño", desc: "Resultados de aprendizaje y rúbricas con tus expertos" },
+      { title: "Producción e implementación", desc: "Video y cursos producidos con IA, sobre tu LMS" },
+      { title: "Ejecución y comunicaciones", desc: "Cohortes operadas: convocatoria, engagement, soporte" },
+      { title: "Analítica", desc: "95+ filtros, Kirkpatrick, entrenados vs. no entrenados" },
+      { title: "Credenciales verificables", desc: "Emitidas vía POK: Open Badge 3.0 + W3C VC" },
     ],
     credTitle: "Microcredencial",
-    credVerified: "Verificada por POK",
+    credVerified: "Verificada vía POK",
     credNote: "Virtualiza una vez: emítela cohorte tras cohorte",
   },
 };
