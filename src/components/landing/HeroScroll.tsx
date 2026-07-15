@@ -19,6 +19,7 @@ type HeroCopy = {
   sub: string;
   ctaPrimary: string;
   scrollHint: string;
+  scrollHintShort: string;
   marquee: readonly string[];
 };
 
@@ -28,7 +29,7 @@ type HeroCopy = {
  * 2. Al scrollear, la página no baja: el scroll revela el título de IZQUIERDA A
  *    DERECHA, línea por línea, con un clip-path scrubbeado (no por tiempo).
  * 3. Cuando el título termina de aparecer, el pin se suelta y la página baja normal.
- * El video vive en public/videos/hero-bg.mp4 (solo desktop; móvil = fondo de marca).
+ * El video vive en public/videos/hero-bg-720.mp4 (solo desktop; móvil = fondo de marca).
  */
 export default function HeroScroll({
   copy,
@@ -58,24 +59,23 @@ export default function HeroScroll({
   // Velo que oscurece: video protagonista → texto protagonista
   const overlay = useTransform(scrollYProgress, [0, 0.85], [0.12, 0.9]);
 
-  // Barrido L→R por línea (inset derecho 100%→0%), escalonado en orden de lectura
-  const w1 = useTransform(scrollYProgress, [0.06, 0.36], [100, 0]);
-  const w2 = useTransform(scrollYProgress, [0.3, 0.6], [100, 0]);
-  const w3 = useTransform(scrollYProgress, [0.54, 0.84], [100, 0]);
-  const clip1 = useMotionTemplate`inset(0 ${w1}% 0 0)`;
+  // Línea 1 se auto-revela al cargar (ver JSX): el primer paint nunca queda vacío.
+  // Líneas 2-3 siguen scrubbeadas por scroll (rangos corridos hacia el inicio).
+  const w2 = useTransform(scrollYProgress, [0.12, 0.45], [100, 0]);
+  const w3 = useTransform(scrollYProgress, [0.38, 0.72], [100, 0]);
   const clip2 = useMotionTemplate`inset(0 ${w2}% 0 0)`;
   const clip3 = useMotionTemplate`inset(0 ${w3}% 0 0)`;
 
   // Subhead + CTA + marquee entran al final del recorrido
-  const tailO = useTransform(scrollYProgress, [0.82, 0.96], [0, 1]);
-  const tailY = useTransform(scrollYProgress, [0.82, 0.96], [24, 0]);
-  const marqueeO = useTransform(scrollYProgress, [0.86, 1], [0, 1]);
+  const tailO = useTransform(scrollYProgress, [0.68, 0.88], [0, 1]);
+  const tailY = useTransform(scrollYProgress, [0.68, 0.88], [24, 0]);
+  const marqueeO = useTransform(scrollYProgress, [0.78, 0.96], [0, 1]);
   const hintO = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
 
   const full = { clipPath: "inset(0 0 0 0)" } as const;
 
   return (
-    <section ref={ref} className={reduced ? "relative" : "relative h-[190vh]"}>
+    <section ref={ref} className={reduced ? "relative" : "relative h-[160vh]"}>
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center px-6 pt-20 pb-8">
         {/* Fondo: glow de marca (base, visible en móvil sin video) + video (desktop) */}
         <div className="absolute inset-0" aria-hidden="true">
@@ -86,7 +86,8 @@ export default function HeroScroll({
           {showVideo && (
             <video
               className="absolute inset-0 w-full h-full object-cover"
-              src="/videos/hero-bg.mp4"
+              src="/videos/hero-bg-720.mp4"
+              poster="/videos/hero-poster.jpg"
               autoPlay
               muted
               loop
@@ -103,7 +104,14 @@ export default function HeroScroll({
 
         <div className="relative z-10 max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center">
           <h1 className="font-bold tracking-tight leading-[1.07] text-[clamp(1.9rem,4.4vw,4rem)]">
-            <motion.span className="block text-white" style={reduced ? full : { clipPath: clip1 }}>
+            {/* Línea 1: barrido L→R por TIEMPO al montar (no por scroll) para que
+                el hero nunca aterrice vacío — clave en móvil, donde no hay video. */}
+            <motion.span
+              className="block text-white"
+              initial={reduced ? false : { clipPath: "inset(0 100% 0 0)" }}
+              animate={reduced ? undefined : { clipPath: "inset(0 0% 0 0)" }}
+              transition={{ duration: 1.1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            >
               {copy.h1a}
             </motion.span>
             <motion.span className="block text-white" style={reduced ? full : { clipPath: clip2 }}>
@@ -157,7 +165,9 @@ export default function HeroScroll({
           style={reduced ? { opacity: 0 } : { opacity: hintO }}
         >
           <ArrowDown className="w-3.5 h-3.5 animate-bounce" />
-          {copy.scrollHint}
+          {/* Móvil: versión corta — la frase completa chocaba con el switcher EN|ES */}
+          <span className="md:hidden">{copy.scrollHintShort}</span>
+          <span className="hidden md:inline">{copy.scrollHint}</span>
         </motion.div>
       </div>
     </section>
