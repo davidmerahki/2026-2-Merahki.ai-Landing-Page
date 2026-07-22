@@ -40,6 +40,7 @@ export default function HeroScroll({
   agendaHref: string;
 }) {
   const ref = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const reduced = useReducedMotion();
   const [showVideo, setShowVideo] = useState(false);
 
@@ -53,6 +54,30 @@ export default function HeroScroll({
     if (conn?.saveData) return;
     setShowVideo(true);
   }, [reduced]);
+
+  // iOS Safari no respeta el autoPlay declarativo cuando el <video> se monta
+  // después de la hidratación, y el Low Power Mode lo bloquea del todo.
+  // Reproducción imperativa: muted forzado antes de play() (React no siempre
+  // refleja el atributo), reintento en canplay y al primer toque/scroll.
+  useEffect(() => {
+    if (!showVideo) return;
+    const v = videoRef.current;
+    if (!v) return;
+    v.defaultMuted = true;
+    v.muted = true;
+    const tryPlay = () => {
+      if (v.paused) v.play().catch(() => {});
+    };
+    tryPlay();
+    v.addEventListener("canplay", tryPlay);
+    window.addEventListener("touchstart", tryPlay, { once: true, passive: true });
+    window.addEventListener("scroll", tryPlay, { once: true, passive: true });
+    return () => {
+      v.removeEventListener("canplay", tryPlay);
+      window.removeEventListener("touchstart", tryPlay);
+      window.removeEventListener("scroll", tryPlay);
+    };
+  }, [showVideo]);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -88,6 +113,7 @@ export default function HeroScroll({
           />
           {showVideo && (
             <video
+              ref={videoRef}
               className="absolute inset-0 w-full h-full object-cover"
               src="/videos/hero-bg-720.mp4"
               poster="/videos/hero-poster.jpg"
@@ -95,7 +121,13 @@ export default function HeroScroll({
               muted
               loop
               playsInline
-              preload="metadata"
+              preload="auto"
+              onEnded={(e) => {
+                // Refuerzo del loop: algunos navegadores lo ignoran tras
+                // bloquear el autoplay inicial
+                e.currentTarget.currentTime = 0;
+                e.currentTarget.play().catch(() => {});
+              }}
             />
           )}
           <motion.div
