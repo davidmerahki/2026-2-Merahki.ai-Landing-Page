@@ -29,7 +29,8 @@ type HeroCopy = {
  * 2. Al scrollear, la página no baja: el scroll revela el título de IZQUIERDA A
  *    DERECHA, línea por línea, con un clip-path scrubbeado (no por tiempo).
  * 3. Cuando el título termina de aparecer, el pin se suelta y la página baja normal.
- * El video vive en public/videos/hero-bg-720.mp4 (solo desktop; móvil = fondo de marca).
+ * El video vive en public/videos/hero-bg-720.mp4 (todas las pantallas; con
+ * Save-Data o prefers-reduced-motion se queda el fondo de marca sin video).
  */
 export default function HeroScroll({
   copy,
@@ -44,11 +45,13 @@ export default function HeroScroll({
 
   useEffect(() => {
     if (reduced) return;
-    const mq = window.matchMedia("(min-width: 768px)");
-    const update = () => setShowVideo(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
+    // El video ya pesa 2 MB (antes 19.7 MB), así que también corre en móvil.
+    // Única excepción: usuarios con ahorro de datos activo (Save-Data) se
+    // quedan con el fondo de marca — el poster/glow cubre el hero igual.
+    type ConnectionInfo = { saveData?: boolean };
+    const conn = (navigator as { connection?: ConnectionInfo }).connection;
+    if (conn?.saveData) return;
+    setShowVideo(true);
   }, [reduced]);
 
   const { scrollYProgress } = useScroll({
@@ -77,7 +80,7 @@ export default function HeroScroll({
   return (
     <section ref={ref} className={reduced ? "relative" : "relative h-[160vh]"}>
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center px-6 pt-20 pb-8">
-        {/* Fondo: glow de marca (base, visible en móvil sin video) + video (desktop) */}
+        {/* Fondo: glow de marca (base + fallback sin video) + video full-bleed */}
         <div className="absolute inset-0" aria-hidden="true">
           <GlowBackground
             indigoPosition={{ x: "22%", y: "35%" }}
