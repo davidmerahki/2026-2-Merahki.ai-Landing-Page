@@ -451,6 +451,29 @@ export const seoEntries: Record<string, SeoEntry> = {
       ogImageAlt: "Merahki — Reportes estratégicos",
     },
   },
+  "david-gonzalez": {
+    slug: "david-gonzalez",
+    type: "resource",
+    audience: "Event organizers, press, partners, and anyone searching for David González",
+    en: {
+      title: "David González — Founder of merahki.ai & POK Country Manager Colombia",
+      description:
+        "David González is the founder of merahki.ai and Country Manager for Colombia at POK (Proof of Knowledge). Since 2018 he has produced 20,000+ hours of online learning for Novartis, AstraZeneca, Sanofi, the IDB, and Universidad de los Andes across 7 Latin American countries. Official bio and press photo.",
+      ogTitle: "David González — micro-credentials and verifiable learning in Latin America",
+      ogDescription:
+        "Founder of merahki.ai and POK Country Manager for Colombia. 20,000+ hours of online learning produced since 2018. Official bio, speaking topics, and press photo.",
+      ogImageAlt: "David González, founder of merahki.ai and POK Country Manager Colombia",
+    },
+    es: {
+      title: "David González — Fundador de merahki.ai y Country Manager de POK Colombia",
+      description:
+        "David González es el fundador de merahki.ai y Country Manager para Colombia de POK (Proof of Knowledge). Desde 2018 ha producido más de 20.000 horas de formación en línea para Novartis, AstraZeneca, Sanofi, el BID y la Universidad de los Andes en 7 países de Latinoamérica. Bio oficial y foto de prensa.",
+      ogTitle: "David González — microcredenciales y aprendizaje verificable en Latinoamérica",
+      ogDescription:
+        "Fundador de merahki.ai y Country Manager de POK para Colombia. Más de 20.000 horas de formación en línea producidas desde 2018. Bio oficial, temas de charla y foto de prensa.",
+      ogImageAlt: "David González, fundador de merahki.ai y Country Manager de POK Colombia",
+    },
+  },
   "case-studies/uniandes-sanofi-microbiota": {
     slug: "case-studies/uniandes-sanofi-microbiota",
     type: "case-study",

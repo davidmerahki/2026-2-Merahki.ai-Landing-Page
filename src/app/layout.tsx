@@ -58,6 +58,12 @@ const organizationJsonLd = {
       },
       description:
         "Ecosistema end-to-end para diseñar, virtualizar, medir y emitir microcredenciales verificables bajo tu marca.",
+      founder: {
+        "@type": "Person",
+        "@id": "https://merahki.ai/david-gonzalez#person",
+        name: "David González",
+        url: "https://merahki.ai/david-gonzalez",
+      },
       sameAs: [
         "https://www.linkedin.com/company/merahki",
         "https://twitter.com/merahki_ai",
