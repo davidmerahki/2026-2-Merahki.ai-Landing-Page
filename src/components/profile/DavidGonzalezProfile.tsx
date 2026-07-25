@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Mail, ArrowRight, FileText } from "lucide-react";
+import { Download, Mail, ArrowRight, FileText, Linkedin } from "lucide-react";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { buildFaqJsonLd } from "@/lib/seo/metadata";
@@ -20,6 +20,8 @@ import { buildFaqJsonLd } from "@/lib/seo/metadata";
 
 const PHOTO_PATH = "/images/david/david-gonzalez.png";
 const PERSON_ID = "https://merahki.ai/david-gonzalez#person";
+const LINKEDIN_URL =
+  "https://www.linkedin.com/in/david-gonzalez-educacion-edtech-inteligencia-artificial/";
 
 const copy = {
   es: {
@@ -199,6 +201,7 @@ function buildPersonJsonLd(locale: "es" | "en") {
         },
         url: pageUrl,
         email: "mailto:david@merahki.ai",
+        sameAs: [LINKEDIN_URL],
         nationality: { "@type": "Country", name: "Colombia" },
         homeLocation: { "@type": "Place", name: "Bogotá, Colombia" },
         knowsLanguage: ["es", "en"],
@@ -310,6 +313,15 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
               >
                 <FileText className="w-4 h-4" aria-hidden="true" />
                 {t.downloadFullBio}
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white/80 font-medium px-5 py-2.5 text-sm hover:border-white/45 hover:text-white transition-colors"
+              >
+                <Linkedin className="w-4 h-4" aria-hidden="true" />
+                LinkedIn
               </a>
             </div>
           </AnimatedSection>
