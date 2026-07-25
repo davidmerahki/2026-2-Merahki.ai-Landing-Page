@@ -25,6 +25,8 @@ import TestimonialsEN from "@/components/sections/TestimonialsEN";
 import KineticText from "@/components/landing/KineticText";
 import HeroScroll from "@/components/landing/HeroScroll";
 import CourseCarousel from "@/components/landing/CourseCarousel";
+import OrchestrationFlow from "@/components/landing/OrchestrationFlow";
+import PathPersonalizer from "@/components/landing/PathPersonalizer";
 import { homeCopy, getHomeFaqItems, getCourses, type Locale } from "@/components/landing/home-v4-copy";
 
 const USE_CASE_ICONS = { uni: GraduationCap, corp: Building2, gov: Landmark } as const;
@@ -117,6 +119,38 @@ export default function HomeV4({ locale }: { locale: Locale }) {
             ))}
             <div className="border-t border-white/10" />
           </div>
+        </div>
+      </section>
+
+      {/* ── 3b. CÓMO FUNCIONA — orquestación end-to-end ── */}
+      <section className="relative py-16 md:py-20 px-6 border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="max-w-3xl">
+              <p className={`${EYEBROW} text-accent-blue`}>{t.orchestration.eyebrow}</p>
+              <h2 className={H2}>
+                <KineticText text={t.orchestration.title} />
+              </h2>
+              <p className={SUB}>{t.orchestration.sub}</p>
+            </div>
+          </AnimatedSection>
+          <OrchestrationFlow copy={t.orchestration} />
+        </div>
+      </section>
+
+      {/* ── 3c. PERSONALIZACIÓN POR IA — virtualizas una vez ── */}
+      <section className="relative py-16 md:py-20 px-6 border-t border-white/5">
+        <div className="max-w-7xl mx-auto">
+          <AnimatedSection>
+            <div className="max-w-3xl">
+              <p className={`${EYEBROW} text-accent-peach`}>{t.personalization.eyebrow}</p>
+              <h2 className={H2}>
+                <KineticText text={t.personalization.title} />
+              </h2>
+              <p className={SUB}>{t.personalization.sub}</p>
+            </div>
+          </AnimatedSection>
+          <PathPersonalizer copy={t.personalization} />
         </div>
       </section>
 
