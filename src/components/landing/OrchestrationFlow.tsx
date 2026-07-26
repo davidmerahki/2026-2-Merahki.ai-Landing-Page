@@ -6,10 +6,13 @@ import { GraduationCap, BarChart3, ShieldCheck, Bot } from "lucide-react";
 
 type Copy = {
   inputsLabel: string;
+  inputsBadge: string;
   inputs: readonly { num: string; title: string; desc: string }[];
   engineName: string;
+  engineBadge: string;
   engineParts: readonly string[];
   outputsLabel: string;
+  outputsBadge: string;
   outputs: readonly { title: string; desc: string }[];
   layerLabel: string;
   layerItems: readonly string[];
@@ -20,12 +23,14 @@ type Copy = {
 const OUTPUT_ICONS = [GraduationCap, BarChart3, ShieldCheck, Bot];
 
 /**
- * Línea conectora que se dibuja sola al entrar al viewport. Vertical en móvil
- * (columnas apiladas), horizontal en desktop. Vive fuera del componente padre
- * para que cada instancia tenga su propio useId: cuatro <linearGradient> con el
+ * Flecha conectora con punta y una partícula que viaja en la dirección del
+ * flujo. La punta marca el sentido de un vistazo; la partícula lo confirma en
+ * movimiento — sin ella, dos cajas unidas por una línea no dicen quién alimenta
+ * a quién. Horizontal en desktop, vertical (hacia abajo) en móvil.
+ * Cada instancia tiene su propio useId: varios <marker>/<linearGradient> con el
  * mismo id hacen que el navegador resuelva solo el primero.
  */
-function Connector({
+function FlowArrow({
   delay,
   vertical,
   reduced,
@@ -34,56 +39,119 @@ function Connector({
   vertical?: boolean;
   reduced: boolean | null;
 }) {
-  const gradId = useId();
+  const uid = useId();
+  const gradId = `${uid}-grad`;
+  const headId = `${uid}-head`;
+
+  const LEN = vertical ? 56 : 64;
+  const W = vertical ? 12 : LEN;
+  const H = vertical ? LEN : 12;
+  const cross = 6; // centro del eje transversal
+
+  const x1 = vertical ? cross : 0;
+  const y1 = vertical ? 0 : cross;
+  const x2 = vertical ? cross : LEN - 9; // deja aire para la punta
+  const y2 = vertical ? LEN - 9 : cross;
+
   return (
     <div
-      className={vertical ? "flex justify-center py-3 md:hidden" : "hidden md:flex items-center px-2"}
+      className={
+        vertical
+          ? "flex justify-center py-1 md:hidden"
+          : "hidden md:flex items-center justify-center px-1 shrink-0"
+      }
       aria-hidden="true"
     >
-      <svg
-        width={vertical ? 2 : 48}
-        height={vertical ? 32 : 2}
-        viewBox={vertical ? "0 0 2 32" : "0 0 48 2"}
-        className="overflow-visible"
-      >
+      <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} className="overflow-visible">
+        <defs>
+          {/* userSpaceOnUse, no objectBoundingBox: una línea recta tiene bbox de
+              alto (o ancho) 0 y el gradiente relativo no se puede resolver sobre
+              él — el trazo simplemente no se pinta y solo queda la punta. */}
+          <linearGradient
+            id={gradId}
+            gradientUnits="userSpaceOnUse"
+            x1={x1}
+            y1={y1}
+            x2={x2}
+            y2={y2}
+          >
+            <stop offset="0%" stopColor="#f5a97f" stopOpacity="0.35" />
+            <stop offset="100%" stopColor="#c6a0f6" stopOpacity="1" />
+          </linearGradient>
+          {/* Punta de flecha: el ancla visual del sentido del flujo */}
+          <marker
+            id={headId}
+            markerWidth="7"
+            markerHeight="7"
+            refX="5.5"
+            refY="3"
+            orient="auto"
+            markerUnits="strokeWidth"
+          >
+            <path d="M0,0.4 L6,3 L0,5.6 Z" fill="#c6a0f6" />
+          </marker>
+        </defs>
+
         <motion.line
-          x1={0}
-          y1={0}
-          x2={vertical ? 0 : 48}
-          y2={vertical ? 32 : 0}
+          x1={x1}
+          y1={y1}
+          x2={x2}
+          y2={y2}
           stroke={`url(#${gradId})`}
           strokeWidth={2}
           strokeLinecap="round"
+          markerEnd={`url(#${headId})`}
           initial={reduced ? undefined : { pathLength: 0, opacity: 0 }}
           whileInView={reduced ? undefined : { pathLength: 1, opacity: 1 }}
           viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, delay, ease: "easeOut" }}
+          transition={{ duration: 0.5, delay, ease: "easeOut" }}
         />
-        <defs>
-          <linearGradient
-            id={gradId}
-            x1="0"
-            y1="0"
-            x2={vertical ? "0" : "1"}
-            y2={vertical ? "1" : "0"}
-          >
-            <stop offset="0%" stopColor="#f5a97f" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#c6a0f6" stopOpacity="0.9" />
-          </linearGradient>
-        </defs>
+
+        {/* Partícula en bucle: deja el sentido del flujo fuera de toda duda */}
+        {!reduced && (
+          <motion.circle
+            r={2.5}
+            fill="#f5a97f"
+            initial={{ opacity: 0 }}
+            whileInView={{
+              opacity: [0, 1, 1, 0],
+              ...(vertical ? { cy: [2, LEN - 11], cx: cross } : { cx: [2, LEN - 11], cy: cross }),
+            }}
+            viewport={{ once: false, margin: "-80px" }}
+            transition={{
+              duration: 1.6,
+              delay: delay + 0.4,
+              repeat: Infinity,
+              repeatDelay: 0.7,
+              ease: "easeInOut",
+            }}
+          />
+        )}
       </svg>
     </div>
   );
 }
 
+/** Etiqueta de etapa: aporta el rótulo semántico (entra / procesa / sale). */
+function StageBadge({ text, tone }: { text: string; tone: "in" | "engine" | "out" }) {
+  const styles = {
+    in: "border-accent-peach/40 text-accent-peach bg-accent-peach/10",
+    engine: "border-accent-purple/45 text-accent-purple bg-accent-purple/10",
+    out: "border-accent-blue/40 text-accent-blue bg-accent-blue/10",
+  }[tone];
+  return (
+    <span
+      className={`inline-flex items-center rounded-full border px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] ${styles}`}
+    >
+      {text}
+    </span>
+  );
+}
+
 /**
  * Diagrama de orquestación end-to-end (slide 15 del showroom).
- *
  * Insumos del aliado → motor de virtualización merahki → 4 entregables.
- * Las conexiones se dibujan con scroll (whileInView escalonado) y el motor
- * late suave. Con prefers-reduced-motion todo aparece en su estado final.
- *
- * Solo SVG + framer-motion: 0 KB de media nueva, sin tocar el presupuesto móvil.
+ * Solo SVG + framer-motion: 0 KB de media nueva.
  */
 export default function OrchestrationFlow({ copy }: { copy: Copy }) {
   const reduced = useReducedMotion();
@@ -105,20 +173,20 @@ export default function OrchestrationFlow({ copy }: { copy: Copy }) {
 
   return (
     <div className="mt-12">
-      <div className="flex flex-col md:flex-row md:items-stretch md:justify-center">
-        {/* ── Insumos ── */}
-        <div className="md:w-[30%] md:max-w-[340px]">
-          <motion.p
-            className="text-[11px] uppercase tracking-[0.22em] text-white/35 mb-4"
-            {...fade(0)}
-          >
-            {copy.inputsLabel}
-          </motion.p>
+      <div className="flex flex-col md:flex-row md:items-stretch md:justify-center md:gap-1">
+        {/* ── ENTRA ── */}
+        <div className="md:w-[30%] md:max-w-[330px]">
+          <motion.div className="mb-4 flex items-center gap-2" {...fade(0)}>
+            <StageBadge text={copy.inputsBadge} tone="in" />
+            <span className="text-[11px] uppercase tracking-[0.18em] text-white/35">
+              {copy.inputsLabel}
+            </span>
+          </motion.div>
           <div className="space-y-3">
             {copy.inputs.map((input, i) => (
               <motion.div
                 key={input.num}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                className="rounded-2xl border border-accent-peach/20 bg-accent-peach/[0.04] p-4"
                 {...fade(0.05 + i * 0.05)}
               >
                 <span className="text-[11px] font-semibold text-accent-peach tracking-[0.2em]">
@@ -131,13 +199,16 @@ export default function OrchestrationFlow({ copy }: { copy: Copy }) {
           </div>
         </div>
 
-        <Connector delay={0.15} vertical reduced={reduced} />
-        <Connector delay={0.15} reduced={reduced} />
+        <FlowArrow delay={0.15} vertical reduced={reduced} />
+        <FlowArrow delay={0.15} reduced={reduced} />
 
-        {/* ── Motor ── */}
-        <div className="md:w-[26%] md:max-w-[280px] flex items-center">
+        {/* ── PROCESA ── */}
+        <div className="md:w-[26%] md:max-w-[270px] flex flex-col justify-center">
+          <motion.div className="mb-4 flex md:justify-center" {...fade(0.18)}>
+            <StageBadge text={copy.engineBadge} tone="engine" />
+          </motion.div>
           <motion.div
-            className="relative w-full rounded-3xl border border-accent-purple/35 bg-gradient-to-b from-glow-indigo/40 to-transparent p-6 text-center"
+            className="relative w-full rounded-3xl border border-accent-purple/40 bg-gradient-to-b from-glow-indigo/45 to-transparent p-6 text-center"
             {...fade(0.2)}
           >
             {!reduced && (
@@ -165,24 +236,24 @@ export default function OrchestrationFlow({ copy }: { copy: Copy }) {
           </motion.div>
         </div>
 
-        <Connector delay={0.25} vertical reduced={reduced} />
-        <Connector delay={0.25} reduced={reduced} />
+        <FlowArrow delay={0.25} vertical reduced={reduced} />
+        <FlowArrow delay={0.25} reduced={reduced} />
 
-        {/* ── Salidas ── */}
-        <div className="md:w-[34%] md:max-w-[400px]">
-          <motion.p
-            className="text-[11px] uppercase tracking-[0.22em] text-white/35 mb-4 mt-8 md:mt-0"
-            {...fade(0.25)}
-          >
-            {copy.outputsLabel}
-          </motion.p>
+        {/* ── SALE ── */}
+        <div className="md:w-[34%] md:max-w-[390px]">
+          <motion.div className="mb-4 mt-8 md:mt-0 flex items-center gap-2" {...fade(0.25)}>
+            <StageBadge text={copy.outputsBadge} tone="out" />
+            <span className="text-[11px] uppercase tracking-[0.18em] text-white/35">
+              {copy.outputsLabel}
+            </span>
+          </motion.div>
           <div className="space-y-3">
             {copy.outputs.map((output, i) => {
               const Icon = OUTPUT_ICONS[i] ?? GraduationCap;
               return (
                 <motion.div
                   key={output.title}
-                  className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+                  className="flex gap-3 rounded-2xl border border-accent-blue/20 bg-accent-blue/[0.04] p-4"
                   {...fade(0.3 + i * 0.05)}
                 >
                   <Icon className="w-5 h-5 text-accent-blue shrink-0 mt-0.5" aria-hidden="true" />
