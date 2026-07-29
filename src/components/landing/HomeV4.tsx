@@ -50,12 +50,14 @@ const SUB = "mt-5 text-base md:text-lg text-white/55 leading-relaxed";
 
 export default function HomeV4({ locale }: { locale: Locale }) {
   const t = homeCopy[locale];
-  const agendaHref = `#${t.anchor}`;
+  // El CTA de 30 min va directo al agendador de David; la sección #agenda (con el
+  // formulario de HubSpot) sigue viva al fondo para quien llega scrolleando.
+  const meetingsHref = "https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651";
 
   return (
     <div className="relative min-h-screen bg-void overflow-x-clip">
       {/* ── 1. HERO — scroll-driven: el video protagoniza, el texto entra al scroll ── */}
-      <HeroScroll copy={t.hero} agendaHref={agendaHref} />
+      <HeroScroll copy={t.hero} ctaHref={meetingsHref} />
 
       {/* ── 2. PARA CADA INSTITUCIÓN ── */}
       <section className="relative py-16 md:py-20 px-6">

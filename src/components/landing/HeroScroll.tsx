@@ -34,10 +34,11 @@ type HeroCopy = {
  */
 export default function HeroScroll({
   copy,
-  agendaHref,
+  ctaHref,
 }: {
   copy: HeroCopy;
-  agendaHref: string;
+  /** Agendador de HubSpot de David — externo, abre en pestaña nueva. */
+  ctaHref: string;
 }) {
   const ref = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -165,7 +166,12 @@ export default function HeroScroll({
             style={reduced ? { opacity: 1 } : { opacity: tailO, y: tailY }}
           >
             <p className="text-base md:text-lg text-white/60 max-w-md leading-relaxed">{copy.sub}</p>
-            <CtaLink href={agendaHref} event="cta_primary_hero">
+            <CtaLink
+              href={ctaHref}
+              event="cta_primary_hero"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {copy.ctaPrimary}
             </CtaLink>
           </motion.div>

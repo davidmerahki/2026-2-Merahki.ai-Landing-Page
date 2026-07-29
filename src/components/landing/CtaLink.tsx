@@ -18,15 +18,19 @@ export default function CtaLink({
   variant = "primary",
   children,
   arrow = true,
+  target,
+  rel,
 }: {
   href: string;
   event: string;
   variant?: keyof typeof styles;
   children: ReactNode;
   arrow?: boolean;
+  target?: string;
+  rel?: string;
 }) {
   return (
-    <Link href={href} className={styles[variant]} onClick={() => track(event)}>
+    <Link href={href} target={target} rel={rel} className={styles[variant]} onClick={() => track(event)}>
       {children}
       {arrow && <ArrowRight className="w-4 h-4" />}
     </Link>

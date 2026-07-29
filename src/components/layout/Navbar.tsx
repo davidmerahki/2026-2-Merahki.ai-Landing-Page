@@ -164,9 +164,9 @@ export default function Navbar() {
   const hasActivePage = (items: { href: string }[]) =>
     items.some((item) => item.href === pathname);
 
-  // Single conversion funnel: every CTA points to the home closing section
+  // Single conversion funnel: every CTA opens David's HubSpot scheduler
   const isEs = pathname === "/es" || pathname.startsWith("/es/");
-  const ctaHref = isEs ? "/es#agenda" : "/#agenda";
+  const ctaHref = "https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651";
   const ctaLabel = isEs ? "Agendar sesión (30 min)" : "Book a session (30 min)";
 
   return (
@@ -287,6 +287,8 @@ export default function Navbar() {
         <div className="hidden md:block">
           <Link
             href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-accent-purple text-white hover:bg-accent-purple/85 transition-all"
           >
             {ctaLabel} <ArrowRight className="w-3.5 h-3.5" />
@@ -363,6 +365,8 @@ export default function Navbar() {
           <div className="pt-3 border-t border-white/10">
             <Link
               href={ctaHref}
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full text-sm font-semibold bg-accent-purple text-white hover:bg-accent-purple/85 transition-all"
             >
               {ctaLabel} <ArrowRight className="w-4 h-4" />
