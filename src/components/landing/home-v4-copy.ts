@@ -74,8 +74,8 @@ export const homeCopy = {
     hero: {
       h1a: "Co-diseñamos y virtualizamos",
       h1b: "tus cursos y microcredenciales.",
-      h1c: "Del enrollment al reporte.",
-      sub: "Diseño, producción, ejecución, analítica y credenciales verificables. Un solo equipo.",
+      h1c: "+ Learning Analytics.",
+      sub: "Un solo equipo que diseña, produce, opera y mide — para que no tengas que coordinar cuatro proveedores.",
       ctaPrimary: "Agenda 30 min",
       scrollHint: "Desliza para ver el trabajo",
       scrollHintShort: "Desliza",
@@ -103,11 +103,11 @@ export const homeCopy = {
     useCases: {
       eyebrow: "Para cada institución",
       title: "Universidades, gobiernos y empresas confían en Merahki.",
-      sub: "Merahki se adapta a instituciones de cualquier tamaño y sector: diseñamos, producimos, operamos y medimos tu formación de punta a punta, con un solo equipo.",
+      sub: "Casi todas las áreas de formación que conocemos son dos o tres personas cargando la operación entera. Una herramienta más no resuelve eso. Ponemos el equipo completo — diseño, producción, operación y medición — y tú pones el sello.",
       cards: [
-        { key: "uni", title: "Universidades y educación continua", desc: "Convierte tu educación continua en ingreso recurrente con microcredenciales apilables bajo tu sello.", tags: ["Educación continua", "Ingreso recurrente", "Acreditación", "Academias de marca propia"] },
-        { key: "corp", title: "Empresas y universidades corporativas", desc: "Capacitación interna y customer education con ROI medible, del onboarding al NRR.", tags: ["Customer education", "Universidad corporativa", "ROI medible", "Adopción de producto"] },
-        { key: "gov", title: "Gobiernos y multilaterales", desc: "Formación pública a escala con evidencia auditable: transparencia, políticas públicas y capacidad estatal.", tags: ["Escala nacional", "Evidencia auditable", "Políticas públicas", "BID · Escuela de Gobierno"] },
+        { key: "uni", title: "Universidades y educación continua", desc: "Con las matrículas cayendo, educación continua dejó de ser proyección social: ahora sostiene la universidad. Te ayudamos a convertirla en oferta vendible — cursos cortos, apilables, bajo tu sello.", tags: ["Educación continua", "Ingreso recurrente", "Acreditación", "Academias de marca propia"] },
+        { key: "corp", title: "Empresas y universidades corporativas", desc: "Tu formación ya mueve indicadores, pero la evidencia vive regada en Excel y en tres plataformas. La reunimos en un solo tablero: productividad, adopción y finalización, por persona y por área.", tags: ["Customer education", "Universidad corporativa", "ROI medible", "Adopción de producto"] },
+        { key: "gov", title: "Gobiernos y multilaterales", desc: "Formación pública a escala sin dar un paso en falso: piloto pequeño primero, evidencia auditable de cada peso, y un estándar que después le puedes exigir a cualquier proveedor.", tags: ["Escala nacional", "Evidencia auditable", "Políticas públicas", "BID · Escuela de Gobierno"] },
       ],
     },
     features: {
@@ -119,10 +119,10 @@ export const homeCopy = {
         { key: "adaptive", title: "Cursos adaptativos e interactivos", desc: "Video interactivo, actividades y assessments rigurosos." },
         { key: "academy", title: "Academias de marca propia", desc: "Tu academy, tu dominio, tu sello. Nosotros la operamos." },
         { key: "cohorts", title: "Operación de cohortes", desc: "Convocatoria, engagement, sesiones en vivo y soporte." },
-        { key: "analytics", title: "Learning analytics con 95+ filtros", desc: "Entrenados vs. no entrenados, en los 4 niveles de Kirkpatrick." },
-        { key: "credentials", title: "Credenciales verificables vía POK", desc: "Open Badge 3.0 + W3C VC en blockchain. Verificables por terceros." },
+        { key: "analytics", title: "Learning analytics con 95+ filtros", desc: "Quién avanza, quién se atascó y en qué módulo exacto — mientras el curso corre, no dos meses después." },
+        { key: "credentials", title: "Credenciales verificables vía POK", desc: "Se acabaron los correos a registro y control: la insignia se verifica en segundos, desde cualquier empresa. Open Badge 3.0 + blockchain." },
         { key: "lms", title: "Integración con tu LMS", desc: "Moodle, Canvas, Blackboard: trabajamos sobre lo que ya tienes." },
-        { key: "reports", title: "Reportes para tu junta", desc: "Del enrollment al reporte, cohorte a cohorte." },
+        { key: "reports", title: "Reportes para tu junta", desc: "El material con el que vas a defender el programa ante tu comité: cifras, no sensaciones." },
       ],
     },
     services: {
@@ -131,7 +131,7 @@ export const homeCopy = {
       items: [
         { num: "001", title: "Diseño", desc: "Resultados de aprendizaje, indicadores y rúbricas con tus expertos." },
         { num: "002", title: "Producción e implementación", desc: "Video, motion y cursos adaptativos sobre tu LMS." },
-        { num: "003", title: "Ejecución y comunicaciones", desc: "Operamos tus cohortes de punta a punta." },
+        { num: "003", title: "Ejecución y comunicaciones", desc: "Operamos tus grupos de punta a punta: convocatoria, recordatorios, soporte." },
         { num: "004", title: "Analítica", desc: "Entrenados vs. no entrenados, en el idioma de tu junta." },
         { num: "005", title: "Credenciales verificables", desc: "Emitidas vía POK. Cualquier tercero las verifica en segundos." },
       ],
@@ -212,7 +212,7 @@ export const homeCopy = {
     manifesto: {
       lines: [
         "La formación que no se mide, se recorta.",
-        "La nuestra se mide del enrollment al reporte.",
+        "La nuestra se mide desde el día uno hasta el reporte a tu junta.",
         "Y cierra con una credencial que cualquiera puede verificar.",
       ],
       stats: [
@@ -225,9 +225,9 @@ export const homeCopy = {
     faqTitle: "Lo que tu junta va a preguntar.",
     closing: {
       h2: "Diseñemos tu primera microcredencial.",
-      subtitle: "Agenda una sesión de co-diseño de 30 minutos. Llegamos con las preguntas; tú sales con el blueprint de tu programa, el mercado al que le vende y el ROI estimado por cohorte.",
+      subtitle: "Agenda una sesión de co-diseño de 30 minutos. Llegamos con las preguntas; tú sales con el blueprint de tu programa, el mercado al que le vende y el ROI estimado por grupo.",
       bullets: [
-        { lead: "Co-diseño en vivo, no presentación de slides.", body: "Llegamos con preguntas sobre tu institución. Sales con un blueprint borrador." },
+        { lead: "Co-diseño en vivo, no presentación de slides.", body: "Llegamos con preguntas sobre tu institución. Sales con un borrador que puedes llevar tal cual a tu comité." },
         { lead: "Hablas con quien diseña microcredenciales con Uniandes, Univalle y la Escuela Nacional del Deporte.", body: "No con un SDR." },
         { lead: "30 minutos exactos. Sin compromiso, sin contrato.", body: "Si no es para ti, lo dices y seguimos." },
       ],
@@ -238,8 +238,8 @@ export const homeCopy = {
     hero: {
       h1a: "We co-design and virtualize",
       h1b: "your courses and micro-credentials.",
-      h1c: "From enrollment to report.",
-      sub: "Design, production, delivery, analytics, and verifiable credentials. One team.",
+      h1c: "+ Learning Analytics.",
+      sub: "One team that designs, produces, runs, and measures — so you're not coordinating four vendors.",
       ctaPrimary: "Book 30 min",
       scrollHint: "Scroll to see the work",
       scrollHintShort: "Scroll",
@@ -267,11 +267,11 @@ export const homeCopy = {
     useCases: {
       eyebrow: "For every institution",
       title: "Universities, governments, and companies trust Merahki.",
-      sub: "Merahki adapts to institutions of any size and sector: we design, produce, run, and measure your training end to end, with a single team.",
+      sub: "Almost every training team we meet is two or three people carrying the whole operation. Another tool won't fix that. We bring the full team — design, production, operations, and measurement — and you put your seal on it.",
       cards: [
-        { key: "uni", title: "Universities and continuing education", desc: "Turn continuing education into recurring revenue with stackable micro-credentials under your seal.", tags: ["Continuing education", "Recurring revenue", "Accreditation", "Branded academies"] },
-        { key: "corp", title: "Companies and corporate universities", desc: "Internal training and customer education with measurable ROI, from onboarding to NRR.", tags: ["Customer education", "Corporate university", "Measurable ROI", "Product adoption"] },
-        { key: "gov", title: "Governments and multilaterals", desc: "Public-sector education at scale with auditable evidence: transparency, public policy, and state capacity.", tags: ["National scale", "Auditable evidence", "Public policy", "IDB · School of Government"] },
+        { key: "uni", title: "Universities and continuing education", desc: "With enrollment falling, continuing education stopped being outreach: it now sustains the university. We help you turn it into an offer that sells — short, stackable courses under your seal.", tags: ["Continuing education", "Recurring revenue", "Accreditation", "Branded academies"] },
+        { key: "corp", title: "Companies and corporate universities", desc: "Your training already moves metrics, but the evidence is scattered across Excel and three platforms. We pull it into one dashboard: productivity, adoption, and completion, by person and by team.", tags: ["Customer education", "Corporate university", "Measurable ROI", "Product adoption"] },
+        { key: "gov", title: "Governments and multilaterals", desc: "Public-sector training at scale without a false step: small pilot first, auditable evidence for every dollar, and a standard you can then demand from any vendor.", tags: ["National scale", "Auditable evidence", "Public policy", "IDB · School of Government"] },
       ],
     },
     features: {
@@ -283,10 +283,10 @@ export const homeCopy = {
         { key: "adaptive", title: "Adaptive, interactive courses", desc: "Interactive video, activities, and rigorous assessments." },
         { key: "academy", title: "Branded academies", desc: "Your academy, your domain, your seal. We run it." },
         { key: "cohorts", title: "Cohort operations", desc: "Enrollment campaigns, engagement, live sessions, and support." },
-        { key: "analytics", title: "Learning analytics with 95+ filters", desc: "Trained vs. untrained, across Kirkpatrick's 4 levels." },
-        { key: "credentials", title: "Verifiable credentials via POK", desc: "Open Badge 3.0 + W3C VC on blockchain. Third-party verifiable." },
+        { key: "analytics", title: "Learning analytics with 95+ filters", desc: "Who's moving, who's stuck, and in which exact module — while the course runs, not two months later." },
+        { key: "credentials", title: "Verifiable credentials via POK", desc: "No more emails to the registrar: any company verifies the badge in seconds. Open Badge 3.0 + blockchain." },
         { key: "lms", title: "Integration with your LMS", desc: "Moodle, Canvas, Blackboard: we build on what you have." },
-        { key: "reports", title: "Board-ready reports", desc: "From enrollment to report, cohort after cohort." },
+        { key: "reports", title: "Board-ready reports", desc: "The material you'll use to defend the program before your committee: numbers, not impressions." },
       ],
     },
     services: {
@@ -295,7 +295,7 @@ export const homeCopy = {
       items: [
         { num: "001", title: "Design", desc: "Learning outcomes, indicators, and rubrics with your experts." },
         { num: "002", title: "Production & implementation", desc: "Video, motion, and adaptive courses on your LMS." },
-        { num: "003", title: "Delivery & communications", desc: "We run your cohorts end to end." },
+        { num: "003", title: "Delivery & communications", desc: "We run your cohorts end to end: outreach, reminders, support." },
         { num: "004", title: "Analytics", desc: "Trained vs. untrained, in the language your board speaks." },
         { num: "005", title: "Verifiable credentials", desc: "Issued via POK. Any third party verifies them in seconds." },
       ],
@@ -376,7 +376,7 @@ export const homeCopy = {
     manifesto: {
       lines: [
         "Education that isn't measured gets cut.",
-        "Ours is measured from enrollment to report.",
+        "Ours is measured from day one to the report your board reads.",
         "And it closes with a credential anyone can verify.",
       ],
       stats: [
@@ -391,7 +391,7 @@ export const homeCopy = {
       h2: "Let's design your first micro-credential.",
       subtitle: "Book a 30-minute co-design session. We bring the questions; you leave with your program's blueprint, the market it sells to, and the estimated ROI per cohort.",
       bullets: [
-        { lead: "Live co-design, not a slide deck.", body: "We come with questions about your institution. You leave with a draft blueprint." },
+        { lead: "Live co-design, not a slide deck.", body: "We come with questions about your institution. You leave with a draft you can take straight to your committee." },
         { lead: "You talk to the person who designs micro-credentials with Uniandes, Universidad del Valle, and Escuela Nacional del Deporte.", body: "Not an SDR." },
         { lead: "30 minutes flat. No commitment, no contract.", body: "If it's not for you, you say so and we move on." },
       ],
