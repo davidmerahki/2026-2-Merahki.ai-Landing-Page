@@ -36,8 +36,12 @@ const copy = {
     contact: "Escribir a David",
     downloadShortBio: "Bio corta (.txt)",
     downloadFullBio: "Bio completa (.txt)",
+    downloadPokShortBio: "Bio POK corta (.txt)",
+    downloadPokFullBio: "Bio POK completa (.txt)",
     shortBioFile: "/bios/david-gonzalez-bio-corta.txt",
     fullBioFile: "/bios/david-gonzalez-bio-completa.txt",
+    pokShortBioFile: "/bios/david-gonzalez-bio-pok-corta.txt",
+    pokFullBioFile: "/bios/david-gonzalez-bio-pok-completa.txt",
     bioTitle: "Bio oficial",
     bio: [
       "David González defiende una idea simple: la formación que no se puede medir no se puede defender. Sobre esa convicción construyó su carrera.",
@@ -106,8 +110,12 @@ const copy = {
     contact: "Email David",
     downloadShortBio: "Short bio (.txt)",
     downloadFullBio: "Full bio (.txt)",
+    downloadPokShortBio: "POK short bio (.txt)",
+    downloadPokFullBio: "POK full bio (.txt)",
     shortBioFile: "/bios/david-gonzalez-bio-short.txt",
     fullBioFile: "/bios/david-gonzalez-bio-full.txt",
+    pokShortBioFile: "/bios/david-gonzalez-bio-pok-short.txt",
+    pokFullBioFile: "/bios/david-gonzalez-bio-pok-full.txt",
     bioTitle: "Official bio",
     bio: [
       "David González stands behind one simple idea: learning you can't measure is learning you can't defend. He built his career on that conviction.",
@@ -317,6 +325,22 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
               >
                 <FileText className="w-4 h-4" aria-hidden="true" />
                 {t.downloadFullBio}
+              </a>
+              <a
+                href={t.pokShortBioFile}
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white/80 font-medium px-5 py-2.5 text-sm hover:border-white/45 hover:text-white transition-colors"
+              >
+                <FileText className="w-4 h-4" aria-hidden="true" />
+                {t.downloadPokShortBio}
+              </a>
+              <a
+                href={t.pokFullBioFile}
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white/80 font-medium px-5 py-2.5 text-sm hover:border-white/45 hover:text-white transition-colors"
+              >
+                <FileText className="w-4 h-4" aria-hidden="true" />
+                {t.downloadPokFullBio}
               </a>
               <a
                 href={LINKEDIN_URL}
