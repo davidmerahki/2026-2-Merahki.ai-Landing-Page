@@ -14,11 +14,11 @@ import { buildFaqJsonLd } from "@/lib/seo/metadata";
  * en seoEntries → sitemap con hreflang, y expone Person + ProfilePage + FAQ
  * en JSON-LD para el knowledge graph.
  *
- * La foto de prensa se sirve optimizada (next/image) y el PNG original queda
- * descargable en /images/david/david-gonzalez.png.
+ * La foto de prensa se sirve optimizada (next/image) y el JPG original
+ * (3568×5352) queda descargable en /images/david/david-gonzalez.jpg.
  */
 
-const PHOTO_PATH = "/images/david/david-gonzalez.png";
+const PHOTO_PATH = "/images/david/david-gonzalez.jpg";
 const PERSON_ID = "https://merahki.ai/david-gonzalez#person";
 const LINKEDIN_URL =
   "https://www.linkedin.com/in/david-gonzalez-educacion-edtech-inteligencia-artificial/";
@@ -32,7 +32,7 @@ const copy = {
     location: "Bogotá, Colombia",
     photoAlt:
       "David González, fundador de merahki.ai y Country Manager de POK para Colombia — foto de prensa oficial",
-    downloadPhoto: "Descargar foto de prensa (PNG, 1080×1080)",
+    downloadPhoto: "Descargar foto de prensa (JPG, alta resolución)",
     contact: "Escribir a David",
     downloadShortBio: "Bio corta (.txt)",
     downloadFullBio: "Bio completa (.txt)",
@@ -100,7 +100,7 @@ const copy = {
     location: "Bogotá, Colombia",
     photoAlt:
       "David González, founder of merahki.ai and POK Country Manager for Colombia — official press photo",
-    downloadPhoto: "Download press photo (PNG, 1080×1080)",
+    downloadPhoto: "Download press photo (JPG, high resolution)",
     contact: "Email David",
     downloadShortBio: "Short bio (.txt)",
     downloadFullBio: "Full bio (.txt)",
@@ -195,8 +195,8 @@ function buildPersonJsonLd(locale: "es" | "en") {
         image: {
           "@type": "ImageObject",
           url: `https://merahki.ai${PHOTO_PATH}`,
-          width: 1080,
-          height: 1080,
+          width: 3568,
+          height: 5352,
           caption: t.photoAlt,
         },
         url: pageUrl,
@@ -262,14 +262,14 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
                 src={PHOTO_PATH}
                 alt={t.photoAlt}
                 width={560}
-                height={560}
+                height={840}
                 priority
                 className="rounded-3xl border border-white/15 shadow-2xl w-full max-w-[280px] mx-auto"
               />
               <figcaption className="sr-only">{t.photoAlt}</figcaption>
               <a
                 href={PHOTO_PATH}
-                download="david-gonzalez-merahki-pok.png"
+                download="david-gonzalez-merahki-pok.jpg"
                 className="flex items-center justify-center gap-2 text-sm text-white/60 hover:text-white border border-white/15 hover:border-white/35 rounded-full px-4 py-2.5 transition-colors"
               >
                 <Download className="w-4 h-4" aria-hidden="true" />
