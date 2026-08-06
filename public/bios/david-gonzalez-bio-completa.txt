@@ -6,10 +6,12 @@ David González defiende una idea simple: la formación que no se puede medir no
 
 Es fundador de merahki.ai, compañía B2B de tecnología educativa que, con un criterio basado en datos, diseña, virtualiza, produce y mide programas de aprendizaje para universidades, gobiernos y empresas. Desde 2018 ha producido más de 20.000 horas de formación en línea que han capacitado a miles de profesionales en siete países de Latinoamérica. Su portafolio cruza tres mundos que rara vez se tocan: la educación médica continua de farmacéuticas como Novartis, AstraZeneca, Sanofi, Novo Nordisk y Abbott; los programas públicos de la Escuela de Gobierno de la Universidad de los Andes, el Banco Interamericano de Desarrollo y la Agencia Atenea; y la formación para el empleo con Colombia Productiva, el Consejo Danés para Refugiados y la Cámara Colombo-Japonesa de Comercio e Industria.
 
-Es además Country Manager para Colombia de POK (Proof of Knowledge), la plataforma global de credenciales digitales verificables: más de 1.100 instituciones la usan en 20 países de América, Europa y Asia. Ahí acompaña a universidades, gobiernos y empresas en la adopción de microcredenciales seguras, portables e interoperables.
+Es además Country Manager para Colombia de POK (Proof of Knowledge), la infraestructura global de credenciales verificables: más de 1.100 instituciones en 20 países de América, Europa y Asia emiten con ella credenciales en blockchain bajo los estándares Open Badge 3.0 y W3C, con certificación de privacidad de 1EdTech. En la práctica, un certificado deja de ser un PDF con logo: se convierte en una credencial que cualquier empleador verifica en segundos y que le pertenece a quien la ganó.
+
+Desde Bogotá, David lidera la expansión de POK en el ecosistema educativo colombiano en tres frentes: las principales universidades del país, públicas y privadas; las cajas de compensación, que forman a decenas de miles de trabajadores cada año; y las entidades de gobierno que necesitan dejar evidencia auditable de su formación. Ese trabajo pasa por las redes donde el sector se encuentra — ACIET, ASCUN, ASCOFADE, RECLA y REALCUP — con una misma conversación: pasar del certificado que se archiva a la credencial que se verifica.
 
 Las dos cosas son un solo trabajo: diseñar experiencias de aprendizaje que funcionan, medirlas con learning analytics e iterarlas con evidencia, y darle a quien aprende un reconocimiento que puede probar.
 
 Contacto: david@merahki.ai
-Foto de prensa: https://merahki.ai/images/david/david-gonzalez.png
+Foto de prensa: https://merahki.ai/images/david/david-gonzalez.jpg
 Perfil oficial: https://merahki.ai/es/david-gonzalez
