@@ -1,7 +1,9 @@
 DAVID GONZÁLEZ — POK SHORT BIO
 POK (Proof of Knowledge) Country Manager, Colombia · Founder of merahki.ai
 
-David González is POK's (Proof of Knowledge) Country Manager for Colombia. POK is the global verifiable-credentials infrastructure: more than 1,100 institutions across 20 countries use it to issue blockchain credentials under the Open Badge 3.0 and W3C standards. From Bogotá he leads its adoption across the country's top universities, the cajas de compensación (employer-funded welfare and training funds), and the public sector, and is active in the education ecosystem's networks: ACIET, ASCUN, ASCOFADE, RECLA, and REALCUP. He comes to the role from practice: he is the founder of merahki.ai, where he has produced more than 20,000 hours of online learning for organizations including Novartis, the Inter-American Development Bank, and Universidad de los Andes across seven Latin American countries.
+David González is POK's (Proof of Knowledge) Country Manager for Colombia — the global verifiable-credentials infrastructure: more than 1,100 institutions across 20 countries use it to issue blockchain credentials under the Open Badge 3.0 and W3C standards.
+
+From Bogotá he leads its adoption across Colombia's leading universities, the cajas de compensación (employer-funded welfare and training funds), and the public sector. He is the founder of merahki.ai, where he has co-designed, virtualized, and run more than 20,000 hours of online learning for organizations such as AstraZeneca, Novartis, the Inter-American Development Bank, Claro, and Universidad de los Andes, across seven Latin American countries.
 
 Contact: david@pok.tech
 Press photo: https://merahki.ai/images/david/david-gonzalez.jpg

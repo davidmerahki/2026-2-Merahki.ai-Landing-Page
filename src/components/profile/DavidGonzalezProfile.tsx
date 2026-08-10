@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Download, Mail, ArrowRight, FileText, Linkedin } from "lucide-react";
+import { Download, Mail, ArrowRight, Linkedin } from "lucide-react";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import { buildFaqJsonLd } from "@/lib/seo/metadata";
@@ -23,6 +23,41 @@ const PERSON_ID = "https://merahki.ai/david-gonzalez#person";
 const LINKEDIN_URL =
   "https://www.linkedin.com/in/david-gonzalez-educacion-edtech-inteligencia-artificial/";
 
+/**
+ * Fila descargable del kit de prensa. Señala la descarga explícitamente:
+ * badge de formato + flecha ↓, con hover claro. El nombre del archivo lo
+ * define `downloadName` (foto) o el propio archivo (bios .txt).
+ */
+function DownloadRow({
+  href,
+  downloadName,
+  label,
+  badge,
+}: {
+  href: string;
+  downloadName?: string;
+  label: string;
+  badge: string;
+}) {
+  return (
+    <a
+      href={href}
+      download={downloadName ?? true}
+      className="group flex items-center justify-between gap-3 rounded-xl border border-white/10 bg-white/[0.02] px-4 py-3 hover:border-white/30 hover:bg-white/[0.05] transition-colors"
+    >
+      <span className="text-sm font-medium text-white/85 group-hover:text-white transition-colors">
+        {label}
+      </span>
+      <span className="flex items-center gap-2 flex-shrink-0">
+        <span className="text-[10px] font-semibold uppercase tracking-wider text-white/45 border border-white/15 rounded px-1.5 py-0.5">
+          {badge}
+        </span>
+        <Download className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" aria-hidden="true" />
+      </span>
+    </a>
+  );
+}
+
 const copy = {
   es: {
     eyebrow: "Perfil oficial",
@@ -32,12 +67,14 @@ const copy = {
     location: "Bogotá, Colombia",
     photoAlt:
       "David González, fundador de merahki.ai y Country Manager de POK para Colombia — foto de prensa oficial",
-    downloadPhoto: "Descargar foto de prensa (JPG, alta resolución)",
     contact: "Escribir a David",
-    downloadShortBio: "Bio corta (.txt)",
-    downloadFullBio: "Bio completa (.txt)",
-    downloadPokShortBio: "Bio POK corta (.txt)",
-    downloadPokFullBio: "Bio POK completa (.txt)",
+    pressKitTitle: "Kit de prensa",
+    pressKitHint: "Descarga la bio y la foto listas para publicar.",
+    pressKitPhoto: "Foto de prensa",
+    pressKitFounderLabel: "Como fundador de merahki.ai",
+    pressKitPokLabel: "Como Country Manager de POK",
+    bioShortLabel: "Bio corta",
+    bioFullLabel: "Bio completa",
     shortBioFile: "/bios/david-gonzalez-bio-corta.txt",
     fullBioFile: "/bios/david-gonzalez-bio-completa.txt",
     pokShortBioFile: "/bios/david-gonzalez-bio-pok-corta.txt",
@@ -106,12 +143,14 @@ const copy = {
     location: "Bogotá, Colombia",
     photoAlt:
       "David González, founder of merahki.ai and POK Country Manager for Colombia — official press photo",
-    downloadPhoto: "Download press photo (JPG, high resolution)",
     contact: "Email David",
-    downloadShortBio: "Short bio (.txt)",
-    downloadFullBio: "Full bio (.txt)",
-    downloadPokShortBio: "POK short bio (.txt)",
-    downloadPokFullBio: "POK full bio (.txt)",
+    pressKitTitle: "Press kit",
+    pressKitHint: "Download a ready-to-publish bio and photo.",
+    pressKitPhoto: "Press photo",
+    pressKitFounderLabel: "As founder of merahki.ai",
+    pressKitPokLabel: "As POK Country Manager",
+    bioShortLabel: "Short bio",
+    bioFullLabel: "Full bio",
     shortBioFile: "/bios/david-gonzalez-bio-short.txt",
     fullBioFile: "/bios/david-gonzalez-bio-full.txt",
     pokShortBioFile: "/bios/david-gonzalez-bio-pok-short.txt",
@@ -267,7 +306,7 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
             rustPosition={{ x: "85%", y: "80%" }}
           />
         </div>
-        <div className="relative z-10 max-w-5xl mx-auto grid md:grid-cols-[280px_1fr] gap-10 items-center">
+        <div className="relative z-10 max-w-5xl mx-auto grid md:grid-cols-[280px_1fr] gap-10 items-start">
           <AnimatedSection>
             <figure className="space-y-4">
               <Image
@@ -279,14 +318,6 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
                 className="rounded-3xl border border-white/15 shadow-2xl w-full max-w-[280px] mx-auto"
               />
               <figcaption className="sr-only">{t.photoAlt}</figcaption>
-              <a
-                href={PHOTO_PATH}
-                download="david-gonzalez-merahki-pok.jpg"
-                className="flex items-center justify-center gap-2 text-sm text-white/60 hover:text-white border border-white/15 hover:border-white/35 rounded-full px-4 py-2.5 transition-colors"
-              >
-                <Download className="w-4 h-4" aria-hidden="true" />
-                {t.downloadPhoto}
-              </a>
             </figure>
           </AnimatedSection>
 
@@ -302,6 +333,7 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
               {t.roles}
             </p>
             <p className="mt-1 text-white/50">{t.location}</p>
+            {/* Contacto */}
             <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
                 href="mailto:david@merahki.ai"
@@ -309,38 +341,6 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
               >
                 <Mail className="w-4 h-4" aria-hidden="true" />
                 {t.contact}
-              </a>
-              <a
-                href={t.shortBioFile}
-                download
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white/80 font-medium px-5 py-2.5 text-sm hover:border-white/45 hover:text-white transition-colors"
-              >
-                <FileText className="w-4 h-4" aria-hidden="true" />
-                {t.downloadShortBio}
-              </a>
-              <a
-                href={t.fullBioFile}
-                download
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white/80 font-medium px-5 py-2.5 text-sm hover:border-white/45 hover:text-white transition-colors"
-              >
-                <FileText className="w-4 h-4" aria-hidden="true" />
-                {t.downloadFullBio}
-              </a>
-              <a
-                href={t.pokShortBioFile}
-                download
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white/80 font-medium px-5 py-2.5 text-sm hover:border-white/45 hover:text-white transition-colors"
-              >
-                <FileText className="w-4 h-4" aria-hidden="true" />
-                {t.downloadPokShortBio}
-              </a>
-              <a
-                href={t.pokFullBioFile}
-                download
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 text-white/80 font-medium px-5 py-2.5 text-sm hover:border-white/45 hover:text-white transition-colors"
-              >
-                <FileText className="w-4 h-4" aria-hidden="true" />
-                {t.downloadPokFullBio}
               </a>
               <a
                 href={LINKEDIN_URL}
@@ -351,6 +351,40 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
                 <Linkedin className="w-4 h-4" aria-hidden="true" />
                 LinkedIn
               </a>
+            </div>
+
+            {/* Kit de prensa — descargas agrupadas por rol */}
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.02] p-5 md:p-6">
+              <div className="flex items-center gap-2 mb-1">
+                <Download className="w-4 h-4 text-accent-peach" aria-hidden="true" />
+                <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-white/60">
+                  {t.pressKitTitle}
+                </h2>
+              </div>
+              <p className="text-sm text-white/45 mb-5">{t.pressKitHint}</p>
+
+              <DownloadRow
+                href={PHOTO_PATH}
+                downloadName="david-gonzalez-merahki-pok.jpg"
+                label={t.pressKitPhoto}
+                badge="JPG"
+              />
+
+              <p className="mt-5 mb-2 text-sm font-medium text-white/55">
+                {t.pressKitFounderLabel}
+              </p>
+              <div className="grid sm:grid-cols-2 gap-2">
+                <DownloadRow href={t.shortBioFile} label={t.bioShortLabel} badge="TXT" />
+                <DownloadRow href={t.fullBioFile} label={t.bioFullLabel} badge="TXT" />
+              </div>
+
+              <p className="mt-4 mb-2 text-sm font-medium text-white/55">
+                {t.pressKitPokLabel}
+              </p>
+              <div className="grid sm:grid-cols-2 gap-2">
+                <DownloadRow href={t.pokShortBioFile} label={t.bioShortLabel} badge="TXT" />
+                <DownloadRow href={t.pokFullBioFile} label={t.bioFullLabel} badge="TXT" />
+              </div>
             </div>
           </AnimatedSection>
         </div>
