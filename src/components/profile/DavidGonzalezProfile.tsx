@@ -312,8 +312,9 @@ export default function DavidGonzalezProfile({ locale }: { locale: "es" | "en" }
               <Image
                 src={PHOTO_PATH}
                 alt={t.photoAlt}
-                width={560}
-                height={840}
+                width={280}
+                height={420}
+                sizes="280px"
                 priority
                 className="rounded-3xl border border-white/15 shadow-2xl w-full max-w-[280px] mx-auto"
               />
