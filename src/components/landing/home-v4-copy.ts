@@ -79,7 +79,7 @@ export const homeCopy = {
       ctaPrimary: "Agenda 30 min",
       scrollHint: "Desliza para ver el trabajo",
       scrollHintShort: "Desliza",
-      marquee: ["Co-diseño", "Virtualización", "Motion graphics", "Learning analytics", "Credenciales verificables", "Storytelling", "Assessments"],
+      marquee: ["Co-diseño", "Virtualización", "Motion graphics", "Learning analytics", "Credenciales verificables", "Skills Intelligence", "Storytelling", "Assessments"],
     },
     logosHeading: "Equipos que ya miden el impacto con Merahki",
     reel: {
@@ -120,7 +120,7 @@ export const homeCopy = {
         { key: "academy", title: "Academias de marca propia", desc: "Tu academy, tu dominio, tu sello. Nosotros la operamos." },
         { key: "cohorts", title: "Operación de cohortes", desc: "Convocatoria, engagement, sesiones en vivo y soporte." },
         { key: "analytics", title: "Learning analytics con 95+ filtros", desc: "Quién avanza, quién se atascó y en qué módulo exacto — mientras el curso corre, no dos meses después." },
-        { key: "credentials", title: "Credenciales verificables vía POK", desc: "Se acabaron los correos a registro y control: la insignia se verifica en segundos, desde cualquier empresa. Open Badge 3.0 + blockchain." },
+        { key: "credentials", title: "Credenciales y Skills Intelligence vía POK", desc: "Se acabaron los correos a registro y control: la insignia se verifica en segundos — y cada emisión se convierte en datos de habilidades y empleabilidad." },
         { key: "lms", title: "Integración con tu LMS", desc: "Moodle, Canvas, Blackboard: trabajamos sobre lo que ya tienes." },
         { key: "reports", title: "Reportes para tu junta", desc: "El material con el que vas a defender el programa ante tu comité: cifras, no sensaciones." },
       ],
@@ -133,7 +133,7 @@ export const homeCopy = {
         { num: "002", title: "Producción e implementación", desc: "Video, motion y cursos adaptativos sobre tu LMS." },
         { num: "003", title: "Ejecución y comunicaciones", desc: "Operamos tus grupos de punta a punta: convocatoria, recordatorios, soporte." },
         { num: "004", title: "Analítica", desc: "Entrenados vs. no entrenados, en el idioma de tu junta." },
-        { num: "005", title: "Credenciales verificables", desc: "Emitidas vía POK. Cualquier tercero las verifica en segundos." },
+        { num: "005", title: "Credenciales verificables", desc: "Emitidas vía POK: se verifican en segundos y convierten cada logro en datos de habilidades." },
       ],
     },
     orchestration: {
@@ -155,12 +155,12 @@ export const homeCopy = {
       outputs: [
         { title: "Microcredencial virtualizada", desc: "Diseñada, producida y montada — lista para la cohorte." },
         { title: "Dashboard con learning analytics", desc: "Progreso, riesgo y brecha en vivo, no en un PDF." },
-        { title: "Credenciales verificables", desc: "Blockchain y NFT, emitidas vía POK." },
+        { title: "Credenciales verificables", desc: "Blockchain y NFT vía POK — cada credencial se vuelve datos de habilidades." },
         { title: "Agentes de soporte", desc: "Acompañan a la cohorte hasta la finalización." },
       ],
       layerLabel: "Capa de orquestación",
       layerItems: ["LMS", "CRM", "Automatizaciones"],
-      closer: "merahki orquesta, POK emite.",
+      closer: "merahki orquesta. POK emite y convierte en inteligencia.",
       closerSub: "Dos marcas, una sola entrega.",
     },
     personalization: {
@@ -243,7 +243,7 @@ export const homeCopy = {
       ctaPrimary: "Book 30 min",
       scrollHint: "Scroll to see the work",
       scrollHintShort: "Scroll",
-      marquee: ["Co-design", "Virtualization", "Motion graphics", "Learning analytics", "Verifiable credentials", "Storytelling", "Assessments"],
+      marquee: ["Co-design", "Virtualization", "Motion graphics", "Learning analytics", "Verifiable credentials", "Skills Intelligence", "Storytelling", "Assessments"],
     },
     logosHeading: "Teams already measuring impact with Merahki",
     reel: {
@@ -284,7 +284,7 @@ export const homeCopy = {
         { key: "academy", title: "Branded academies", desc: "Your academy, your domain, your seal. We run it." },
         { key: "cohorts", title: "Cohort operations", desc: "Enrollment campaigns, engagement, live sessions, and support." },
         { key: "analytics", title: "Learning analytics with 95+ filters", desc: "Who's moving, who's stuck, and in which exact module — while the course runs, not two months later." },
-        { key: "credentials", title: "Verifiable credentials via POK", desc: "No more emails to the registrar: any company verifies the badge in seconds. Open Badge 3.0 + blockchain." },
+        { key: "credentials", title: "Credentials and Skills Intelligence via POK", desc: "No more emails to the registrar: the badge verifies in seconds — and every credential issued becomes skills and employability data." },
         { key: "lms", title: "Integration with your LMS", desc: "Moodle, Canvas, Blackboard: we build on what you have." },
         { key: "reports", title: "Board-ready reports", desc: "The material you'll use to defend the program before your committee: numbers, not impressions." },
       ],
@@ -297,7 +297,7 @@ export const homeCopy = {
         { num: "002", title: "Production & implementation", desc: "Video, motion, and adaptive courses on your LMS." },
         { num: "003", title: "Delivery & communications", desc: "We run your cohorts end to end: outreach, reminders, support." },
         { num: "004", title: "Analytics", desc: "Trained vs. untrained, in the language your board speaks." },
-        { num: "005", title: "Verifiable credentials", desc: "Issued via POK. Any third party verifies them in seconds." },
+        { num: "005", title: "Verifiable credentials", desc: "Issued via POK: verified in seconds, turning every achievement into skills data." },
       ],
     },
     orchestration: {
@@ -319,12 +319,12 @@ export const homeCopy = {
       outputs: [
         { title: "Virtualized micro-credential", desc: "Designed, produced, and deployed — ready for the cohort." },
         { title: "Learning analytics dashboard", desc: "Progress, risk, and gaps live, not in a PDF." },
-        { title: "Verifiable credentials", desc: "Blockchain and NFT, issued via POK." },
+        { title: "Verifiable credentials", desc: "Blockchain and NFT via POK — every credential becomes skills data." },
         { title: "Support agents", desc: "They walk the cohort through to completion." },
       ],
       layerLabel: "Orchestration layer",
       layerItems: ["LMS", "CRM", "Automations"],
-      closer: "merahki orchestrates, POK issues.",
+      closer: "merahki orchestrates. POK issues and turns it into intelligence.",
       closerSub: "Two brands, one delivery.",
     },
     personalization: {
