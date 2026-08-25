@@ -119,7 +119,7 @@ const faqJsonLd = {
       name: "What are Blockchain-Verified Credentials and why do partner programs need them?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Blockchain-Verified Credentials are tamper-proof digital certificates anchored to a distributed ledger, making them impossible to forge and instantly verifiable by any third party. merahki.ai issues partner certifications using 1EdTech Standards, Open Badges 3.0, W3C Verifiable Credentials (VC), and Europass Digital Credentials — with infrastructure powered by POK, a global credentialing partner. For channel programs, Fraud-Resistant Credentials ensure only genuinely certified partners can represent your brand, protecting partner tier integrity and customer trust.",
+        text: "Blockchain-Verified Credentials are tamper-proof digital certificates anchored to a distributed ledger, making them impossible to forge and instantly verifiable by any third party. merahki.ai issues partner certifications using 1EdTech Standards, Open Badges 3.0, W3C Verifiable Credentials (VC), and Europass Digital Credentials — with infrastructure powered by POK, the Skills Intelligence and credential infrastructure connecting education, skills, and work. For channel programs, Fraud-Resistant Credentials ensure only genuinely certified partners can represent your brand, protecting partner tier integrity and customer trust.",
       },
     },
   ],

@@ -177,7 +177,7 @@ export default function CertificationPage() {
               </AnimatedSection>
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-lg text-white/60 leading-relaxed">
-                  POK - Proof of Knowledge is the go-to platform for issuing verifiable digital credentials and microcredentials. Trusted by 1,100+ institutions in 19 countries.
+                  POK - Proof of Knowledge is the Skills Intelligence and credential infrastructure connecting education, skills, and work: every credential issued becomes data and intelligence. Trusted by 1,100+ institutions in 19 countries.
                 </p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.25}>

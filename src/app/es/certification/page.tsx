@@ -178,7 +178,7 @@ export default function CertificationPageES() {
               </AnimatedSection>
               <AnimatedSection immediate delay={0.2}>
                 <p className="text-lg text-white/60 leading-relaxed">
-                  POK - Proof of Knowledge es la plataforma de referencia para emitir credenciales digitales verificables y microcredenciales. Más de 1.100 instituciones en 19 países la usan a diario.
+                  POK - Proof of Knowledge es la infraestructura de Skills Intelligence y credenciales que conecta educación, habilidades y empleo: cada credencial emitida se convierte en datos e inteligencia. Más de 1.100 instituciones en 19 países la usan a diario.
                 </p>
               </AnimatedSection>
               <AnimatedSection immediate delay={0.25}>

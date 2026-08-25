@@ -578,7 +578,7 @@ export default function MethodologyPage() {
               <h3 className="text-2xl font-bold mb-1">Certification &amp; Assessment</h3>
               <p className="text-sm text-white/40 mb-4">Blockchain-Verified Digital Credentials at Scale — Open Badges 3.0 · W3C VC · ELM/Europass · ISO 27001 · SOC 2 · Powered by POK.tech</p>
               <p className="text-sm text-white/55 leading-relaxed mb-4">
-                merahki.ai&apos;s Certification &amp; Assessment solution, powered by POK.tech, turns learning achievement into publicly verifiable academic and professional capital. The central instructional challenge: ensuring that the credential issued represents a genuinely demonstrated competency, not simply time spent on a platform.
+                merahki.ai&apos;s Certification &amp; Assessment solution, powered by POK.tech, turns learning achievement into publicly verifiable academic and professional capital — and into Skills Intelligence: data on which skills each program actually develops. The central instructional challenge: ensuring that the credential issued represents a genuinely demonstrated competency, not simply time spent on a platform.
               </p>
               <div className="grid md:grid-cols-2 gap-4 mb-6">
                 <div className="bg-white/[0.03] rounded-xl p-4 border border-white/5">

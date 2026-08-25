@@ -245,8 +245,8 @@ export default function QueHaceMerahki() {
           <AnimatedSection>
             <span className="text-accent-purple text-xs font-bold tracking-widest uppercase mb-3 block">Capa 05 / 05</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Credenciales digitales verificables</h2>
-            <p className="text-white/40 text-sm italic mb-6">Verifiable digital credentials · POK</p>
-            <p className="text-white/60 leading-relaxed mb-8">Merahki.ai integra la red global de credenciales POK: +1,200 instituciones conectadas a nuestra infraestructura de credenciales, gobiernos y empresas en +9 países de Latinoamérica, el Caribe y Estados Unidos. Única plataforma en LATAM con 100% de los estándares globales de ciberseguridad e infraestructura.</p>
+            <p className="text-white/40 text-sm italic mb-6">Credenciales verificables y Skills Intelligence · POK</p>
+            <p className="text-white/60 leading-relaxed mb-8">Merahki.ai integra POK, la infraestructura de Skills Intelligence y credenciales que conecta educación, habilidades y empleo: +1,200 instituciones conectadas, gobiernos y empresas en Latinoamérica, el Caribe y Estados Unidos, y cada credencial emitida convertida en datos de habilidades. Única plataforma en LATAM con 100% de los estándares globales de ciberseguridad e infraestructura.</p>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <div className="grid sm:grid-cols-2 gap-3">
