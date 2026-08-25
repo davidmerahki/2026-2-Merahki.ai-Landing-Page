@@ -83,8 +83,8 @@ const copy = {
     bio: [
       "David González defiende una idea simple: la formación que no se puede medir no se puede defender. Sobre esa convicción construyó su carrera.",
       "Es fundador de merahki.ai, compañía B2B de tecnología educativa que, con un criterio basado en datos, diseña, virtualiza, produce y mide programas de aprendizaje para universidades, gobiernos y empresas. Desde 2018 ha producido más de 20.000 horas de formación en línea que han capacitado a miles de profesionales en siete países de Latinoamérica. Su portafolio cruza tres mundos que rara vez se tocan: la educación médica continua de farmacéuticas como Novartis, AstraZeneca, Sanofi, Novo Nordisk y Abbott; los programas públicos de la Escuela de Gobierno de la Universidad de los Andes, el Banco Interamericano de Desarrollo y la Agencia Atenea; y la formación para el empleo con Colombia Productiva, el Consejo Danés para Refugiados y la Cámara Colombo-Japonesa de Comercio e Industria.",
-      "Es además Country Manager para Colombia de POK (Proof of Knowledge), la infraestructura global de credenciales verificables: más de 1.100 instituciones en 20 países de América, Europa y Asia emiten con ella credenciales en blockchain bajo los estándares Open Badge 3.0 y W3C, con certificación de privacidad de 1EdTech. En la práctica, un certificado deja de ser un PDF con logo: se convierte en una credencial que cualquier empleador verifica en segundos y que le pertenece a quien la ganó.",
-      "Desde Bogotá, David lidera la expansión de POK en el ecosistema educativo colombiano en tres frentes: las principales universidades del país, públicas y privadas; las cajas de compensación, que forman a decenas de miles de trabajadores cada año; y las entidades de gobierno que necesitan dejar evidencia auditable de su formación. Ese trabajo pasa por las redes donde el sector se encuentra — ACIET, ASCUN, ASCOFADE, RECLA y REALCUP — con una misma conversación: pasar del certificado que se archiva a la credencial que se verifica.",
+      "Es además Country Manager para Colombia de POK (Proof of Knowledge), la infraestructura de Skills Intelligence que conecta educación, habilidades y empleo: más de 1.100 instituciones en 20 países la usan. Las credenciales de primera generación documentaban un logro; las de segunda generación generan datos e inteligencia, y POK construye esa segunda generación. Cada credencial deja de ser un punto final: se convierte en un nodo que conecta lo que la institución enseña, las habilidades que desarrolla y los resultados profesionales que genera.",
+      "Desde Bogotá, David lidera la expansión de POK en el ecosistema educativo colombiano en tres frentes: las principales universidades del país, públicas y privadas; las cajas de compensación, que forman a decenas de miles de trabajadores cada año; y las entidades de gobierno que necesitan dejar evidencia auditable de su formación. Ese trabajo pasa por las redes donde el sector se encuentra — ACIET, ASCUN, ASCOFADE, RECLA y REALCUP — con una misma conversación: qué habilidades enseña realmente cada programa, qué demanda el mercado y qué debería aprender cada persona después.",
       "Las dos cosas son un solo trabajo: diseñar experiencias de aprendizaje que funcionan, medirlas con learning analytics e iterarlas con evidencia, y darle a quien aprende un reconocimiento que puede probar.",
     ],
     factsTitle: "Datos rápidos",
@@ -93,8 +93,8 @@ const copy = {
       ["Trayectoria", "Diseño, virtualización, producción y medición de programas de aprendizaje desde 2018"],
       ["Enfoque", "Decisiones basadas en datos: learning analytics e iteración continua de cada programa"],
       ["Alcance", "Más de 20.000 horas de formación en línea producidas en 7 países de Latinoamérica"],
-      ["POK", "Infraestructura de credenciales verificables — blockchain, Open Badge 3.0 y W3C VC — usada por más de 1.100 instituciones en 20 países"],
-      ["Expansión POK", "Lidera la adopción de credenciales verificables en universidades, cajas de compensación y sector público en Colombia"],
+      ["POK", "Skills Intelligence & Credential Infrastructure — la infraestructura que conecta educación, habilidades y empleo. 1.100+ instituciones en 20 países"],
+      ["Expansión POK", "Lidera la adopción de Skills Intelligence y credenciales verificables en universidades, cajas de compensación y sector público en Colombia"],
       ["Sectores", "Educación médica continua, gobierno y políticas públicas, formación corporativa y empleabilidad"],
       ["Base", "Bogotá, Colombia — trabaja en español e inglés"],
     ],
@@ -102,7 +102,7 @@ const copy = {
     topics: [
       "Microcredenciales: diseño, emisión y adopción institucional",
       "Education-Led Growth: la educación como motor de crecimiento B2B",
-      "Credenciales digitales verificables (Open Badges 3.0, blockchain)",
+      "Skills Intelligence: de emitir credenciales a entender habilidades, brechas y empleabilidad",
       "Learning analytics: medir el impacto del aprendizaje con datos e iterar con evidencia",
       "Virtualización de programas de educación continua a escala",
     ],
@@ -126,7 +126,7 @@ const copy = {
       {
         question: "¿Qué hace David González en POK?",
         answer:
-          "Como Country Manager para Colombia de POK (Proof of Knowledge), David González lidera la expansión de la plataforma de credenciales verificables en el país: acompaña a las principales universidades, a las cajas de compensación y a entidades del sector público en el paso del certificado tradicional a credenciales en blockchain que cualquier tercero verifica en segundos. Participa activamente en las redes del ecosistema educativo: ACIET, ASCUN, ASCOFADE, RECLA y REALCUP.",
+          "Como Country Manager para Colombia de POK (Proof of Knowledge), David González lidera la expansión de la infraestructura de Skills Intelligence en el país. POK usa cada credencial como un nodo que conecta lo que una institución enseña con las habilidades que desarrolla y los resultados profesionales que genera; la emisión de credenciales verificables es la puerta de entrada gratuita, no el producto. Acompaña a las principales universidades, cajas de compensación y entidades del sector público, y participa en las redes del ecosistema: ACIET, ASCUN, ASCOFADE, RECLA y REALCUP.",
       },
       {
         question: "¿Sobre qué temas habla David González como speaker?",
@@ -159,8 +159,8 @@ const copy = {
     bio: [
       "David González stands behind one simple idea: learning you can't measure is learning you can't defend. He built his career on that conviction.",
       "He is the founder of merahki.ai, a B2B education technology company that, guided by data at every step, designs, virtualizes, produces, and measures learning programs for universities, governments, and enterprises. Since 2018 he has produced more than 20,000 hours of online learning that have trained thousands of professionals across seven Latin American countries. His portfolio spans three worlds that rarely meet: continuing medical education for pharmaceutical companies such as Novartis, AstraZeneca, Sanofi, Novo Nordisk, and Abbott; public programs with Universidad de los Andes' School of Government, the Inter-American Development Bank, and Agencia Atenea; and workforce training with Colombia Productiva, the Danish Refugee Council, and the Colombian-Japanese Chamber of Commerce and Industry.",
-      "He is also POK's (Proof of Knowledge) Country Manager for Colombia. POK is the global verifiable-credentials infrastructure: more than 1,100 institutions across 20 countries in the Americas, Europe, and Asia use it to issue blockchain credentials under the Open Badge 3.0 and W3C standards, with 1EdTech privacy certification. In practice, a certificate stops being a PDF with a logo: it becomes a credential any employer can verify in seconds, owned by the person who earned it.",
-      "From Bogotá, David leads POK's expansion across Colombia's education ecosystem on three fronts: the country's leading universities, public and private; the cajas de compensación — employer-funded welfare funds that train tens of thousands of workers every year; and the government institutions that need auditable evidence of their training. That work runs through the networks where the sector meets — ACIET, ASCUN, ASCOFADE, RECLA, and REALCUP — carrying one conversation: moving from the certificate you file away to the credential anyone can verify.",
+      "He is also POK's (Proof of Knowledge) Country Manager for Colombia. POK is the Skills Intelligence infrastructure connecting education, skills, and work: more than 1,100 institutions across 20 countries use it. First-generation credentials documented an achievement; second-generation credentials generate data and intelligence, and POK is building that second generation. Each credential stops being an endpoint: it becomes a node connecting what an institution teaches, the skills it develops, and the career outcomes it produces.",
+      "From Bogotá, David leads POK's expansion across Colombia's education ecosystem on three fronts: the country's leading universities, public and private; the cajas de compensación — employer-funded welfare funds that train tens of thousands of workers every year; and the government institutions that need auditable evidence of their training. That work runs through the networks where the sector meets — ACIET, ASCUN, ASCOFADE, RECLA, and REALCUP — carrying one conversation: which skills each program actually teaches, what the labor market demands, and what each person should learn next.",
       "Both jobs are really one: designing learning experiences that work, measuring them with learning analytics, iterating on the evidence, and giving learners recognition they can prove.",
     ],
     factsTitle: "Quick facts",
@@ -169,8 +169,8 @@ const copy = {
       ["Track record", "Designing, virtualizing, producing, and measuring learning programs since 2018"],
       ["Approach", "Data-driven decisions: learning analytics and continuous iteration on every program"],
       ["Reach", "20,000+ hours of online learning produced across 7 Latin American countries"],
-      ["POK", "Verifiable-credentials infrastructure — blockchain, Open Badge 3.0, W3C VC — used by 1,100+ institutions in 20 countries"],
-      ["POK expansion", "Leads the adoption of verifiable credentials across universities, cajas de compensación, and the public sector in Colombia"],
+      ["POK", "Skills Intelligence & Credential Infrastructure — connecting education, skills, and work. 1,100+ institutions in 20 countries"],
+      ["POK expansion", "Leads the adoption of Skills Intelligence and verifiable credentials across universities, cajas de compensación, and the public sector in Colombia"],
       ["Sectors", "Continuing medical education, government and public policy, corporate and workforce training"],
       ["Base", "Bogotá, Colombia — works in Spanish and English"],
     ],
@@ -178,7 +178,7 @@ const copy = {
     topics: [
       "Micro-credentials: design, issuance, and institutional adoption",
       "Education-Led Growth: education as a B2B growth engine",
-      "Verifiable digital credentials (Open Badges 3.0, blockchain)",
+      "Skills Intelligence: from issuing credentials to understanding skills, gaps, and employability",
       "Learning analytics: measuring learning impact with data and iterating on evidence",
       "Virtualizing continuing education programs at scale",
     ],
@@ -202,7 +202,7 @@ const copy = {
       {
         question: "What does David González do at POK?",
         answer:
-          "As POK's (Proof of Knowledge) Country Manager for Colombia, David González leads the platform's expansion in the country: he works with leading universities, cajas de compensación (employer-funded welfare and training funds), and public-sector institutions moving from traditional certificates to blockchain credentials any third party can verify in seconds. He is active in the education ecosystem's networks: ACIET, ASCUN, ASCOFADE, RECLA, and REALCUP.",
+          "As POK's (Proof of Knowledge) Country Manager for Colombia, David González leads the expansion of the Skills Intelligence infrastructure in the country. POK uses each credential as a node connecting what an institution teaches with the skills it develops and the career outcomes it produces; issuing verifiable credentials is the free entry point, not the product. He works with leading universities, cajas de compensación (employer-funded welfare and training funds), and public-sector institutions, and is active in the education ecosystem's networks: ACIET, ASCUN, ASCOFADE, RECLA, and REALCUP.",
       },
       {
         question: "What topics does David González speak about?",

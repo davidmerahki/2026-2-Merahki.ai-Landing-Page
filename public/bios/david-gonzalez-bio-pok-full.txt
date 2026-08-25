@@ -2,13 +2,15 @@ DAVID GONZÁLEZ — POK FULL BIO
 POK (Proof of Knowledge) Country Manager, Colombia · Founder of merahki.ai
 Bogotá, Colombia
 
-David González is POK's (Proof of Knowledge) Country Manager for Colombia. POK is the global verifiable-credentials infrastructure: more than 1,100 institutions across 20 countries in the Americas, Europe, and Asia use it to issue blockchain credentials under the Open Badge 3.0 and W3C standards, with 1EdTech privacy certification. In practice, a certificate stops being a PDF with a logo: it becomes a credential any employer can verify in seconds, owned by the person who earned it.
+David González is POK's (Proof of Knowledge) Country Manager for Colombia. POK is the Skills Intelligence infrastructure connecting education, skills, and work: more than 1,100 institutions across 20 countries in the Americas, Europe, and Asia use it. First-generation credentials documented an achievement; second-generation credentials generate data and intelligence, and POK is building that second generation. Each credential stops being an endpoint: it becomes a node connecting what an institution teaches, the skills it develops, and the career outcomes it produces.
 
-From Bogotá, David leads POK's expansion across Colombia's education ecosystem on three fronts: the country's leading universities, public and private; the cajas de compensación — employer-funded welfare funds that train tens of thousands of workers every year; and the government institutions that need auditable evidence of their training. That work runs through the networks where the sector meets — ACIET, ASCUN, ASCOFADE, RECLA, and REALCUP — carrying one conversation: moving from the certificate you file away to the credential anyone can verify.
+From Bogotá, David leads POK's expansion across Colombia's education ecosystem on three fronts: the country's leading universities, public and private; the cajas de compensación — employer-funded welfare funds that train tens of thousands of workers every year; and the government institutions that need auditable evidence of their training. That work runs through the networks where the sector meets — ACIET, ASCUN, ASCOFADE, RECLA, and REALCUP — carrying one conversation: which skills each program actually teaches, what the labor market demands, and what each person should learn next.
 
 He did not come to the role from sales, but from practice. He is the founder of merahki.ai, a B2B education technology company that designs, virtualizes, produces, and measures learning programs: more than 20,000 hours of online learning since 2018, across seven Latin American countries, spanning continuing medical education for pharmaceutical companies such as Novartis, AstraZeneca, and Sanofi, public programs with Universidad de los Andes' School of Government, the Inter-American Development Bank, and Agencia Atenea, and workforce training with Colombia Productiva and the Danish Refugee Council.
 
-That double seat is his edge: the person proposing verifiable credentials to an institution also knows how to design, run, and measure the program behind each one. The credential closes a cycle David knows end to end — from course design to the impact report.
+That double seat is his edge: the person proposing Skills Intelligence to an institution also knows how to design, run, and measure the program behind each credential. It is a cycle David knows end to end — from course design to the impact report.
+
+Digital credentials were the beginning. Skills Intelligence is the future.
 
 Contact: david@pok.tech
 Press photo: https://merahki.ai/images/david/david-gonzalez.jpg
