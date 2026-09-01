@@ -4371,6 +4371,53 @@
 
 
 
+  /* ===== Tema claro (línea gráfica v1 del portafolio): tokens por sección ===== */
+  deck-stage section.lite {
+    --text-primary:#17121F; --text-secondary:#5A5A66; --text-tertiary:#8D8798;
+    --border-subtle:#E9E5F2; --card-bg:#F5F3FB; --card-border:#E9E5F2;
+    --accent-purple:#7C5CFC; --accent-purple-light:#7C5CFC;
+    --accent-pink:#E8548F; --accent-pink-light:#E8548F;
+    background:#FFFFFF; color:var(--text-primary);
+  }
+  .slide-bg-lite { position:absolute; inset:0; background:#FFFFFF; pointer-events:none; z-index:0; }
+  section.lite .header-logo { opacity:1; height:56px; }
+  section.lite .tag { border-color:rgba(124,92,252,0.45); background:rgba(124,92,252,0.06); color:var(--text-primary); }
+  section.lite .prc-feat {
+    background:linear-gradient(180deg,#F3EEFF 0%,#FDF0F7 100%);
+    border:1.5px solid #7C5CFC; box-shadow:0 18px 60px rgba(124,92,252,0.16);
+  }
+  section.lite .prc-cafe { color:var(--text-secondary); }
+  section.lite .pf-strip { background:rgba(124,92,252,0.08); border-color:rgba(124,92,252,0.28); }
+  section.lite .pf-stepn { background:#7C5CFC; }
+  section.lite .pf-stepn-pink { background:#E8548F; }
+  section.lite .pf-table th.hl { background:#7C5CFC; }
+
+  /* ===== Split: panel oscuro izquierdo + cuerpo claro (diseño v1 de los tiers) ===== */
+  section.pf-split .slide-content { display:none; }
+  .pf-panel {
+    position:absolute; left:0; top:0; bottom:0; width:620px; z-index:3;
+    background:#0A0A12; box-sizing:border-box;
+    padding:170px 64px 110px; display:flex; flex-direction:column;
+  }
+  .pf-panel h2 { margin:0; font-size:72px; font-weight:800; letter-spacing:-0.03em; color:#fff; }
+  .pf-panel .ptag { margin:26px 0 0; font-size:27px; line-height:1.45; color:rgba(255,255,255,0.66); }
+  .pf-panel .ptag strong { color:#fff; }
+  .pf-price-label { margin-top:auto; font-family:'JetBrains Mono',monospace; font-size:19px; letter-spacing:0.22em; color:rgba(255,255,255,0.45); }
+  .pf-price-big { margin-top:12px; font-size:58px; font-weight:800; letter-spacing:-0.02em; color:#fff; }
+  .pf-price-sub { margin-top:10px; font-size:21px; font-style:italic; color:rgba(255,255,255,0.5); }
+  .pf-panel-logo { margin-top:42px; height:44px; width:auto; align-self:flex-start; }
+  .pf-body {
+    position:absolute; left:620px; right:0; top:0; bottom:0; z-index:2;
+    box-sizing:border-box; padding:150px 96px 130px; display:flex; flex-direction:column;
+  }
+  .pf-body .pf-checks { margin-top:36px; gap:30px; }
+  .pf-body .pf-checks li { font-size:26px; }
+  .pf-body .pf-strip { margin-top:auto; font-size:24px; }
+  .pf-body .section-close { margin-top:auto; }
+  .pf-body .pf-strip + .section-close, .pf-body .pf-strip ~ .section-close { margin-top:24px; }
+  section.pf-split .pagination { color:rgba(255,255,255,0.55); }
+  section.pf-split .footer { left:684px; }
+
   /* ===== Portafolio de virtualización (pf-) — extiende el sistema del showroom ===== */
   .pf-h2 { font-size:64px; font-weight:700; line-height:1.05; letter-spacing:-0.02em; margin:0 0 10px; }
   .pf-grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:48px; }
@@ -4445,11 +4492,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>PORTADA</span></div>
 </section>
 
-<section data-label="02 La promesa">
-  <div class="slide-bg"></div>
+<section data-label="02 La promesa" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">02 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Virtualización · La promesa</p>
@@ -4489,11 +4536,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>CLIENTES</span></div>
 </section>
 
-<section data-label="04 Tres opciones">
-  <div class="slide-bg"></div>
+<section data-label="04 Tres opciones" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">04 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Portafolio · Tres opciones</p>
@@ -4536,15 +4583,22 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>TRES OPCIONES</span></div>
 </section>
 
-<section data-label="05 Express">
-  <div class="slide-bg"></div>
+<section data-label="05 Express" class="lite pf-split">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">05 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
-  <div class="slide-content">
-    <p class="kicker kicker-purple">Opción 1 · USD 4.500 + IVA</p>
-    <h2 class="section-title">Express: <span class="accent-purple">tu curso montado, con tu marca, en semanas.</span></h2>
+  <div class="pf-panel">
+    <h2>Express</h2>
+    <p class="ptag">Tu portafolio presencial, disponible en línea con tu marca — sin que tus profesores aprendan nada nuevo.</p>
+    <div class="pf-price-label">PROGRAMA TIPO DE 16 H</div>
+    <div class="pf-price-big">USD 4.500 + IVA</div>
+    <div class="pf-price-sub">Escala por módulo adicional</div>
+    <img class="pf-panel-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+  </div>
+  <div class="pf-body">
+    <p class="kicker kicker-purple">QUÉ INCLUYE</p>
     <ul class="pf-checks">
       <li><span class="pf-chk">✓</span><span><strong>Coordinación docente llave en mano</strong> — cronograma, kit del profesor (guía Zoom/Loom + plantilla con tu línea gráfica) y seguimiento de entregas: nosotros perseguimos, tú no.</span></li>
       <li><span class="pf-chk">✓</span><span><strong>Curaduría técnica de cada grabación</strong> — revisión de audio y video, edición ligera y cortinillas con tu marca.</span></li>
@@ -4557,11 +4611,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>EXPRESS</span></div>
 </section>
 
-<section data-label="06 Bolsa Express">
-  <div class="slide-bg"></div>
+<section data-label="06 Bolsa Express" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">06 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Express · Bolsa de contenidos — programa tipo de 16 h</p>
@@ -4581,16 +4635,22 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>EXPRESS · BOLSA</span></div>
 </section>
 
-<section data-label="07 Interactiva">
-  <div class="slide-bg"></div>
+<section data-label="07 Interactiva" class="lite pf-split">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">07 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
-  <div class="slide-content">
-    <p class="kicker kicker-purple">Opción 2 · USD 8.000 + IVA · Recomendada</p>
-    <h2 class="section-title">Interactiva: <span class="accent-purple">en digital enseña mejor que en presencial.</span></h2>
-    <p class="section-subtitle">Todo lo de Express, más:</p>
+  <div class="pf-panel">
+    <h2>Interactiva</h2>
+    <p class="ptag">Un programa que en digital enseña mejor que en presencial: el estudiante practica, decide y recibe retroalimentación. <strong>Recomendada.</strong></p>
+    <div class="pf-price-label">PROGRAMA TIPO DE 16 H</div>
+    <div class="pf-price-big">USD 8.000 + IVA</div>
+    <div class="pf-price-sub">Escala por módulo adicional</div>
+    <img class="pf-panel-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+  </div>
+  <div class="pf-body">
+    <p class="kicker kicker-purple">TODO LO DE EXPRESS, MÁS</p>
     <ul class="pf-checks">
       <li><span class="pf-chk">✓</span><span><strong>Diseño instruccional del programa</strong> — blueprint con resultados de aprendizaje, ruta del estudiante y una sesión de diseño por módulo con cada profesor.</span></li>
       <li><span class="pf-chk">✓</span><span><strong>Guion por video antes de grabar</strong> — el profesor graba una vez, no tres.</span></li>
@@ -4604,11 +4664,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>INTERACTIVA</span></div>
 </section>
 
-<section data-label="08 Bolsa Interactiva">
-  <div class="slide-bg"></div>
+<section data-label="08 Bolsa Interactiva" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">08 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Interactiva · Bolsa de contenidos — toda la bolsa Express, más</p>
@@ -4628,16 +4688,22 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>INTERACTIVA · BOLSA</span></div>
 </section>
 
-<section data-label="09 World Class">
-  <div class="slide-bg"></div>
+<section data-label="09 World Class" class="lite pf-split">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">09 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
-  <div class="slide-content">
-    <p class="kicker kicker-pink">Opción 3 · USD 13.000 + IVA</p>
-    <h2 class="section-title">World Class: <span class="accent-pink">tu programa bandera, con calidad de streaming.</span></h2>
-    <p class="section-subtitle">Todo lo de Interactiva, más:</p>
+  <div class="pf-panel">
+    <h2>World Class</h2>
+    <p class="ptag">Tu programa bandera: calidad audiovisual de streaming y la maquinaria completa para promocionarlo y captar inscritos.</p>
+    <div class="pf-price-label">PROGRAMA TIPO DE 16 H</div>
+    <div class="pf-price-big">USD 13.000 + IVA</div>
+    <div class="pf-price-sub">Escala por módulo adicional</div>
+    <img class="pf-panel-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+  </div>
+  <div class="pf-body">
+    <p class="kicker kicker-pink">TODO LO DE INTERACTIVA, MÁS</p>
     <ul class="pf-checks">
       <li><span class="pf-chk">✓</span><span><strong>Producción de estudio</strong> — pantalla verde, teleprompter y dirección en set: el profesor llega, lo dirigimos, sale bien a la primera.</span></li>
       <li><span class="pf-chk">✓</span><span><strong>Animaciones personalizadas con IA</strong> — los conceptos clave de cada módulo, curados por diseñador.</span></li>
@@ -4650,11 +4716,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>WORLD CLASS</span></div>
 </section>
 
-<section data-label="10 Bolsa World Class">
-  <div class="slide-bg"></div>
+<section data-label="10 Bolsa World Class" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">10 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-pink">World Class · Bolsa de contenidos — toda la bolsa Interactiva, más</p>
@@ -4674,11 +4740,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>WORLD CLASS · BOLSA</span></div>
 </section>
 
-<section data-label="11 Comparativa">
-  <div class="slide-bg"></div>
+<section data-label="11 Comparativa" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">11 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Portafolio · De un vistazo</p>
@@ -4703,11 +4769,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>COMPARATIVA</span></div>
 </section>
 
-<section data-label="12 Add-ons">
-  <div class="slide-bg"></div>
+<section data-label="12 Add-ons" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">12 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Portafolio · Add-ons</p>
@@ -4725,11 +4791,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>ADD-ONS</span></div>
 </section>
 
-<section data-label="13 Responsables">
-  <div class="slide-bg"></div>
+<section data-label="13 Responsables" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">13 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Cómo trabajamos · Responsables</p>
@@ -4745,11 +4811,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>RESPONSABLES</span></div>
 </section>
 
-<section data-label="14 Cómo trabajamos">
-  <div class="slide-bg"></div>
+<section data-label="14 Cómo trabajamos" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">14 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Cómo trabajamos · Proceso</p>
@@ -4765,11 +4831,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>PROCESO</span></div>
 </section>
 
-<section data-label="15 Cronograma">
-  <div class="slide-bg"></div>
+<section data-label="15 Cronograma" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">15 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Cómo trabajamos · Cronograma</p>
@@ -4794,11 +4860,11 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>CRONOGRAMA</span></div>
 </section>
 
-<section data-label="16 Cómo cotizamos">
-  <div class="slide-bg"></div>
+<section data-label="16 Cómo cotizamos" class="lite">
+  <div class="slide-bg-lite"></div>
   <div class="header">
     <div class="pagination">16 / 23</div>
-    <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Portafolio · Cómo cotizamos</p>
