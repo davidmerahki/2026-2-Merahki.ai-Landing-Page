@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import HtmlRoot from "@/components/layout/HtmlRoot";
 import PerksCarousel from "@/components/sections/PerksCarousel";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { Analytics } from "@vercel/analytics/react";
@@ -103,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={inter.variable}>
+    <HtmlRoot className={inter.variable}>
       <body className="bg-void text-white font-sans antialiased">
         <script
           type="application/ld+json"
@@ -117,6 +118,6 @@ export default function RootLayout({
         <Analytics />
         <SpeedInsights />
       </body>
-    </html>
+    </HtmlRoot>
   );
 }

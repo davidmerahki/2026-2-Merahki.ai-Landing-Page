@@ -388,13 +388,6 @@ export const seoEntries: Record<string, SeoEntry> = {
       ogDescription: "Frameworks, case studies, and 2026 data on how leading SaaS and education companies are using education as their #1 growth channel.",
       ogImageAlt: "Merahki — Education-Led Growth",
     },
-    es: {
-      title: "Education-Led Growth con educación | Merahki",
-      description: "La educación como motor medible de ingresos, retención y adopción. Frameworks, casos y datos para convertir tu academia en tu canal de crecimiento #1.",
-      ogTitle: "Education-Led Growth: la estrategia que convierte academias en motores de crecimiento",
-      ogDescription: "Frameworks, casos y datos 2026 sobre cómo las empresas de SaaS y educación líderes usan la educación como su canal #1 de crecimiento.",
-      ogImageAlt: "Merahki — Education-Led Growth",
-    },
   },
   methodology: {
     slug: "methodology",
@@ -540,7 +533,9 @@ export function buildMetadata(key: keyof typeof seoEntries, lang: Language): Met
     : undefined;
 
   return {
-    title: content.title,
+    // Los títulos de seoEntries ya incluyen la marca; `absolute` evita que el template
+    // "%s | Merahki" del layout raíz la duplique ("... | Merahki | Merahki").
+    title: { absolute: content.title },
     description: content.description,
     alternates: {
       canonical,

@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import BlogBackLink from "@/components/blog/BlogBackLink";
 
 export const metadata: Metadata = {
-  title: "Microcredentials & Digital Credentials: Research, Use Cases & Strategic Framework | merahki.ai",
+  title: "Microcredentials & Digital Credentials: Research, Use Cases & Strategic Framework",
   description:
     "A comprehensive research report on the rise of microcredentials and digital credentials — global data, institutional use cases, and a strategic framework for universities and enterprises.",
   openGraph: {

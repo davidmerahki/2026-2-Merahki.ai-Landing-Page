@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import BlogBackLink from "@/components/blog/BlogBackLink";
 
 export const metadata: Metadata = {
-  title: "Microcredenciales y Credenciales Digitales: Investigación, Casos de Uso y Marco Estratégico | merahki.ai",
+  title: "Microcredenciales y Credenciales Digitales: Investigación, Casos de Uso y Marco Estratégico",
   description:
     "Reporte completo sobre el auge de las microcredenciales y las credenciales digitales — datos globales, casos de uso institucionales y un marco estratégico para universidades y empresas.",
   openGraph: {

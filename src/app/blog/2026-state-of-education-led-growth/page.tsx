@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import BlogBackLink from "@/components/blog/BlogBackLink";
 
 export const metadata: Metadata = {
-  title: "2026 State of Education-Led Growth Report | merahki.ai",
+  title: "2026 State of Education-Led Growth Report",
   description: "How companies turn education into a strategic growth engine. Key findings: 92.6% AI adoption, 81.6% revenue priority, education expanding into customer lifecycle expansion.",
   openGraph: {
     title: "2026 State of Education-Led Growth Report",

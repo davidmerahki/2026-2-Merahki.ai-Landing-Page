@@ -8,7 +8,7 @@ import { ArrowRight } from "lucide-react";
 import BlogBackLink from "@/components/blog/BlogBackLink";
 
 export const metadata: Metadata = {
-  title: "Microcredenciales: la nueva arquitectura del aprendizaje | merahki.ai",
+  title: "Microcredenciales: la nueva arquitectura del aprendizaje",
   description:
     "Por qué las microcredenciales no son educación más pequeña — y qué deben hacer las instituciones antes de que sea tarde. Casos de éxito, datos globales y un plan de acción de 3 pasos.",
   openGraph: {

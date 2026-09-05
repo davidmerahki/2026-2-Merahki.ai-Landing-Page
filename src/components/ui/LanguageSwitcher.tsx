@@ -2,19 +2,25 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { Globe } from "lucide-react";
+import { ES_ROUTES } from "@/lib/routes.generated";
 
 const LANG_COOKIE = "preferred-lang";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
+// Rutas con versión ES real (generadas desde src/app/es).
+const ES_ROUTE_SET = new Set<string>(ES_ROUTES);
 
 export default function LanguageSwitcher() {
   const pathname = usePathname();
   const router = useRouter();
-  const isEs = pathname.startsWith("/es");
+  const isEs = pathname === "/es" || pathname.startsWith("/es/");
 
   const targetLang = isEs ? "en" : "es";
+  // Si la página no tiene versión ES, el switch lleva al home en español (no a un 404).
   const targetHref = isEs
     ? pathname.slice(3) || "/"
-    : "/es" + (pathname === "/" ? "" : pathname);
+    : ES_ROUTE_SET.has(pathname)
+      ? "/es" + (pathname === "/" ? "" : pathname)
+      : "/es";
 
   function handleSwitch() {
     document.cookie = `${LANG_COOKIE}=${targetLang}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;

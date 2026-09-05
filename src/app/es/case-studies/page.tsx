@@ -5,7 +5,7 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Casos de estudio | Merahki",
+  title: "Casos de estudio",
   description: "Resultados reales de programas educativos, microcredenciales y educación continua construidos con Merahki.",
   openGraph: {
     title: "Casos de estudio | Merahki",
