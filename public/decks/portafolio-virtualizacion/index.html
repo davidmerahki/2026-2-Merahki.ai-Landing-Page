@@ -4471,6 +4471,18 @@
   .pf-cta { display:inline-flex; align-items:center; margin-top:52px; padding:24px 58px; border-radius:999px;
     background:linear-gradient(90deg,#8B5CF6,#EC4899); color:#fff; font-size:30px; font-weight:800; text-decoration:none; letter-spacing:-0.01em; }
   .pf-contacts { margin-top:56px; font-family:'JetBrains Mono',monospace; font-size:24px; line-height:1.8; color:var(--text-secondary); }
+
+  /* ===== Adapta (cuarta opción) ===== */
+  .prc-cards.prc-four { grid-template-columns:repeat(4,1fr); gap:22px; }
+  .prc-four .prc-card { padding:32px 26px 28px; gap:16px; }
+  .prc-four .prc-price { gap:10px; }
+  .prc-four .prc-price .n { font-size:56px; }
+  .prc-four .prc-price .u { font-size:22px; }
+  .prc-four .prc-list { font-size:21px; gap:10px; }
+  .prc-new { display:inline-block; margin-left:10px; padding:3px 10px; border-radius:999px; border:1px solid currentColor;
+    font-size:16px; letter-spacing:0.14em; vertical-align:2px; color:var(--accent-pink); }
+  .pf-table td.t { color:var(--accent-purple-light); font-weight:700; font-size:19px; }
+  .pf-table-12 th, .pf-table-12 td { padding:9px 16px; }
 </style>
 </head>
 <body>
@@ -4479,7 +4491,7 @@
 <section data-label="01 Portada">
   <div class="slide-bg"></div>
   <div class="header">
-    <div class="pagination">01 / 23</div>
+    <div class="pagination">01 / 25</div>
     <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
   </div>
   <div class="slide-content portada">
@@ -4495,7 +4507,7 @@
 <section data-label="02 La promesa" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">02 / 23</div>
+    <div class="pagination">02 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4503,7 +4515,7 @@
     <h2 class="section-title">Tú tienes los expertos. <span class="accent-purple">Nosotros hacemos todo lo demás.</span></h2>
     <div class="pf-grid3">
       <div class="pf-card"><h3>Coordinación llave en mano</h3><p>Cronograma, kit del profesor y seguimiento de entregas. <strong>Nosotros perseguimos las entregas — tu equipo no.</strong></p></div>
-      <div class="pf-card"><h3>De la grabación remota al estudio con croma</h3><p>El nivel de producción que <strong>tu programa</strong> necesite, con guía y dirección nuestras.</p></div>
+      <div class="pf-card"><h3>Del curso que ya tienes al estudio con croma</h3><p>El nivel de producción que <strong>tu programa</strong> necesite, desde adaptar lo que ya existe, con guía y dirección nuestras.</p></div>
       <div class="pf-card"><h3>Montaje en TU plataforma</h3><p>Brightspace, Canvas, Blackboard, Moodle, LearnWorlds, SuccessFactors o edX — <strong>con tu línea gráfica y sin migrar nada.</strong></p></div>
     </div>
   </div>
@@ -4513,7 +4525,7 @@
 <section data-label="03 Clientes">
   <div class="slide-bg"></div>
   <div class="header">
-    <div class="pagination">03 / 23</div>
+    <div class="pagination">03 / 25</div>
     <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4536,16 +4548,26 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>CLIENTES</span></div>
 </section>
 
-<section data-label="04 Tres opciones" class="lite">
+<section data-label="04 Cuatro opciones" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">04 / 23</div>
+    <div class="pagination">04 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
-    <p class="kicker kicker-purple">Portafolio · Tres opciones</p>
-    <h2 class="prc-title">Elige por lo que necesitas <span class="accent-purple">lograr.</span></h2>
-    <div class="prc-cards">
+    <p class="kicker kicker-purple">Portafolio · Cuatro opciones</p>
+    <h2 class="prc-title">Elige por lo que ya tienes y por lo que necesitas <span class="accent-purple">lograr.</span></h2>
+    <div class="prc-cards prc-four">
+      <div class="prc-card">
+        <div class="prc-name">Adapta<span class="prc-new">Nuevo</span></div>
+        <div class="prc-price"><span class="n">$5.000</span><span class="u">USD + IVA</span></div>
+        <ul class="prc-list">
+          <li><strong>Ya tienes el curso:</strong> lo convertimos en un programa por competencias</li>
+          <li>Diagnóstico, arquitectura y modularización</li>
+          <li>Experiencia del estudiante y montaje en tu LMS</li>
+          <li>Ideal: cursos grabados que hoy viven en un LMS plano</li>
+        </ul>
+      </div>
       <div class="prc-card">
         <div class="prc-name">Express</div>
         <div class="prc-price"><span class="n">$5.500</span><span class="u">USD + IVA</span></div>
@@ -4578,15 +4600,68 @@
         </ul>
       </div>
     </div>
-    <div class="prc-note">Precios del programa tipo de 16 h (4 módulos · 3 temas por módulo). Cada opción incluye TODO lo de la anterior y escala por módulo adicional.</div>
+    <div class="prc-note">Precios del programa tipo de 16 h (4 módulos · 3 temas por módulo). Cada opción escala por módulo adicional. Express, Interactiva y World Class se suman una sobre otra. Adapta parte de un curso que ya existe.</div>
   </div>
-  <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>TRES OPCIONES</span></div>
+  <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>CUATRO OPCIONES</span></div>
 </section>
 
-<section data-label="05 Express" class="lite pf-split">
+<section data-label="05 Adapta" class="lite pf-split">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">05 / 23</div>
+    <div class="pagination">05 / 25</div>
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
+  </div>
+  <div class="pf-panel">
+    <h2>Adapta</h2>
+    <p class="ptag">Tu curso ya existe. Lo convertimos en un programa por competencias que tus estudiantes siguen a su ritmo.</p>
+    <div class="pf-price-label">PROGRAMA TIPO DE 16 H</div>
+    <div class="pf-price-big">USD 5.000 + IVA</div>
+    <div class="pf-price-sub">Escala por módulo adicional</div>
+    <img class="pf-panel-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
+  </div>
+  <div class="pf-body">
+    <p class="kicker kicker-purple">QUÉ INCLUYE</p>
+    <ul class="pf-checks">
+      <li><span class="pf-chk">✓</span><span><strong>Diagnóstico del curso existente</strong> — qué se reutiliza, qué se corta y qué falta.</span></li>
+      <li><span class="pf-chk">✓</span><span><strong>Arquitectura del programa</strong> — mapa de competencias, resultados de aprendizaje y perfil de egreso, alineados al MNC y a la CUOC.</span></li>
+      <li><span class="pf-chk">✓</span><span><strong>Modularización</strong> — tu contenido rearmado en módulos y temas, con una sesión de diseño por módulo con tu docente.</span></li>
+      <li><span class="pf-chk">✓</span><span><strong>Experiencia del estudiante</strong> — ruta, semana tipo, guía del estudiante y guía del tutor.</span></li>
+      <li><span class="pf-chk">✓</span><span><strong>Evaluación que demuestra la competencia</strong> — evaluaciones con las preguntas de tu docente y rúbrica de la evidencia final.</span></li>
+      <li><span class="pf-chk">✓</span><span><strong>Montaje en tu LMS</strong> — estructura, ruta y control de calidad, con 2 rondas de ajustes.</span></li>
+    </ul>
+    <p class="section-close">¿Quieres sumar actividades interactivas nuevas? → <strong>Interactiva</strong></p>
+  </div>
+  <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>ADAPTA</span></div>
+</section>
+
+<section data-label="06 Bolsa Adapta" class="lite">
+  <div class="slide-bg-lite"></div>
+  <div class="header">
+    <div class="pagination">06 / 25</div>
+    <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
+  </div>
+  <div class="slide-content">
+    <p class="kicker kicker-purple">Adapta · Bolsa de contenidos — programa tipo de 16 h</p>
+    <h2 class="pf-h2">Todo esto incluido:</h2>
+    <div class="pf-tiles">
+      <div class="pf-tile"><div class="pf-n">1</div><div class="pf-tt">Arquitectura del programa</div><div class="pf-td">Competencias, resultados y perfil de egreso.</div></div>
+      <div class="pf-tile"><div class="pf-n">1</div><div class="pf-tt">Diagnóstico del curso</div><div class="pf-td">Qué se reutiliza, qué se corta y qué falta.</div></div>
+      <div class="pf-tile"><div class="pf-n">4</div><div class="pf-tt">Sesiones de diseño</div><div class="pf-td">Una por módulo, con tu docente, y su plano del módulo.</div></div>
+      <div class="pf-tile"><div class="pf-n">12</div><div class="pf-tt">Lecciones rearmadas</div><div class="pf-td">Una por tema, con el contenido que ya existe.</div></div>
+      <div class="pf-tile"><div class="pf-n">3</div><div class="pf-tt">Piezas de experiencia</div><div class="pf-td">Ruta del estudiante, guía del estudiante y guía del tutor.</div></div>
+      <div class="pf-tile"><div class="pf-n">4</div><div class="pf-tt">Evaluaciones montadas</div><div class="pf-td">Con las preguntas de tu docente, más la rúbrica final.</div></div>
+      <div class="pf-tile"><div class="pf-n">4</div><div class="pf-tt">Módulos montados</div><div class="pf-td">Estructura y control de calidad en tu LMS.</div></div>
+      <div class="pf-tile"><div class="pf-n">2</div><div class="pf-tt">Rondas de ajustes</div><div class="pf-td">Con revisión consolidada por ronda.</div></div>
+    </div>
+    <p class="pf-note">¿Tu programa es más largo o más corto? La bolsa escala por módulo, sin rediseñar la propuesta.</p>
+  </div>
+  <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>ADAPTA · BOLSA</span></div>
+</section>
+
+<section data-label="07 Express" class="lite pf-split">
+  <div class="slide-bg-lite"></div>
+  <div class="header">
+    <div class="pagination">07 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="pf-panel">
@@ -4611,10 +4686,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>EXPRESS</span></div>
 </section>
 
-<section data-label="06 Bolsa Express" class="lite">
+<section data-label="08 Bolsa Express" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">06 / 23</div>
+    <div class="pagination">08 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4635,10 +4710,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>EXPRESS · BOLSA</span></div>
 </section>
 
-<section data-label="07 Interactiva" class="lite pf-split">
+<section data-label="09 Interactiva" class="lite pf-split">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">07 / 23</div>
+    <div class="pagination">09 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="pf-panel">
@@ -4664,10 +4739,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>INTERACTIVA</span></div>
 </section>
 
-<section data-label="08 Bolsa Interactiva" class="lite">
+<section data-label="10 Bolsa Interactiva" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">08 / 23</div>
+    <div class="pagination">10 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4688,10 +4763,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>INTERACTIVA · BOLSA</span></div>
 </section>
 
-<section data-label="09 World Class" class="lite pf-split">
+<section data-label="11 World Class" class="lite pf-split">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">09 / 23</div>
+    <div class="pagination">11 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="pf-panel">
@@ -4716,10 +4791,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>WORLD CLASS</span></div>
 </section>
 
-<section data-label="10 Bolsa World Class" class="lite">
+<section data-label="12 Bolsa World Class" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">10 / 23</div>
+    <div class="pagination">12 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4740,39 +4815,40 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>WORLD CLASS · BOLSA</span></div>
 </section>
 
-<section data-label="11 Comparativa" class="lite">
+<section data-label="13 Comparativa" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">11 / 23</div>
+    <div class="pagination">13 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
     <p class="kicker kicker-purple">Portafolio · De un vistazo</p>
     <h2 class="pf-h2">Qué incluye cada opción</h2>
-    <table class="pf-table">
-      <thead><tr><th></th><th>Express</th><th class="hl">Interactiva</th><th>World Class</th></tr></thead>
+    <table class="pf-table pf-table-12">
+      <thead><tr><th></th><th>Adapta</th><th>Express</th><th class="hl">Interactiva</th><th>World Class</th></tr></thead>
       <tbody>
-        <tr><td>Coordinación docente y persecución de entregas</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Edición y subtítulos con IA</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Montaje y diseño en tu LMS</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Diseño instruccional (blueprint + guiones)</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Contenidos interactivos H5P</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Grabación presencial</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Banco de preguntas y rúbricas</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><td>Estudio: croma, teleprompter y dirección</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
-        <tr><td>Animaciones personalizadas con IA</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
-        <tr><td>Landing page + formularios + trailer</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
-        <tr><td>500 certificados NFT + diseño de credenciales (POK)</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+        <tr><td>Adaptación de un curso que ya existe</td><td class="y">✓</td><td class="n">—</td><td class="n">—</td><td class="n">—</td></tr>
+        <tr><td>Coordinación docente y persecución de entregas</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Edición y subtítulos con IA</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Montaje y diseño en tu LMS</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Diseño instruccional (blueprint + guiones)</td><td class="t">Blueprint</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Contenidos interactivos H5P</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Grabación presencial</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Banco de preguntas y rúbricas</td><td class="t">Rúbrica</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+        <tr><td>Estudio: croma, teleprompter y dirección</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+        <tr><td>Animaciones personalizadas con IA</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+        <tr><td>Landing page + formularios + trailer</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+        <tr><td>500 certificados NFT + diseño de credenciales (POK)</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
       </tbody>
     </table>
   </div>
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>COMPARATIVA</span></div>
 </section>
 
-<section data-label="12 Add-ons" class="lite">
+<section data-label="14 Add-ons" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">12 / 23</div>
+    <div class="pagination">14 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4791,10 +4867,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>ADD-ONS</span></div>
 </section>
 
-<section data-label="13 Responsables" class="lite">
+<section data-label="15 Responsables" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">13 / 23</div>
+    <div class="pagination">15 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4811,10 +4887,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>RESPONSABLES</span></div>
 </section>
 
-<section data-label="14 Cómo trabajamos" class="lite">
+<section data-label="16 Cómo trabajamos" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">14 / 23</div>
+    <div class="pagination">16 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4831,10 +4907,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>PROCESO</span></div>
 </section>
 
-<section data-label="15 Cronograma" class="lite">
+<section data-label="17 Cronograma" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">15 / 23</div>
+    <div class="pagination">17 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4860,10 +4936,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>CRONOGRAMA</span></div>
 </section>
 
-<section data-label="16 Cómo cotizamos" class="lite">
+<section data-label="18 Cómo cotizamos" class="lite">
   <div class="slide-bg-lite"></div>
   <div class="header">
-    <div class="pagination">16 / 23</div>
+    <div class="pagination">18 / 25</div>
     <img class="header-logo" src="../../images/logos/merahki negro.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4878,10 +4954,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>CÓMO COTIZAMOS</span></div>
 </section>
 
-<section data-label="17 Empieza hoy">
+<section data-label="19 Empieza hoy">
   <div class="slide-bg"></div>
   <div class="header">
-    <div class="pagination">17 / 23</div>
+    <div class="pagination">19 / 25</div>
     <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
   </div>
   <div class="slide-content portada">
@@ -4895,10 +4971,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>EMPIEZA HOY</span></div>
 </section>
 
-<section data-label="17 Lego + IA" class="lg2">
+<section data-label="20 Lego + IA" class="lg2">
   <div class="slide-bg"></div>
   <div class="header">
-    <div class="pagination">18 / 23</div>
+    <div class="pagination">20 / 25</div>
     <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -4994,10 +5070,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>MERAHKI · VIRTUALIZACIÓN</span></div>
 </section>
 
-<section data-label="18 LMS rayos-X" class="pov">
+<section data-label="21 LMS rayos-X" class="pov">
   <div class="slide-bg"></div>
   <div class="header">
-    <div class="pagination">19 / 23</div>
+    <div class="pagination">21 / 25</div>
     <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -5070,10 +5146,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>MERAHKI · ANALÍTICA</span></div>
 </section>
 
-<section data-label="19 ROI tablero vivo">
+<section data-label="22 ROI tablero vivo">
   <div class="slide-bg-flat"></div>
   <div class="header">
-    <div class="pagination">20 / 23</div>
+    <div class="pagination">22 / 25</div>
     <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
   </div>
   <div class="slide-content">
@@ -5105,10 +5181,10 @@
   <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>MERAHKI · ANALÍTICA</span></div>
 </section>
 
-<section data-label="22 ¿Cuánto cuesta?" class="cost">
+<section data-label="23 ¿Cuánto cuesta?" class="cost">
     <div class="slide-bg"></div>
     <div class="header">
-      <div class="pagination">21 / 23</div>
+      <div class="pagination">23 / 25</div>
       <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
     </div>
     <div class="slide-content">
@@ -5150,10 +5226,10 @@
     <div class="footer"><span>MERAHKI.AI · PORTAFOLIO DE VIRTUALIZACIÓN 2026</span><span>MERAHKI · INVERSIÓN</span></div>
   </section>
 
-<section data-label="23 Testimonios">
+<section data-label="24 Testimonios">
     <div class="slide-bg-flat"></div>
     <div class="header">
-      <div class="pagination">22 / 23</div>
+      <div class="pagination">24 / 25</div>
       <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
     </div>
     <div class="slide-content voces">
@@ -5202,10 +5278,10 @@
     <div class="footer"><span>merahki.ai</span><span>Todos los derechos reservados ©</span></div>
   </section>
 
-<section data-label="24 Cierre 5 pilares" class="cierre">
+<section data-label="25 Cierre 5 pilares" class="cierre">
     <div class="slide-bg-flat"></div>
     <div class="header">
-      <div class="pagination">23 / 23</div>
+      <div class="pagination">25 / 25</div>
       <img class="header-logo" src="../showroom/assets/logo-merahki-blanco.png" alt="merahki.ai">
     </div>
     <div class="slide-content arquitectura">

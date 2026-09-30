@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 
 /**
  * Portafolio de Virtualización — URL OCULTA (no descubrible) para compartir
- * el deck comercial de virtualización (3 opciones + add-ons + cronograma +
+ * el deck comercial de virtualización (4 opciones: Adapta, Express, Interactiva y
+ * World Class + add-ons + cronograma +
  * láminas seleccionadas del showroom).
  *
  * Mismo patrón que /showroom:
