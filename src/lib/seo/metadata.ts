@@ -38,11 +38,11 @@ export const seoEntries: Record<string, SeoEntry> = {
       ogImageAlt: "Merahki — The end-to-end micro-credentials ecosystem",
     },
     es: {
-      title: "Merahki | Diseña y mide microcredenciales",
-      description: "Diseña, virtualiza y mide microcredenciales verificables bajo tu marca. Convierte tu educación continua en crecimiento e ingreso recurrente.",
-      ogTitle: "Personas y empresas ya compran microcredenciales. La única pregunta es a quién.",
-      ogDescription: "Merahki diseña, virtualiza y mide tus microcredenciales, y las cierra con insignias digitales verificables en blockchain. Convierte tu educación continua en un motor de crecimiento e ingreso recurrente.",
-      ogImageAlt: "Merahki — Ecosistema de microcredenciales end-to-end",
+      title: "Merahki | Soluciones de formación para universidades",
+      description: "Cotizaciones en horas, diseño de cursos, virtualización, plataformas LMS, cursos por WhatsApp, credenciales digitales e informes en una sola solución.",
+      ogTitle: "merahki.ai ayuda a las universidades a cotizar, responder y operar proyectos corporativos y licitaciones",
+      ogDescription: "Cotizaciones en horas, diseño de cursos, virtualización, plataformas LMS, cursos por WhatsApp, credenciales digitales, seguimiento e informes en una sola solución.",
+      ogImageAlt: "Merahki — Soluciones de formación para universidades",
     },
   },
   "flexible-courses": {
