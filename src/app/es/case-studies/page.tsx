@@ -5,10 +5,11 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://merahki.ai/es/case-studies", languages: {"en-US": "https://merahki.ai/case-studies", "es": "https://merahki.ai/es/case-studies", "x-default": "https://merahki.ai/case-studies"} },
   title: "Casos de estudio",
   description: "Resultados reales de programas educativos, microcredenciales y educación continua construidos con Merahki.",
   openGraph: {
-    title: "Casos de estudio | Merahki",
+    title: "Casos de estudio | merahki.ai",
     description: "Resultados reales de programas educativos construidos con Merahki.",
     url: "https://merahki.ai/es/case-studies",
     type: "website",

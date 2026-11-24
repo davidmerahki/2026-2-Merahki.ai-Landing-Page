@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://merahki.ai/events" },
   title: "Upcoming Events",
   description:
     "Connect with merahki.ai at upcoming events, conferences, and community meetups focused on education-led growth and enterprise learning.",

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight, MapPin, Clock, Briefcase } from "lucide-react";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://merahki.ai/careers" },
   title: "Careers at merahki.ai",
   description:
     "Join the merahki.ai team and help shape the future of education-led growth. Explore our current job openings.",

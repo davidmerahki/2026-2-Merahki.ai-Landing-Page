@@ -24,6 +24,15 @@ export default function LanguageSwitcher() {
 
   function handleSwitch() {
     document.cookie = `${LANG_COOKIE}=${targetLang}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;
+    // Si la página declara su versión en el otro idioma (hreflang), se usa esa URL:
+    // los artículos del blog tienen slugs distintos en cada idioma.
+    const alt = document.querySelector<HTMLLinkElement>(
+      `link[rel="alternate"][hreflang="${targetLang === "es" ? "es" : "en-US"}"]`
+    );
+    if (alt?.href) {
+      const u = new URL(alt.href);
+      if (u.pathname !== pathname) return router.push(u.pathname + u.search);
+    }
     router.push(targetHref);
   }
 

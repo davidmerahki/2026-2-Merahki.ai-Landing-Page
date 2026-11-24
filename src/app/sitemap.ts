@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { getPath, pairedSeoRoutes } from "@/lib/seo/metadata";
 import { EN_ROUTES, ES_ROUTES } from "@/lib/routes.generated";
+import { ARTICULOS } from "@/content/blog/registry.generated";
+import { alterno, urlDe } from "@/content/blog/registry";
 
 const BASE_URL = "https://merahki.ai";
 // Rutas con página ES real (generadas desde src/app/es). Solo se publica /es/<ruta> si existe.
@@ -101,5 +103,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.5,
   }));
 
-  return [...pairedRoutes, ...localized(staticRoutes, 0.6), ...localized(blogPosts, 0.6), ...blogEs];
+  // Artículos escritos como datos (src/content/blog): cada idioma con su URL y su hreflang.
+  const articulos = ARTICULOS.map((a) => {
+    const alt = alterno(a);
+    const languages: Record<string, string> = { [a.lang === "es" ? "es" : "en-US"]: urlDe(a) };
+    if (alt) languages[alt.lang === "es" ? "es" : "en-US"] = urlDe(alt);
+    return {
+      url: urlDe(a),
+      lastModified: new Date((a.updated || a.published) + "T12:00:00Z"),
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      ...(alt ? { alternates: { languages } } : {}),
+    };
+  });
+
+  // Páginas de servicio con ruta propia en cada idioma (24-nov-2026).
+  const servicios = [["/course-virtualization", "/es/virtualizacion-de-cursos"], ["/interactive-content-types", "/es/tipos-de-contenido-interactivo"]].flatMap(([en, es]) => {
+    const languages = { "en-US": `${BASE_URL}${en}`, es: `${BASE_URL}${es}`, "x-default": `${BASE_URL}${en}` };
+    return [
+      { url: languages["en-US"], lastModified, changeFrequency: "monthly" as const, priority: 0.8, alternates: { languages } },
+      { url: languages.es, lastModified, changeFrequency: "monthly" as const, priority: 0.8, alternates: { languages } },
+    ];
+  });
+
+  return [...pairedRoutes, ...localized(staticRoutes, 0.6), ...localized(blogPosts, 0.6), ...blogEs, ...articulos, ...servicios];
 }

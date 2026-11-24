@@ -68,3 +68,30 @@ if (previous === content) {
   writeFileSync(OUT_FILE, content);
   console.log(`[generate-routes] escrito src/lib/routes.generated.ts (${EN_ROUTES.length} EN, ${ES_ROUTES.length} ES)`);
 }
+
+// ── Registro del blog (24-nov-2026) ──────────────────────────────────────────
+// Cada artículo es src/content/blog/<es|en>/<slug>.ts y exporta `articulo`.
+// Este bloque escribe src/content/blog/registry.generated.ts con todos los imports,
+// para que nadie tenga que mantener la lista a mano.
+const BLOG_DIR = join(ROOT, "src", "content", "blog");
+const BLOG_OUT = join(BLOG_DIR, "registry.generated.ts");
+const articulos = [];
+for (const lang of ["es", "en"]) {
+  const dir = join(BLOG_DIR, lang);
+  if (!existsSync(dir)) continue;
+  for (const f of readdirSync(dir).filter((n) => n.endsWith(".ts") && !n.startsWith("_")).sort()) {
+    articulos.push(`${lang}/${f.replace(/\.ts$/, "")}`);
+  }
+}
+const blogContent = `// ARCHIVO GENERADO por scripts/generate-routes.mjs — NO EDITAR A MANO.
+// Lista los artículos de src/content/blog/<es|en>/<slug>.ts.
+import type { Articulo } from "./types";
+${articulos.map((p, i) => `import { articulo as a${i} } from "./${p}";`).join("\n")}
+
+export const ARTICULOS: Articulo[] = [${articulos.map((_, i) => `a${i}`).join(", ")}];
+`;
+const prevBlog = existsSync(BLOG_OUT) ? readFileSync(BLOG_OUT, "utf8") : null;
+if (prevBlog !== blogContent) {
+  writeFileSync(BLOG_OUT, blogContent);
+  console.log(`[generate-routes] escrito src/content/blog/registry.generated.ts (${articulos.length} artículos)`);
+}

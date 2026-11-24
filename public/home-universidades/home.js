@@ -141,6 +141,25 @@ window.initHomeUniversidades = function (root) {
     window.__mhuPrism = { play: pplay, pause: ppause, stop: function(){ ppause(); window.removeEventListener('resize', pmeasure); } };
   }
 
+  // cotización a la medida: el formulario de HubSpot del idioma de la página se carga al abrir la ventana
+  var qd = document.getElementById('qdlg');
+  if (qd) {
+    var qok = false;
+    var qload = function(){ if (qok) return; qok = true;
+      var go = function(){ try { window.hbspt.forms.create({ portalId: '51381899', formId: qd.getAttribute('data-form'), region: 'na1', target: '#qform', css: '',
+        onFormReady: function(){ var l = qd.querySelector('.qform-load'); if (l && l.parentNode) l.parentNode.removeChild(l); },
+        onFormSubmitted: function(){ ev('cotizacion_enviada'); } }); } catch (e) {} };
+      if (window.hbspt && window.hbspt.forms) go();
+      else { var s = document.createElement('script'); s.src = 'https://js.hsforms.net/forms/embed/v2.js'; s.charset = 'utf-8'; s.async = true; s.onload = go; document.head.appendChild(s); } };
+    var qclose = function(){ if (qd.close) qd.close(); else qd.removeAttribute('open'); };
+    document.querySelectorAll('.qopen').forEach(function(b){ b.addEventListener('click', function(){ qload(); if (qd.showModal) qd.showModal(); else qd.setAttribute('open', ''); ev('cotizacion_abrir_' + (b.getAttribute('data-src') || 'boton')); }); });
+    document.getElementById('qdlg-close').addEventListener('click', qclose);
+    qd.addEventListener('click', function(e){ if (e.target === qd) qclose(); });
+    // enlaces de artículos y páginas de servicio: /es#cotizacion o /#cotizacion abren el formulario directamente
+    var qhash = function(){ if (location.hash === '#cotizacion' || location.hash === '#quote') { qload(); if (!qd.open) { if (qd.showModal) qd.showModal(); else qd.setAttribute('open', ''); } ev('cotizacion_abrir_enlace'); } };
+    qhash(); window.addEventListener('hashchange', qhash);
+  }
+
   // video y prisma del encabezado: un botón los pausa juntos (WCAG 2.2.2); con movimiento reducido no se mueven
   var hv = document.getElementById('hero-loop'), hb = document.getElementById('hero-loop-btn');
   if (hv && hb) {

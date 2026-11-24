@@ -83,7 +83,7 @@ const programTypes = [
     ],
   },
   {
-    label: "Continuing Education",
+    label: "Lifelong Learning",
     icon: RefreshCcw,
     bullets: [
       "Launch market-ready micro-credential programs in weeks.",

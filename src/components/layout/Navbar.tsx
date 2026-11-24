@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { ES_ROUTES } from "@/lib/routes.generated";
+import { DESCS_ES, GROUPS_ES, HREFS_ES, LABELS_ES, SECTORS_ES } from "./navbar-es";
 
 interface NavItem { label: string; desc: string; href: string; }
 interface IndustrySector { sector: string; items: NavItem[]; }
 interface NavGroup {
   label: string;
+  id?: string;
   columns?: number;
   items: NavItem[];
   industryGroups?: IndustrySector[];
@@ -33,20 +36,21 @@ const navGroups: NavGroup[] = [
   {
     label: "Solutions",
     items: [
-      { label: "Continuing Education", desc: "Full-service B2B education operations for higher education institutions.", href: "/continuing-education" },
+      { label: "Course Virtualization", desc: "Face-to-face courses turned into online programs you can measure.", href: "/course-virtualization" },
+      { label: "Lifelong Learning", desc: "Continuing education for universities: design, production and operation of programs for companies.", href: "/lifelong-learning" },
       { label: "Training & Certification", desc: "Build and deliver training at speed.", href: "/training-certification" },
       { label: "Customer Education", desc: "Drive retention and revenue with education.", href: "/customer-education" },
       { label: "Partner Education", desc: "Accelerate partner success with training.", href: "/partner-academies" },
       { label: "Medical Education", desc: "AI-powered CME, accreditation & clinical training for healthcare.", href: "/medical-education" },
       { label: "Certifications at Scale", desc: "Deliver training and certification at scale.", href: "/certification" },
       { label: "Product Adoption & Onboarding", desc: "Increase product adoption with education.", href: "/product-adoption" },
-      { label: "Marketing Your Courses", desc: "Your outsourced growth squad to turn traffic into enrolled students.", href: "/marketing-your-courses" },
       { label: "Growth for Universities", desc: "Scale enrollment, retention & lifelong learning with AI.", href: "/growth-for-universities" },
     ],
   },
   {
     label: "Resources",
     items: [
+      { label: "Interactive content catalog", desc: "The 55 interactive content types we produce, with examples you can try.", href: "/interactive-content-types" },
       { label: "Blog", desc: "Explore learning trends, strategies, and best practices.", href: "/blog" },
       { label: "Case Studies", desc: "See how leading brands succeed with merahki.ai.", href: "/case-studies" },
       { label: "Reports & Resources", desc: "Access Education-Led Growth research & guides.", href: "/reports" },
@@ -142,6 +146,17 @@ const navGroups: NavGroup[] = [
   },
 ];
 
+const ES_SET = new Set<string>(ES_ROUTES);
+const esHref = (href: string) => HREFS_ES[href] ?? (href.startsWith("/") && ES_SET.has(href) ? "/es" + (href === "/" ? "" : href) : href);
+const esItem = (i: NavItem): NavItem => ({ label: LABELS_ES[i.label] ?? i.label, desc: DESCS_ES[i.desc] ?? i.desc, href: esHref(i.href) });
+const navGroupsEs: NavGroup[] = navGroups.map((g) => ({
+  ...g,
+  id: g.label,
+  label: GROUPS_ES[g.label] ?? g.label,
+  items: g.items.map(esItem),
+  industryGroups: g.industryGroups?.map((s) => ({ sector: SECTORS_ES[s.sector] ?? s.sector, items: s.items.map(esItem) })),
+}));
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -167,6 +182,7 @@ export default function Navbar() {
   const isEs = pathname === "/es" || pathname.startsWith("/es/");
   const ctaHref = "https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651";
   const ctaLabel = isEs ? "Agendar reunión de 30 minutos" : "Book a 30-minute meeting";
+  const groups = isEs ? navGroupsEs : navGroups;
 
   return (
     <nav
@@ -178,7 +194,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center flex-shrink-0">
+        <Link href={isEs ? "/es" : "/"} className="flex items-center flex-shrink-0" aria-label={isEs ? "merahki.ai, inicio" : "merahki.ai home"}>
           <span className="text-white font-bold text-lg tracking-tight">
             merahki<span className="text-gradient-blue-pink">.ai</span>
           </span>
@@ -186,7 +202,7 @@ export default function Navbar() {
 
         {/* Desktop Nav — each group wraps trigger + panel so mouse never leaves */}
         <div className="hidden md:flex items-center gap-1">
-          {navGroups.map((group) => (
+          {groups.map((group) => (
             <div
               key={group.label}
               className="relative"
@@ -214,7 +230,7 @@ export default function Navbar() {
                       ? "left-0 min-w-[640px]"
                       : group.industryGroups
                       ? "right-0 min-w-[760px]"
-                      : group.label === "Solutions"
+                      : (group.id ?? group.label) === "Solutions"
                       ? "left-1/2 -translate-x-1/2 min-w-[280px]"
                       : "left-1/2 -translate-x-1/2 min-w-[240px]"
                   }`}
@@ -308,7 +324,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-black/95 backdrop-blur-xl border-t border-white/10 px-6 py-4 space-y-1">
-          {navGroups.map((group) => (
+          {groups.map((group) => (
             <div key={group.label}>
               <button
                 onClick={() =>

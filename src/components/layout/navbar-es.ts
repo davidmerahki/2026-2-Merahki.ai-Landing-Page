@@ -1,0 +1,120 @@
+// Menú en español (24-nov-2026). Las páginas /es mostraban el menú en inglés y enlazaban
+// a las páginas en inglés: el visitante cambiaba de idioma sin querer y Google veía la
+// versión en español enlazada solo desde el pie. Este diccionario traduce etiquetas y
+// descripciones; Navbar.tsx manda a /es/<ruta> cuando esa página existe en español.
+
+export const GROUPS_ES: Record<string, string> = {
+  Features: "Funciones",
+  Solutions: "Soluciones",
+  Resources: "Recursos",
+  Company: "Empresa",
+  Industries: "Industrias",
+};
+
+/** Rutas cuyo nombre cambia en español. */
+export const HREFS_ES: Record<string, string> = {
+  "/course-virtualization": "/es/virtualizacion-de-cursos",
+  "/interactive-content-types": "/es/tipos-de-contenido-interactivo",
+};
+
+export const LABELS_ES: Record<string, string> = {
+  "Course Virtualization": "Virtualización de cursos",
+  "Interactive content catalog": "Catálogo de contenidos interactivos",
+  "Flexible courses": "Cursos flexibles",
+  "Website builder": "Sitio web de tu academia",
+  "AI Assistant": "Asistente de IA",
+  "Mobile app builder": "App móvil",
+  "Interactive video": "Video interactivo",
+  "Live sessions": "Sesiones en vivo",
+  "Analytics & reports": "Analítica y reportes",
+  "Survey builder": "Encuestas",
+  Integrations: "Integraciones",
+  "Lifelong Learning": "Lifelong Learning",
+  "Training & Certification": "Formación y certificación",
+  "Customer Education": "Customer Education",
+  "Partner Education": "Formación de aliados",
+  "Medical Education": "Educación médica",
+  "Certifications at Scale": "Certificación a escala",
+  "Product Adoption & Onboarding": "Adopción de producto y onboarding",
+  "Growth for Universities": "Crecimiento para universidades",
+  Blog: "Blog",
+  "Case Studies": "Casos de estudio",
+  "Reports & Resources": "Reportes y recursos",
+  "Webinar Library": "Webinars",
+  "Upcoming Events": "Próximos eventos",
+  Methodology: "Metodología",
+  "About Us": "Quiénes somos",
+  Careers: "Trabaja con nosotros",
+  Contact: "Contacto",
+};
+
+export const DESCS_ES: Record<string, string> = {
+  "Face-to-face courses turned into online programs you can measure.": "Cursos presenciales convertidos en programas virtuales que se miden.",
+  "The 55 interactive content types we produce, with examples you can try.": "Los 55 tipos de contenido interactivo que producimos, con ejemplos que puedes probar.",
+  "Continuing education for universities: design, production and operation of programs for companies.":
+    "Educación continua para universidades: diseño, producción y operación de programas para empresas.",
+  "Build and deliver training at speed.": "Programas de formación y certificación para equipos de trabajo.",
+  "Drive retention and revenue with education.": "Retención e ingresos con la formación de tus clientes.",
+  "Accelerate partner success with training.": "Formación y certificación para tus aliados y canales.",
+  "AI-powered CME, accreditation & clinical training for healthcare.": "Educación médica continua, acreditación y formación clínica con IA.",
+  "Deliver training and certification at scale.": "Formación y certificación para miles de personas.",
+  "Increase product adoption with education.": "Más adopción de tu producto con formación.",
+  "Scale enrollment, retention & lifelong learning with AI.": "Más matrícula, retención y aprendizaje a lo largo de la vida, con IA.",
+  "Explore learning trends, strategies, and best practices.": "Tendencias, estrategias y buenas prácticas de formación.",
+  "See how leading brands succeed with merahki.ai.": "Cómo crecen las organizaciones que trabajan con merahki.ai.",
+  "Access Education-Led Growth research & guides.": "Investigación y guías de Education-Led Growth.",
+  "Learn from experts in live & on-demand sessions.": "Sesiones con expertos, en vivo y grabadas.",
+  "Connect with merahki.ai during upcoming events.": "Encuentra a merahki.ai en los próximos eventos.",
+  "Our integral virtualization methodology — AICET, Agile, Octalysis, ICAP & Kirkpatrick.":
+    "Nuestra metodología de virtualización: AICET, Agile, Octalysis, ICAP y Kirkpatrick.",
+  "Our mission and team": "Nuestra misión y nuestro equipo",
+  "Join the merahki.ai team": "Únete al equipo de merahki.ai",
+  "Get in touch with us": "Escríbenos",
+  // industrias
+  "Global pharmaceutical industry specializing in innovative medicines.": "Farmacéutica global especializada en medicamentos innovadores.",
+  "Medical technology and manufacturing of devices for cardiology and hematology.": "Tecnología médica y fabricación de dispositivos para cardiología y hematología.",
+  "High-complexity hospital services and medical education.": "Servicios hospitalarios de alta complejidad y educación médica.",
+  "Biopharmaceuticals focused on the discovery and development of prescription drugs.": "Biofarmacéutica dedicada a descubrir y desarrollar medicamentos de prescripción.",
+  "Health care, medical devices, diagnostics, and nutritional products.": "Salud, dispositivos médicos, diagnóstico y nutrición.",
+  "Medical association for homeopathic medicine and alternative health in Colombia.": "Asociación médica de medicina homeopática y salud alternativa en Colombia.",
+  "Bioregulatory medicine and natural-origin pharmaceuticals.": "Medicina biorreguladora y medicamentos de origen natural.",
+  "Global pharmaceutical company focused on human health, vaccines, and innovative treatments.": "Farmacéutica global enfocada en salud humana, vacunas y tratamientos innovadores.",
+  "Public higher education and research.": "Educación superior pública e investigación.",
+  "Private higher education, research, and continuing education.": "Educación superior privada, investigación y educación continua.",
+  "University institution specialized in sports science and health.": "Institución universitaria especializada en ciencias del deporte y la salud.",
+  "Technical and technological higher education institution.": "Institución de educación superior técnica y tecnológica.",
+  "Higher education with an international presence.": "Educación superior con presencia internacional.",
+  "Consulting in international education and academic mobility.": "Consultoría en educación internacional y movilidad académica.",
+  "UK government climate program to accelerate energy transition.": "Programa climático del gobierno británico para acelerar la transición energética.",
+  "Bogotá government entity dedicated to the promotion of arts and culture.": "Entidad de Bogotá dedicada a promover las artes y la cultura.",
+  "Multilateral banking and financing for economic and social development.": "Banca multilateral para el desarrollo económico y social.",
+  "Public administration and management of cultural and sports policies.": "Administración pública de las políticas culturales y deportivas.",
+  "Government agency supporting entrepreneurship, innovation, and business productivity.": "Agencia del gobierno que apoya el emprendimiento, la innovación y la productividad.",
+  "Enterprise Resource Planning (ERP) software solutions for business management.": "Software de planeación de recursos empresariales (ERP).",
+  "SaaS platform focused on club management or sports facilities.": "Plataforma SaaS para la gestión de clubes y escenarios deportivos.",
+  "Technology startup oriented toward service management and business optimization.": "Startup de tecnología para la gestión de servicios y la optimización de negocios.",
+  "Food industry, specifically the production of cocoa derivatives.": "Industria de alimentos: derivados del cacao.",
+  "Alcoholic beverage and malt industry.": "Industria de bebidas y malta.",
+  "Electric sector, generation, and commercialization of renewable energy.": "Sector eléctrico: generación y comercialización de energía renovable.",
+  "Telecommunications, data services, mobile telephony, and internet.": "Telecomunicaciones, datos, telefonía móvil e internet.",
+  "Insurance sector and occupational risks.": "Seguros y riesgos laborales.",
+  "Gaming, luck, and gambling sector.": "Sector de juegos de azar y entretenimiento.",
+  "Family compensation fund: healthcare, recreation, tourism, and credit.": "Caja de compensación familiar: salud, recreación, turismo y crédito.",
+  "Real estate sector and shopping malls.": "Sector inmobiliario y centros comerciales.",
+  "Non-profit organization focused on social development and education.": "Organización sin ánimo de lucro dedicada al desarrollo social y la educación.",
+  "International humanitarian organization for refugee support.": "Organización humanitaria internacional de apoyo a personas refugiadas.",
+  "Institutional strengthening program for social entities.": "Programa de fortalecimiento institucional para organizaciones sociales.",
+  "Social investment focused on water, early childhood, and culture.": "Inversión social en agua, primera infancia y cultura.",
+  "Project management consulting and process improvement.": "Consultoría en gestión de proyectos y mejora de procesos.",
+  "Career success consulting and talent search (Headhunting) services.": "Consultoría de carrera y búsqueda de talento (headhunting).",
+};
+
+export const SECTORS_ES: Record<string, string> = {
+  "Healthcare & Pharmaceuticals": "Salud y farmacéutica",
+  "Education & Academia": "Educación y academia",
+  "Public Entities & Government": "Entidades públicas y gobierno",
+  "Technology & Software (ERP/SaaS)": "Tecnología y software (ERP/SaaS)",
+  "Consumer Goods & Energy": "Consumo masivo y energía",
+  "Telecommunications & Professional Services": "Telecomunicaciones y servicios profesionales",
+  "Social, NGOs & Consulting": "Social, ONG y consultoría",
+};

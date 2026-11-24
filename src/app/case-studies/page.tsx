@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://merahki.ai/case-studies", languages: {"en-US": "https://merahki.ai/case-studies", "es": "https://merahki.ai/es/case-studies", "x-default": "https://merahki.ai/case-studies"} },
   title: "Case Studies",
   description:
     "Learning fuels growth. Explore how our customers leverage education to drive adoption, engagement, and measurable business impact.",

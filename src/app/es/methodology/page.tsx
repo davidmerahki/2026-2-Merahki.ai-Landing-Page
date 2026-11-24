@@ -521,7 +521,6 @@ export default function MethodologyPageES() {
                   { title: "Partner Academies", desc: "Uso de Octalysis (CD2 y CD6) para crear rutas de certificación exclusivas y escalables." },
                   { title: "Training & Certification", desc: "Ingeniería de comportamiento organizacional mediante evaluaciones auténticas de niveles superiores de Bloom." },
                   { title: "Product Adoption", desc: "Aprendizaje basado en la acción dentro de la interfaz (en-app guides), priorizando el modo ICAP Constructivo." },
-                  { title: "Marketing Your Courses", desc: "Diseño de contenidos gratuitos (magnet) que activan la curiosidad (CD7) y demuestran valor experiencial inmediato." },
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4">
                     <span className="text-accent-purple mt-0.5 shrink-0">✓</span>

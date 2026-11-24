@@ -83,7 +83,7 @@ const programTypes = [
     ],
   },
   {
-    label: "Educación Continua",
+    label: "Lifelong Learning",
     icon: RefreshCcw,
     bullets: [
       "Lanza programas de micro-credenciales listos para el mercado en semanas.",

@@ -12,11 +12,20 @@ const nextConfig: NextConfig = {
   async redirects() {
     // Artículos que solo existen en español: su URL canónica es /es/blog/<slug>.
     // La ruta sin /es respondía con el texto en español dentro del sitio en inglés (24-nov-2026).
-    return ["guia-credenciales-digitales", "microcredenciales-nueva-arquitectura-aprendizaje", "que-hace-merahki", "reporte-2026-education-led-growth"].map((slug) => ({
+    const soloEs = ["guia-credenciales-digitales", "microcredenciales-nueva-arquitectura-aprendizaje", "que-hace-merahki", "reporte-2026-education-led-growth"].map((slug) => ({
       source: `/blog/${slug}`,
       destination: `/es/blog/${slug}`,
       permanent: true,
     }));
+    // La solución «Marketing Your Courses» se retiró el 24-nov-2026 (David). Su tráfico va a la solución más cercana.
+    const retiradas = [
+      { source: "/marketing-your-courses", destination: "/growth-for-universities", permanent: true },
+      { source: "/es/marketing-your-courses", destination: "/es/growth-for-universities", permanent: true },
+      // «Continuing Education» pasó a llamarse «Lifelong Learning» (David, 24-nov-2026): nueva URL y 301 desde la anterior.
+      { source: "/continuing-education", destination: "/lifelong-learning", permanent: true },
+      { source: "/es/continuing-education", destination: "/es/lifelong-learning", permanent: true },
+    ];
+    return [...soloEs, ...retiradas];
   },
   async headers() {
     return [

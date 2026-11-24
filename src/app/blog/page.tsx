@@ -3,6 +3,7 @@ import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
 import Link from "next/link";
+import ArticleCards from "@/components/blog/ArticleCards";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = buildMetadata("blog", "en");
@@ -50,6 +51,7 @@ export default function BlogPage() {
         <div className="relative z-10 max-w-6xl mx-auto">
           <AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <ArticleCards lang="en" />
               {/* 2026 State of Education-Led Growth Report */}
               <Link
                 href="/blog/2026-state-of-education-led-growth"

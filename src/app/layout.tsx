@@ -20,22 +20,22 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://merahki.ai"),
   title: {
-    default: "Merahki | Design and measure micro-credentials",
-    template: "%s | Merahki",
+    default: "merahki.ai | Micro-credentials, course design and online programs",
+    template: "%s | merahki.ai",
   },
   description:
     "Design, virtualize and measure verifiable micro-credentials under your brand. Turn continuing education into growth and recurring revenue.",
   openGraph: {
-    title: "Merahki | Design and measure micro-credentials",
+    title: "merahki.ai | Micro-credentials, course design and online programs",
     description:
       "Design, virtualize and measure verifiable micro-credentials under your brand. Turn continuing education into growth and recurring revenue.",
     type: "website",
     url: "https://merahki.ai",
-    siteName: "Merahki",
+    siteName: "merahki.ai",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Merahki | Design and measure micro-credentials",
+    title: "merahki.ai | Micro-credentials, course design and online programs",
     description: "Design, virtualize and measure verifiable micro-credentials under your brand. Turn continuing education into growth and recurring revenue.",
     site: "@merahki_ai",
     creator: "@merahki_ai",
@@ -48,7 +48,12 @@ const organizationJsonLd = {
     {
       "@type": "Organization",
       "@id": "https://merahki.ai/#organization",
-      name: "Merahki",
+      name: "merahki.ai",
+      alternateName: ["Merahki", "merahki"],
+      legalName: "Meraki Media S.A.S.",
+      taxID: "901402436-1",
+      foundingLocation: { "@type": "Place", name: "Bogotá, Colombia" },
+      knowsAbout: ["micro-credentials", "microcredenciales", "instructional design", "diseño instruccional por competencias", "course virtualization", "virtualización de cursos", "verifiable digital credentials", "credenciales digitales verificables", "continuing education", "lifelong learning", "customer education", "Kirkpatrick model"],
       url: "https://merahki.ai",
       logo: {
         "@type": "ImageObject",
@@ -91,7 +96,8 @@ const organizationJsonLd = {
       "@type": "WebSite",
       "@id": "https://merahki.ai/#website",
       url: "https://merahki.ai",
-      name: "Merahki",
+      name: "merahki.ai",
+      alternateName: "Merahki",
       publisher: { "@id": "https://merahki.ai/#organization" },
       inLanguage: ["es-CO", "en-US"],
     },

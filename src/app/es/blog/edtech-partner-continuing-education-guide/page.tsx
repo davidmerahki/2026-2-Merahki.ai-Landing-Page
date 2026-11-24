@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     url: "https://merahki.ai/es/blog/edtech-partner-continuing-education-guide",
     type: "article",
   },
-  alternates: { canonical: "https://merahki.ai/es/blog/edtech-partner-continuing-education-guide" },
+  alternates: { canonical: "https://merahki.ai/es/blog/edtech-partner-continuing-education-guide", languages: { "en-US": "https://merahki.ai/blog/edtech-partner-continuing-education-guide", es: "https://merahki.ai/es/blog/edtech-partner-continuing-education-guide", "x-default": "https://merahki.ai/blog/edtech-partner-continuing-education-guide" } },
 };
 
 export default function EdtechPartnerContinuingEducationGuideEs() {

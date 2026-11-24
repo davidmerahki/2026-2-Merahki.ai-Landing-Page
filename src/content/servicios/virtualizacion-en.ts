@@ -1,0 +1,86 @@
+import type { Articulo } from "../blog/types";
+
+// Indexable service page for course virtualization / online course development (24-nov-2026). No prices.
+export const servicio: Articulo = {
+  slug: "course-virtualization",
+  lang: "en",
+  servicio: { path: "/course-virtualization", altPath: "/es/virtualizacion-de-cursos", serviceType: "Online course development and instructional design" },
+  title: "merahki.ai's course virtualization service turns face-to-face training into online programs that universities and companies can measure",
+  seoTitle: "Online course development for universities and companies",
+  description: "Competency-based instructional design, AI-native video and interactive production, setup in your LMS, delivery and measurement for universities and companies.",
+  kicker: "Service · Course virtualization",
+  keywords: ["online course development", "custom elearning development", "course virtualization", "elearning content development", "online course design", "instructional design services"],
+  published: "2026-11-24",
+  readingMinutes: 5,
+  summary: [
+    "merahki.ai turns face-to-face courses and expert know-how into complete online programs for universities, companies and public entities: competency-based design, AI-native production, LMS setup, delivery and measurement.",
+    "A typical program goes from planning to its first cohort in 6 to 12 weeks, depending on hours, number of modules and media mix.",
+    "We build it in your LMS (Moodle, Blackboard, Brightspace, SAP or any other LMS) or in the merahki.ai LMS.",
+    "Each program can close with a verifiable credential issued with POK and a results report.",
+    "Since 2018 we have built more than 20,000 hours of online training.",
+  ],
+  body: [
+    { t: "h2", text: "What is course virtualization?" },
+    { t: "p", html: "Course virtualization is the process of turning a face-to-face course, or an expert's unwritten know-how, into an online program with learning outcomes, activities, assessment and follow-up. It means redesigning the course so it works without the instructor in the room: each learner knows what they will achieve, practices with cases from their own work, submits evidence graded with a rubric and gets help when they fall behind." },
+    { t: "p", html: "At merahki.ai, virtualization is one of the seven phases of the <a href=\"/\">merahki model</a>, so the online course comes with its competency-based design, its credential and its measurement." },
+    { t: "h2", text: "How does a face-to-face course change when merahki.ai builds it online?" },
+    {
+      t: "table",
+      caption: "The same course, before and after virtualization",
+      head: ["Dimension", "Today, face-to-face", "With merahki.ai, online"],
+      rows: [
+        ["Design", "The instructor's slides", "A competency-based syllabus with learning outcomes and rubrics, approved by your expert"],
+        ["Content", "Lectures", "Video with your expert, interactive activities and real-work cases"],
+        ["Reach", "One room, one schedule", "Cohorts across cities and countries, each learner at their own pace"],
+        ["Follow-up", "Attendance list", "Weekly report with active and at-risk learners, progress and perceived usefulness"],
+        ["Certification", "PDF certificate", "Verifiable credential issued with POK"],
+        ["Results", "Satisfaction survey", "Kirkpatrick levels 1 to 4, when agreed"],
+      ],
+    },
+    { t: "h2", text: "What the service includes" },
+    {
+      t: "ol",
+      items: [
+        "<strong>Planning.</strong> We start from what your client or business unit needs: the expected result and the behaviors to change.",
+        "<strong>Competency-based design.</strong> Competency, know/do/be learning outcomes, evidence and rubrics, aligned with national qualification frameworks when needed. See <a href=\"/methodology\">our methodology</a>.",
+        "<strong>Production.</strong> Scripts, video with your expert, animation and more than 55 activity types (see the <a href=\"/interactive-content-types\">interactive content catalog</a>), produced by an AI-native team.",
+        "<strong>LMS setup.</strong> We configure the program in your LMS or in the merahki.ai LMS, with its progress and completion rules.",
+        "<strong>Delivery.</strong> Enrollment, help desk, reminders and a weekly cohort report.",
+        "<strong>Credential.</strong> Verifiable credentials issued with POK and tied to the learning outcomes. See <a href=\"/certification\">certification with verifiable credentials</a>.",
+        "<strong>Results.</strong> When agreed, a 60-day follow-up with each learner's manager and a business-indicator report.",
+      ],
+    },
+    { t: "h2", text: "How long does it take to build a course online?" },
+    { t: "p", html: "A typical program takes 6 to 12 weeks from planning to the first cohort. The timeline depends on four things: program hours, number of modules, media mix (video, animation, simulations) and how available your expert is to approve scripts and record. Your quote request asks for these details so we can give you a real schedule." },
+    { t: "callout", title: "A dated example", html: "With Universidad de los Andes and Sanofi CHC we produced two certified medical education programs in 8 weeks for more than 200 allergists in 8 Latin American countries. <a href=\"/case-studies/uniandes-sanofi-microbiota\">Read the case study</a>." },
+    { t: "h2", text: "What you gain" },
+    {
+      t: "ul",
+      items: [
+        "<strong>Your team saves time:</strong> your expert approves and records. Scripts, production, setup, delivery and reporting are handled by merahki.ai.",
+        "<strong>You reach more people:</strong> the same program serves cohorts in several cities and countries without repeating the class.",
+        "<strong>You can show results:</strong> the program is designed from the expected result and leaves evidence at each level, so you can show your client or leadership what changed.",
+      ],
+    },
+    { t: "h2", text: "What we need from you" },
+    {
+      t: "ul",
+      items: [
+        "A subject-matter expert who validates the scripts and records their videos.",
+        "The material you already have: slides, guides, cases or recordings.",
+        "Admin access to your LMS, if the program runs on your platform.",
+        "The result indicator you want to move, if you will measure level 4.",
+      ],
+    },
+    { t: "cta", html: "Tell us which program you want to build online, how many people it is for and when you need it. We reply with the scope and the schedule." },
+  ],
+  faq: [
+    { q: "What is the difference between building a course online and recording classes?", a: "Recording classes puts the same face-to-face course on video. Virtualization redesigns the course for online learning: clear learning outcomes, activities learners do on their own, evidence-based assessment and follow-up for every participant." },
+    { q: "How long does it take to build a course online?", a: "Between 6 and 12 weeks from planning to the first cohort, depending on program hours, number of modules, media mix and the expert's availability." },
+    { q: "Can you build the course in our own LMS?", a: "Yes. We build it in Moodle, Blackboard, Brightspace, SAP or any other LMS. If you don't have one, we use the merahki.ai LMS." },
+    { q: "Can the online course issue a verifiable credential?", a: "Yes. Credentials are issued with POK on the Open Badges 3.0 standard and certify the program's learning outcomes. Any employer can verify them in seconds." },
+    { q: "How is a quote prepared?", a: "Through the custom quote request: tell us about the program, how many people it is for and your deadline. With that we prepare the scope, schedule and proposal." },
+  ],
+  sources: [],
+  related: [],
+};

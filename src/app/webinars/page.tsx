@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "https://merahki.ai/webinars" },
   title: "Webinar Library",
   description:
     "Learn from experts in live and on-demand sessions. Explore merahki.ai's webinar library on education-led growth, LMS strategy, and enterprise learning.",
