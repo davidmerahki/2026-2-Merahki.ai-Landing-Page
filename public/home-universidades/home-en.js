@@ -126,14 +126,14 @@ window.initHomeUniversidadesEn = function (root) {
     vd.addEventListener('close', function(){ try { vdv.pause(); } catch (e) {} });
   }
 
-  // prisma del título: cada 2,8 s entra la siguiente frase; con movimiento reducido queda fija la primera.
+  // prisma del título: cada 2,33 s entra la siguiente frase; con movimiento reducido queda fija la primera.
   // window.__mhuPrism permite pausarlo (botón de animaciones del sitio) y detenerlo al salir de la página.
   var prism = document.querySelector('.prism');
   if (prism) {
     var faces = prism.querySelectorAll('.face'), pi = 0, ptimer = null;
     var pstill = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     var pstep = function(){ var cur = faces[pi]; pi = (pi + 1) % faces.length; for (var k = 0; k < faces.length; k++) faces[k].classList.remove('out'); cur.classList.remove('on'); cur.classList.add('out'); faces[pi].classList.add('on'); };
-    var pplay = function(){ if (!ptimer && !pstill) ptimer = setInterval(pstep, 2800); };
+    var pplay = function(){ if (!ptimer && !pstill) ptimer = setInterval(pstep, 2333); };
     var ppause = function(){ if (ptimer) { clearInterval(ptimer); ptimer = null; } };
     var pmeasure = function(){ prism.style.setProperty('--ph', (prism.offsetHeight / 2) + 'px'); };
     pmeasure(); window.addEventListener('resize', pmeasure);

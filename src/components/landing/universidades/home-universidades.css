@@ -652,8 +652,8 @@
 .mhu .hero h1 .prism{display:grid;perspective:1200px;color:var(--lilac);margin-top:.04em;overflow:hidden}
 .mhu .hero h1 .face::before{content:attr(data-t);white-space:pre-line}
 .mhu .hero h1 .face{grid-area:1/1;opacity:0;transform:rotateX(-90deg);transform-origin:50% 50% calc(var(--ph,.55em) * -1);backface-visibility:hidden}
-.mhu .hero h1 .face.on{opacity:1;transform:none;animation:prismIn .75s cubic-bezier(.65,0,.35,1)}
-.mhu .hero h1 .face.out{animation:prismOut .75s cubic-bezier(.65,0,.35,1) forwards}
+.mhu .hero h1 .face.on{opacity:1;transform:none;animation:prismIn .625s cubic-bezier(.65,0,.35,1)}
+.mhu .hero h1 .face.out{animation:prismOut .625s cubic-bezier(.65,0,.35,1) forwards}
 @keyframes prismIn{from{opacity:0;transform:rotateX(-90deg)}to{opacity:1;transform:rotateX(0)}}
 @keyframes prismOut{from{opacity:1;transform:rotateX(0)}to{opacity:0;transform:rotateX(90deg)}}
 .mhu .hero h1 .face:nth-child(even){color:#D946EF}
