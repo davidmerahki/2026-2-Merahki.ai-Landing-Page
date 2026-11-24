@@ -54,8 +54,8 @@ export default function PrivacyPolicyPage() {
                 POLICY
               </h1>
               <div className="text-white/50 text-sm space-y-1 mt-6">
-                <p>Version 1.0</p>
-                <p>May 2026</p>
+                <p>Version 1.1</p>
+                <p>May 2026 · updated November 24, 2026 (legal name and tax ID)</p>
                 <p>Bogotá, D.C. — Colombia</p>
               </div>
               <p className="text-white/50 text-sm mt-6">
@@ -82,7 +82,8 @@ export default function PrivacyPolicyPage() {
                   1. General Principles
                 </h2>
                 <p>
-                  merahki.ai (hereinafter, &quot;merahki.ai,&quot; &quot;the
+                  Meraki Media S.A.S., which operates the merahki.ai brand
+                  (hereinafter, &quot;merahki.ai,&quot; &quot;the
                   Platform,&quot; or &quot;the Company&quot;), as a technology
                   platform dedicated to the creation, management, and
                   distribution of online academies, courses, and learning
@@ -107,7 +108,7 @@ export default function PrivacyPolicyPage() {
                   2. Identification of the Data Controller
                 </h2>
                 <p>
-                  merahki.ai is a private-law legal entity dedicated to the
+                  Meraki Media S.A.S. (merahki.ai) is a private-law legal entity dedicated to the
                   development and operation of technology solutions for digital
                   education. It operates as an LMS (Learning Management System)
                   platform that enables organizations, educational institutions,
@@ -120,13 +121,13 @@ export default function PrivacyPolicyPage() {
                 <ul className="space-y-2 pl-4">
                   <li>
                     <strong className="text-white">Legal name:</strong>{" "}
-                    merahki.ai - M Media SAS
+                    Meraki Media S.A.S. (merahki.ai)
                   </li>
                   <li>
                     <strong className="text-white">
                       NIT (Colombian tax ID):
                     </strong>{" "}
-                    901402436
+                    901402436-1
                   </li>
                   <li>
                     <strong className="text-white">

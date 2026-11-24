@@ -51,8 +51,8 @@ export default function PoliticaDatosPersonalesPage() {
                 DATOS PERSONALES
               </h1>
               <div className="text-white/50 text-sm space-y-1 mt-6">
-                <p>Versión 1.0</p>
-                <p>Mayo de 2026</p>
+                <p>Versión 1.1</p>
+                <p>Mayo de 2026 · actualizada el 24 de noviembre de 2026 (razón social y NIT)</p>
                 <p>Bogotá, D.C. — Colombia</p>
               </div>
             </div>
@@ -67,7 +67,7 @@ export default function PoliticaDatosPersonalesPage() {
                   1. Principios Generales
                 </h2>
                 <p>
-                  MERAHKI.AI (en adelante, &quot;merahki.ai&quot;, &quot;la
+                  Meraki Media S.A.S., que opera la marca merahki.ai (en adelante, &quot;merahki.ai&quot;, &quot;la
                   Plataforma&quot; o &quot;la Empresa&quot;), en su calidad de
                   plataforma tecnológica dedicada a la creación, gestión y
                   distribución de academias, cursos y programas de aprendizaje en
@@ -92,7 +92,7 @@ export default function PoliticaDatosPersonalesPage() {
                   2. Identificación del Responsable del Tratamiento
                 </h2>
                 <p>
-                  MERAHKI.AI es una persona jurídica de derecho privado, dedicada
+                  Meraki Media S.A.S. (merahki.ai) es una persona jurídica de derecho privado, dedicada
                   al desarrollo y operación de soluciones tecnológicas para la
                   educación digital. Opera como plataforma de tipo LMS (Learning
                   Management System) que permite a organizaciones, instituciones
@@ -105,10 +105,10 @@ export default function PoliticaDatosPersonalesPage() {
                 <ul className="space-y-2 pl-4">
                   <li>
                     <strong className="text-white">Razón social:</strong>{" "}
-                    merahki.ai - M Media SAS
+                    Meraki Media S.A.S. (merahki.ai)
                   </li>
                   <li>
-                    <strong className="text-white">NIT:</strong> 901402436
+                    <strong className="text-white">NIT:</strong> 901402436-1
                   </li>
                   <li>
                     <strong className="text-white">Domicilio principal:</strong>{" "}
