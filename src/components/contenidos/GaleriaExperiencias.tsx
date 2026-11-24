@@ -8,7 +8,7 @@
  */
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
 import {
-  ArrowLeft, ArrowRight, BookOpenCheck, Bot, ChevronLeft, ChevronRight, ListChecks, MessagesSquare, MonitorPlay,
+  ArrowLeft, ArrowRight, BookOpenCheck, Bot, Clapperboard, ChevronLeft, ChevronRight, ListChecks, MessagesSquare, MonitorPlay,
   Orbit, Play, Route, ScanLine, SlidersHorizontal, SquareTerminal, X, type LucideIcon,
 } from "lucide-react";
 import { DATOS, EXPERIENCIAS, FAMILIAS, PROGRAMA, type Experiencia, type FamiliaId, type Lang } from "@/content/contenidos/experiencias";
@@ -20,6 +20,7 @@ const ICONOS: Record<string, LucideIcon> = {
   "simulador-conversaciones": MessagesSquare,
   "proyectos-retroalimentacion": SquareTerminal,
   "simuladores-explorables": SlidersHorizontal,
+  "storytelling-aprendizaje": Clapperboard,
   "recorridos-360": Orbit,
   "realidad-aumentada": ScanLine,
   "video-presentador-ia": MonitorPlay,

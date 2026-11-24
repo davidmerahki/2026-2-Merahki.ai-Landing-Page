@@ -22,6 +22,7 @@ export type DemoId =
   | "escenario-ramificado"
   | "proyecto-sql"
   | "simulador-explorable"
+  | "storytelling"
   | "recorrido-360"
   | "busqueda-tesoro-ra"
   | "video-presentador"
@@ -282,6 +283,69 @@ export const EXPERIENCIAS: Experiencia[] = [
     },
     captura: ["clics", "tiempo", "respuestas"],
     demo: "simulador-explorable",
+  },
+  {
+    id: "storytelling-aprendizaje",
+    familia: "vivir",
+    nuevo: true,
+    nombre: { es: "Storytelling para el Aprendizaje", en: "Learning through storytelling" },
+    queHace: {
+      es: "El participante sigue a un personaje en una historia corta en video, hecha con IA en el contexto de su trabajo, y en el momento clave decide qué hace. Su decisión cambia el final y le muestra la consecuencia.",
+      en: "Learners follow a character through a short AI-made video story set in their own work context, and at the key moment they decide what to do. Their choice changes the ending and shows them the consequence.",
+    },
+    porQue: {
+      es: "Según los estudios de transporte narrativo, cuanto más se involucra una persona en una historia, más cambian sus creencias en la dirección que la historia propone.",
+      en: "According to research on narrative transportation, the more people get absorbed in a story, the more their beliefs shift in the direction the story proposes.",
+    },
+    fuente: { cita: "Green y Brock (2000), Journal of Personality and Social Psychology", url: "https://doi.org/10.1037/0022-3514.79.5.701" },
+    ejemplo: {
+      es: "En un banco, los analistas de crédito viven la historia de Laura antes de presentar un informe a la junta y ven qué pasa cuando eligen la medida equivocada.",
+      en: "At a bank, credit analysts live through Laura's story before presenting a report to the board and see what happens when they choose the wrong measure.",
+    },
+    captura: ["ruta", "respuestas", "tiempo", "vistas"],
+    demo: "storytelling",
+    ancho: true,
+    referencias: [
+      {
+        plataforma: "Primordial Soup × Google DeepMind",
+        url: "https://deepmind.google",
+        provider: "youtube",
+        videoId: "HEs9miwtwh4",
+        miniatura: "maxresdefault",
+        tituloVideo: "ANCESTRA by Eliza McNitt",
+        canal: "Primordial Soup",
+        duracion: "8:05",
+        wow: { es: "Un cortometraje que combina actores reales con escenas generadas con IA para contar una historia íntima. Se estrenó en el Festival de Tribeca.", en: "A short film that blends live actors with AI-generated scenes to tell an intimate story. It premiered at the Tribeca Festival." },
+        merahki: { es: "Producir con IA las escenas de las historias de tu curso, con tus casos y tus personajes.", en: "Produce the scenes of your course stories with AI, using your cases and your characters." },
+        modo: "desarrollar",
+      },
+      {
+        plataforma: "Google DeepMind",
+        url: "https://deepmind.google",
+        provider: "youtube",
+        videoId: "WLDARkKs-T4",
+        miniatura: "maxresdefault",
+        tituloVideo: "The Making of ANCESTRA | Darren Aronofsky x Google DeepMind",
+        canal: "Google",
+        duracion: "8:33",
+        wow: { es: "Cómo un equipo de cine combinó rodaje real y video generado con IA, paso a paso.", en: "How a film team combined live shooting and AI-generated video, step by step." },
+        merahki: { es: "Aplicar el mismo flujo, con guion, imágenes de referencia y escenas generadas, a las historias de tu programa.", en: "Apply the same workflow, with script, reference images and generated scenes, to your program's stories." },
+        modo: "desarrollar",
+      },
+      {
+        plataforma: "Higgsfield",
+        url: "https://higgsfield.ai",
+        provider: "youtube",
+        videoId: "ZncA70OAgPw",
+        miniatura: "maxresdefault",
+        tituloVideo: "Passport Rush | AI Animated Short Film | Higgsfield Originals(2026)",
+        canal: "Higgsfield Animation",
+        duracion: "4:35",
+        wow: { es: "Un cortometraje animado hecho por completo con IA en Higgsfield, la herramienta con la que merahki.ai produce sus historias.", en: "An animated short made entirely with AI on Higgsfield, the tool merahki.ai uses to produce its stories." },
+        merahki: { es: "Producir historias animadas con tus personajes y tu contexto, sin un estudio de animación.", en: "Produce animated stories with your characters and context, without an animation studio." },
+        modo: "desarrollar",
+      },
+    ],
   },
   {
     id: "recorridos-360",
