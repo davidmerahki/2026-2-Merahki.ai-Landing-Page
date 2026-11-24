@@ -9,7 +9,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent } from "react";
 import {
   ArrowLeft, ArrowRight, BookOpenCheck, Bot, ChevronLeft, ChevronRight, ListChecks, MessagesSquare, MonitorPlay,
-  Orbit, Play, Route, ScanLine, SlidersHorizontal, X, type LucideIcon,
+  Orbit, Play, Route, ScanLine, SlidersHorizontal, SquareTerminal, X, type LucideIcon,
 } from "lucide-react";
 import { DATOS, EXPERIENCIAS, FAMILIAS, PROGRAMA, type Experiencia, type FamiliaId, type Lang } from "@/content/contenidos/experiencias";
 import { DEMOS } from "@/components/contenidos/demos";
@@ -18,6 +18,7 @@ import VideoReferencia from "@/components/contenidos/VideoReferencia";
 const ICONOS: Record<string, LucideIcon> = {
   "copiloto-estudiantil": Bot,
   "simulador-conversaciones": MessagesSquare,
+  "proyectos-retroalimentacion": SquareTerminal,
   "simuladores-explorables": SlidersHorizontal,
   "recorridos-360": Orbit,
   "realidad-aumentada": ScanLine,
@@ -277,14 +278,14 @@ export default function GaleriaExperiencias({ lang }: { lang: Lang }) {
             </header>
 
             <div ref={bodyRef} className="flex-1 overflow-y-auto overscroll-contain">
-              <div className="grid gap-8 p-4 md:p-6 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)]">
+              <div className={`grid gap-8 p-4 md:p-6 ${exp.ancho ? "" : "lg:grid-cols-[minmax(0,1.55fr)_minmax(0,1fr)]"}`}>
                 <div className="min-w-0">
                   <p className="mb-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#C084FC]">
                     {t.demoDe}: {PROGRAMA[lang]}
                   </p>
                   {Demo && <Demo key={exp.id} lang={lang} variante={exp.variante} />}
                 </div>
-                <aside className="min-w-0 space-y-6 text-sm leading-relaxed">
+                <aside className={`min-w-0 text-sm leading-relaxed ${exp.ancho ? "grid gap-6 md:grid-cols-2 [&>*]:min-w-0" : "space-y-6"}`}>
                   <p className="text-base leading-relaxed text-white/80">{exp.queHace[lang]}</p>
                   <div>
                     <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white/45">{t.ejemplo}</h3>

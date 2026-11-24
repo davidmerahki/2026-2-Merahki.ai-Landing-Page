@@ -20,10 +20,11 @@ export type DatoId = "clics" | "tiempo" | "respuestas" | "intentos" | "puntaje" 
 export type DemoId =
   | "copiloto"
   | "escenario-ramificado"
+  | "proyecto-sql"
   | "simulador-explorable"
   | "recorrido-360"
   | "busqueda-tesoro-ra"
-  | "video-interactivo"
+  | "video-presentador"
   | "practica"
   | "diagnostico";
 
@@ -66,6 +67,8 @@ export type Experiencia = {
   ejemplo: Bi;
   captura: DatoId[];
   demo: DemoId;
+  /** La demo ocupa todo el ancho de la ficha y la información va debajo (demos con panel propio). */
+  ancho?: boolean;
   variante?: string;
   referencias?: Referencia[];
 };
@@ -148,6 +151,7 @@ export const EXPERIENCIAS: Experiencia[] = [
     },
     captura: ["texto", "respuestas", "tiempo", "ruta"],
     demo: "copiloto",
+    ancho: true,
   },
   {
     id: "simulador-conversaciones",
@@ -235,6 +239,28 @@ export const EXPERIENCIAS: Experiencia[] = [
       modo: "licenciar",
     },
   ],
+  },
+  {
+    id: "proyectos-retroalimentacion",
+    familia: "construir",
+    nuevo: true,
+    nombre: { es: "Proyectos con retroalimentación al instante", en: "Projects with instant feedback" },
+    queHace: {
+      es: "El participante escribe su solución, ya sea código, una fórmula o un informe, la ejecuta y recibe al instante pruebas automáticas y un comentario que le dice qué falla y por qué. Corrige y vuelve a intentar hasta que pasa.",
+      en: "Learners write their solution, whether code, a formula or a report, run it and instantly get automated tests and a comment that tells them what fails and why. They fix it and try again until it passes.",
+    },
+    porQue: {
+      es: "Un metaanálisis de 435 estudios encontró que la retroalimentación mejora el aprendizaje, y que su efecto depende de la información que le da al estudiante sobre su trabajo.",
+      en: "A meta-analysis of 435 studies found that feedback improves learning, and that its effect depends on the information it gives learners about their work.",
+    },
+    fuente: { cita: "Wisniewski, Zierer y Hattie (2020), Frontiers in Psychology", url: "https://doi.org/10.3389/fpsyg.2019.03087" },
+    ejemplo: {
+      es: "En una universidad, los estudiantes del curso de analítica resuelven tres retos de SQL sobre la base de ventas de una empresa, y el docente ve qué conceptos fallan más en la cohorte.",
+      en: "At a university, analytics students solve three SQL challenges on a company's sales database, and the teacher sees which concepts the cohort misses most.",
+    },
+    captura: ["texto", "intentos", "respuestas", "tiempo"],
+    demo: "proyecto-sql",
+    ancho: true,
   },
   {
     id: "simuladores-explorables",
@@ -354,6 +380,7 @@ export const EXPERIENCIAS: Experiencia[] = [
   {
     id: "video-presentador-ia",
     familia: "practicar",
+    nuevo: true,
     nombre: { es: "Video con presentador de IA", en: "AI-presenter video" },
     queHace: {
       es: "El docente aparece como avatar de IA, con su cara y su voz, presenta cada lámina y el video se detiene para preguntar. Si el contenido cambia, se actualiza sin volver a grabar.",
@@ -369,7 +396,8 @@ export const EXPERIENCIAS: Experiencia[] = [
       en: "At a university, a 6-minute video on measures of central tendency stops at minute 4 and asks students to choose between the mean and the median for a case with an outlier salary.",
     },
     captura: ["respuestas", "tiempo", "intentos", "progreso"],
-    demo: "video-interactivo",
+    demo: "video-presentador",
+    ancho: true,
     referencias: [
     {
       plataforma: "HeyGen",

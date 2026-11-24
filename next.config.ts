@@ -9,6 +9,13 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   allowedDevOrigins: ["127.0.0.1", "localhost"],
+  // alasql (demo del proyecto SQL del catálogo) trae require("fs") y require("path") que solo corren en Node.
+  turbopack: {
+    resolveAlias: {
+      fs: { browser: "./src/lib/modulo-vacio.js" },
+      path: { browser: "./src/lib/modulo-vacio.js" },
+    },
+  },
   async redirects() {
     // Artículos que solo existen en español: su URL canónica es /es/blog/<slug>.
     // La ruta sin /es respondía con el texto en español dentro del sitio en inglés (24-nov-2026).
