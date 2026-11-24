@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import {
   motion,
   useScroll,
@@ -25,12 +25,12 @@ type HeroCopy = {
 
 /**
  * Hero scroll-driven, estilo "el scroll controla el título":
- * 1. Al cargar, el hero queda PEGADO (sticky) y el video es el protagonista.
+ * 1. Al cargar, el hero queda PEGADO (sticky) sobre el fondo de marca.
  * 2. Al scrollear, la página no baja: el scroll revela el título de IZQUIERDA A
  *    DERECHA, línea por línea, con un clip-path scrubbeado (no por tiempo).
  * 3. Cuando el título termina de aparecer, el pin se suelta y la página baja normal.
- * El video vive en public/videos/hero-bg-720.mp4 (todas las pantallas; con
- * Save-Data o prefers-reduced-motion se queda el fondo de marca sin video).
+ * El video de fondo (hero-bg-720.mp4) se retiró el 23-nov-2026: mostraba
+ * sitios de otras marcas que no son trabajo de merahki.
  */
 export default function HeroScroll({
   copy,
@@ -41,45 +41,7 @@ export default function HeroScroll({
   ctaHref: string;
 }) {
   const ref = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const reduced = useReducedMotion();
-  const [showVideo, setShowVideo] = useState(false);
-
-  useEffect(() => {
-    if (reduced) return;
-    // El video ya pesa 2 MB (antes 19.7 MB), así que también corre en móvil.
-    // Única excepción: usuarios con ahorro de datos activo (Save-Data) se
-    // quedan con el fondo de marca — el poster/glow cubre el hero igual.
-    type ConnectionInfo = { saveData?: boolean };
-    const conn = (navigator as { connection?: ConnectionInfo }).connection;
-    if (conn?.saveData) return;
-    setShowVideo(true);
-  }, [reduced]);
-
-  // iOS Safari no respeta el autoPlay declarativo cuando el <video> se monta
-  // después de la hidratación, y el Low Power Mode lo bloquea del todo.
-  // Reproducción imperativa: muted forzado antes de play() (React no siempre
-  // refleja el atributo), reintento en canplay y al primer toque/scroll.
-  useEffect(() => {
-    if (!showVideo) return;
-    const v = videoRef.current;
-    if (!v) return;
-    v.defaultMuted = true;
-    v.muted = true;
-    const tryPlay = () => {
-      if (v.paused) v.play().catch(() => {});
-    };
-    tryPlay();
-    v.addEventListener("canplay", tryPlay);
-    window.addEventListener("touchstart", tryPlay, { once: true, passive: true });
-    window.addEventListener("scroll", tryPlay, { once: true, passive: true });
-    return () => {
-      v.removeEventListener("canplay", tryPlay);
-      window.removeEventListener("touchstart", tryPlay);
-      window.removeEventListener("scroll", tryPlay);
-    };
-  }, [showVideo]);
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end end"],
@@ -106,31 +68,12 @@ export default function HeroScroll({
   return (
     <section ref={ref} className={reduced ? "relative" : "relative h-[160vh]"}>
       <div className="sticky top-0 h-screen overflow-hidden flex flex-col justify-center px-6 pt-20 pb-8">
-        {/* Fondo: glow de marca (base + fallback sin video) + video full-bleed */}
+        {/* Fondo: glow de marca. El video de fondo se retiró el 23-nov-2026: mostraba sitios de otras marcas. */}
         <div className="absolute inset-0" aria-hidden="true">
           <GlowBackground
             indigoPosition={{ x: "22%", y: "35%" }}
             rustPosition={{ x: "80%", y: "70%" }}
           />
-          {showVideo && (
-            <video
-              ref={videoRef}
-              className="absolute inset-0 w-full h-full object-cover"
-              src="/videos/hero-bg-720.mp4"
-              poster="/videos/hero-poster.jpg"
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              onEnded={(e) => {
-                // Refuerzo del loop: algunos navegadores lo ignoran tras
-                // bloquear el autoplay inicial
-                e.currentTarget.currentTime = 0;
-                e.currentTarget.play().catch(() => {});
-              }}
-            />
-          )}
           <motion.div
             className="absolute inset-0 bg-void"
             style={reduced ? { opacity: 0.78 } : { opacity: overlay }}

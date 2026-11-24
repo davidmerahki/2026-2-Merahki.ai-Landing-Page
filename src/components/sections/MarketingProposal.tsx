@@ -1,6 +1,7 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import GlowBackground from "@/components/ui/GlowBackground";
 import Link from "next/link";
+import ScopePrice from "@/components/ui/ScopePrice";
 import {
   ArrowRight,
   CalendarCheck,
@@ -23,8 +24,6 @@ import {
 
 const tiers = [
   {
-    price: "2,200 USD",
-    billing: "+ VAT · One-time setup fee",
     title: "Growth Engine Setup",
     subtitle: "Full infrastructure build — strategy, stack integration, conversion assets, and first campaign launch",
     headerIcon: Target,
@@ -43,8 +42,6 @@ const tiers = [
     ],
   },
   {
-    price: "1,100 USD",
-    billing: "+ VAT · / month · ongoing retainer",
     title: "Growth Retainer",
     subtitle: "Continuous marketing execution — campaigns managed, funnels optimized, and growth compounded every month",
     headerIcon: TrendingUp,
@@ -430,8 +427,7 @@ export default function MarketingProposal() {
                         <tier.headerIcon className={`w-4 h-4 ${tier.textClass}`} />
                       </div>
                       <div>
-                        <p className="text-2xl md:text-3xl font-bold text-white">{tier.price}</p>
-                        <p className="text-white/50 text-sm mt-1">{tier.billing}</p>
+                        <ScopePrice />
                         {tier.subtitle && (
                           <p className="text-white/35 text-xs mt-2 max-w-lg">{tier.subtitle}</p>
                         )}

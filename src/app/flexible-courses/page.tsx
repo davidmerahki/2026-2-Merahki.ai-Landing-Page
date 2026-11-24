@@ -1,6 +1,7 @@
 import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import FeaturePanel from "@/components/ui/FeaturePanel";
 import ContactSection from "@/components/sections/ContactSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import Image from "next/image";
@@ -18,10 +19,7 @@ const features = [
       "Sync and reuse learning content across multiple courses, programs, and schools.",
     ],
     reverse: false,
-    media: {
-      type: "video" as const,
-      src: "https://www.learnworlds.com/app/uploads/2026/01/Course_Planner_1100x1100.webm",
-    },
+    media: { type: "panel" as const },
   },
   {
     icon: BookOpen,
@@ -185,15 +183,8 @@ export default function FlexibleCoursesPage() {
 
                   {/* Media side */}
                   <div className="flex-1 w-full">
-                    {f.media?.type === "video" ? (
-                      <video
-                        src={f.media.src}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full rounded-2xl border border-white/10 shadow-2xl"
-                      />
+                    {f.media?.type === "panel" ? (
+                      <FeaturePanel icon={f.icon} label={f.title} />
                     ) : f.media?.type === "image" ? (
                       <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[16/10]">
                         <Image

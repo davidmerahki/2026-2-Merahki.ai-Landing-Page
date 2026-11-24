@@ -74,34 +74,28 @@ const phases = [
 ];
 
 const setupPlans = [
-  { name: "Starter", price: "$2,975", popular: false, features: ["Hasta 5 lecciones", "40 min video premium", "3 actividades H5P", "Branding básico", "Brief de estrategia", "Framework Gagné", "Entrega 4 semanas", "Esquema IA"] },
-  { name: "Professional", price: "$4,575", popular: true, features: ["Hasta 12 lecciones", "100 min video premium", "6 actividades H5P", "Alineación completa de marca", "Gamificación Octalysis", "Estrategia ELG + CLG", "Gagné + Merrill", "Entrega 8 semanas", "IA: esquema + evaluaciones + subtítulos"] },
-  { name: "Enterprise", price: "$8,500", popular: false, features: ["20+ lecciones", "200 min video premium", "12 actividades H5P", "Multi-idioma", "Octalysis + Certificación", "ELG + CLG + Partners", "Gagné + Merrill + Action Mapping", "12 semanas", "PM dedicado", "Suite IA completa"] },
+  { name: "Starter", price: "Según alcance", popular: false, features: ["Hasta 5 lecciones", "40 min video premium", "3 actividades H5P", "Branding básico", "Brief de estrategia", "Framework Gagné", "Entrega 4 semanas", "Esquema IA"] },
+  { name: "Professional", price: "Según alcance", popular: true, features: ["Hasta 12 lecciones", "100 min video premium", "6 actividades H5P", "Alineación completa de marca", "Gamificación Octalysis", "Estrategia ELG + CLG", "Gagné + Merrill", "Entrega 8 semanas", "IA: esquema + evaluaciones + subtítulos"] },
+  { name: "Enterprise", price: "Según alcance", popular: false, features: ["20+ lecciones", "200 min video premium", "12 actividades H5P", "Multi-idioma", "Octalysis + Certificación", "ELG + CLG + Partners", "Gagné + Merrill + Action Mapping", "12 semanas", "PM dedicado", "Suite IA completa"] },
 ];
 
 const lmsPlans = [
-  { name: "Starter", price: "$499/mes", popular: false, features: ["500 usuarios", "50+ filtros analítica", "1 portal", "Reportes básicos", "Soporte email"] },
-  { name: "Professional", price: "$762/mes", popular: true, features: ["1,000 usuarios ($1/extra)", "95+ filtros analítica", "Hasta 3 portales", "CRM (HubSpot + Zapier)", "AI Learner Agent", "Reportes programados", "Webhooks", "Soporte prioritario"] },
-  { name: "Enterprise", price: "$1,500/mes", popular: false, features: ["5,000 usuarios ($0.75/extra)", "95+ filtros + IA insights", "Portales ilimitados", "CRM + SSO/SAML", "AI Agent personalizado", "Dashboards ejecutivos", "API + webhooks avanzados", "CSM dedicado · SLA 99.9%"] },
+  { name: "Starter", price: "Según alcance", popular: false, features: ["500 usuarios", "50+ filtros analítica", "1 portal", "Reportes básicos", "Soporte email"] },
+  { name: "Professional", price: "Según alcance", popular: true, features: ["1,000 usuarios", "95+ filtros analítica", "Hasta 3 portales", "CRM (HubSpot + Zapier)", "AI Learner Agent", "Reportes programados", "Webhooks", "Soporte prioritario"] },
+  { name: "Enterprise", price: "Según alcance", popular: false, features: ["5,000 usuarios", "95+ filtros + IA insights", "Portales ilimitados", "CRM + SSO/SAML", "AI Agent personalizado", "Dashboards ejecutivos", "API + webhooks avanzados", "CSM dedicado · SLA 99.9%"] },
 ];
 
 const appPlans = [
-  { name: "Starter", price: "$299/mes", popular: false, features: ["iOS O Android", "Acceso offline", "Push notifications"] },
-  { name: "Professional", price: "$400/mes", popular: true, features: ["iOS + Android", "1,000 usuarios ($1/extra)", "Offline + push", "In-app purchases + biométrico"] },
-  { name: "Enterprise", price: "$750/mes", popular: false, features: ["iOS + Android", "5,000 usuarios ($0.75/extra)", "Offline + push", "In-app + biométrico", "Soporte dedicado app"] },
-];
-
-const yearTotals = [
-  { tier: "Starter", setup: "$2,975", lms: "$5,988", app: "$3,588", total: "$12,551" },
-  { tier: "Professional", setup: "$4,575", lms: "$9,144", app: "$4,800", total: "$18,519" },
-  { tier: "Enterprise", setup: "$8,500", lms: "$18,000", app: "$9,000", total: "$35,500" },
+  { name: "Starter", price: "Según alcance", popular: false, features: ["iOS O Android", "Acceso offline", "Push notifications"] },
+  { name: "Professional", price: "Según alcance", popular: true, features: ["iOS + Android", "1,000 usuarios", "Offline + push", "In-app purchases + biométrico"] },
+  { name: "Enterprise", price: "Según alcance", popular: false, features: ["iOS + Android", "5,000 usuarios", "Offline + push", "In-app + biométrico", "Soporte dedicado app"] },
 ];
 
 const addOns = [
-  { title: "Partner Academy", desc: "Para ecosistemas de distribuidores, franquiciados, revendedores. Partners certificados: 6× más ingresos. 353% ROI.", tiers: ["Desde $2,975", "Desde $5,500", "Desde $9,500"] },
-  { title: "Programa de Certificación", desc: "Valida competencia, no solo finalización. Meta Blueprint: $99–$150/examen para 3M+ participantes.", tiers: ["Desde $2,475", "Desde $4,500", "Desde $9,000"] },
-  { title: "Sitio Web de la Academia", desc: "Web optimizada para conversión. Strategy-first, IA. +40% tasa de registro promedio.", tiers: ["Desde $1,975", "Desde $4,500", "Desde $7,500"] },
-  { title: "Retainer Estrategia ELG", desc: "Chief Learning Officer fraccional. Revisiones mensuales, KPIs, presentaciones ejecutivas trimestrales.", tiers: ["$2,500–$6,000 único", "$3,000/mes", ""] },
+  { title: "Partner Academy", desc: "Para ecosistemas de distribuidores, franquiciados, revendedores. Partners certificados: 6× más ingresos. 353% ROI.", tiers: [] as string[] },
+  { title: "Programa de Certificación", desc: "Valida competencia, no solo finalización. Meta Blueprint: $99–$150/examen para 3M+ participantes.", tiers: [] as string[] },
+  { title: "Sitio Web de la Academia", desc: "Web optimizada para conversión. Strategy-first, IA. +40% tasa de registro promedio.", tiers: [] as string[] },
+  { title: "Retainer Estrategia ELG", desc: "Chief Learning Officer fraccional. Revisiones mensuales, KPIs, presentaciones ejecutivas trimestrales.", tiers: [] as string[] },
 ];
 
 
@@ -118,13 +112,13 @@ const faqs = [
   { q: "¿Reemplazan a nuestro equipo académico?", a: "No. merahki.ai es una extensión operativa. Tus SMEs aportan conocimiento y validan contenido. Nosotros manejamos diseño, producción, configuración, lanzamiento, soporte y analítica." },
   { q: "¿Qué pasa si ya tenemos un LMS?", a: "Podemos trabajar en merahki.ai (recomendado) o integrarnos con tu LMS vía API y webhooks. Lo evaluamos en la Auditoría de Fricción." },
   { q: "¿Cuánto tiempo toma lanzar?", a: "Starter: 4 semanas. Professional: 8 semanas. Enterprise: 12 semanas. Tiempos garantizados desde kickoff hasta programa en vivo." },
-  { q: "¿Con qué tier empiezo?", a: "Primer programa: Starter ($12,551/año). Calidad HubSpot Academy: Professional ($18,519/año). Múltiples programas: Enterprise ($35,500/año)." },
+  { q: "¿Con qué tier empiezo?", a: "Depende de cuántos programas lances y de cuánto contenido ya tengas. Lo definimos contigo en una reunión de 30 minutos." },
   { q: "¿Operan en múltiples idiomas?", a: "Sí. Traducción IA, localización y multi-idioma vía Weglot. Inglés, español, portugués y otros bajo demanda." },
   { q: "¿Cómo miden el ROI?", a: "Jerarquía KPI de 4 capas: Leading → Transicionales → Lagging → Terminales. Fórmula Avramescu. Reportes automáticos." },
   { q: "¿Qué incluye el soporte?", a: "AI Learner Agent 24/7 (80% auto-deflexión) + soporte humano nivel 2 + gestión técnica + encuestas integradas." },
   { q: "¿Diferencia con freelancers?", a: "Freelancers: diseño individual. Nosotros: ciclo completo (estrategia → producción → lanzamiento → operaciones → analítica → mejora continua) + plataforma + IA + gamificación + app + CRM." },
   { q: "¿Necesito los add-ons?", a: "No para empezar. Los 3 servicios core cubren el ciclo completo. La mayoría añade Certificación en los primeros 6 meses." },
-  { q: "¿Hay descuento bundle?", a: "Sí. Bundle 'Full Program Launch' (Professional en todo): 8% descuento — $17,037 vs. $18,519, ahorro de $1,482." },
+  { q: "¿Hay descuento bundle?", a: "Sí. Si lanzas el programa completo, la propuesta incluye un descuento por paquete." },
 ];
 
 const faqJsonLd = {
@@ -469,7 +463,7 @@ export default function ContinuingEducationPageES() {
                   <div key={plan.name} className={`rounded-2xl p-7 border space-y-4 h-full flex flex-col ${plan.popular ? "border-accent-purple/50 bg-accent-purple/5" : "border-white/10 bg-white/[0.02]"}`}>
                     {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
                     <h4 className="text-lg font-bold text-white">{plan.name}</h4>
-                    <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price} <span className="text-xs text-white/30 font-normal">+ IVA</span></p>
+                    <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price}</p>
                     <ul className="space-y-2 flex-1">
                       {plan.features.map((f) => (<li key={f} className="flex items-start gap-2 text-xs text-white/60"><CheckCircle2 className="w-3.5 h-3.5 text-accent-purple shrink-0 mt-0.5" />{f}</li>))}
                     </ul>
@@ -489,7 +483,7 @@ export default function ContinuingEducationPageES() {
                   <div key={plan.name} className={`rounded-2xl p-7 border space-y-4 h-full flex flex-col ${plan.popular ? "border-accent-purple/50 bg-accent-purple/5" : "border-white/10 bg-white/[0.02]"}`}>
                     {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
                     <h4 className="text-lg font-bold text-white">{plan.name}</h4>
-                    <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price} <span className="text-xs text-white/30 font-normal">+ IVA</span></p>
+                    <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price}</p>
                     <ul className="space-y-2 flex-1">
                       {plan.features.map((f) => (<li key={f} className="flex items-start gap-2 text-xs text-white/60"><CheckCircle2 className="w-3.5 h-3.5 text-accent-purple shrink-0 mt-0.5" />{f}</li>))}
                     </ul>
@@ -509,31 +503,10 @@ export default function ContinuingEducationPageES() {
                   <div key={plan.name} className={`rounded-2xl p-7 border space-y-4 h-full flex flex-col ${plan.popular ? "border-accent-purple/50 bg-accent-purple/5" : "border-white/10 bg-white/[0.02]"}`}>
                     {plan.popular && <span className="inline-flex self-start items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest bg-accent-purple/20 text-accent-purple">Más Popular</span>}
                     <h4 className="text-lg font-bold text-white">{plan.name}</h4>
-                    <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price} <span className="text-xs text-white/30 font-normal">+ IVA</span></p>
+                    <p className="text-2xl font-bold text-gradient-peach-purple">{plan.price}</p>
                     <ul className="space-y-2 flex-1">
                       {plan.features.map((f) => (<li key={f} className="flex items-start gap-2 text-xs text-white/60"><CheckCircle2 className="w-3.5 h-3.5 text-accent-purple shrink-0 mt-0.5" />{f}</li>))}
                     </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Inversión Total Año 1 */}
-          <AnimatedSection delay={0.25}>
-            <div className="mb-16">
-              <h3 className="text-xl font-bold text-white mb-6">Inversión Total Año 1</h3>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-                <div className="grid grid-cols-5 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
-                  <span>Tier</span><span>Setup</span><span>LMS (12 m)</span><span>App (12 m)</span><span>Total Año 1</span>
-                </div>
-                {yearTotals.map((row, i) => (
-                  <div key={row.tier} className={`grid grid-cols-5 text-sm px-5 py-3.5 ${i % 2 === 0 ? "bg-white/[0.01]" : ""} ${i < yearTotals.length - 1 ? "border-b border-white/5" : ""}`}>
-                    <span className="text-white/70 font-semibold text-xs">{row.tier}</span>
-                    <span className="text-white/50 text-xs">{row.setup}</span>
-                    <span className="text-white/50 text-xs">{row.lms}</span>
-                    <span className="text-white/50 text-xs">{row.app}</span>
-                    <span className="text-white font-bold text-xs">{row.total}</span>
                   </div>
                 ))}
               </div>
@@ -548,25 +521,8 @@ export default function ContinuingEducationPageES() {
                 <h3 className="text-xl font-bold text-white">Recomendado: Bundle &ldquo;Full Program Launch&rdquo;</h3>
               </div>
               <p className="text-white/55 text-sm mb-6 max-w-2xl">El paquete más común para lanzar tu primer programa B2B serio. Tier Professional en los tres servicios con 8% de descuento.</p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
-                <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                  <p className="text-xs text-white/30 uppercase tracking-widest mb-1">Setup del Programa</p>
-                  <p className="text-lg font-bold text-white">$4,209</p>
-                  <p className="text-xs text-white/30 line-through">$4,575</p>
-                </div>
-                <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                  <p className="text-xs text-white/30 uppercase tracking-widest mb-1">LMS + App Mensual</p>
-                  <p className="text-lg font-bold text-white">$1,069/mes</p>
-                  <p className="text-xs text-white/30 line-through">$1,162/mes</p>
-                </div>
-                <div className="rounded-xl border border-accent-purple/30 bg-accent-purple/10 p-5 text-center">
-                  <p className="text-xs text-accent-purple uppercase tracking-widest mb-1 font-bold">Total Año 1</p>
-                  <p className="text-lg font-bold text-gradient-peach-purple">$17,037</p>
-                  <p className="text-xs text-emerald-400 font-semibold">Ahorra $1,482</p>
-                </div>
-              </div>
               <Link href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm bg-accent-purple text-white hover:bg-accent-purple/85 transition-all">
-                Agenda un Demo para Asegurar el Precio Bundle <ArrowRight className="w-4 h-4" />
+                Agendar reunión de 30 minutos para cotizar el paquete <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </AnimatedSection>
@@ -581,13 +537,7 @@ export default function ContinuingEducationPageES() {
                   <div key={addon.title} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6 space-y-3 hover:bg-white/[0.04] transition-colors">
                     <h4 className="text-base font-bold text-white">{addon.title}</h4>
                     <p className="text-white/45 text-xs leading-relaxed">{addon.desc}</p>
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {addon.tiers.filter(Boolean).map((t, i) => (
-                        <span key={i} className="text-xs font-medium text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full">
-                          {["Starter", "Professional", "Enterprise"][i]}: {t}
-                        </span>
-                      ))}
-                    </div>
+                    <p className="text-xs font-medium text-white/50 pt-1">Se cotiza según alcance</p>
                   </div>
                 ))}
               </div>

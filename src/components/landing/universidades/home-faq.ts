@@ -22,7 +22,7 @@ export const HOME_FAQ: { question: string; answer: string }[] = [
   },
   {
     "question": "¿Cuánto tarda una ruta de formación?",
-    "answer": "Una ruta puede quedar diseñada, producida y lista para su primera cohorte en seis semanas. El cronograma exacto va en la propuesta, según el alcance."
+    "answer": "Una ruta puede quedar diseñada, producida y lista para su primera cohorte en unas ocho semanas. El cronograma exacto va en la propuesta, según el alcance."
   },
   {
     "question": "¿Cuánto cuesta?",

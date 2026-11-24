@@ -39,9 +39,9 @@ export const seoEntries: Record<string, SeoEntry> = {
     },
     es: {
       title: "Merahki | Soluciones de formación para universidades",
-      description: "Cotizaciones en horas, diseño de cursos, virtualización, plataformas LMS, cursos por WhatsApp, credenciales digitales e informes en una sola solución.",
+      description: "Propuestas listas para radicar en días, diseño de cursos, virtualización, plataformas LMS, cursos por WhatsApp, credenciales digitales e informes en una sola solución.",
       ogTitle: "merahki.ai ayuda a las universidades a cotizar, responder y operar proyectos corporativos y licitaciones",
-      ogDescription: "Cotizaciones en horas, diseño de cursos, virtualización, plataformas LMS, cursos por WhatsApp, credenciales digitales, seguimiento e informes en una sola solución.",
+      ogDescription: "Propuestas listas para radicar en días, diseño de cursos, virtualización, plataformas LMS, cursos por WhatsApp, credenciales digitales, seguimiento e informes en una sola solución.",
       ogImageAlt: "Merahki — Soluciones de formación para universidades",
     },
   },
@@ -526,7 +526,7 @@ export function buildMetadata(key: keyof typeof seoEntries, lang: Language): Met
 
   const languages = other
     ? {
-        "es-CO": getUrl(entry.slug, "es"),
+        es: getUrl(entry.slug, "es"),
         "en-US": getUrl(entry.slug, "en"),
         "x-default": getUrl(entry.slug, "en"),
       }

@@ -27,11 +27,13 @@ export default function LanguageSwitcher() {
     router.push(targetHref);
   }
 
+  // En celular va arriba, junto al botón de menú: abajo tapaba las cifras del encabezado
+  // y chocaba con el botón fijo de agendar del home en español (auditoría 23-nov-2026).
   return (
     <button
       onClick={handleSwitch}
       aria-label={isEs ? "Switch to English" : "Cambiar a Español"}
-      className="fixed bottom-6 left-6 z-50 group flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/15 bg-black/60 backdrop-blur-md shadow-xl hover:border-white/30 hover:bg-black/80 transition-all duration-200 cursor-pointer"
+      className="fixed top-[14px] right-14 md:top-auto md:right-auto md:bottom-6 md:left-6 z-[60] group flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/15 bg-black/60 backdrop-blur-md shadow-xl hover:border-white/30 hover:bg-black/80 transition-all duration-200 cursor-pointer"
     >
       <Globe className="w-3.5 h-3.5 text-white/45 group-hover:text-white/70 transition-colors flex-shrink-0" />
       <span

@@ -4,6 +4,8 @@ window.initHomeUniversidades = function (root) {
   var observers = []; function track(o) { observers.push(o); return o; }
 
   var body = root;
+  // eventos de Vercel Analytics (en el sitio existe window.va; en el prototipo no hace nada)
+  function ev(n){ try { window.va && window.va('event', { name: n }); } catch (e) {} }
   // rol
   var ROLE_KEY = 'merahki-home-role';
   function setRole(r){
@@ -12,8 +14,8 @@ window.initHomeUniversidades = function (root) {
     try { localStorage.setItem(ROLE_KEY, r); } catch(e) {}
   }
   var saved = null; try { saved = localStorage.getItem(ROLE_KEY); } catch(e) {}
-  setRole(['rectoria','vicerrectoria','continua','empresa'].indexOf(saved) >= 0 ? saved : 'rectoria');
-  document.querySelectorAll('.chips .chip[data-role]').forEach(function(c){ c.addEventListener('click', function(){ setRole(c.getAttribute('data-role')); }); });
+  setRole(['rectoria','vicerrectoria','continua','empresa'].indexOf(saved) >= 0 ? saved : 'continua');
+  document.querySelectorAll('.chips .chip[data-role]').forEach(function(c){ c.addEventListener('click', function(){ setRole(c.getAttribute('data-role')); ev('rol_' + c.getAttribute('data-role')); }); });
 
   // recorrido
   var phases = Array.prototype.slice.call(document.querySelectorAll('.phase'));
@@ -29,9 +31,9 @@ window.initHomeUniversidades = function (root) {
     document.getElementById('pos').textContent = 'Fase ' + (cur + 1) + ' de ' + phases.length;
     document.getElementById('next').textContent = cur === phases.length - 1 ? 'Volver a diseño →' : 'Siguiente →';
   }
-  steps.forEach(function(s){ s.addEventListener('click', function(){ show(+s.getAttribute('data-go')); }); });
-  document.getElementById('prev').addEventListener('click', function(){ show(cur - 1); });
-  document.getElementById('next').addEventListener('click', function(){ show(cur === phases.length - 1 ? 1 : cur + 1); });
+  steps.forEach(function(s){ s.addEventListener('click', function(){ show(+s.getAttribute('data-go')); ev('fase_vista_' + (cur + 1)); }); });
+  document.getElementById('prev').addEventListener('click', function(){ show(cur - 1); ev('fase_vista_' + (cur + 1)); });
+  document.getElementById('next').addEventListener('click', function(){ show(cur === phases.length - 1 ? 1 : cur + 1); ev('fase_vista_' + (cur + 1)); });
   document.getElementById('stage').addEventListener('keydown', function(e){
     if (e.target.closest('.shot-tabs')) return;
     if (e.key === 'ArrowRight') { show(cur + 1); } else if (e.key === 'ArrowLeft') { show(cur - 1); }
@@ -99,6 +101,30 @@ window.initHomeUniversidades = function (root) {
     track(new IntersectionObserver(function(e){ closeVis = e[0].isIntersecting; upd(); })).observe(close);
   }
 
+
+  // loops del entregable de cada fase: corren solo en pantalla; con movimiento reducido queda el póster (el entregable completo)
+  var vloops = [].slice.call(document.querySelectorAll('video.fase-loop'));
+  if (vloops.length && 'IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    var vcb = function(es){ es.forEach(function(e){ var v = e.target; if (e.isIntersecting) { if (v.getAttribute('data-user-paused') === '1') return; if (v.preload === 'none') v.preload = 'auto'; var pv = v.play(); if (pv && pv.catch) pv.catch(function(){}); } else { v.pause(); } }); };
+    var vio = track(new IntersectionObserver(vcb, {threshold: .35}));
+    vloops.forEach(function(v){ vio.observe(v); });
+  }
+
+  // pausa de cada loop (WCAG 2.2.2): la pausa del visitante se respeta al volver a la pantalla
+  document.querySelectorAll('.vpause').forEach(function(b){ b.addEventListener('click', function(){
+    var v = b.closest('figure').querySelector('video'); if (!v) return;
+    if (v.paused) { v.removeAttribute('data-user-paused'); var pp = v.play(); if (pp && pp.catch) pp.catch(function(){}); b.textContent = 'Pausar'; b.setAttribute('aria-pressed', 'false'); }
+    else { v.pause(); v.setAttribute('data-user-paused', '1'); b.textContent = 'Reproducir'; b.setAttribute('aria-pressed', 'true'); }
+  }); });
+
+  // ver un loop en grande
+  var vd = document.getElementById('vdlg'), vdv = document.getElementById('vdlg-v');
+  if (vd && vdv) {
+    document.querySelectorAll('.vbig').forEach(function(b){ b.addEventListener('click', function(){ var fig = b.closest('figure'), fv = fig.querySelector('video'); var src = fig.querySelector('source:not([media])').getAttribute('src'); ev('ver_en_grande_' + b.getAttribute('data-n')); var narrow = window.matchMedia && matchMedia('(max-width: 700px)').matches; vd.classList.toggle('pan', !!narrow); if (narrow) { var im = document.getElementById('vdlg-img'); im.src = fv.getAttribute('poster').replace('-poster.webp', '-grande.webp'); im.alt = fv.getAttribute('aria-label') || ''; } else if (vdv.getAttribute('src') !== src) { vdv.setAttribute('src', src); } if (vd.showModal) vd.showModal(); else vd.setAttribute('open', ''); if (!narrow) { var pv = vdv.play(); if (pv && pv.catch) pv.catch(function(){}); } }); });
+    document.getElementById('vdlg-close').addEventListener('click', function(){ if (vd.close) vd.close(); else vd.removeAttribute('open'); });
+    vd.addEventListener('click', function(e){ if (e.target === vd) vd.close(); });
+    vd.addEventListener('close', function(){ try { vdv.pause(); } catch (e) {} });
+  }
 
   // video del encabezado: pausa (WCAG 2.2.2) y respeto al movimiento reducido
   var hv = document.getElementById('hero-loop'), hb = document.getElementById('hero-loop-btn');

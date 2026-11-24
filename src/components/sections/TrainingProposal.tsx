@@ -1,6 +1,7 @@
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import GlowBackground from "@/components/ui/GlowBackground";
 import Link from "next/link";
+import ScopePrice from "@/components/ui/ScopePrice";
 import {
   ArrowRight,
   CalendarCheck,
@@ -23,8 +24,6 @@ import {
 
 const tiers = [
   {
-    price: "4,575 USD",
-    billing: "+ VAT · One-time payment",
     title: "Academy Setup",
     subtitle: "Initial setup per course — 1 course per feature or use case to guarantee effectiveness",
     headerIcon: GraduationCap,
@@ -41,10 +40,7 @@ const tiers = [
     ],
   },
   {
-    price: "762 USD",
-    billing: "+ VAT · / month · up to 1,000 users",
     title: "Growth & Analytics",
-    subtitle: "$1 USD per additional user / month",
     headerIcon: BarChart2,
     highlight: false,
     items: [
@@ -54,10 +50,7 @@ const tiers = [
     ],
   },
   {
-    price: "400 USD",
-    billing: "/ month · up to 1,000 users",
     title: "Mobile App",
-    subtitle: "$1 USD per additional user / month",
     headerIcon: Smartphone,
     highlight: false,
     items: [
@@ -323,8 +316,7 @@ export default function TrainingProposal() {
                         <tier.headerIcon className={`w-4 h-4 ${i === 0 ? "text-accent-purple" : i === 1 ? "text-accent-blue" : "text-accent-peach"}`} />
                       </div>
                       <div>
-                        <p className="text-2xl md:text-3xl font-bold text-white">{tier.price}</p>
-                        <p className="text-white/50 text-sm mt-1">{tier.billing}</p>
+                        <ScopePrice />
                         {tier.subtitle && (
                           <p className="text-white/35 text-xs mt-2 max-w-lg">{tier.subtitle}</p>
                         )}

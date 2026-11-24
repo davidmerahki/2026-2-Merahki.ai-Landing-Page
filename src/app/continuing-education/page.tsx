@@ -291,7 +291,7 @@ const phases = [
 const setupPlans = [
   {
     name: "Starter",
-    price: "$2,975",
+    price: "Scope-based",
     popular: false,
     features: [
       "Up to 5 lessons",
@@ -306,7 +306,7 @@ const setupPlans = [
   },
   {
     name: "Professional",
-    price: "$4,575",
+    price: "Scope-based",
     popular: true,
     features: [
       "Up to 12 lessons",
@@ -322,7 +322,7 @@ const setupPlans = [
   },
   {
     name: "Enterprise",
-    price: "$8,500",
+    price: "Scope-based",
     popular: false,
     features: [
       "20+ lessons",
@@ -342,7 +342,7 @@ const setupPlans = [
 const lmsPlans = [
   {
     name: "Starter",
-    price: "$499/mo",
+    price: "Scope-based",
     popular: false,
     features: [
       "500 users included",
@@ -354,10 +354,10 @@ const lmsPlans = [
   },
   {
     name: "Professional",
-    price: "$762/mo",
+    price: "Scope-based",
     popular: true,
     features: [
-      "1,000 users ($1/user/mo extra)",
+      "1,000 users",
       "95+ analytics filters",
       "Up to 3 portals",
       "CRM integration (HubSpot + Zapier/Make)",
@@ -369,10 +369,10 @@ const lmsPlans = [
   },
   {
     name: "Enterprise",
-    price: "$1,500/mo",
+    price: "Scope-based",
     popular: false,
     features: [
-      "5,000 users ($0.75/user/mo extra)",
+      "5,000 users",
       "95+ filters with AI-powered insights",
       "Unlimited portals",
       "CRM + SSO/SAML integration",
@@ -387,28 +387,28 @@ const lmsPlans = [
 const appPlans = [
   {
     name: "Starter",
-    price: "$299/mo",
+    price: "Scope-based",
     popular: false,
     features: ["iOS OR Android", "Offline access", "Push notifications"],
   },
   {
     name: "Professional",
-    price: "$400/mo",
+    price: "Scope-based",
     popular: true,
     features: [
       "iOS + Android",
-      "1,000 users ($1/user/mo extra)",
+      "1,000 users",
       "Offline access + push notifications",
       "In-app purchases + biometric login",
     ],
   },
   {
     name: "Enterprise",
-    price: "$750/mo",
+    price: "Scope-based",
     popular: false,
     features: [
       "iOS + Android",
-      "5,000 users ($0.75/user/mo extra)",
+      "5,000 users",
       "Offline access + push notifications",
       "In-app purchases + biometric login",
       "Dedicated app support",
@@ -416,32 +416,26 @@ const appPlans = [
   },
 ];
 
-const yearTotals = [
-  { tier: "Starter", setup: "$2,975", lms: "$5,988", app: "$3,588", total: "$12,551" },
-  { tier: "Professional", setup: "$4,575", lms: "$9,144", app: "$4,800", total: "$18,519" },
-  { tier: "Enterprise", setup: "$8,500", lms: "$18,000", app: "$9,000", total: "$35,500" },
-];
-
 const addOns = [
   {
     title: "Partner Academy",
     desc: "For corporate clients that need to train their own ecosystems — distributors, franchisees, resellers. Certified partners generate 6× more revenue (PartnerStack). 353% ROI (PartnerAwesome 2025).",
-    tiers: ["From $2,975", "From $5,500", "From $9,500"],
+    tiers: [] as string[],
   },
   {
     title: "Certification Program",
     desc: "Validate competency, not just completion. Certifications are the highest-converting engagement mechanic. Meta Blueprint charges $99–$150 per exam across 3M+ course takers.",
-    tiers: ["From $2,475", "From $4,500", "From $9,000"],
+    tiers: [] as string[],
   },
   {
     title: "Academy Website",
     desc: "Conversion-optimized web presence for your B2B education line. Strategy-first discovery, AI-powered personalization. Average +40% student registration rate.",
-    tiers: ["From $1,975", "From $4,500", "From $7,500"],
+    tiers: [] as string[],
   },
   {
     title: "ELG Strategy Retainer",
     desc: "Ongoing strategic advisory as your fractional Chief Learning Officer. Monthly reviews, KPI analysis, portfolio optimization, and quarterly executive presentations.",
-    tiers: ["$2,500–$6,000 one-time", "$3,000/mo retainer", ""],
+    tiers: [] as string[],
   },
 ];
 
@@ -495,7 +489,7 @@ const faqs = [
   },
   {
     q: "Which tier should I start with?",
-    a: "Launching your first virtual B2B program? Start with Starter ($12,551/year). Ready to compete with HubSpot Academy quality, with gamification and full analytics? Professional is our most popular ($18,519/year). Operating multiple programs across clients and geographies? Enterprise ($35,500/year).",
+    a: "It depends on how many programs you launch and how much content you already have. We define it with you in a 30-minute meeting.",
   },
   {
     q: "Can you operate programs in multiple languages?",
@@ -519,7 +513,7 @@ const faqs = [
   },
   {
     q: "Is there a bundle discount?",
-    a: "Yes. The 'Full Program Launch' bundle (Professional tier across all three core services) offers an 8% discount — Year 1 total of $17,037 vs. $18,519 à la carte, saving $1,482.",
+    a: "Yes. If you launch the full program, the proposal includes a bundle discount.",
   },
 ];
 
@@ -1136,10 +1130,7 @@ export default function ContinuingEducationPage() {
                       {plan.name}
                     </h4>
                     <p className="text-2xl font-bold text-gradient-peach-purple">
-                      {plan.price}{" "}
-                      <span className="text-xs text-white/30 font-normal">
-                        + VAT
-                      </span>
+                      {plan.price}
                     </p>
                     <ul className="space-y-2 flex-1">
                       {plan.features.map((f) => (
@@ -1190,10 +1181,7 @@ export default function ContinuingEducationPage() {
                       {plan.name}
                     </h4>
                     <p className="text-2xl font-bold text-gradient-peach-purple">
-                      {plan.price}{" "}
-                      <span className="text-xs text-white/30 font-normal">
-                        + VAT
-                      </span>
+                      {plan.price}
                     </p>
                     <ul className="space-y-2 flex-1">
                       {plan.features.map((f) => (
@@ -1244,10 +1232,7 @@ export default function ContinuingEducationPage() {
                       {plan.name}
                     </h4>
                     <p className="text-2xl font-bold text-gradient-peach-purple">
-                      {plan.price}{" "}
-                      <span className="text-xs text-white/30 font-normal">
-                        + VAT
-                      </span>
+                      {plan.price}
                     </p>
                     <ul className="space-y-2 flex-1">
                       {plan.features.map((f) => (
@@ -1260,46 +1245,6 @@ export default function ContinuingEducationPage() {
                         </li>
                       ))}
                     </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* 8D — Year 1 Total Investment */}
-          <AnimatedSection delay={0.25}>
-            <div className="mb-16">
-              <h3 className="text-xl font-bold text-white mb-6">
-                Year 1 Total Investment
-              </h3>
-              <div className="rounded-2xl border border-white/10 bg-white/[0.02] overflow-hidden">
-                <div className="grid grid-cols-5 text-xs font-bold uppercase tracking-widest text-white/30 border-b border-white/10 px-5 py-3">
-                  <span>Tier</span>
-                  <span>Setup</span>
-                  <span>LMS (12 mo)</span>
-                  <span>App (12 mo)</span>
-                  <span>Year 1 Total</span>
-                </div>
-                {yearTotals.map((row, i) => (
-                  <div
-                    key={row.tier}
-                    className={`grid grid-cols-5 text-sm px-5 py-3.5 ${
-                      i % 2 === 0 ? "bg-white/[0.01]" : ""
-                    } ${
-                      i < yearTotals.length - 1
-                        ? "border-b border-white/5"
-                        : ""
-                    }`}
-                  >
-                    <span className="text-white/70 font-semibold text-xs">
-                      {row.tier}
-                    </span>
-                    <span className="text-white/50 text-xs">{row.setup}</span>
-                    <span className="text-white/50 text-xs">{row.lms}</span>
-                    <span className="text-white/50 text-xs">{row.app}</span>
-                    <span className="text-white font-bold text-xs">
-                      {row.total}
-                    </span>
                   </div>
                 ))}
               </div>
@@ -1320,44 +1265,13 @@ export default function ContinuingEducationPage() {
                 their first serious B2B program. Professional tier across all
                 three services with an 8% discount.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-6">
-                <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                  <p className="text-xs text-white/30 uppercase tracking-widest mb-1">
-                    Program Setup
-                  </p>
-                  <p className="text-lg font-bold text-white">$4,209</p>
-                  <p className="text-xs text-white/30 line-through">
-                    $4,575
-                  </p>
-                </div>
-                <div className="rounded-xl border border-white/10 bg-white/[0.03] p-5 text-center">
-                  <p className="text-xs text-white/30 uppercase tracking-widest mb-1">
-                    LMS + App Monthly
-                  </p>
-                  <p className="text-lg font-bold text-white">$1,069/mo</p>
-                  <p className="text-xs text-white/30 line-through">
-                    $1,162/mo
-                  </p>
-                </div>
-                <div className="rounded-xl border border-accent-purple/30 bg-accent-purple/10 p-5 text-center">
-                  <p className="text-xs text-accent-purple uppercase tracking-widest mb-1 font-bold">
-                    Year 1 Total
-                  </p>
-                  <p className="text-lg font-bold text-gradient-peach-purple">
-                    $17,037
-                  </p>
-                  <p className="text-xs text-emerald-400 font-semibold">
-                    Save $1,482
-                  </p>
-                </div>
-              </div>
               <Link
                 href="https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3 rounded-full font-semibold text-sm bg-accent-purple text-white hover:bg-accent-purple/85 transition-all"
               >
-                Book a Demo to Lock In Bundle Pricing{" "}
+                Book a 30-minute meeting to quote the bundle{" "}
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -1385,19 +1299,7 @@ export default function ContinuingEducationPage() {
                     <p className="text-white/45 text-xs leading-relaxed">
                       {addon.desc}
                     </p>
-                    <div className="flex flex-wrap gap-2 pt-1">
-                      {addon.tiers
-                        .filter(Boolean)
-                        .map((t, i) => (
-                          <span
-                            key={i}
-                            className="text-xs font-medium text-white/50 bg-white/5 border border-white/10 px-2.5 py-1 rounded-full"
-                          >
-                            {["Starter", "Professional", "Enterprise"][i]}:{" "}
-                            {t}
-                          </span>
-                        ))}
-                    </div>
+                    <p className="text-xs font-medium text-white/50 pt-1">Quoted by scope</p>
                   </div>
                 ))}
               </div>

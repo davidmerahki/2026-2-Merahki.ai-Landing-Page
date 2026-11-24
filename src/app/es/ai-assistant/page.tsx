@@ -1,6 +1,7 @@
 import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import FeaturePanel from "@/components/ui/FeaturePanel";
 import ContactSection from "@/components/sections/ContactSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
@@ -17,8 +18,6 @@ const features = [
       "Reescribe, mejora y optimiza lecciones, páginas y contenido existentes para que pases menos tiempo actualizando desde cero.",
     ],
     reverse: false,
-    videoSrc:
-      "https://www.learnworlds.com/app/uploads/2026/03/ai-course-planner-1.webm",
   },
   {
     icon: ClipboardList,
@@ -28,8 +27,6 @@ const features = [
       "Acelera tu proceso de evaluación con evaluaciones generadas por IA eligiendo el tema, tipo y número de formatos de preguntas.",
     ],
     reverse: true,
-    videoSrc:
-      "https://www.learnworlds.com/app/uploads/2026/03/ai-assessment.webm",
   },
   {
     icon: BarChart3,
@@ -39,7 +36,6 @@ const features = [
       "Nuestra IA extrae datos de todas tus fuentes y recuerda el contexto a lo largo de tu conversación, para que las preguntas de seguimiento sean effortless.",
     ],
     reverse: false,
-    videoSrc: "https://www.learnworlds.com/app/uploads/2026/03/ai-insights.webm",
   },
 ];
 
@@ -201,14 +197,7 @@ export default function AIAssistantEsPage() {
                   </div>
 
                   <div className="flex-1 w-full">
-                    <video
-                      src={f.videoSrc}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full rounded-2xl border border-white/10 shadow-2xl"
-                    />
+                    <FeaturePanel icon={f.icon} label={f.title} />
                   </div>
                 </div>
               </AnimatedSection>

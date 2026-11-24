@@ -46,19 +46,14 @@ export function middleware(request: NextRequest) {
     return res;
   }
 
-  if (lang === "en" && isEsPath) {
-    const url = request.nextUrl.clone();
-    url.pathname = pathname.slice(3) || "/";
-    const res = NextResponse.redirect(url);
-    if (!hasCookie)
-      res.cookies.set(LANG_COOKIE, "en", { path: "/", maxAge: COOKIE_MAX_AGE, sameSite: "lax" });
-    return res;
-  }
+  // Una URL /es explícita nunca se redirige al inglés: así la ven igual los rastreadores
+  // (que no mandan Accept-Language), las vistas previas de LinkedIn o WhatsApp y quien
+  // recibe el enlace con el navegador en inglés. El cambio de idioma va por LanguageSwitcher.
 
-  // No redirect needed (o la ruta solo existe en EN) — persist detected lang if cookie not set yet
+  // No redirect needed (o la ruta solo existe en EN) — persist lang if cookie not set yet
   const res = NextResponse.next();
   if (!hasCookie)
-    res.cookies.set(LANG_COOKIE, lang, { path: "/", maxAge: COOKIE_MAX_AGE, sameSite: "lax" });
+    res.cookies.set(LANG_COOKIE, isEsPath ? "es" : lang, { path: "/", maxAge: COOKIE_MAX_AGE, sameSite: "lax" });
   return res;
 }
 

@@ -34,7 +34,6 @@ const logos: { src: string; alt: string }[] = [
   { src: "/images/logos/alcaldia-mayor-bogota.png",        alt: "Alcaldía Mayor de Bogotá" },
   { src: "/images/logos/universidad-cesar-vallejo.png",    alt: "Universidad César Vallejo" },
   { src: "/images/logos/advanz.png",                       alt: "Advanz International Education" },
-  { src: "/images/logos/learnworlds.png",                  alt: "LearnWorlds" },
   { src: "/images/logos/vasquez-kennedy.png",              alt: "Vásquez Kennedy Career Success" },
   { src: "/images/logos/positiva.png",                     alt: "Positiva Compañía de Seguros" },
   { src: "/images/logos/innpulsa.png",                     alt: "iNNpulsa Colombia" },

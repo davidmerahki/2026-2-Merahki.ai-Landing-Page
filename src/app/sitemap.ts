@@ -28,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const languages = {
       "en-US": enUrl,
-      "es-CO": `${BASE_URL}${esPath}`,
+      es: `${BASE_URL}${esPath}`,
       "x-default": enUrl,
     };
 
@@ -41,7 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         alternates: { languages },
       },
       {
-        url: languages["es-CO"],
+        url: languages.es,
         lastModified,
         changeFrequency: "monthly" as const,
         priority: entry.slug === "" ? 0.9 : 0.7,
@@ -60,7 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       }
       const languages = {
         "en-US": enUrl,
-        "es-CO": `${BASE_URL}/es${enPath}`,
+        es: `${BASE_URL}/es${enPath}`,
         "x-default": enUrl,
       };
       return [
@@ -72,7 +72,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           alternates: { languages },
         },
         {
-          url: languages["es-CO"],
+          url: languages.es,
           lastModified,
           changeFrequency: "monthly" as const,
           priority: Math.round((priority - 0.1) * 10) / 10,

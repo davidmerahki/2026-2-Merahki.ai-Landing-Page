@@ -89,7 +89,6 @@ const navGroups: NavGroup[] = [
           { label: "UNICUCES",                       desc: "Technical and technological higher education institution.",                  href: "#" },
           { label: "Universidad César Vallejo",      desc: "Higher education with an international presence.",                          href: "#" },
           { label: "Advanz International Education", desc: "Consulting in international education and academic mobility.",              href: "#" },
-          { label: "LearnWorlds",                    desc: "Educational technology (EdTech) and online training platform.",             href: "#" },
         ],
       },
       {
@@ -167,7 +166,7 @@ export default function Navbar() {
   // Single conversion funnel: every CTA opens David's HubSpot scheduler
   const isEs = pathname === "/es" || pathname.startsWith("/es/");
   const ctaHref = "https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651";
-  const ctaLabel = isEs ? "Agendar sesión (30 min)" : "Book a session (30 min)";
+  const ctaLabel = isEs ? "Agendar reunión de 30 minutos" : "Book a 30-minute meeting";
 
   return (
     <nav
@@ -299,6 +298,8 @@ export default function Navbar() {
         <button
           className="md:hidden text-white p-1"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? (isEs ? "Cerrar menú" : "Close menu") : (isEs ? "Abrir menú" : "Open menu")}
+          aria-expanded={mobileOpen}
         >
           {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>

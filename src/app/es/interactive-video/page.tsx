@@ -2,6 +2,7 @@ import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import FeaturePanel from "@/components/ui/FeaturePanel";
 import ContactSection from "@/components/sections/ContactSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
@@ -32,10 +33,7 @@ const features = [
       "Edita subtítulos manualmente para mayor precisión, o usa traducciones impulsadas por IA para llegar a audiencias globales sin horas adicionales de post-producción.",
     ],
     reverse: true,
-    media: {
-      type: "video" as const,
-      src: "https://www.learnworlds.com/app/uploads/2026/02/ai-video-subtitles.webm",
-    },
+    media: { type: "panel" as const },
   },
   {
     icon: Layers,
@@ -45,10 +43,7 @@ const features = [
       "Agrega elementos interactivos como botones CTA, reacciones sociales y contenido embebido para crear una experiencia de aprendizaje más rica y conectada.",
     ],
     reverse: false,
-    media: {
-      type: "video" as const,
-      src: "https://www.learnworlds.com/app/uploads/2026/02/popup.webm",
-    },
+    media: { type: "panel" as const },
   },
 ];
 
@@ -132,14 +127,7 @@ export default function InteractiveVideoEsPage() {
               </AnimatedSection>
             </div>
             <AnimatedSection delay={0.2} className="flex-1 w-full">
-              <video
-                src="https://www.learnworlds.com/app/uploads/2026/02/interactive-video-hero.webm"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full rounded-2xl border border-white/10 shadow-2xl"
-              />
+              <FeaturePanel icon={Play} label="Video interactivo" />
             </AnimatedSection>
           </div>
         </div>
@@ -241,15 +229,8 @@ export default function InteractiveVideoEsPage() {
                   </div>
 
                   <div className="flex-1 w-full">
-                    {f.media.type === "video" ? (
-                      <video
-                        src={f.media.src}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full rounded-2xl border border-white/10 shadow-2xl"
-                      />
+                    {f.media.type === "panel" ? (
+                      <FeaturePanel icon={f.icon} label={f.title} />
                     ) : (
                       <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[16/10]">
                         <Image
@@ -291,14 +272,7 @@ export default function InteractiveVideoEsPage() {
           <AnimatedSection delay={0.1}>
             <div className="flex flex-col gap-10 items-center md:flex-row">
               <div className="flex-1 w-full">
-                <video
-                  src="https://www.learnworlds.com/app/uploads/2026/02/interactive-video-section4.webm"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full rounded-2xl border border-white/10 shadow-2xl"
-                />
+                <FeaturePanel icon={Layers} label="Preguntas y capítulos dentro del video" />
               </div>
 
               <div className="flex-1 space-y-8">

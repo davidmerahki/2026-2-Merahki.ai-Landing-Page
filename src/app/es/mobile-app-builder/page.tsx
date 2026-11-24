@@ -2,6 +2,7 @@ import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import Image from "next/image";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
+import FeaturePanel from "@/components/ui/FeaturePanel";
 import ContactSection from "@/components/sections/ContactSection";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import Link from "next/link";
@@ -18,10 +19,7 @@ const features = [
       "Una vez que nos envías tu app, tardará 2–4 semanas en estar en vivo. Asumimos plena responsabilidad por el cumplimiento en Google Play y App Store.",
     ],
     reverse: false,
-    media: {
-      type: "video" as const,
-      src: "https://www.learnworlds.com/app/uploads/2026/02/mobile-app-hero.webm",
-    },
+    media: { type: "panel" as const },
   },
   {
     icon: Layers,
@@ -45,10 +43,7 @@ const features = [
       "Rastrea cada interacción con tu app — revisa usuarios activos, sesiones y otras métricas de rendimiento para identificar áreas de optimización.",
     ],
     reverse: false,
-    media: {
-      type: "video" as const,
-      src: "https://www.learnworlds.com/app/uploads/2026/02/mob-analytics-video.webm",
-    },
+    media: { type: "panel" as const },
   },
 ];
 
@@ -212,15 +207,8 @@ export default function MobileAppBuilderEsPage() {
                   </div>
 
                   <div className="flex-1 w-full">
-                    {f.media.type === "video" ? (
-                      <video
-                        src={f.media.src}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full rounded-2xl border border-white/10 shadow-2xl"
-                      />
+                    {f.media.type === "panel" ? (
+                      <FeaturePanel icon={f.icon} label={f.title} />
                     ) : (
                       <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl aspect-[16/10]">
                         <Image
