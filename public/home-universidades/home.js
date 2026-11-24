@@ -99,83 +99,6 @@ window.initHomeUniversidades = function (root) {
     track(new IntersectionObserver(function(e){ closeVis = e[0].isIntersecting; upd(); })).observe(close);
   }
 
-  // prueba: Skills Intelligence con datos de la demo de POK
-  var G = null;
-  var JOBS = [
-    { id:'fin', name:'Analista financiero', skills:['Finanzas','Contabilidad','Análisis de datos','Pensamiento crítico','Comunicación','Toma de decisiones'],
-      people:[['Sofía Herrera',[0,0.5,0.5,0,1.5,1.5]],['Martín Quiroga',[1.5,0.5,0.5,0,0.5,1.5]],['Ana Lucía Torres',[1.5,0.5,0,0,1.5,1.5]]] },
-    { id:'bi', name:'Analista de BI', skills:['Análisis de datos','SQL','Visualización de datos','IA aplicada','Pensamiento crítico','Comunicación'],
-      people:[['Julián Rossi',[1.5,0,0.5,1.5,0.5,0]],['Paula Ibarra',[1.5,0.5,0.5,1.5,0.5,0]]] }
-  ];
-  var OFFER = [
-    { id:'gf', kind:'Diplomado', name:'Diplomado en Gestión Financiera', meta:'5 cursos · 8 meses · híbrido', skills:['Finanzas','Toma de decisiones','Contabilidad'] },
-    { id:'dd', kind:'Curso', name:'Decisiones basadas en datos', meta:'4 semanas · virtual', skills:['Toma de decisiones','Análisis de datos'] },
-    { id:'ce', kind:'Curso', name:'Comunicación ejecutiva', meta:'4 semanas · presencial', skills:['Comunicación'] },
-    { id:'bi', kind:'Diplomado', name:'Diplomado en Inteligencia de Negocios', meta:'4 cursos · 6 meses · virtual', skills:['Análisis de datos','SQL','Visualización de datos'] },
-    { id:'ia', kind:'Curso', name:'IA aplicada al análisis de datos', meta:'6 semanas · virtual', skills:['IA aplicada'] }
-  ];
-  var sel = { gf: true }; var job = 0;
-  function covered(skill){ return OFFER.some(function(o){ return sel[o.id] && o.skills.indexOf(skill) >= 0; }); }
-  function fmt(v){ return String(v).replace('.', ','); }
-  function renderTabs(){
-    var box = document.getElementById('dtabs'); box.innerHTML = '';
-    JOBS.forEach(function(j, k){
-      var b = document.createElement('button'); b.type = 'button'; b.className = 'dtab'; b.setAttribute('role','tab');
-      b.setAttribute('aria-selected', String(k === job)); b.textContent = j.name + ' · ' + j.people.length + ' personas';
-      b.addEventListener('click', function(){ job = k; renderAll(); }); box.appendChild(b);
-    });
-  }
-  function renderMatrix(){
-    var j = JOBS[job], t = document.getElementById('mx');
-    var h = '<thead><tr><th scope="col">Persona</th>' + j.skills.map(function(s){ return '<th scope="col">' + s + '</th>'; }).join('') + '</tr></thead><tbody>';
-    j.people.forEach(function(p){
-      h += '<tr><td class="name">' + p[0] + '<small>' + j.name + '</small></td>' + p[1].map(function(v, i){
-        if (v === 0) return '<td class="c0">0</td>';
-        var cls = v <= 1 ? 'c1' : 'c2'; if (covered(j.skills[i])) cls += ' cov';
-        return '<td class="' + cls + '" title="' + j.skills[i] + ': le faltan ' + fmt(v) + ' niveles">' + fmt(v) + '</td>';
-      }).join('') + '</tr>';
-    });
-    t.innerHTML = h + '</tbody>';
-  }
-  function gapsIn(o){
-    var out = [];
-    JOBS.forEach(function(j){ j.skills.forEach(function(s, i){
-      if (o.skills.indexOf(s) < 0) return;
-      var n = j.people.filter(function(p){ return p[1][i] > 0; }).length; if (n) out.push({skill:s, n:n});
-    }); });
-    var m = {}; out.forEach(function(x){ m[x.skill] = (m[x.skill] || 0) + x.n; });
-    return Object.keys(m).map(function(k){ return {skill:k, n:m[k]}; });
-  }
-  function renderOffer(){
-    var ul = document.getElementById('offer'); ul.innerHTML = '';
-    var j = JOBS[job];
-    OFFER.filter(function(o){ return o.skills.some(function(s){ var i = j.skills.indexOf(s); return i >= 0 && j.people.some(function(p){ return p[1][i] > 0; }); }); })
-      .forEach(function(o){
-        var li = document.createElement('li'); li.className = 'off' + (sel[o.id] ? ' on' : '');
-        var gs = gapsIn(o).map(function(g){ return '<span>' + g.skill + ' · ' + g.n + (g.n === 1 ? ' persona' : ' personas') + '</span>'; }).join('');
-        li.innerHTML = '<div><h4>' + o.name + '</h4><p class="meta">' + o.kind + ' · ' + o.meta + '</p><p class="meta" style="margin-top:8px">Brechas que cierra en el área:</p><div class="closes" style="margin-top:4px">' + gs + '</div></div>';
-        var b = document.createElement('button'); b.type = 'button'; b.className = 'add';
-        b.textContent = sel[o.id] ? 'En la propuesta ✓' : '+ Agregar a la propuesta';
-        b.setAttribute('aria-pressed', String(!!sel[o.id]));
-        b.addEventListener('click', function(){ sel[o.id] = !sel[o.id]; renderAll(); });
-        li.appendChild(b); ul.appendChild(li);
-      });
-  }
-  function renderSummary(){
-    var total = 0, cov = 0, people = {};
-    JOBS.forEach(function(j){ j.people.forEach(function(p){ p[1].forEach(function(v, i){
-      if (v > 0) { total++; if (covered(j.skills[i])) { cov++; people[p[0]] = 1; } }
-    }); }); });
-    var np = OFFER.filter(function(o){ return sel[o.id]; }).length;
-    document.getElementById('s-prog').textContent = np;
-    document.getElementById('s-gap').textContent = cov + ' de ' + total;
-    document.getElementById('s-ppl').textContent = Object.keys(people).length;
-    var sb = document.getElementById('segbar'); sb.innerHTML = ''; for (var k = 0; k < total; k++) { var it = document.createElement('i'); if (k < cov) it.className = 'on'; sb.appendChild(it); }
-    document.getElementById('s-msg').textContent = np === 0 ? 'Agrega programas para ver qué brechas cubre la propuesta.' :
-      (cov === total ? 'La propuesta cubre todas las brechas del área.' : 'Quedan ' + (total - cov) + ' brechas sin un programa de la oferta. Esas brechas son la base del siguiente programa que se diseña.');
-  }
-  function renderAll(){ renderTabs(); renderMatrix(); renderOffer(); renderSummary(); }
-  renderAll();
 
   // video del encabezado: pausa (WCAG 2.2.2) y respeto al movimiento reducido
   var hv = document.getElementById('hero-loop'), hb = document.getElementById('hero-loop-btn');
@@ -187,6 +110,16 @@ window.initHomeUniversidades = function (root) {
       if (hv.paused) { hv.play(); hb.textContent = 'Pausar video'; hb.setAttribute('aria-pressed', 'false'); }
       else { hv.pause(); hb.textContent = 'Reproducir video'; hb.setAttribute('aria-pressed', 'true'); }
     });
+  }
+  // video completo en un diálogo: se carga al abrir y se pausa al cerrar
+  var fo = document.getElementById('hero-full-btn'), dl = document.getElementById('vid-dlg'), vf = document.getElementById('vid-full'), dc = document.getElementById('vid-dlg-close');
+  if (fo && dl && vf) {
+    var hvIba = false;
+    fo.addEventListener('click', function(){ hvIba = !!(hv && !hv.paused); if (hv) { try { hv.pause(); } catch (e) {} } if (dl.showModal) dl.showModal(); else dl.setAttribute('open', ''); var pr2 = vf.play(); if (pr2 && pr2.catch) pr2.catch(function(){}); try { window.va && window.va('event', { name: 'video_completo_home_universidades' }); } catch (e) {} });
+    // al cerrar (botón, clic afuera o tecla Esc): pausa el video completo y reanuda el loop solo si estaba corriendo
+    var alCerrar = function(){ try { vf.pause(); } catch (e) {} if (hv && hvIba) { var p3 = hv.play(); if (p3 && p3.catch) p3.catch(function(){}); } hvIba = false; };
+    var cerrar = function(){ if (dl.close) dl.close(); else { dl.removeAttribute('open'); alCerrar(); } };
+    dc && dc.addEventListener('click', cerrar); dl.addEventListener('click', function(e){ if (e.target === dl) cerrar(); }); dl.addEventListener('close', alCerrar);
   }
   // analítica de los botones de agendar (Vercel Analytics, si está cargada)
   root.querySelectorAll('a[data-track]').forEach(function(a){ a.addEventListener('click', function(){ try { window.va && window.va('event', { name: a.getAttribute('data-track') }); } catch (e) {} }); });
