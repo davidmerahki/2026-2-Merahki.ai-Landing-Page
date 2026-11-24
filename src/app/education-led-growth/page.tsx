@@ -321,12 +321,11 @@ export default function EducationLedGrowthPage() {
                 Competency & Authority
               </span>
               <h3 className="text-2xl font-bold text-white">
-                +100 proven strategies
+                36 organizations in 7 countries
               </h3>
               <p className="text-white/60 leading-relaxed">
-                With over 100 proven education-led growth strategies developed
-                across 8 industries, we&apos;re a trusted ally in the field.
-                Your growth is our mission.
+                Since 2018 merahki.ai has designed and produced training programs
+                for universities, companies and public entities across Latin America.
               </p>
             </div>
           </AnimatedSection>

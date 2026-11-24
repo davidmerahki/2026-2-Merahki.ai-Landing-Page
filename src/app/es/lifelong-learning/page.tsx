@@ -17,7 +17,6 @@ export const metadata = buildMetadata("lifelong-learning", "es");
 const heroStats = [
   { value: "+40%", label: "Tasa de finalización promedio en programas operados por merahki.ai" },
   { value: "3×", label: "Más rápido que la producción interna" },
-  { value: "−42%", label: "Reducción en abandono temprano de participantes" },
   { value: "8 sem", label: "Entrega garantizada desde el inicio hasta programa en vivo" },
 ];
 
@@ -59,7 +58,7 @@ const beforeAfter = [
 
 const outcomes = [
   { icon: TrendingUp, title: "Ingresos", color: "text-emerald-400", desc: "Lanza programas 3× más rápido, acelerando pipeline e ingresos. +7.6% revenue lift y +35% Customer Lifetime Value." },
-  { icon: RefreshCcw, title: "Retención de Clientes", color: "text-sky-400", desc: "Clientes que ven altas tasas de finalización renuevan. −42% abandono temprano. +56% mejora en onboarding y +21% CLV." },
+  { icon: RefreshCcw, title: "Retención de Clientes", color: "text-sky-400", desc: "Clientes que ven altas tasas de finalización renuevan. +56% mejora en onboarding y +21% CLV." },
   { icon: Sparkles, title: "Experiencia del Participante", color: "text-violet-400", desc: "Video IA, Octalysis, app móvil, soporte multicanal. Comparable a HubSpot Academy y Coursera — no al LMS estático." },
   { icon: Star, title: "Satisfacción (NPS)", color: "text-amber-400", desc: "NPS en cada módulo. Benchmark SaaS: +31 a +36. Objetivo: +50+. Encuestas in-flow: 3× más respuestas." },
   { icon: ArrowDownRight, title: "Reducción de Tickets", color: "text-rose-400", desc: "AI deflecta 80%. Costo ticket: $25–$35 vs. autoservicio $1–$4. Multiplicador 7–15× que libera tu equipo." },
@@ -173,7 +172,7 @@ export default function ContinuingEducationPageES() {
             </div>
           </AnimatedSection>
           <AnimatedSection immediate delay={0.4}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
               {heroStats.map((s) => (
                 <div key={s.value} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
                   <p className="text-2xl md:text-3xl font-bold text-gradient-peach-purple">{s.value}</p>
@@ -183,7 +182,7 @@ export default function ContinuingEducationPageES() {
             </div>
           </AnimatedSection>
           <AnimatedSection immediate delay={0.5}>
-            <p className="text-xs text-white/30 mt-6 tracking-wide">Confiado por unidades de educación continua y universidades corporativas en más de 8 industrias</p>
+            <p className="text-xs text-white/30 mt-6 tracking-wide">Unidades de educación continua y universidades corporativas que han trabajado con merahki.ai</p>
           </AnimatedSection>
         </div>
       </section>

@@ -24,11 +24,6 @@ import {
 
 export const metadata = buildMetadata("live-sessions", "es");
 
-const stats = [
-  { value: "73,000+", label: "Horas de formación ahorradas" },
-  { value: "+34%", label: "Incremento en adopción de features" },
-  { value: "−42%", label: "Reducción de churn temprano" },
-];
 
 const liveBenefits = [
   {
@@ -230,24 +225,6 @@ export default function LiveSessionsEsPage() {
       </section>
 
       <LogoCarousel />
-
-      {/* ── Stats Bar ── */}
-      <section className="py-12 px-6 border-y border-white/5">
-        <div className="max-w-4xl mx-auto">
-          <AnimatedSection>
-            <div className="grid grid-cols-3 gap-8 text-center">
-              {stats.map((stat) => (
-                <div key={stat.label} className="space-y-1">
-                  <p className="text-3xl md:text-4xl font-bold text-gradient-blue-pink">
-                    {stat.value}
-                  </p>
-                  <p className="text-white/50 text-sm">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* ── Narrative ── */}
       <section className="relative py-16 px-6">

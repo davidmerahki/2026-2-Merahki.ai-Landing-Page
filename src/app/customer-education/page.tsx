@@ -70,20 +70,6 @@ const agents = [
   },
 ];
 
-const caseStudies = [
-  {
-    company: "Franky",
-    metric: "3x–15x",
-    desc: "growth in partner revenue using AI-personalized certification.",
-    color: "from-accent-purple/20",
-  },
-  {
-    company: "Bavaria",
-    metric: "200+",
-    desc: "learners onboarded in a new feature of Bavaria's logistic app in the first month using adaptive onboarding.",
-    color: "from-accent-blue/20",
-  },
-];
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -110,7 +96,7 @@ const faqJsonLd = {
       name: "How does customer education drive Net Revenue Retention (NRR)?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Customer education drives Net Revenue Retention (NRR) by ensuring customers continuously discover and adopt advanced product features, reducing the likelihood of downgrades or cancellations while creating natural upsell triggers. merahki.ai's Academy ROI Tracking ties learning completion directly to expansion revenue, feature adoption rates, and support ticket reduction — delivering Kirkpatrick Level 4 ROI measurement. Customers who complete structured education programs show 34.6% higher Customer Lifetime Value (LTV) and generate 30.3% more feature adoption.",
+        text: "Customer education drives Net Revenue Retention (NRR) by ensuring customers continuously discover and adopt advanced product features, reducing the likelihood of downgrades or cancellations while creating natural upsell triggers. merahki.ai's Academy ROI Tracking ties learning completion directly to expansion revenue, feature adoption rates, and support ticket reduction — delivering Kirkpatrick Level 4 ROI measurement.",
       },
     },
     {
@@ -305,37 +291,6 @@ export default function CustomerEducationPage() {
                   description={agent.description}
                   image={agent.image}
                 />
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proven at Scale */}
-      <section className="relative py-20 px-6">
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Proven{" "}
-                <span className="text-gradient-peach-purple">at scale</span>
-              </h2>
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudies.map((cs, i) => (
-              <AnimatedSection key={cs.company} delay={i * 0.15}>
-                <div
-                  className={`rounded-2xl p-8 border border-white/10 bg-gradient-to-br ${cs.color} to-transparent space-y-3`}
-                >
-                  <p className="section-badge text-white/40">{cs.company}</p>
-                  <p className="text-5xl font-bold text-gradient-peach-purple">
-                    {cs.metric}
-                  </p>
-                  <p className="text-white/60 text-sm leading-relaxed">
-                    {cs.desc}
-                  </p>
-                </div>
               </AnimatedSection>
             ))}
           </div>

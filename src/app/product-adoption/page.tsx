@@ -71,20 +71,6 @@ const agents = [
   },
 ];
 
-const caseStudies = [
-  {
-    company: "NovoNordisk",
-    metric: "73,000+",
-    desc: "training hours saved annually by automating education of doctors in obesity management.",
-    color: "from-accent-blue/20",
-  },
-  {
-    company: "Global Enterprises",
-    metric: "↑ Adoption",
-    desc: "Cut onboarding time and increased productivity with targeted AI-driven training across global teams.",
-    color: "from-accent-purple/20",
-  },
-];
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -111,7 +97,7 @@ const faqJsonLd = {
       name: "How do AI agents improve product adoption?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "merahki.ai's three AI agents work in concert to drive product adoption: the Creator Agent converts product documentation into onboarding courses in minutes using Autonomous Course Synthesis; the Manager Agent deploys Adaptive Onboarding Sequences to specific user segments based on behavioral triggers using natural language commands; and the Learner Agent acts as a Context-Aware AI Tutor — answering product questions in real-time within the user's workflow. Together they create a self-reinforcing adoption loop that achieves +34% Feature Adoption ROI in 60 days and reduces early churn by 42%.",
+        text: "merahki.ai's three AI agents work in concert to drive product adoption: the Creator Agent converts product documentation into onboarding courses in minutes using Autonomous Course Synthesis; the Manager Agent deploys Adaptive Onboarding Sequences to specific user segments based on behavioral triggers using natural language commands; and the Learner Agent acts as a Context-Aware AI Tutor — answering product questions in real-time within the user's workflow. Together they create a self-reinforcing adoption loop designed to raise feature adoption and reduce early churn.",
       },
     },
     {
@@ -320,32 +306,6 @@ export default function ProductAdoptionPage() {
                   description={agent.description}
                   image={agent.image}
                 />
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proven at Scale */}
-      <section className="relative py-20 px-6">
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Proven <span className="text-gradient-peach-purple">at scale</span>
-              </h2>
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudies.map((cs, i) => (
-              <AnimatedSection key={cs.company} delay={i * 0.15}>
-                <div
-                  className={`rounded-2xl p-8 border border-white/10 bg-gradient-to-br ${cs.color} to-transparent space-y-3`}
-                >
-                  <p className="section-badge text-white/40">{cs.company}</p>
-                  <p className="text-5xl font-bold text-gradient-blue-pink">{cs.metric}</p>
-                  <p className="text-white/60 text-sm leading-relaxed">{cs.desc}</p>
-                </div>
               </AnimatedSection>
             ))}
           </div>

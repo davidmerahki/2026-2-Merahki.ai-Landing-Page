@@ -71,20 +71,6 @@ const agents = [
   },
 ];
 
-const caseStudies = [
-  {
-    company: "NovoNordisk",
-    metric: "73,000+",
-    desc: "training hours ahorradas anualmente al automatizar la educación de médicos en el manejo de la obesidad.",
-    color: "from-accent-blue/20",
-  },
-  {
-    company: "Empresas Globales",
-    metric: "↑ Adopción",
-    desc: "Reducción del tiempo de onboarding y aumento de la productividad con formación dirigida por IA en equipos globales.",
-    color: "from-accent-purple/20",
-  },
-];
 
 const serviceJsonLd = buildServiceJsonLd("product-adoption", "es");
 
@@ -268,32 +254,6 @@ export default function ProductAdoptionPageES() {
                   description={agent.description}
                   image={agent.image}
                 />
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proven at Scale */}
-      <section className="relative py-20 px-6">
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Probado <span className="text-gradient-peach-purple">a escala</span>
-              </h2>
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudies.map((cs, i) => (
-              <AnimatedSection key={cs.company} delay={i * 0.15}>
-                <div
-                  className={`rounded-2xl p-8 border border-white/10 bg-gradient-to-br ${cs.color} to-transparent space-y-3`}
-                >
-                  <p className="section-badge text-white/40">{cs.company}</p>
-                  <p className="text-5xl font-bold text-gradient-blue-pink">{cs.metric}</p>
-                  <p className="text-white/60 text-sm leading-relaxed">{cs.desc}</p>
-                </div>
               </AnimatedSection>
             ))}
           </div>

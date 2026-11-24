@@ -98,64 +98,6 @@ const tiersEs: typeof tiersEn = [
   },
 ];
 
-const statsEn = [
-  { value: "+30.3%", label: "increase in product adoption" },
-  { value: "+28.7%", label: "boost in user engagement" },
-  { value: "+34.6%", label: "growth in Customer Lifetime Value (LTV)" },
-  { value: "−8.1%", label: "reduction in the sales cycle" },
-  { value: "−7.2%", label: "decrease in support tickets" },
-];
-
-const statsEs: typeof statsEn = [
-  { value: "+30,3%", label: "en la adopción del producto" },
-  { value: "+28,7%", label: "en el engagement de los usuarios" },
-  { value: "+34,6%", label: "en el valor de vida del cliente (LTV)" },
-  { value: "−8,1%", label: "en la duración del ciclo de ventas" },
-  { value: "−7,2%", label: "en los tickets de soporte" },
-];
-
-const caseStudiesEn = [
-  {
-    tag: "SaaS",
-    result: "+34% feature adoption in 60 days",
-    detail: "Role-specific onboarding paths and behavioral triggers converted passive sign-ups into power users.",
-    color: "from-accent-purple/20",
-  },
-  {
-    tag: "MedTech",
-    result: "73,000+ training hours saved",
-    detail: "AI-driven onboarding eliminated manual education workflows, scaling adoption across global markets.",
-    color: "from-accent-blue/20",
-  },
-  {
-    tag: "B2B Platform",
-    result: "−42% early churn",
-    detail: "Structured onboarding academy ensured customers reached their first value milestone within week one.",
-    color: "from-accent-pink/20",
-  },
-];
-
-const caseStudiesEs: typeof caseStudiesEn = [
-  {
-    tag: "SaaS",
-    result: "+34% de adopción de funcionalidades en 60 días",
-    detail: "Las rutas de onboarding por cargo y los disparadores de comportamiento convirtieron registros pasivos en usuarios expertos.",
-    color: "from-accent-purple/20",
-  },
-  {
-    tag: "MedTech",
-    result: "Más de 73.000 horas de capacitación ahorradas",
-    detail: "El onboarding con IA eliminó los procesos manuales de educación y llevó la adopción a mercados de todo el mundo.",
-    color: "from-accent-blue/20",
-  },
-  {
-    tag: "Plataforma B2B",
-    result: "−42% de abandono temprano",
-    detail: "Una academia de onboarding estructurada hizo que los clientes alcanzaran su primer hito de valor en la primera semana.",
-    color: "from-accent-pink/20",
-  },
-];
-
 const stepsEn = [
   { icon: CalendarCheck, step: "01", title: "Schedule a Meeting", desc: "Reach out to arrange a conversation at your earliest convenience." },
   { icon: MessageSquare, step: "02", title: "Discuss Your Needs", desc: "Share your onboarding challenges — we'll map the right adoption strategy for your product." },
@@ -351,8 +293,6 @@ const kpisEs: typeof kpisEn = [
 export default function ProductAdoptionProposal({ lang = "en" }: { lang?: Lang }) {
   const es = lang === "es";
   const tiers = es ? tiersEs : tiersEn;
-  const stats = es ? statsEs : statsEn;
-  const caseStudies = es ? caseStudiesEs : caseStudiesEn;
   const steps = es ? stepsEs : stepsEn;
   const villainItems = es ? villainItemsEs : villainItemsEn;
   const layers = es ? layersEs : layersEn;
@@ -721,58 +661,6 @@ export default function ProductAdoptionProposal({ lang = "en" }: { lang?: Lang }
                         </div>
                       ))}
                     </div>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* ── Why merahki.ai — Stats ── */}
-        <AnimatedSection delay={0.1}>
-          <div className="space-y-8">
-            <div className="text-center space-y-2">
-              <h3 className="text-2xl md:text-3xl font-bold">
-                {es ? (
-                  <>
-                    Resultados de las empresas que trabajan con <span className="text-gradient-peach-purple">merahki.ai</span>
-                  </>
-                ) : (
-                  <>
-                    Why <span className="text-gradient-peach-purple">merahki.ai?</span>
-                  </>
-                )}
-              </h3>
-              <p className="text-white/50 max-w-2xl mx-auto">
-                {es
-                  ? "Más de 73.000 horas de capacitación ahorradas. Estrategias probadas en distintas industrias, con una educación que crece sin que tengas que agrandar tu equipo."
-                  : "Over 73,000+ training hours saved. Proven strategies across industries, delivering education that scales without scaling your team."}
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {stats.map((s, i) => (
-                <AnimatedSection key={s.label} delay={i * 0.08}>
-                  <div className="glass-card rounded-2xl p-6 text-center space-y-2">
-                    <p className="text-4xl font-bold text-gradient-peach-purple">{s.value}</p>
-                    <p className="text-white/55 text-sm leading-snug">{s.label}</p>
-                  </div>
-                </AnimatedSection>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* ── Case Studies ── */}
-        <AnimatedSection delay={0.1}>
-          <div className="space-y-6">
-            <h3 className="text-xl font-bold text-white/80 text-center">{es ? "Resultados por industria" : "Results by industry"}</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {caseStudies.map((c, i) => (
-                <AnimatedSection key={c.tag} delay={i * 0.1}>
-                  <div className={`rounded-2xl p-7 border border-white/10 bg-gradient-to-br ${c.color} to-transparent space-y-3`}>
-                    <span className="section-badge text-white/40">{c.tag}</span>
-                    <p className="text-2xl font-bold text-white mt-2 leading-tight">{c.result}</p>
-                    <p className="text-white/55 text-sm leading-relaxed">{c.detail}</p>
                   </div>
                 </AnimatedSection>
               ))}

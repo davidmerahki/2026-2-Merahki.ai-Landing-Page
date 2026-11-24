@@ -71,20 +71,6 @@ const agents = [
   },
 ];
 
-const caseStudies = [
-  {
-    company: "Gusto",
-    metric: "3x–15x",
-    desc: "growth in partner revenue using AI-personalized certification.",
-    color: "from-accent-peach/20",
-  },
-  {
-    company: "Meta",
-    metric: "Millions",
-    desc: "reached worldwide through scaled partner enablement.",
-    color: "from-accent-blue/20",
-  },
-];
 
 const faqJsonLd = {
   "@context": "https://schema.org",
@@ -95,7 +81,7 @@ const faqJsonLd = {
       name: "How do you increase partner revenue with a Partner Academy?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Partner Academy Acceleration works by replacing manual partner enablement with a scalable, AI-powered certification ecosystem. merahki.ai builds white-label Partner Academies that deliver role-specific learning journeys by partner tier, region, and function — cutting time-to-first-sale and ensuring every partner can confidently pitch and close. Organizations using merahki.ai's Partner Academy model report 3x–15x growth in indirect revenue within the first six months, driven by faster ramp time, higher certification completion, and stronger product knowledge at the point of sale.",
+        text: "Partner Academy Acceleration works by replacing manual partner enablement with a scalable, AI-powered certification ecosystem. merahki.ai builds white-label Partner Academies that deliver role-specific learning journeys by partner tier, region, and function — cutting time-to-first-sale and ensuring every partner can confidently pitch and close. The model is designed to grow indirect revenue through faster ramp time, higher certification completion, and stronger product knowledge at the point of sale.",
       },
     },
     {
@@ -103,7 +89,7 @@ const faqJsonLd = {
       name: "What is Partner Certification ROI and how is it measured?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Partner Certification ROI is the measurable business impact of linking certification completion to pipeline contribution and closed revenue. merahki.ai's Academy ROI Tracking framework connects learning data to CRM outcomes — tracking time-to-first-sale, average deal size by certification tier, and partner churn reduction. Using Kirkpatrick Level 4 methodology, we prove that certified partners generate 150% more revenue than uncertified equivalents, making partner training a direct revenue investment rather than an operational cost.",
+        text: "Partner Certification ROI is the measurable business impact of linking certification completion to pipeline contribution and closed revenue. merahki.ai's Academy ROI Tracking framework connects learning data to CRM outcomes — tracking time-to-first-sale, average deal size by certification tier, and partner churn reduction. Using Kirkpatrick Level 4 methodology, we compare the revenue of certified and uncertified partners, making partner training a direct revenue investment rather than an operational cost.",
       },
     },
     {
@@ -302,37 +288,6 @@ export default function PartnerAcademiesPage() {
                   description={agent.description}
                   image={agent.image}
                 />
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proven at Scale */}
-      <section className="relative py-20 px-6">
-        <div className="relative z-10 max-w-5xl mx-auto">
-          <AnimatedSection>
-            <div className="text-center mb-14">
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Proven{" "}
-                <span className="text-gradient-peach-purple">at scale</span>
-              </h2>
-            </div>
-          </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {caseStudies.map((cs, i) => (
-              <AnimatedSection key={cs.company} delay={i * 0.15}>
-                <div
-                  className={`rounded-2xl p-8 border border-white/10 bg-gradient-to-br ${cs.color} to-transparent space-y-3`}
-                >
-                  <p className="section-badge text-white/40">{cs.company}</p>
-                  <p className="text-5xl font-bold text-gradient-peach-purple">
-                    {cs.metric}
-                  </p>
-                  <p className="text-white/60 text-sm leading-relaxed">
-                    {cs.desc}
-                  </p>
-                </div>
               </AnimatedSection>
             ))}
           </div>

@@ -219,23 +219,6 @@ export default function QueHaceMerahki() {
               ))}
             </div>
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <h3 className="text-lg font-semibold mb-4">Resultados promedio medidos</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {[
-                { v: "+30.3%", l: "Adopción de producto" },
-                { v: "+28.7%", l: "Engagement" },
-                { v: "+34.6%", l: "Customer Lifetime Value" },
-                { v: "−8.1%", l: "Ciclo de ventas" },
-                { v: "−7.2%", l: "Tickets de soporte" },
-              ].map((s) => (
-                <div key={s.l} className="glass-card rounded-xl p-4 text-center">
-                  <p className="text-xl font-bold text-gradient-peach-purple">{s.v}</p>
-                  <p className="text-white/50 text-xs mt-1">{s.l}</p>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
         </div>
       </section>
 

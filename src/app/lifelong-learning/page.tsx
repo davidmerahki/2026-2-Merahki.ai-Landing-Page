@@ -39,7 +39,6 @@ export const metadata = buildMetadata("lifelong-learning", "en");
 const heroStats = [
   { value: "+40%", label: "Avg. completion rate across merahki.ai-operated programs" },
   { value: "3×", label: "Faster than in-house production" },
-  { value: "−42%", label: "Reduction in early participant dropout" },
   { value: "8 wks", label: "Guaranteed delivery from kickoff to live program" },
 ];
 
@@ -235,7 +234,7 @@ const outcomes = [
     icon: RefreshCcw,
     title: "Corporate Client Retention",
     color: "text-sky-400",
-    desc: "Corporate clients that see high completion rates and participant satisfaction renew. −42% reduction in early dropout. +56% improvement in onboarding time and +21% lift in CLV.",
+    desc: "Corporate clients that see high completion rates and participant satisfaction renew. +56% improvement in onboarding time and +21% lift in CLV.",
   },
   {
     icon: Sparkles,
@@ -597,7 +596,7 @@ export default function ContinuingEducationPage() {
 
           {/* Stats Bar */}
           <AnimatedSection immediate delay={0.4}>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 max-w-4xl mx-auto">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-12 max-w-4xl mx-auto">
               {heroStats.map((s) => (
                 <div
                   key={s.value}
@@ -616,8 +615,8 @@ export default function ContinuingEducationPage() {
 
           <AnimatedSection immediate delay={0.5}>
             <p className="text-xs text-white/30 mt-6 tracking-wide">
-              Trusted by continuing education units and corporate universities
-              across 8+ industries
+              Continuing education units and corporate universities that have
+              worked with merahki.ai
             </p>
           </AnimatedSection>
         </div>
