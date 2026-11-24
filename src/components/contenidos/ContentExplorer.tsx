@@ -7,7 +7,7 @@ import {
   ChevronRight, CircleCheck, CircleDot, CircleHelp, ClipboardList, Columns3, Combine, Crosshair, Eye, FilePen, FileStack, Fingerprint,
   GalleryHorizontal, GalleryHorizontalEnd, Gift, GitCommitHorizontal, Glasses, Grid3x3, Headphones, Highlighter, Images, Layers, LayoutList,
   LayoutTemplate, ListChecks, ListCollapse, Map as MapIcon, MessagesSquare, Mic, MicVocal, MonitorPlay, MousePointerClick, Move, NotebookPen,
-  PenLine, Presentation, Projector, QrCode, Repeat, Rotate3d, Route, Rows3, ScanEye, ScanSearch, ScrollText, Search, SlidersHorizontal, Split,
+  PenLine, Play, Presentation, Projector, QrCode, Repeat, Rotate3d, Route, Rows3, ScanEye, ScanSearch, ScrollText, Search, SlidersHorizontal, Split,
   SquareCheckBig, SquareSplitHorizontal, Target, TextCursorInput, TextSearch, Timer, ToggleRight, Trophy, WholeWord, X,
   type LucideIcon,
 } from "lucide-react";
@@ -16,6 +16,7 @@ import {
   type CategoriaId, type DatoId, type Lang, type ObjetivoId, type TipoContenido, type VerboXapi,
 } from "@/content/contenidos/tipos";
 import { DEMOS } from "./demos";
+import VideoReferencia from "./VideoReferencia";
 
 const MEETING = "https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651";
 
@@ -127,6 +128,11 @@ const T = {
     emptyBody: "Prueba con otra palabra o quita alguno de los filtros.",
     clearAll: "Quitar filtros",
     live: "Demo en vivo",
+    video: "Video",
+    videoSr: "Con video de referencia del mercado",
+    market: "Así se ve en el mercado",
+    marketNote: (n: number) => `Ejemplo${n > 1 ? "s" : ""} de referencia en el mercado. merahki.ai puede desarrollar una experiencia así a la medida o integrar y licenciar herramientas como ${n > 1 ? "estas" : "esta"}.`,
+    noDemoShort: "Este tipo no tiene demo en la página. En una reunión de 30 minutos te lo mostramos con contenido de un curso.",
     whatIs: "Qué es",
     example: "Ejemplo de uso",
     sample: "Programa de muestra",
@@ -162,6 +168,11 @@ const T = {
     emptyBody: "Try another word or remove one of the filters.",
     clearAll: "Clear filters",
     live: "Live demo",
+    video: "Video",
+    videoSr: "With a market reference video",
+    market: "What it looks like in the market",
+    marketNote: (n: number) => `Market reference example${n > 1 ? "s" : ""}. merahki.ai can build an experience like this for you or integrate and license tools like ${n > 1 ? "these" : "this one"}.`,
+    noDemoShort: "This type has no demo on the page. In a 30-minute meeting we show it to you with course content.",
     whatIs: "What it is",
     example: "Use case",
     sample: "Sample program",
@@ -374,6 +385,7 @@ export default function ContentExplorer({ lang }: { lang: Lang }) {
   };
 
   const Demo = tipo?.demo ? DEMOS[tipo.demo] : null;
+  const refs = tipo?.referencias ?? [];
   const catActual = tipo ? CATEGORIAS.find((c) => c.id === tipo.categoria)! : null;
 
   const chipBase =
@@ -483,12 +495,20 @@ export default function ContentExplorer({ lang }: { lang: Lang }) {
                     <article className="group relative flex h-full flex-col rounded-2xl border border-white/[0.08] bg-gradient-to-b from-white/[0.045] to-white/[0.015] p-5 transition duration-300 hover:border-white/20 hover:from-white/[0.07] motion-safe:hover:-translate-y-0.5 [&:has(:focus-visible)]:ring-2 [&:has(:focus-visible)]:ring-[#C084FC]">
                       <div className="flex items-start justify-between gap-3">
                         <IconTile tipo={tp} />
-                        {tp.demo && (
-                          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#F472B6]/30 bg-[#F472B6]/10 px-2.5 py-1 text-[11px] font-semibold text-[#F9A8D4]">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#F472B6] motion-safe:animate-pulse" aria-hidden />
-                            {t.live}
-                          </span>
-                        )}
+                        <span className="flex flex-wrap justify-end gap-1.5">
+                          {tp.referencias?.length ? (
+                            <span className="inline-flex items-center gap-1 rounded-full border border-white/20 bg-white/[0.07] px-2.5 py-1 text-[11px] font-semibold text-white/85">
+                              <Play className="h-2.5 w-2.5 fill-current" aria-hidden />
+                              {t.video}
+                            </span>
+                          ) : null}
+                          {tp.demo && (
+                            <span className="inline-flex items-center gap-1.5 rounded-full border border-[#F472B6]/30 bg-[#F472B6]/10 px-2.5 py-1 text-[11px] font-semibold text-[#F9A8D4]">
+                              <span className="h-1.5 w-1.5 rounded-full bg-[#F472B6] motion-safe:animate-pulse" aria-hidden />
+                              {t.live}
+                            </span>
+                          )}
+                        </span>
                       </div>
                       <h4 className="mt-4 text-[15px] font-semibold leading-snug text-white">
                         <button
@@ -501,6 +521,7 @@ export default function ContentExplorer({ lang }: { lang: Lang }) {
                         >
                           {tp.nombre[L]}
                           {tp.demo && <span className="sr-only">. {t.live}</span>}
+                          {tp.referencias?.length ? <span className="sr-only">. {t.videoSr}</span> : null}
                         </button>
                       </h4>
                       <p id={`desc-${tp.id}`} className="mt-1.5 line-clamp-3 text-sm leading-relaxed text-white/60">
@@ -580,7 +601,7 @@ export default function ContentExplorer({ lang }: { lang: Lang }) {
             <p className="sr-only" aria-live="polite">{anuncio}</p>
 
             <div ref={bodyRef} className="flex-1 overflow-y-auto overscroll-contain">
-              <div className={`grid min-h-full ${Demo ? "lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]" : "lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)]"}`}>
+              <div className={`grid min-h-full ${Demo || refs.length ? "lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]" : "lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)]"}`}>
                 {/* Ficha */}
                 <div className="space-y-7 p-5 sm:p-7 lg:border-r lg:border-white/10">
                   <section>
@@ -644,7 +665,7 @@ export default function ContentExplorer({ lang }: { lang: Lang }) {
                       </h3>
                       <Demo key={tipo.id} lang={lang} variante={tipo.variante} />
                     </>
-                  ) : (
+                  ) : refs.length ? null : (
                     <div className="flex h-full flex-col justify-center gap-5 rounded-3xl border border-white/10 bg-[radial-gradient(ellipse_at_30%_0%,rgba(124,58,237,0.22),transparent_60%)] p-6 sm:p-8">
                       <div className="flex items-center gap-3">
                         <IconTile tipo={tipo} size="lg" />
@@ -658,6 +679,31 @@ export default function ContentExplorer({ lang }: { lang: Lang }) {
                         {t.meet} <ArrowRight className="h-4 w-4" aria-hidden />
                       </a>
                     </div>
+                  )}
+
+                  {refs.length > 0 && (
+                    <section aria-labelledby="mx-mercado" className={Demo ? "mt-10 border-t border-white/10 pt-7" : ""}>
+                      <h3 id="mx-mercado" className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#C084FC]">
+                        <Play className="h-3 w-3 fill-current" aria-hidden />
+                        {t.market}
+                      </h3>
+                      <p className="mt-2 text-xs leading-relaxed text-white/50">{t.marketNote(refs.length)}</p>
+                      <ul className={`mt-4 grid gap-5 ${refs.length > 1 ? "sm:grid-cols-2" : ""}`}>
+                        {refs.map((r) => (
+                          <li key={r.videoId}>
+                            <VideoReferencia r={r} lang={lang} />
+                          </li>
+                        ))}
+                      </ul>
+                      {!Demo && (
+                        <p className="mt-6 text-sm leading-relaxed text-white/60">
+                          {t.noDemoShort}{" "}
+                          <a href={MEETING} target="_blank" rel="noopener" className="font-semibold text-white underline decoration-[#C084FC]/60 underline-offset-4 hover:decoration-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C084FC]">
+                            {t.meet}
+                          </a>
+                        </p>
+                      )}
+                    </section>
                   )}
                 </div>
               </div>

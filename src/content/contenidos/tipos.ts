@@ -61,6 +61,31 @@ export type TipoContenido = {
   demo?: DemoId;
   /** Variante de la demo cuando varios tipos comparten componente (p. ej. el cuestionario). */
   variante?: string;
+  /** Videos oficiales de plataformas del mercado que muestran este tipo en su versión más avanzada. */
+  referencias?: Referencia[];
+};
+
+/**
+ * Ejemplo de referencia en el mercado: video oficial del fabricante o de la institución.
+ * Ningún fabricante es aliado de merahki.ai. El texto público dice «Ejemplo de referencia en el mercado».
+ * Investigación y verificación de cada video (oEmbed 200): ~/.claude/work/seo-merahki/referencias-video.json
+ */
+export type Referencia = {
+  plataforma: string;
+  /** Sitio oficial del fabricante o de la institución. */
+  url: string;
+  provider: "youtube" | "vimeo";
+  videoId: string;
+  /** Tamaño de miniatura de YouTube que existe para este video. */
+  miniatura?: "maxresdefault" | "sddefault" | "hqdefault";
+  /** Miniatura directa (Vimeo). */
+  thumb?: string;
+  tituloVideo: string;
+  canal: string;
+  duracion?: string;
+  wow: Bi;
+  merahki: Bi;
+  modo: "desarrollar" | "integrar" | "licenciar";
 };
 
 export const PROGRAMA: Bi = {
@@ -181,7 +206,7 @@ export const DATOS: Record<DatoId, Bi> = {
   vistas: { es: "Secciones vistas", en: "Sections viewed" },
 };
 
-export const TIPOS: TipoContenido[] = [
+const BASE: TipoContenido[] = [
   // ── Video y presentaciones ──
   {
     id: "video-interactivo",
@@ -1163,8 +1188,185 @@ export const TIPOS: TipoContenido[] = [
   },
 ];
 
+/* ── Ejemplos de referencia en el mercado (videos oficiales, verificados el 24-nov-2026) ── */
+const REFERENCIAS: Record<string, Referencia[]> = {
+  "video-interactivo": [
+    {
+      plataforma: "Synthesia",
+      url: "https://www.synthesia.io",
+      provider: "youtube",
+      videoId: "c0U0zENVVgs",
+      miniatura: "maxresdefault",
+      tituloVideo: "NEW: Create AI Avatars That Talk, Walk & Act!",
+      canal: "Synthesia",
+      duracion: "2:18",
+      wow: { es: "Avatares de IA que hablan, caminan y gesticulan frente a cámara sin que nadie tenga que grabarse.", en: "AI avatars that talk, walk and gesture on camera without anyone having to be filmed." },
+      merahki: { es: "Licenciar la herramienta y producir con ella los videos del curso, con las preguntas interactivas encima.", en: "License the tool and produce the course videos with it, with the interactive questions on top." },
+      modo: "licenciar",
+    },
+    {
+      plataforma: "Virti",
+      url: "https://www.virti.com",
+      provider: "youtube",
+      videoId: "40bFDOXc2GI",
+      miniatura: "sddefault",
+      tituloVideo: "Virti - AI Roleplay and Interactive Video Overview",
+      canal: "Virti",
+      duracion: "1:15",
+      wow: { es: "Video interactivo con ramificaciones y personajes de IA con los que el participante conversa.", en: "Branching interactive video with AI characters that learners talk to." },
+      merahki: { es: "Integrar en tu LMS escenarios de video interactivo con conversación por IA.", en: "Integrate interactive video scenarios with AI conversation into your LMS." },
+      modo: "integrar",
+    },
+  ],
+  "presentacion-curso": [
+    {
+      plataforma: "HeyGen",
+      url: "https://www.heygen.com",
+      provider: "youtube",
+      videoId: "8ZVeOsIFUPg",
+      miniatura: "maxresdefault",
+      tituloVideo: "HeyGen Avatar 6: Show Up as Your Best Self, Every Time",
+      canal: "HeyGen",
+      duracion: "1:10",
+      wow: { es: "Un avatar de IA con la cara y la voz del docente presenta cada lámina del curso.", en: "An AI avatar with the instructor's face and voice presents every slide of the course." },
+      merahki: { es: "Licenciar la herramienta para que el docente presente sus láminas con su avatar y en varios idiomas.", en: "License the tool so instructors present their slides with their own avatar and in several languages." },
+      modo: "licenciar",
+    },
+  ],
+  "vr-learning": [
+    {
+      plataforma: "Bodyswaps",
+      url: "https://bodyswaps.co",
+      provider: "youtube",
+      videoId: "XtsHXFwbbCU",
+      miniatura: "sddefault",
+      tituloVideo: "VR & AI soft skills training for nurses with Bodyswaps",
+      canal: "Bodyswaps",
+      duracion: "1:22",
+      wow: { es: "El participante ensaya conversaciones difíciles con personajes virtuales en VR y recibe retroalimentación de IA.", en: "Learners rehearse difficult conversations with virtual characters in VR and get AI feedback." },
+      merahki: { es: "Licenciar e integrar en tu LMS simulaciones de habilidades blandas en VR.", en: "License VR soft skills simulations and integrate them into your LMS." },
+      modo: "licenciar",
+    },
+    {
+      plataforma: "1000 Cut Journey (Stanford VHIL y Columbia University)",
+      url: "https://brown.stanford.edu/portfolio/1000cut/",
+      provider: "youtube",
+      videoId: "rA6fOMSx2yk",
+      miniatura: "hqdefault",
+      tituloVideo: "1000 Cut Journey Official Trailer",
+      canal: "Virtual Human Interaction Lab",
+      duracion: "0:27",
+      wow: { es: "En VR, el participante vive en primera persona el racismo que enfrenta un hombre negro desde niño hasta adulto.", en: "In VR, learners live through the racism a Black man faces from childhood to adulthood, in the first person." },
+      merahki: { es: "Desarrollar a la medida una experiencia inmersiva de empatía para tu programa.", en: "Build a custom immersive empathy experience for your program." },
+      modo: "desarrollar",
+    },
+  ],
+  "escenario-ramificado": [
+    {
+      plataforma: "Mursion",
+      url: "https://www.mursion.com",
+      provider: "youtube",
+      videoId: "yRD4Hbn3EUM",
+      miniatura: "maxresdefault",
+      tituloVideo: "Mursion Experience Video October 2025",
+      canal: "Mursion",
+      duracion: "2:22",
+      wow: { es: "Avatares que reaccionan en vivo a lo que dice el participante para ensayar conversaciones de liderazgo y servicio.", en: "Avatars that react live to what learners say, to rehearse leadership and service conversations." },
+      merahki: { es: "Licenciar simulaciones como estas o desarrollar el escenario a la medida de tu caso.", en: "License simulations like these or build the scenario around your own case." },
+      modo: "licenciar",
+    },
+    {
+      plataforma: "Second Nature",
+      url: "https://secondnature.ai",
+      provider: "youtube",
+      videoId: "Gt1t_smOwDs",
+      miniatura: "maxresdefault",
+      tituloVideo: "Bring Your Trainings to Life with Second Nature",
+      canal: "Second Nature AI",
+      duracion: "1:40",
+      wow: { es: "Un cliente virtual con IA conversa con el participante, le pone objeciones y califica cada respuesta.", en: "An AI virtual customer talks with the learner, raises objections and scores every answer." },
+      merahki: { es: "Integrar en tu programa juegos de rol con IA construidos con tus propios casos.", en: "Integrate AI role-plays built from your own cases into your program." },
+      modo: "integrar",
+    },
+  ],
+  "recorrido-360": [
+    {
+      plataforma: "3DVista",
+      url: "https://www.3dvista.com",
+      provider: "youtube",
+      videoId: "DYv12nRw_hg",
+      miniatura: "maxresdefault",
+      tituloVideo: "3DVista Gaussian Splatting",
+      canal: "3DVista",
+      duracion: "2:55",
+      wow: { es: "Espacios reales reconstruidos en 3D fotorrealista que se recorren con libertad, con puntos de interés y preguntas.", en: "Real spaces rebuilt in photorealistic 3D that learners explore freely, with points of interest and questions." },
+      merahki: { es: "Desarrollar con esta herramienta el recorrido de tu planta, hospital o campus y publicarlo en tu LMS.", en: "Build a tour of your plant, hospital or campus with this tool and publish it in your LMS." },
+      modo: "desarrollar",
+    },
+    {
+      plataforma: "Matterport",
+      url: "https://matterport.com",
+      provider: "youtube",
+      videoId: "-vFeJ8y7hro",
+      miniatura: "maxresdefault",
+      tituloVideo: "Retail VR Develops Immersive Brand and Shopping Experiences with Matterport Digital Twins",
+      canal: "Matterport",
+      duracion: "1:13",
+      wow: { es: "Gemelos digitales de espacios reales que se recorren como si estuvieras ahí.", en: "Digital twins of real spaces that you walk through as if you were there." },
+      merahki: { es: "Integrar el gemelo digital de tus instalaciones como escenario de práctica dentro del curso.", en: "Integrate a digital twin of your facilities as a practice setting inside the course." },
+      modo: "integrar",
+    },
+  ],
+  "busqueda-tesoro-ra": [
+    {
+      plataforma: "Scope AR (WorkLink)",
+      url: "https://www.scopear.com/products/worklink/",
+      provider: "youtube",
+      videoId: "r9g2WCcnHnc",
+      miniatura: "maxresdefault",
+      tituloVideo: "Scope AR: Productivity Accelerated",
+      canal: "Scope AR",
+      duracion: "1:25",
+      wow: { es: "Instrucciones en realidad aumentada sobre la máquina real, paso a paso, desde un celular o una tableta.", en: "Step-by-step augmented reality instructions over the real machine, from a phone or tablet." },
+      merahki: { es: "Licenciar e integrar guías de trabajo en RA para la formación en planta.", en: "License and integrate AR work instructions for on-site training." },
+      modo: "licenciar",
+    },
+    {
+      plataforma: "ZapWorks (Zappar)",
+      url: "https://zap.works",
+      provider: "youtube",
+      videoId: "b5z48zdZp9Y",
+      miniatura: "maxresdefault",
+      tituloVideo: "Zapworks | The all-in-one WebAR platform",
+      canal: "Zappar",
+      duracion: "1:23",
+      wow: { es: "Realidad aumentada que se abre en el navegador del celular al escanear un código, sin descargar ninguna app.", en: "Augmented reality that opens in the phone browser by scanning a code, with no app to download." },
+      merahki: { es: "Desarrollar a la medida búsquedas del tesoro en RA para tu campus, tu tienda o tu planta.", en: "Build custom AR scavenger hunts for your campus, store or plant." },
+      modo: "desarrollar",
+    },
+  ],
+  "decir-palabras": [
+    {
+      plataforma: "Yoodli",
+      url: "https://yoodli.ai",
+      provider: "youtube",
+      videoId: "eiSNMVLJj28",
+      miniatura: "maxresdefault",
+      tituloVideo: "Bank Customer Service Training With AI Roleplays",
+      canal: "Yoodli",
+      duracion: "3:40",
+      wow: { es: "El asesor de un banco le responde en voz alta a un cliente simulado y la IA le da retroalimentación al instante.", en: "A bank advisor answers a simulated customer out loud and the AI gives instant feedback." },
+      merahki: { es: "Integrar en tu LMS juegos de rol por voz con IA para tus equipos de atención.", en: "Integrate AI voice role-plays into your LMS for your service teams." },
+      modo: "integrar",
+    },
+  ],
+};
+
+export const TIPOS: TipoContenido[] = BASE.map((t) => (REFERENCIAS[t.id] ? { ...t, referencias: REFERENCIAS[t.id] } : t));
+
 export const TOTAL_TIPOS = TIPOS.length;
 export const TOTAL_DEMOS = TIPOS.filter((t) => t.demo).length;
 export const TOTAL_CATEGORIAS = CATEGORIAS.length;
+export const TOTAL_REFERENCIAS = TIPOS.filter((t) => t.referencias?.length).length;
 
 export const getTipo = (id: string) => TIPOS.find((t) => t.id === id);
