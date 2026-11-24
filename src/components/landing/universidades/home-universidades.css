@@ -685,6 +685,14 @@
 .mhu .qform .hs-button{margin-top:6px;font:inherit;font-weight:700;font-size:16px;color:#fff;background:#7C3AED;border:0;border-radius:999px;padding:12px 24px;cursor:pointer}
 .mhu .qform .hs-button:hover{background:#6D28D9}
 .mhu .qform .submitted-message{font-size:17px;line-height:1.5;color:#1A1424;padding:8px 0}
+.mhu h3,.mhu h4{font-weight:600}
+.mhu .orq-col h3,.mhu .flowbox h4,.mhu .summary h4{font-weight:700}
+.mhu .pd-body h3,.mhu .pokdemos .pd-body h3{font-size:20px;line-height:1.3}
+.mhu .back h3{font-size:20px;line-height:1.3}
+.mhu #casos .ask h3{line-height:1.3}
+.mhu .kicker,.mhu .kicker.pink,.mhu .kicker.blue{color:var(--lilac)}
+.mhu .light .kicker,.mhu .light .kicker.pink,.mhu .light .kicker.blue{color:#6D28D9}
+.mhu .case-logo.case-logo-alto{height:56px}
 
 
 /* Integración en el sitio: fuente del layout, menú fijo de 64 px, atributo hidden y botón fijo que convive con el selector de idioma */
