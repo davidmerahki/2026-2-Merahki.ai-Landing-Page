@@ -312,9 +312,9 @@ export default function CatalogoContenidos({ lang }: { lang: Lang }) {
             <a href="#catalogo" className={btnWhite}>
               {c.ctaCatalog} <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
-            <Link href={c.quoteHref} className={btnLine}>
+            <a href={c.quoteHref} className={btnLine}>
               {c.ctaQuote}
-            </Link>
+            </a>
           </div>
           <dl className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-4">
             {stats.map((v, i) => (
@@ -454,9 +454,9 @@ export default function CatalogoContenidos({ lang }: { lang: Lang }) {
           <h2 id="cta" className="mt-3 max-w-4xl text-3xl font-bold leading-tight tracking-tight text-white [text-wrap:balance] md:text-[2.6rem]">{c.ctaH2}</h2>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">{c.ctaP}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href={c.quoteHref} className={btnWhite}>
+            <a href={c.quoteHref} className={btnWhite}>
               {c.ctaQuote} <ArrowRight className="h-4 w-4" aria-hidden />
-            </Link>
+            </a>
             <a href={MEETING} target="_blank" rel="noopener" className={btnLine}>
               {c.ctaMeet}
             </a>

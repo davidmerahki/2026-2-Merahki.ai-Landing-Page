@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type CSSProperties, type KeyboardEvent, type PointerEvent as RPointerEvent } from "react";
-import Link from "next/link";
 import {
   Activity, AppWindow, ArrowDownUp, ArrowRight, ArrowUpRight, AudioLines, BarChart3, BookOpen, Brain, Calculator, Calendar, ChevronLeft,
   ChevronRight, CircleCheck, CircleDot, CircleHelp, ClipboardList, Columns3, Combine, Crosshair, Eye, FilePen, FileStack, Fingerprint,
@@ -717,9 +716,9 @@ export default function ContentExplorer({ lang }: { lang: Lang }) {
                 <a href={MEETING} target="_blank" rel="noopener" className="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white hover:border-white/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C084FC]">
                   {t.meet}
                 </a>
-                <Link href={t.homeQuote} className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0A0010] hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C084FC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0010]">
+                <a href={t.homeQuote} className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-[#0A0010] hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C084FC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0A0010]">
                   {t.quote} <ArrowRight className="h-4 w-4" aria-hidden />
-                </Link>
+                </a>
               </div>
             </footer>
           </div>

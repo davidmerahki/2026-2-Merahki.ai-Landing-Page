@@ -1,393 +1,296 @@
 "use client";
 
-import { useState, useEffect } from "react";
+// Menú principal (24-nov-2026). Escritorio: paneles anchos de varias columnas que caben
+// completos en una pantalla de 1280 × 720 sin desplazamiento interno. Celular: cajón a pantalla
+// completa con secciones plegables y los dos llamados a la acción fijos abajo.
+// La estructura y los textos viven en nav-config.ts (español e inglés).
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
-import { ES_ROUTES } from "@/lib/routes.generated";
-import { DESCS_ES, GROUPS_ES, HREFS_ES, LABELS_ES, SECTORS_ES } from "./navbar-es";
+import { ArrowRight, ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import { NAV, meetingHref, type NavColumn, type NavFeatured, type NavLink, type NavMenu } from "./nav-config";
 
-interface NavItem { label: string; desc: string; href: string; }
-interface IndustrySector { sector: string; items: NavItem[]; }
-interface NavGroup {
-  label: string;
-  id?: string;
-  columns?: number;
-  items: NavItem[];
-  industryGroups?: IndustrySector[];
+const isExternal = (href: string) => /^https?:\/\//.test(href);
+
+/** Link de Next para rutas internas; <a> nativo para enlaces externos o con #ancla
+ *  (Next no dispara hashchange al navegar dentro de la misma página, y el home abre
+ *  el formulario de cotización al recibir #cotizacion). */
+function Href(props: React.ComponentProps<"a"> & { href: string }) {
+  const { href, ...rest } = props;
+  if (isExternal(href) || href.includes("#")) return <a href={href} {...rest} />;
+  return <Link href={href} {...rest} />;
 }
 
-const navGroups: NavGroup[] = [
-  {
-    label: "Features",
-    columns: 3,
-    items: [
-      { label: "Flexible courses",       desc: "", href: "/flexible-courses" },
-      { label: "Website builder",         desc: "", href: "/website-builder" },
-      { label: "AI Assistant",            desc: "", href: "/ai-assistant" },
-      { label: "Mobile app builder",      desc: "", href: "/mobile-app-builder" },
-      { label: "Interactive video",       desc: "", href: "/interactive-video" },
-      { label: "Live sessions",           desc: "", href: "/live-sessions" },
-      { label: "Analytics & reports",     desc: "", href: "/analytics-reports" },
-      { label: "Survey builder",          desc: "", href: "/survey-builder" },
-      { label: "Integrations",            desc: "", href: "/integrations" },
-    ],
-  },
-  {
-    label: "Solutions",
-    items: [
-      { label: "Course Virtualization", desc: "Face-to-face courses turned into online programs you can measure.", href: "/course-virtualization" },
-      { label: "Lifelong Learning", desc: "Continuing education for universities: design, production and operation of programs for companies.", href: "/lifelong-learning" },
-      { label: "Training & Certification", desc: "Build and deliver training at speed.", href: "/training-certification" },
-      { label: "Customer Education", desc: "Drive retention and revenue with education.", href: "/customer-education" },
-      { label: "Partner Education", desc: "Accelerate partner success with training.", href: "/partner-academies" },
-      { label: "Medical Education", desc: "AI-powered CME, accreditation & clinical training for healthcare.", href: "/medical-education" },
-      { label: "Certifications at Scale", desc: "Deliver training and certification at scale.", href: "/certification" },
-      { label: "Product Adoption & Onboarding", desc: "Increase product adoption with education.", href: "/product-adoption" },
-      { label: "Growth for Universities", desc: "Scale enrollment, retention & lifelong learning with AI.", href: "/growth-for-universities" },
-    ],
-  },
-  {
-    label: "Resources",
-    items: [
-      { label: "Interactive content catalog", desc: "The 55 interactive content types we produce, with examples you can try.", href: "/interactive-content-types" },
-      { label: "Blog", desc: "Explore learning trends, strategies, and best practices.", href: "/blog" },
-      { label: "Case Studies", desc: "See how leading brands succeed with merahki.ai.", href: "/case-studies" },
-      { label: "Reports & Resources", desc: "Access Education-Led Growth research & guides.", href: "/reports" },
-      { label: "Webinar Library", desc: "Learn from experts in live & on-demand sessions.", href: "/webinars" },
-      { label: "Upcoming Events", desc: "Connect with merahki.ai during upcoming events.", href: "/events" },
-      { label: "Methodology", desc: "Our integral virtualization methodology — AICET, Agile, Octalysis, ICAP & Kirkpatrick.", href: "/methodology" },
-    ],
-  },
-  {
-    label: "Company",
-    items: [
-      { label: "About Us", desc: "Our mission and team", href: "https://www.linkedin.com/company/merahkiai/?viewAsMember=true" },
-      { label: "Careers", desc: "Join the merahki.ai team", href: "/careers" },
-      { label: "Contact", desc: "Get in touch with us", href: "#contact" },
-    ],
-  },
-  {
-    label: "Industries",
-    items: [],
-    industryGroups: [
-      {
-        sector: "Healthcare & Pharmaceuticals",
-        items: [
-          { label: "Novartis",                     desc: "Global pharmaceutical industry specializing in innovative medicines.",                            href: "#" },
-          { label: "Terumo",                       desc: "Medical technology and manufacturing of devices for cardiology and hematology.",                  href: "#" },
-          { label: "Fundación Santa Fe de Bogotá", desc: "High-complexity hospital services and medical education.",                                        href: "#" },
-          { label: "AstraZeneca",                  desc: "Biopharmaceuticals focused on the discovery and development of prescription drugs.",              href: "#" },
-          { label: "Abbott",                       desc: "Health care, medical devices, diagnostics, and nutritional products.",                            href: "#" },
-          { label: "ASMHOC",                       desc: "Medical association for homeopathic medicine and alternative health in Colombia.",                href: "#" },
-          { label: "Heel",                         desc: "Bioregulatory medicine and natural-origin pharmaceuticals.",                                       href: "#" },
-          { label: "Sanofi",                       desc: "Global pharmaceutical company focused on human health, vaccines, and innovative treatments.",     href: "#" },
-        ],
-      },
-      {
-        sector: "Education & Academia",
-        items: [
-          { label: "Universidad del Valle",          desc: "Public higher education and research.",                                      href: "#" },
-          { label: "Universidad de los Andes",       desc: "Private higher education, research, and continuing education.",              href: "#" },
-          { label: "Escuela Nacional del Deporte",   desc: "University institution specialized in sports science and health.",          href: "#" },
-          { label: "UNICUCES",                       desc: "Technical and technological higher education institution.",                  href: "#" },
-          { label: "Universidad César Vallejo",      desc: "Higher education with an international presence.",                          href: "#" },
-          { label: "Advanz International Education", desc: "Consulting in international education and academic mobility.",              href: "#" },
-        ],
-      },
-      {
-        sector: "Public Entities & Government",
-        items: [
-          { label: "UK PACT",                        desc: "UK government climate program to accelerate energy transition.",            href: "#" },
-          { label: "IDARTES",                        desc: "Bogotá government entity dedicated to the promotion of arts and culture.",  href: "#" },
-          { label: "BID",                            desc: "Multilateral banking and financing for economic and social development.",   href: "#" },
-          { label: "Alcaldía Mayor de Bogotá / SCRD",desc: "Public administration and management of cultural and sports policies.",    href: "#" },
-          { label: "Innpulsa",                       desc: "Government agency supporting entrepreneurship, innovation, and business productivity.", href: "#" },
-        ],
-      },
-      {
-        sector: "Technology & Software (ERP/SaaS)",
-        items: [
-          { label: "Query",          desc: "Enterprise Resource Planning (ERP) software solutions for business management.",            href: "#" },
-          { label: "RaquetSuite",    desc: "SaaS platform focused on club management or sports facilities.",                            href: "#" },
-          { label: "Franky",         desc: "Technology startup oriented toward service management and business optimization.",          href: "#" },
-        ],
-      },
-      {
-        sector: "Consumer Goods & Energy",
-        items: [
-          { label: "Luker Chocolate", desc: "Food industry, specifically the production of cocoa derivatives.",                        href: "#" },
-          { label: "Bavaria",          desc: "Alcoholic beverage and malt industry.",                                                   href: "#" },
-          { label: "Celsia",           desc: "Electric sector, generation, and commercialization of renewable energy.",                href: "#" },
-        ],
-      },
-      {
-        sector: "Telecommunications & Professional Services",
-        items: [
-          { label: "Claro",                       desc: "Telecommunications, data services, mobile telephony, and internet.",          href: "#" },
-          { label: "Positiva Compañía de Seguros",desc: "Insurance sector and occupational risks.",                                    href: "#" },
-          { label: "Codere",                      desc: "Gaming, luck, and gambling sector.",                                           href: "#" },
-          { label: "Cafam",                       desc: "Family compensation fund: healthcare, recreation, tourism, and credit.",       href: "#" },
-          { label: "Parque Arauco",               desc: "Real estate sector and shopping malls.",                                       href: "#" },
-        ],
-      },
-      {
-        sector: "Social, NGOs & Consulting",
-        items: [
-          { label: "Fundación Corona",   desc: "Non-profit organization focused on social development and education.",                  href: "#" },
-          { label: "DRC",                desc: "International humanitarian organization for refugee support.",                          href: "#" },
-          { label: "Fundación Aflora",   desc: "Institutional strengthening program for social entities.",                             href: "#" },
-          { label: "Fundación FEMSA",    desc: "Social investment focused on water, early childhood, and culture.",                    href: "#" },
-          { label: "PX Project / Management Institute", desc: "Project management consulting and process improvement.",                href: "#" },
-          { label: "Vásquez Kennedy",    desc: "Career success consulting and talent search (Headhunting) services.",                  href: "#" },
-        ],
-      },
-    ],
-  },
-];
+function ItemLink({ link, active, onNavigate, compact }: { link: NavLink; active: boolean; onNavigate: () => void; compact?: boolean }) {
+  const Icon = link.icon;
+  const ext = isExternal(link.href);
+  if (compact) {
+    return (
+      <Href
+        href={link.href}
+        onClick={onNavigate}
+        aria-current={active ? "page" : undefined}
+        className={`group flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-sm outline-none transition-colors hover:bg-white/[0.06] focus-visible:bg-white/[0.08] focus-visible:ring-2 focus-visible:ring-[#C084FC]/60 ${active ? "text-white" : "text-white/75 hover:text-white"}`}
+      >
+        <Icon className="h-4 w-4 shrink-0 text-[#C084FC]/80 group-hover:text-[#C084FC]" aria-hidden />
+        <span className="truncate">{link.label}</span>
+      </Href>
+    );
+  }
+  return (
+    <Href
+      href={link.href}
+      onClick={onNavigate}
+      target={ext ? "_blank" : undefined}
+      rel={ext ? "noopener noreferrer" : undefined}
+      aria-current={active ? "page" : undefined}
+      className="group flex items-start gap-3 rounded-xl p-2.5 outline-none transition-colors hover:bg-white/[0.06] focus-visible:bg-white/[0.08] focus-visible:ring-2 focus-visible:ring-[#C084FC]/60"
+    >
+      <span className={`mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ring-1 ring-inset ring-white/10 transition-colors ${active ? "bg-[#7C3AED]/40 text-white" : "bg-[#7C3AED]/15 text-[#C084FC] group-hover:bg-[#7C3AED]/30"}`}>
+        <Icon className="h-[18px] w-[18px]" aria-hidden />
+      </span>
+      <span className="min-w-0">
+        <span className={`block text-sm font-semibold leading-tight ${active ? "text-white" : "text-white/90 group-hover:text-white"}`}>{link.label}</span>
+        {link.desc && <span className="mt-0.5 block text-[13px] leading-snug text-white/50 group-hover:text-white/65">{link.desc}</span>}
+      </span>
+    </Href>
+  );
+}
 
-const ES_SET = new Set<string>(ES_ROUTES);
-const esHref = (href: string) => HREFS_ES[href] ?? (href.startsWith("/") && ES_SET.has(href) ? "/es" + (href === "/" ? "" : href) : href);
-const esItem = (i: NavItem): NavItem => ({ label: LABELS_ES[i.label] ?? i.label, desc: DESCS_ES[i.desc] ?? i.desc, href: esHref(i.href) });
-const navGroupsEs: NavGroup[] = navGroups.map((g) => ({
-  ...g,
-  id: g.label,
-  label: GROUPS_ES[g.label] ?? g.label,
-  items: g.items.map(esItem),
-  industryGroups: g.industryGroups?.map((s) => ({ sector: SECTORS_ES[s.sector] ?? s.sector, items: s.items.map(esItem) })),
-}));
+function Column({ col, isActive, onNavigate }: { col: NavColumn; isActive: (h: string) => boolean; onNavigate: () => void }) {
+  return (
+    <div className="min-w-0">
+      <p className="mb-2 px-2.5 text-[11px] font-bold uppercase tracking-[0.14em] text-white/40">{col.title}</p>
+      <ul className={col.compact ? "grid grid-cols-2 gap-0.5" : "space-y-0.5"}>
+        {col.links.map((l) => (
+          <li key={l.href + l.label}>
+            <ItemLink link={l} active={isActive(l.href)} onNavigate={onNavigate} compact={col.compact} />
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Featured({ f, onNavigate }: { f: NavFeatured; onNavigate: () => void }) {
+  const ext = isExternal(f.href);
+  return (
+    <Href
+      href={f.href}
+      onClick={onNavigate}
+      target={ext ? "_blank" : undefined}
+      rel={ext ? "noopener noreferrer" : undefined}
+      className="group relative flex h-full flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[radial-gradient(120%_90%_at_100%_0%,rgba(124,58,237,0.45),transparent_60%),radial-gradient(90%_80%_at_0%_100%,rgba(219,39,119,0.25),transparent_60%)] p-5 outline-none transition-colors hover:border-white/25 focus-visible:ring-2 focus-visible:ring-[#C084FC]/60"
+    >
+      <span>
+        <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-[#F0ABFC]">{f.kicker}</span>
+        <span className="mt-2 block text-lg font-bold leading-snug text-white">{f.title}</span>
+        <span className="mt-2 block text-sm leading-relaxed text-white/65">{f.text}</span>
+      </span>
+      <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-white">
+        {f.cta}
+        {ext ? <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden /> : <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />}
+      </span>
+    </Href>
+  );
+}
 
 export default function Navbar() {
+  const pathname = usePathname() || "/";
+  const isEs = pathname === "/es" || pathname.startsWith("/es/");
+  const menus = NAV[isEs ? "es" : "en"];
+  const t = isEs
+    ? { main: "Menú principal", open: "Abrir menú", close: "Cerrar menú", cta: "Agendar reunión de 30 minutos", quote: "Solicitar cotización a la medida", quoteHref: "/es#cotizacion", home: "merahki.ai, inicio", need: "¿Tienes un proyecto en mente?" }
+    : { main: "Main menu", open: "Open menu", close: "Close menu", cta: "Book a 30-minute meeting", quote: "Request a custom quote", quoteHref: "/#cotizacion", home: "merahki.ai home", need: "Have a project in mind?" };
+
   const [scrolled, setScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [open, setOpen] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
-  const pathname = usePathname();
+  const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const timer = useRef<number | undefined>(undefined);
+  const navRef = useRef<HTMLElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggers = useRef<Record<string, HTMLButtonElement | null>>({});
+  const uid = useId();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Al cambiar de página se cierra todo.
   useEffect(() => {
+    setOpen(null);
     setMobileOpen(false);
-    setActiveDropdown(null);
+    setMobileSection(null);
   }, [pathname]);
 
-  const hasActivePage = (items: { href: string }[]) =>
-    items.some((item) => item.href === pathname);
+  // Esc cierra y devuelve el foco al botón; un clic fuera del menú también lo cierra.
+  useEffect(() => {
+    if (!open && !mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (open) { const id = open; setOpen(null); triggers.current[id]?.focus(); }
+      if (mobileOpen) setMobileOpen(false);
+    };
+    const onDown = (e: PointerEvent) => { if (open && navRef.current && !navRef.current.contains(e.target as Node)) setOpen(null); };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onDown);
+    return () => { document.removeEventListener("keydown", onKey); document.removeEventListener("pointerdown", onDown); };
+  }, [open, mobileOpen]);
 
-  // Single conversion funnel: every CTA opens David's HubSpot scheduler
-  const isEs = pathname === "/es" || pathname.startsWith("/es/");
-  const ctaHref = "https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-be04-a74d169db651";
-  const ctaLabel = isEs ? "Agendar reunión de 30 minutos" : "Book a 30-minute meeting";
-  const groups = isEs ? navGroupsEs : navGroups;
+  // Con el cajón abierto en celular, la página de fondo no se desplaza.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const el = document.documentElement;
+    const prev = el.style.overflow;
+    el.style.overflow = "hidden";
+    return () => { el.style.overflow = prev; };
+  }, [mobileOpen]);
+
+  const clear = () => window.clearTimeout(timer.current);
+  // Intención de hover: abre con un pequeño retraso (o al instante si ya hay un panel abierto) y cierra con margen.
+  const openSoon = useCallback((id: string) => { clear(); timer.current = window.setTimeout(() => setOpen(id), open ? 0 : 90); }, [open]);
+  const closeSoon = useCallback(() => { clear(); timer.current = window.setTimeout(() => setOpen(null), 200); }, []);
+  const closeAll = useCallback(() => { clear(); setOpen(null); setMobileOpen(false); }, []);
+
+  const path = (h: string) => h.split("#")[0] || "/";
+  const isActive = (href: string) => !isExternal(href) && !href.includes("#") && path(href) === pathname;
+  const menuActive = (m: NavMenu) => m.columns.some((c) => c.links.some((l) => isActive(l.href)));
+  const current = menus.find((m) => m.id === open) || null;
+
+  const focusFirst = () => requestAnimationFrame(() => panelRef.current?.querySelector<HTMLElement>("a")?.focus());
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-black/80 backdrop-blur-lg border-b border-white/10"
-          : "bg-transparent"
+      ref={navRef}
+      aria-label={t.main}
+      className={`fixed left-0 right-0 top-0 z-50 transition-colors duration-300 ${
+        // Con el cajón abierto, fondo sólido y SIN backdrop-blur: un backdrop-filter convierte la barra en el
+        // contenedor de los hijos con position: fixed y el cajón dejaba de cubrir la pantalla.
+        mobileOpen ? "border-b border-white/10 bg-[#07040C]" : scrolled || open ? "border-b border-white/10 bg-black/85 backdrop-blur-lg" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <Link href={isEs ? "/es" : "/"} className="flex items-center flex-shrink-0" aria-label={isEs ? "merahki.ai, inicio" : "merahki.ai home"}>
-          <span className="text-white font-bold text-lg tracking-tight">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+        <Link href={isEs ? "/es" : "/"} className="flex flex-shrink-0 items-center" aria-label={t.home} onClick={closeAll}>
+          <span className="text-lg font-bold tracking-tight text-white">
             merahki<span className="text-gradient-blue-pink">.ai</span>
           </span>
         </Link>
 
-        {/* Desktop Nav — each group wraps trigger + panel so mouse never leaves */}
-        <div className="hidden md:flex items-center gap-1">
-          {groups.map((group) => (
-            <div
-              key={group.label}
-              className="relative"
-              onMouseEnter={() => setActiveDropdown(group.label)}
-              onMouseLeave={() => setActiveDropdown(null)}
-            >
-              <button
-                className={`flex items-center gap-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                  hasActivePage(group.items) ? "text-white" : "text-white/70 hover:text-white"
-                }`}
-              >
-                {group.label}
-                <ChevronDown
-                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                    activeDropdown === group.label ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {/* pt-2 creates visual gap while keeping the hover area continuous */}
-              {activeDropdown === group.label && (
-                <div
-                  className={`absolute top-full pt-2 ${
-                    "columns" in group && group.columns === 3
-                      ? "left-0 min-w-[640px]"
-                      : group.industryGroups
-                      ? "right-0 min-w-[760px]"
-                      : (group.id ?? group.label) === "Solutions"
-                      ? "left-1/2 -translate-x-1/2 min-w-[280px]"
-                      : "left-1/2 -translate-x-1/2 min-w-[240px]"
-                  }`}
+        {/* Escritorio */}
+        <ul className="hidden items-center gap-1 lg:flex" onMouseLeave={closeSoon}>
+          {menus.map((m) => {
+            const isOpen = open === m.id;
+            return (
+              <li key={m.id}>
+                <button
+                  ref={(el) => { triggers.current[m.id] = el; }}
+                  id={`${uid}-t-${m.id}`}
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-controls={`${uid}-p-${m.id}`}
+                  onMouseEnter={() => openSoon(m.id)}
+                  onClick={() => { clear(); setOpen(isOpen ? null : m.id); }}
+                  onKeyDown={(e) => { if (e.key === "ArrowDown") { e.preventDefault(); setOpen(m.id); focusFirst(); } }}
+                  className={`flex items-center gap-1 rounded-full px-3.5 py-2 text-sm font-medium outline-none transition-colors focus-visible:ring-2 focus-visible:ring-[#C084FC]/60 ${isOpen ? "bg-white/[0.08] text-white" : menuActive(m) ? "text-white" : "text-white/70 hover:text-white"}`}
                 >
-                  <div className="rounded-xl border border-white/10 bg-black/95 backdrop-blur-xl p-3 shadow-2xl">
-                    {"columns" in group && group.columns === 3 ? (
-                      <div className="grid grid-cols-3 gap-0.5">
-                        {group.items.map((item) => (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            className="flex items-center gap-2 px-3 py-2.5 rounded-lg text-sm text-white/70 hover:text-white hover:bg-white/5 transition-colors"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    ) : group.industryGroups ? (
-                      <div className="grid grid-cols-2 gap-x-2 max-h-[70vh] overflow-y-auto pr-1">
-                        {group.industryGroups.map((sector) => (
-                          <div key={sector.sector} className="mb-1">
-                            <p className="px-3 pt-2 pb-1 text-xs font-bold text-accent-purple/80 uppercase tracking-widest border-b border-white/5 mb-1">
-                              {sector.sector}
-                            </p>
-                            {sector.items.map((item) => (
-                              <Link
-                                key={item.label}
-                                href={item.href}
-                                className="group/item flex flex-col gap-0 px-3 py-1.5 rounded-lg hover:bg-white/5 transition-colors"
-                              >
-                                <span className="text-xs font-semibold text-white/80 group-hover/item:text-white transition-colors">
-                                  {item.label}
-                                </span>
-                                <span className="text-xs text-white/35 leading-tight">{item.desc}</span>
-                              </Link>
-                            ))}
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      group.items.map((item) => (
-                        <Link
-                          key={item.label}
-                          href={item.href}
-                          className={`group/item flex flex-col gap-0.5 px-4 py-3 rounded-lg transition-colors ${
-                            pathname === item.href ? "bg-white/10" : "hover:bg-white/5"
-                          }`}
-                        >
-                          <span
-                            className={`flex items-center gap-1.5 text-sm font-semibold leading-tight ${
-                              pathname === item.href ? "text-white" : "text-white/85 group-hover/item:text-white"
-                            } transition-colors`}
-                          >
-                            {item.label}
-                            <ArrowRight className="w-3 h-3 opacity-60 group-hover/item:opacity-100 group-hover/item:translate-x-0.5 transition-all" />
-                          </span>
-                          <span className="text-xs text-white/40">{item.desc}</span>
-                        </Link>
-                      ))
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+                  {m.label}
+                  <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} aria-hidden />
+                </button>
+              </li>
+            );
+          })}
+        </ul>
 
-        {/* CTA */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Link
-            href={ctaHref}
+            href={meetingHref}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold bg-accent-purple text-white hover:bg-accent-purple/85 transition-all"
+            className="inline-flex items-center gap-2 rounded-full bg-accent-purple px-5 py-2 text-sm font-semibold text-white transition-all hover:bg-accent-purple/85"
           >
-            {ctaLabel} <ArrowRight className="w-3.5 h-3.5" />
+            {t.cta} <ArrowRight className="h-3.5 w-3.5" aria-hidden />
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white p-1"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? (isEs ? "Cerrar menú" : "Close menu") : (isEs ? "Abrir menú" : "Open menu")}
+          type="button"
+          className="rounded-full p-2 text-white outline-none focus-visible:ring-2 focus-visible:ring-[#C084FC]/60 lg:hidden"
+          onClick={() => setMobileOpen((v) => !v)}
+          aria-label={mobileOpen ? t.close : t.open}
           aria-expanded={mobileOpen}
+          aria-controls={`${uid}-mobile`}
         >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Panel de escritorio: uno solo, centrado, con el contenido del menú abierto */}
+      {current && (
+        <div className="absolute left-0 right-0 top-16 hidden px-4 lg:block" onMouseEnter={clear} onMouseLeave={closeSoon}>
+          <div
+            ref={panelRef}
+            id={`${uid}-p-${current.id}`}
+            role="region"
+            aria-labelledby={`${uid}-t-${current.id}`}
+            onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node) && !Object.values(triggers.current).includes(e.relatedTarget as HTMLButtonElement)) closeSoon(); }}
+            className="nav-panel-in mx-auto mt-2 overflow-y-auto rounded-2xl border border-white/10 bg-[#0D0817] shadow-[0_30px_80px_rgba(0,0,0,0.65)]"
+            style={{ width: `min(${current.width}px, calc(100vw - 32px))`, maxHeight: "calc(100vh - 96px)" }}
+          >
+            <div className="grid gap-6 p-5" style={{ gridTemplateColumns: `${current.columns.map((c) => (c.compact ? "1.5fr" : "1fr")).join(" ")}${current.featured ? " 250px" : ""}` }}>
+              {current.columns.map((c) => <Column key={c.title} col={c} isActive={isActive} onNavigate={closeAll} />)}
+              {current.featured && <Featured f={current.featured} onNavigate={closeAll} />}
+            </div>
+            <div className="flex items-center justify-between gap-4 border-t border-white/10 px-5 py-3 text-sm">
+              <span className="text-white/50">{t.need}</span>
+              <span className="flex items-center gap-5">
+                <a href={t.quoteHref} onClick={closeAll} className="font-semibold text-white/85 outline-none hover:text-white focus-visible:underline">{t.quote}</a>
+                <Link href={meetingHref} target="_blank" rel="noopener noreferrer" onClick={closeAll} className="inline-flex items-center gap-1 font-semibold text-[#C084FC] outline-none hover:text-white focus-visible:underline">
+                  {t.cta} <ArrowUpRight className="h-3.5 w-3.5" aria-hidden />
+                </Link>
+              </span>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Celular y tableta: cajón a pantalla completa */}
       {mobileOpen && (
-        <div className="md:hidden max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain bg-black/95 backdrop-blur-xl border-t border-white/10 px-6 py-4 space-y-1">
-          {groups.map((group) => (
-            <div key={group.label}>
-              <button
-                onClick={() =>
-                  setMobileExpanded(mobileExpanded === group.label ? null : group.label)
-                }
-                className={`w-full flex items-center justify-between py-2.5 text-sm font-medium transition-colors ${
-                  hasActivePage(group.items) ? "text-white" : "text-white/70"
-                }`}
-              >
-                {group.label}
-                <ChevronDown
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    mobileExpanded === group.label ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {mobileExpanded === group.label && (
-                <div className="pl-4 pb-2 space-y-0.5 border-l border-white/10">
-                  {group.industryGroups ? (
-                    group.industryGroups.map((sector) => (
-                      <div key={sector.sector}>
-                        <p className="pt-2 pb-0.5 text-xs font-bold text-accent-purple/70 uppercase tracking-widest">
-                          {sector.sector}
-                        </p>
-                        {sector.items.map((item) => (
-                          <Link
-                            key={item.label}
-                            href={item.href}
-                            className="block py-1.5 text-sm text-white/60 hover:text-white transition-colors"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    ))
-                  ) : (
-                    group.items.map((item) => (
-                      <Link
-                        key={item.label}
-                        href={item.href}
-                        className={`block py-2 text-sm transition-colors ${
-                          pathname === item.href
-                            ? "text-white font-medium"
-                            : "text-white/60 hover:text-white"
-                        }`}
-                      >
-                        {item.label}
-                      </Link>
-                    ))
+        <div id={`${uid}-mobile`} className="fixed inset-x-0 bottom-0 top-16 flex flex-col border-t border-white/10 bg-[#07040C] lg:hidden">
+          <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-3">
+            {menus.map((m) => {
+              const exp = mobileSection === m.id;
+              return (
+                <div key={m.id} className="border-b border-white/[0.07]">
+                  <button
+                    type="button"
+                    aria-expanded={exp}
+                    onClick={() => setMobileSection(exp ? null : m.id)}
+                    className={`flex w-full items-center justify-between py-4 text-left text-base font-semibold outline-none focus-visible:text-[#C084FC] ${menuActive(m) ? "text-white" : "text-white/85"}`}
+                  >
+                    {m.label}
+                    <ChevronDown className={`h-5 w-5 text-white/50 transition-transform duration-200 ${exp ? "rotate-180" : ""}`} aria-hidden />
+                  </button>
+                  {exp && (
+                    <div className="space-y-4 pb-4">
+                      {m.columns.map((c) => <Column key={c.title} col={c} isActive={isActive} onNavigate={closeAll} />)}
+                      {m.featured && <div className="pt-1"><Featured f={m.featured} onNavigate={closeAll} /></div>}
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
-          ))}
-          <div className="pt-3 border-t border-white/10">
-            <Link
-              href={ctaHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 w-full px-4 py-2.5 rounded-full text-sm font-semibold bg-accent-purple text-white hover:bg-accent-purple/85 transition-all"
-            >
-              {ctaLabel} <ArrowRight className="w-4 h-4" />
+              );
+            })}
+          </div>
+          <div className="space-y-2 border-t border-white/10 bg-black/60 px-5 pb-[max(env(safe-area-inset-bottom),16px)] pt-3">
+            <Link href={meetingHref} target="_blank" rel="noopener noreferrer" onClick={closeAll} className="flex w-full items-center justify-center gap-2 rounded-full bg-accent-purple px-4 py-3 text-sm font-semibold text-white">
+              {t.cta} <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
+            <a href={t.quoteHref} onClick={closeAll} className="flex w-full items-center justify-center rounded-full border border-white/20 px-4 py-3 text-sm font-semibold text-white">
+              {t.quote}
+            </a>
           </div>
         </div>
       )}

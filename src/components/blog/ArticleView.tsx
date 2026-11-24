@@ -144,9 +144,9 @@ function Cta({ a, text }: { a: Articulo; text?: string }) {
       <p className="text-xl font-semibold text-white">{t.ctaTitle}</p>
       <p className="text-white/65 leading-relaxed" dangerouslySetInnerHTML={{ __html: html(text || t.ctaText) }} />
       <div className="flex flex-wrap gap-3 pt-1">
-        <Link href={t.homeQuote} className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm">
+        <a href={t.homeQuote} className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-black bg-white hover:bg-white/90 transition-all text-sm">
           {t.ctaQuote} <ArrowRight className="w-4 h-4" />
-        </Link>
+        </a>
         <a href={MEETING} target="_blank" rel="noopener" className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white border border-white/25 hover:border-white/50 transition-all text-sm">
           {t.ctaMeet}
         </a>
