@@ -1,8 +1,8 @@
-import CatalogoContenidos, { catalogoMetadata } from "@/components/contenidos/CatalogoContenidos";
+import CatalogoExperiencias, { catalogoMetadata } from "@/components/contenidos/CatalogoExperiencias";
 
-// Catalog of the 55 interactive content types (showroom slide 20). Spanish twin: /es/tipos-de-contenido-interactivo.
+// Catalog of learning experiences (24-nov-2026; replaces the 55 content types). Spanish twin: /es/tipos-de-contenido-interactivo.
 export const metadata = catalogoMetadata("en");
 
 export default function Page() {
-  return <CatalogoContenidos lang="en" />;
+  return <CatalogoExperiencias lang="en" />;
 }

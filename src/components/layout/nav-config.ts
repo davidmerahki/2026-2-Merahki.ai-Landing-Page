@@ -45,7 +45,7 @@ export const NAV: Record<Lang, NavMenu[]> = {
         { title: "Diseño y producción", links: [
           { label: "Virtualización de cursos", desc: "Del curso presencial a un programa que se mide", href: "/es/virtualizacion-de-cursos", icon: MonitorPlay },
           { label: "Metodología", desc: "Diseño instruccional por competencias", href: "/es/methodology", icon: Compass },
-          { label: "Catálogo de contenidos", desc: "55 tipos de actividades, con demos", href: "/es/tipos-de-contenido-interactivo", icon: LayoutGrid },
+          { label: "Catálogo de experiencias", desc: "Copiloto de IA, simuladores, 360° y más", href: "/es/tipos-de-contenido-interactivo", icon: LayoutGrid },
         ] },
         { title: "Plataforma LMS merahki.ai", compact: true, links: [
           { label: "Cursos flexibles", href: "/es/flexible-courses", icon: Layers },
@@ -59,7 +59,7 @@ export const NAV: Record<Lang, NavMenu[]> = {
           { label: "Integraciones", href: "/es/integrations", icon: Plug },
         ] },
       ],
-      featured: { kicker: "Pruébalo", title: "21 demos en vivo", text: "Escenarios ramificados, 360°, realidad aumentada y más, con videos de referencia.", href: "/es/tipos-de-contenido-interactivo", cta: "Abrir el catálogo" },
+      featured: { kicker: "Pruébalo", title: "Experiencias de aprendizaje con demo", text: "Copiloto estudiantil, simuladores, realidad aumentada y diagnóstico de entrada.", href: "/es/tipos-de-contenido-interactivo", cta: "Abrir el catálogo" },
     },
     {
       id: "recursos", label: "Recursos", width: 860,
@@ -115,7 +115,7 @@ export const NAV: Record<Lang, NavMenu[]> = {
         { title: "Design and production", links: [
           { label: "Course virtualization", desc: "From face-to-face course to measurable program", href: "/course-virtualization", icon: MonitorPlay },
           { label: "Methodology", desc: "Competency-based instructional design", href: "/methodology", icon: Compass },
-          { label: "Content catalog", desc: "55 activity types, with live demos", href: "/interactive-content-types", icon: LayoutGrid },
+          { label: "Experiences catalog", desc: "AI copilot, simulations, 360° and more", href: "/interactive-content-types", icon: LayoutGrid },
         ] },
         { title: "merahki.ai LMS platform", compact: true, links: [
           { label: "Flexible courses", href: "/flexible-courses", icon: Layers },
@@ -129,7 +129,7 @@ export const NAV: Record<Lang, NavMenu[]> = {
           { label: "Integrations", href: "/integrations", icon: Plug },
         ] },
       ],
-      featured: { kicker: "Try it", title: "21 live demos", text: "Branching scenarios, 360°, augmented reality and more, with reference videos.", href: "/interactive-content-types", cta: "Open the catalog" },
+      featured: { kicker: "Try it", title: "Learning experiences with live demos", text: "Student copilot, simulations, augmented reality and entry diagnostics.", href: "/interactive-content-types", cta: "Open the catalog" },
     },
     {
       id: "recursos", label: "Resources", width: 860,

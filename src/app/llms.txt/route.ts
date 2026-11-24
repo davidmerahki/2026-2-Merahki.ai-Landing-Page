@@ -27,7 +27,7 @@ Key facts:
 ## Main pages (English)
 - [Home](${B}/): what merahki.ai does for universities and companies, the merahki model in 7 phases, cases and FAQ.
 - [Course virtualization / online course development](${B}/course-virtualization)
-- [Interactive content catalog: the 55 content types merahki.ai produces, with live examples](${B}/interactive-content-types)
+- [merahki.ai learning experiences catalog: AI student copilot, simulations, 360° tours, augmented reality and entry diagnostics, with live demos](${B}/interactive-content-types)
 - [Lifelong Learning (continuing education for universities)](${B}/lifelong-learning)
 - [Customer Education](${B}/customer-education)
 - [Training & Certification](${B}/training-certification)
@@ -42,7 +42,7 @@ Key facts:
 ## Páginas principales (español)
 - [Inicio](${B}/es): qué hace merahki.ai para universidades y empresas, el merahki model en 7 fases, casos y preguntas frecuentes.
 - [Virtualización de cursos](${B}/es/virtualizacion-de-cursos)
-- [Catálogo de contenidos interactivos: los 55 tipos que produce merahki.ai, con ejemplos](${B}/es/tipos-de-contenido-interactivo)
+- [Catálogo de experiencias de aprendizaje de merahki.ai: copiloto estudiantil con IA, simuladores, 360°, realidad aumentada y diagnóstico de entrada, con demos](${B}/es/tipos-de-contenido-interactivo)
 - [Lifelong Learning (educación continua para universidades)](${B}/es/lifelong-learning)
 - [Customer Education](${B}/es/customer-education)
 - [Formación y certificación](${B}/es/training-certification)

@@ -43,7 +43,7 @@ export const servicio: Articulo = {
       items: [
         "<strong>Planning.</strong> We start from what your client or business unit needs: the expected result and the behaviors to change.",
         "<strong>Competency-based design.</strong> Competency, know/do/be learning outcomes, evidence and rubrics, aligned with national qualification frameworks when needed. See <a href=\"/methodology\">our methodology</a>.",
-        "<strong>Production.</strong> Scripts, video with your expert, animation and more than 55 activity types (see the <a href=\"/interactive-content-types\">interactive content catalog</a>), produced by an AI-native team.",
+        "<strong>Production.</strong> Scripts, video with your expert, animation and experiences such as an AI student copilot, simulations and augmented reality (see the <a href=\"/interactive-content-types\">learning experiences catalog</a>), produced by an AI-native team.",
         "<strong>LMS setup.</strong> We configure the program in your LMS or in the merahki.ai LMS, with its progress and completion rules.",
         "<strong>Delivery.</strong> Enrollment, help desk, reminders and a weekly cohort report.",
         "<strong>Credential.</strong> Verifiable credentials issued with POK and tied to the learning outcomes. See <a href=\"/certification\">certification with verifiable credentials</a>.",

@@ -45,7 +45,7 @@ export const servicio: Articulo = {
       items: [
         "<strong>Planeación.</strong> Partimos de lo que pide tu cliente o tu área: el resultado esperado y las conductas que se quieren cambiar.",
         "<strong>Diseño por competencias.</strong> Competencia, resultados de aprendizaje de saber, hacer y ser, evidencias y rúbricas, alineados con el Marco Nacional de Cualificaciones y la CUOC cuando aplica. Ver <a href=\"/es/methodology\">nuestra metodología</a>.",
-        "<strong>Producción.</strong> Guiones, video con tu experto, animación y más de 55 tipos de actividades (ver el <a href=\"/es/tipos-de-contenido-interactivo\">catálogo de contenidos interactivos</a>), producidos con un equipo nativo en IA.",
+        "<strong>Producción.</strong> Guiones, video con tu experto, animación y experiencias como el copiloto estudiantil con IA, simuladores y realidad aumentada (ver el <a href=\"/es/tipos-de-contenido-interactivo\">catálogo de experiencias de aprendizaje</a>), producidos con un equipo nativo en IA.",
         "<strong>Montaje en el LMS.</strong> Configuramos el programa en tu LMS o en el LMS merahki.ai, con sus reglas de avance y finalización.",
         "<strong>Operación.</strong> Inscripciones, mesa de ayuda, recordatorios y un informe semanal de la cohorte.",
         "<strong>Credencial.</strong> Emisión de credenciales verificables con POK, atadas a los resultados de aprendizaje. Ver <a href=\"/es/certification\">certificación con credenciales verificables</a>.",

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Play } from "lucide-react";
-import type { Lang, Referencia } from "@/content/contenidos/tipos";
+import type { Lang, Referencia } from "@/content/contenidos/experiencias";
 
 const MODO: Record<Referencia["modo"], [string, string]> = {
   desarrollar: ["Desarrollar a la medida", "Build it custom"],

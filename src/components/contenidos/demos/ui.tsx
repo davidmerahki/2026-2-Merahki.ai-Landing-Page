@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState, type ReactNode, type RefObject, type PointerEvent as RPointerEvent } from "react";
 import { RotateCcw, Check, X } from "lucide-react";
-import type { Lang } from "@/content/contenidos/tipos";
+import type { Lang } from "@/content/contenidos/experiencias";
 
 /** Props comunes a todas las demos del catálogo. */
 export type DemoProps = { lang: Lang; variante?: string };

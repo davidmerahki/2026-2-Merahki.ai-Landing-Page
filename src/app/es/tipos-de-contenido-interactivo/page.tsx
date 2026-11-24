@@ -1,8 +1,8 @@
-import CatalogoContenidos, { catalogoMetadata } from "@/components/contenidos/CatalogoContenidos";
+import CatalogoExperiencias, { catalogoMetadata } from "@/components/contenidos/CatalogoExperiencias";
 
-// Catálogo de los 55 tipos de contenido interactivo (lámina 20 del showroom). Gemela en inglés: /interactive-content-types.
+// Catálogo de experiencias de aprendizaje (24-nov-2026; reemplaza los 55 tipos). Gemela en inglés: /interactive-content-types.
 export const metadata = catalogoMetadata("es");
 
 export default function Page() {
-  return <CatalogoContenidos lang="es" />;
+  return <CatalogoExperiencias lang="es" />;
 }
