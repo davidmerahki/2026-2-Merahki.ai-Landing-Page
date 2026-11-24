@@ -330,7 +330,7 @@ export default function ProductAdoptionPageES() {
         </div>
       </section>
 
-      <ProductAdoptionProposal />
+      <ProductAdoptionProposal lang="es" />
 
       <ContactSection
         heading="Comienza a impulsar la adopción del producto"

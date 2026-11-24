@@ -46,7 +46,7 @@ export default function CaseStudiesPageES() {
             <Link href="/es/case-studies/uniandes-sanofi-microbiota" className="block rounded-3xl border border-white/10 bg-white/[0.03] p-7 md:p-10 hover:bg-white/[0.05] transition-colors">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-peach">Uniandes × Sanofi CHC · Educación médica</p>
               <h2 className="mt-5 text-3xl md:text-4xl font-bold text-white leading-tight">
-                De 8 semanas a USD $550K: educación médica multinacional en Latinoamérica.
+                Uniandes y Sanofi CHC certificaron a más de 200 alergólogos de 8 países con dos programas producidos en 8 semanas.
               </h2>
               <p className="mt-5 text-white/60 text-base md:text-lg leading-relaxed">
                 Dos tracks clínicos, +200 alergólogos, 95+ insignias digitales y 8 países alcanzados.

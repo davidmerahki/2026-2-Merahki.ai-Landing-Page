@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const logos: { src: string; alt: string }[] = [
   { src: "/images/logos/pok.png",                          alt: "POK" },
@@ -46,9 +47,10 @@ interface LogoCarouselProps {
   heading?: string;
 }
 
-export default function LogoCarousel({
-  heading = "Trusted by leading organizations worldwide",
-}: LogoCarouselProps) {
+export default function LogoCarousel({ heading: headingProp }: LogoCarouselProps) {
+  const pathname = usePathname() || "/";
+  const isEs = pathname === "/es" || pathname.startsWith("/es/");
+  const heading = headingProp ?? (isEs ? "Universidades y empresas que han trabajado con merahki.ai" : "Universities and companies that have worked with merahki.ai");
   const doubled = [...logos, ...logos];
 
   return (

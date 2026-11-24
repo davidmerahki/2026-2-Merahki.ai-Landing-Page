@@ -321,7 +321,7 @@ export default function CustomerEducationPageES() {
         </div>
       </section>
 
-      <OurProposal />
+      <OurProposal lang="es" />
 
       <ContactSection
         heading="Lanza tu programa de Customer Education"

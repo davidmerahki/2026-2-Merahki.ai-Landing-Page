@@ -8,19 +8,19 @@ import GlowBackground from "@/components/ui/GlowBackground";
 const testimonials = [
   {
     quote:
-      "Juliana lidera la transformación digital de la educación continua en la Facultad de Medicina de Uniandes — y comparte su experiencia operando con merahki.ai.",
+      "Juliana lidera la transformación digital de la educación continua en la Facultad de Medicina de Uniandes, y comparte su experiencia operando con merahki.ai.",
     name: "Juliana González Cuervo",
     role: "Directora de proyectos de educación continua · Facultad de Medicina, Universidad de los Andes",
     image: "/images/Images-testimonies/Juliana.png",
-    href: "#",
+    href: "/es/case-studies/uniandes-sanofi-microbiota#juliana-testimonial",
   },
   {
     quote:
-      "Alexander dirige la educación continua de la Escuela de Gobierno Alberto Lleras Camargo — y cuenta cómo merahki.ai amplifica su capacidad operativa.",
+      "Alexander dirige la educación continua de la Escuela de Gobierno Alberto Lleras Camargo, y cuenta cómo merahki.ai amplifica su capacidad operativa.",
     name: "Alexander Riascos",
     role: "Director de proyectos de educación continua · Facultad de Gobierno Alberto Lleras Camargo",
     image: "/images/Images-testimonies/Alexander.png",
-    href: "#",
+    href: "",
   },
   {
     quote:
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Jaime Molina",
     role: "Consultor PwC · Presidente Project Management Institute Colombia",
     image: "/images/Images-testimonies/Jaime.jpeg",
-    href: "#",
+    href: "",
   },
 ];
 
@@ -82,12 +82,13 @@ export default function TestimonialsES() {
                       </p>
                     </div>
                   </div>
+                  {t.href && (
                   <Link
                     href={t.href}
                     className="inline-flex items-center gap-1 px-4 py-2 rounded-full border border-accent-pink/40 text-accent-pink text-xs font-semibold uppercase tracking-wider hover:bg-accent-pink/10 transition-colors"
                   >
                     Ver testimonio &raquo;
-                  </Link>
+                  </Link>)}
                 </div>
               </div>
             </AnimatedSection>

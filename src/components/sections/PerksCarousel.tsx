@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PerksCarouselCaption from "@/components/sections/PerksCarouselCaption";
 
 const perks: { src: string; alt: string }[] = [
   { src: "/images/perks/badge_teal-spring-2.svg",                          alt: "Teal Spring Badge" },
@@ -22,7 +23,7 @@ export default function PerksCarousel() {
   return (
     <section className="py-10 border-t border-white/5 overflow-hidden">
       <p className="text-center text-white/30 section-badge mb-8">
-        Trusted by the world&apos;s leading software review platforms, all merahki.ai and partners ecosystem solutions meet the highest industry standards.
+        <PerksCarouselCaption />
       </p>
 
       <div className="relative">

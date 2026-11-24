@@ -970,23 +970,12 @@ export default function PrivacyPolicyPage() {
                 <p>
                   The Data Subject may exercise their rights of access,
                   rectification, updating, deletion, and revocation through the
-                  following channels:
+                  following channel:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
                     <strong className="text-white">Email:</strong>{" "}
                     datospersonales@merahki.ai
-                  </li>
-                  <li>
-                    <strong className="text-white">
-                      Request form available at:
-                    </strong>{" "}
-                    <a
-                      href="https://merahki.ai/datos-personales"
-                      className="text-accent-purple hover:underline"
-                    >
-                      https://merahki.ai/datos-personales
-                    </a>
                   </li>
                 </ul>
                 <p>

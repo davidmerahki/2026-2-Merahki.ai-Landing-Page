@@ -227,7 +227,7 @@ export default function TrainingCertificationPageES() {
         </div>
       </section>
 
-      <TrainingProposal />
+      <TrainingProposal lang="es" />
 
       <ContactSection
         heading="Agenda tu Strategy Call"

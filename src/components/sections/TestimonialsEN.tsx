@@ -12,7 +12,7 @@ const testimonials = [
     name: "Juliana González Cuervo",
     role: "Director of Continuing Education Projects · Faculty of Medicine, Universidad de los Andes",
     image: "/images/Images-testimonies/Juliana.png",
-    href: "#",
+    href: "/case-studies/uniandes-sanofi-microbiota#juliana-testimonial",
   },
   {
     quote:
@@ -20,7 +20,7 @@ const testimonials = [
     name: "Alexander Riascos",
     role: "Director of Continuing Education Projects · Alberto Lleras Camargo School of Government",
     image: "/images/Images-testimonies/Alexander.png",
-    href: "#",
+    href: "",
   },
   {
     quote:
@@ -28,7 +28,7 @@ const testimonials = [
     name: "Jaime Molina",
     role: "PwC Consultant · President, Project Management Institute Colombia",
     image: "/images/Images-testimonies/Jaime.jpeg",
-    href: "#",
+    href: "",
   },
 ];
 
@@ -82,12 +82,13 @@ export default function TestimonialsEN() {
                       </p>
                     </div>
                   </div>
+                  {t.href && (
                   <Link
                     href={t.href}
                     className="inline-flex items-center gap-1 px-4 py-2 rounded-full border border-accent-pink/40 text-accent-pink text-xs font-semibold uppercase tracking-wider hover:bg-accent-pink/10 transition-colors"
                   >
                     Watch testimonial &raquo;
-                  </Link>
+                  </Link>)}
                 </div>
               </div>
             </AnimatedSection>

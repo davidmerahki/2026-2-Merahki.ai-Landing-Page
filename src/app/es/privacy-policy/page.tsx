@@ -983,24 +983,13 @@ export default function PoliticaDatosPersonalesPage() {
                 </h2>
                 <p>
                   El Titular puede ejercer sus derechos de acceso, rectificación,
-                  actualización, supresión y revocatoria a través de los
-                  siguientes canales:
+                  actualización, supresión y revocatoria a través del
+                  siguiente canal:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
                     <strong className="text-white">Correo electrónico:</strong>{" "}
                     datospersonales@merahki.ai
-                  </li>
-                  <li>
-                    <strong className="text-white">
-                      Formulario de solicitud disponible en:
-                    </strong>{" "}
-                    <a
-                      href="https://merahki.ai/datos-personales"
-                      className="text-accent-purple hover:underline"
-                    >
-                      https://merahki.ai/datos-personales
-                    </a>
                   </li>
                 </ul>
                 <p>

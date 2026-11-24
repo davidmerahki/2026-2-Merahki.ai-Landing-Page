@@ -316,7 +316,7 @@ export default function PartnerAcademiesPageES() {
         </div>
       </section>
 
-      <PartnerProposal />
+      <PartnerProposal lang="es" />
 
       <ContactSection
         heading="Construye tu Partner Academy"

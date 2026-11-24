@@ -246,7 +246,7 @@ export default function QueHaceMerahki() {
             <span className="text-accent-purple text-xs font-bold tracking-widest uppercase mb-3 block">Capa 05 / 05</span>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Credenciales digitales verificables</h2>
             <p className="text-white/40 text-sm italic mb-6">Credenciales verificables y Skills Intelligence · POK</p>
-            <p className="text-white/60 leading-relaxed mb-8">Merahki.ai integra POK, la infraestructura de Skills Intelligence y credenciales que conecta educación, habilidades y empleo: +1,200 instituciones conectadas, gobiernos y empresas en Latinoamérica, el Caribe y Estados Unidos, y cada credencial emitida convertida en datos de habilidades. Única plataforma en LATAM con 100% de los estándares globales de ciberseguridad e infraestructura.</p>
+            <p className="text-white/60 leading-relaxed mb-8">merahki.ai integra POK, la infraestructura de Skills Intelligence y credenciales que conecta educación, habilidades y empleo: +1,200 instituciones conectadas, gobiernos y empresas en Latinoamérica, el Caribe y Estados Unidos, y cada credencial emitida convertida en datos de habilidades. Única plataforma en LATAM con 100% de los estándares globales de ciberseguridad e infraestructura.</p>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <div className="grid sm:grid-cols-2 gap-3">
@@ -338,43 +338,15 @@ export default function QueHaceMerahki() {
         </div>
       </section>
 
-      {/* Pricing credenciales NFT */}
+      {/* Credenciales con POK (sin precios: se cotizan por volumen) */}
       <section className="relative py-20 px-6 border-t border-white/5">
         <div className="relative z-10 max-w-4xl mx-auto">
           <AnimatedSection>
-            <span className="text-white/30 text-xs font-medium tracking-widest uppercase mb-3 block">Comercial</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Volumen que escala con la institución.</h2>
-            <p className="text-white/55 text-sm leading-relaxed mb-8">Las credenciales Web2 son gratuitas y de emisión ilimitada. Los precios escalonados aplican a credenciales NFT con propiedad del participante e inmutabilidad en blockchain pública.</p>
+            <span className="text-white/30 text-xs font-medium tracking-widest uppercase mb-3 block">Credenciales</span>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">POK emite credenciales web gratuitas e ilimitadas, y credenciales NFT que se cotizan por volumen.</h2>
+            <p className="text-white/55 text-sm leading-relaxed mb-8">Las credenciales web no tienen costo ni límite de emisión. Las credenciales NFT, con propiedad del participante e inmutabilidad en blockchain pública, se cotizan según el volumen de cada institución. El valor se entrega en la propuesta.</p>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
-            <div className="overflow-x-auto mb-8">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="text-left py-3 px-4 text-white/50 font-medium">Volumen</th>
-                    <th className="text-left py-3 px-4 text-white/50 font-medium">Precio Total</th>
-                    <th className="text-left py-3 px-4 text-white/50 font-medium">Por Credencial</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    ["1,000", "USD $2,500", "$2.50 / unidad"],
-                    ["5,000", "USD $10,000", "$2.00 / unidad"],
-                    ["10,000", "USD $16,500", "$1.65 / unidad"],
-                    ["50,000", "USD $62,500", "$1.25 / unidad"],
-                    ["100,000", "USD $100,000", "$1.00 / unidad"],
-                  ].map(([vol, total, unit]) => (
-                    <tr key={vol} className="border-b border-white/5 hover:bg-white/[0.02]">
-                      <td className="py-3 px-4 text-white/80 font-medium">{vol}</td>
-                      <td className="py-3 px-4 text-white/70">{total}</td>
-                      <td className="py-3 px-4 text-white/50">{unit}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.15}>
             <h3 className="text-lg font-semibold mb-4">Incluido sin costo adicional</h3>
             <div className="grid sm:grid-cols-2 gap-3">
               {[
@@ -391,49 +363,7 @@ export default function QueHaceMerahki() {
                 </div>
               ))}
             </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Marketing y sitios web */}
-      <section className="relative py-20 px-6 border-t border-white/5">
-        <GlowBackground indigoPosition={{ x: "70%", y: "40%" }} rustPosition={{ x: "30%", y: "60%" }} />
-        <div className="relative z-10 max-w-4xl mx-auto">
-          <AnimatedSection>
-            <span className="text-white/30 text-xs font-medium tracking-widest uppercase mb-3 block">Servicios adicionales</span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Un growth squad dedicado para escalar matrículas.</h2>
-            <p className="text-white/55 text-sm leading-relaxed mb-8">Para instituciones que necesitan acelerar conversiones, Merahki.ai opera campañas, integra el stack y construye sitios de academia orientados a conversión — desde el diseño estratégico hasta el despliegue técnico.</p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <div className="grid grid-cols-3 gap-4 mb-10">
-              {[
-                { v: "+40%", l: "Promedio de matrículas tras activar el growth squad" },
-                { v: "3×", l: "Más rápido el time-to-first-enrollment" },
-                { v: "−35%", l: "Reducción del costo por adquisición" },
-              ].map((s) => (
-                <div key={s.l} className="glass-card rounded-xl p-5 text-center">
-                  <p className="text-2xl font-bold text-gradient-peach-purple">{s.v}</p>
-                  <p className="text-white/50 text-xs mt-1">{s.l}</p>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-          <AnimatedSection delay={0.15}>
-            <h3 className="text-lg font-semibold mb-4">Estructura comercial</h3>
-            <div className="space-y-3">
-              <div className="glass-card rounded-xl p-5">
-                <p className="text-white font-semibold text-sm">Setup · USD $2,200 + IVA</p>
-                <p className="text-white/55 text-xs mt-1">Estrategia, integración de stack, activos de conversión y primera campaña.</p>
-              </div>
-              <div className="glass-card rounded-xl p-5">
-                <p className="text-white font-semibold text-sm">Retainer · USD $1,100 + IVA / mes</p>
-                <p className="text-white/55 text-xs mt-1">Gestión continua, optimización de funnels, A/B testing y reportes ejecutivos semanales.</p>
-              </div>
-              <div className="glass-card rounded-xl p-5">
-                <p className="text-white font-semibold text-sm">Sitios web de academia</p>
-                <p className="text-white/55 text-xs mt-1">Ciclo de lanzamiento ágil, aumento de registros, IA + Core Web Vitals + soporte post-lanzamiento.</p>
-              </div>
-            </div>
+            <a href="/es#cotizacion" className="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-white hover:text-accent-peach transition-colors">Solicitar cotización a la medida <ArrowRight className="w-4 h-4" /></a>
           </AnimatedSection>
         </div>
       </section>

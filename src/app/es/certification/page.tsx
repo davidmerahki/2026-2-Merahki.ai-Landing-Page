@@ -450,7 +450,7 @@ export default function CertificationPageES() {
         </div>
       </section>
 
-      {/* NFT Credentials Pricing */}
+      {/* NFT credentials: sin tabla de precios (se cotizan por volumen, 24-nov-2026) */}
       <section className="relative py-20 px-6">
         <GlowBackground
           indigoPosition={{ x: "60%", y: "40%" }}
@@ -458,67 +458,15 @@ export default function CertificationPageES() {
         />
         <div className="relative z-10 max-w-3xl mx-auto">
           <AnimatedSection>
-            <div className="text-center mb-8 space-y-3">
+            <div className="text-center space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold">
                 Credenciales{" "}
                 <span className="text-gradient-peach-purple">NFT</span>
               </h2>
-              <p className="text-white/60 font-medium">
-                Condiciones Especiales Prepago *
-              </p>
-              <p className="text-white/40 text-sm">
-                Condiciones preferenciales vigentes hasta el 31 de mayo de 2026. A partir de esa fecha aplicará el esquema estándar de precios.
-              </p>
+              <p className="text-white/70 font-medium">Las credenciales NFT se cotizan por volumen, y las credenciales web son gratuitas e ilimitadas.</p>
+              <p className="text-white/50 text-sm leading-relaxed max-w-2xl mx-auto">Cada credencial NFT pertenece al participante y queda en una blockchain pública. El valor depende del volumen que emitirá tu institución y te llega en la propuesta.</p>
+              <a href="/es#cotizacion" className="inline-flex items-center justify-center mt-4 px-6 py-3 rounded-full bg-white text-black text-sm font-semibold hover:bg-white/90 transition-colors">Solicitar cotización a la medida</a>
             </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-white/10">
-              <div className="grid grid-cols-3 bg-white/5 px-6 py-4 border-b border-white/10">
-                <span className="text-white/50 text-sm font-medium">
-                  Cantidad de certificados
-                </span>
-                <span className="text-center text-white/50 text-sm font-medium">
-                  Precio por pack **
-                </span>
-                <span className="text-center text-white/50 text-sm font-medium">
-                  Precio por certificado **
-                </span>
-              </div>
-              {[
-                { qty: "1.000",   pack: "$1.500",  unit: "$1,50" },
-                { qty: "5.000",   pack: "$6.250",  unit: "$1,25" },
-                { qty: "10.000",  pack: "$11.000", unit: "$1,10" },
-                { qty: "20.000",  pack: "$20.000", unit: "$1,00" },
-                { qty: "50.000",  pack: "$45.000", unit: "$0,90" },
-                { qty: "100.000", pack: "$80.000", unit: "$0,80" },
-              ].map((row, i) => (
-                <div
-                  key={row.qty}
-                  className={`grid grid-cols-3 px-6 py-4 items-center border-b border-white/5 last:border-0 ${
-                    i % 2 === 0 ? "bg-white/[0.02]" : ""
-                  }`}
-                >
-                  <span className="text-white/70 text-sm font-medium">
-                    {row.qty}
-                  </span>
-                  <span className="text-center text-white font-semibold text-sm">
-                    {row.pack}
-                  </span>
-                  <span className="text-center text-accent-purple font-bold text-sm">
-                    {row.unit}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.15}>
-            <p className="mt-5 text-white/30 text-xs text-center leading-relaxed">
-              * POK se reserva el derecho de modificar el esquema de precios, las condiciones de emisión de certificados, los planes con descuento, los precios por volumen, entre otros.
-              <br />
-              ** Todos los precios están expresados en dólares estadounidenses (USD). Se añadirá IVA u otros impuestos aplicables. En el caso de que la facturación sea emitida desde la sede de POK en Uruguay, no aplica IVA. Si existieran retenciones en el pago, serán asumidas por la parte que realiza el pago.
-            </p>
           </AnimatedSection>
         </div>
       </section>

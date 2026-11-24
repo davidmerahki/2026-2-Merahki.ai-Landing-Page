@@ -2,7 +2,6 @@ import { buildMetadata, buildServiceJsonLd } from "@/lib/seo/metadata";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 import ContactSection from "@/components/sections/ContactSection";
-import OurProposal from "@/components/sections/OurProposal";
 import LogoCarousel from "@/components/sections/LogoCarousel";
 import TestimonialsEN from "@/components/sections/TestimonialsEN";
 import Link from "next/link";
@@ -1447,7 +1446,6 @@ export default function ContinuingEducationPage() {
         </div>
       </section>
 
-      <OurProposal />
 
       <ContactSection
         heading="Scale your continuing education"

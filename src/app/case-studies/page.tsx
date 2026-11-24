@@ -73,7 +73,7 @@ export default function CaseStudiesPage() {
             <Link href="/case-studies/uniandes-sanofi-microbiota" className="block rounded-3xl border border-white/10 bg-white/[0.03] p-7 md:p-10 hover:bg-white/[0.05] transition-colors">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent-peach">Uniandes × Sanofi CHC · Medical education</p>
               <h2 className="mt-5 text-3xl md:text-4xl font-bold text-white leading-tight">
-                From 8 weeks to USD $550K: multinational medical education across Latin America.
+                Uniandes and Sanofi CHC certified 200+ allergists in 8 countries with two programs produced in 8 weeks.
               </h2>
               <p className="mt-5 text-white/60 text-base md:text-lg leading-relaxed">
                 Two clinical tracks, 200+ allergists, 95+ digital badges, and 8 countries reached.
