@@ -1,17 +1,29 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import GlowBackground from "@/components/ui/GlowBackground";
 import AnimatedSection from "@/components/ui/AnimatedSection";
 
+// Traducción al inglés de la política. La versión que prevalece es la española,
+// servida en /es/privacy-policy (src/app/es/privacy-policy/page.tsx).
 export const metadata: Metadata = {
-  title: "Política de Uso y Tratamiento de Datos Personales",
+  title: "Personal Data Use and Processing Policy",
   description:
-    "Política de uso y tratamiento de datos personales de merahki.ai — Ecosistema de Academias y Aprendizaje en Línea. Versión 1.0, mayo de 2026.",
+    "Personal data use and processing policy of merahki.ai — Online Academies and Learning Ecosystem. Version 1.0, May 2026.",
   openGraph: {
-    title: "Política de Uso y Tratamiento de Datos Personales — merahki.ai",
+    title: "Personal Data Use and Processing Policy — merahki.ai",
     description:
-      "Conoce cómo merahki.ai protege y trata tus datos personales conforme a la legislación colombiana y estándares internacionales.",
+      "Learn how merahki.ai protects and processes your personal data in accordance with Colombian law and international standards.",
     url: "https://merahki.ai/privacy-policy",
+    locale: "en_US",
     type: "website",
+  },
+  alternates: {
+    canonical: "https://merahki.ai/privacy-policy",
+    languages: {
+      es: "https://merahki.ai/es/privacy-policy",
+      "en-US": "https://merahki.ai/privacy-policy",
+      "x-default": "https://merahki.ai/privacy-policy",
+    },
   },
 };
 
@@ -32,87 +44,104 @@ export default function PrivacyPolicyPage() {
                 merahki.ai
               </p>
               <p className="text-white/60 text-sm">
-                Ecosistema de Academias y Aprendizaje en Línea
+                Online Academies and Learning Ecosystem
               </p>
               <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mt-8">
-                POLÍTICA DE USO Y
+                PERSONAL DATA
                 <br />
-                TRATAMIENTO DE
+                USE AND PROCESSING
                 <br />
-                DATOS PERSONALES
+                POLICY
               </h1>
               <div className="text-white/50 text-sm space-y-1 mt-6">
-                <p>Versión 1.0</p>
-                <p>Mayo de 2026</p>
+                <p>Version 1.0</p>
+                <p>May 2026</p>
                 <p>Bogotá, D.C. — Colombia</p>
               </div>
+              <p className="text-white/50 text-sm mt-6">
+                This English version is provided for convenience. If there is
+                any difference, the{" "}
+                <Link
+                  href="/es/privacy-policy"
+                  hrefLang="es"
+                  className="text-accent-purple hover:underline"
+                >
+                  Spanish version
+                </Link>{" "}
+                prevails.
+              </p>
             </div>
           </AnimatedSection>
 
           {/* Content */}
           <div className="space-y-12 text-white/70 leading-relaxed">
-            {/* 1. Principios Generales */}
+            {/* 1. General Principles */}
             <AnimatedSection delay={0.15}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  1. Principios Generales
+                  1. General Principles
                 </h2>
                 <p>
-                  MERAHKI.AI (en adelante, &quot;merahki.ai&quot;, &quot;la
-                  Plataforma&quot; o &quot;la Empresa&quot;), en su calidad de
-                  plataforma tecnológica dedicada a la creación, gestión y
-                  distribución de academias, cursos y programas de aprendizaje en
-                  línea, garantiza la protección de derechos fundamentales como
-                  el Habeas Data, la privacidad, la intimidad, el buen nombre y
-                  la libertad informativa de todos sus usuarios, clientes,
-                  estudiantes, instructores y terceros interesados.
+                  merahki.ai (hereinafter, &quot;merahki.ai,&quot; &quot;the
+                  Platform,&quot; or &quot;the Company&quot;), as a technology
+                  platform dedicated to the creation, management, and
+                  distribution of online academies, courses, and learning
+                  programs, guarantees the protection of fundamental rights such
+                  as Habeas Data, privacy, intimacy, good name, and freedom of
+                  information of all its users, clients, students, instructors,
+                  and interested third parties.
                 </p>
                 <p>
-                  Todas las actuaciones relativas al tratamiento de datos
-                  personales se regirán por los principios de buena fe,
-                  legalidad, autodeterminación informática, libertad,
-                  transparencia, seguridad y confidencialidad.
+                  All actions relating to the processing of personal data shall
+                  be governed by the principles of good faith, legality,
+                  informational self-determination, freedom, transparency,
+                  security, and confidentiality.
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* 2. Identificación del Responsable del Tratamiento */}
+            {/* 2. Identification of the Data Controller */}
             <AnimatedSection delay={0.2}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  2. Identificación del Responsable del Tratamiento
+                  2. Identification of the Data Controller
                 </h2>
                 <p>
-                  MERAHKI.AI es una persona jurídica de derecho privado, dedicada
-                  al desarrollo y operación de soluciones tecnológicas para la
-                  educación digital. Opera como plataforma de tipo LMS (Learning
-                  Management System) que permite a organizaciones, instituciones
-                  educativas, empresas y creadores de contenido diseñar,
-                  comercializar y gestionar experiencias de aprendizaje.
+                  merahki.ai is a private-law legal entity dedicated to the
+                  development and operation of technology solutions for digital
+                  education. It operates as an LMS (Learning Management System)
+                  platform that enables organizations, educational institutions,
+                  companies, and content creators to design, market, and manage
+                  learning experiences.
                 </p>
                 <p className="font-semibold text-white">
-                  Datos de contacto del Responsable del Tratamiento:
+                  Contact details of the Data Controller:
                 </p>
                 <ul className="space-y-2 pl-4">
                   <li>
-                    <strong className="text-white">Razón social:</strong>{" "}
+                    <strong className="text-white">Legal name:</strong>{" "}
                     merahki.ai - M Media SAS
                   </li>
                   <li>
-                    <strong className="text-white">NIT:</strong> 901402436
+                    <strong className="text-white">
+                      NIT (Colombian tax ID):
+                    </strong>{" "}
+                    901402436
                   </li>
                   <li>
-                    <strong className="text-white">Domicilio principal:</strong>{" "}
+                    <strong className="text-white">
+                      Principal place of business:
+                    </strong>{" "}
                     Bogotá, D.C., Colombia
                   </li>
                   <li>
                     <strong className="text-white">
-                      Correo electrónico para asuntos de datos personales:
+                      Email for personal data matters:
                     </strong>{" "}
                     datospersonales@merahki.ai
                   </li>
                   <li>
-                    <strong className="text-white">Sitio web:</strong>{" "}
+                    <strong className="text-white">Website:</strong>{" "}
                     <a
                       href="https://merahki.ai"
                       className="text-accent-purple hover:underline"
@@ -124,368 +153,356 @@ export default function PrivacyPolicyPage() {
               </div>
             </AnimatedSection>
 
-            {/* 3. Legislación Aplicable */}
+            {/* 3. Applicable Law */}
             <AnimatedSection delay={0.25}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  3. Legislación Aplicable
+                  3. Applicable Law
                 </h2>
                 <p>
-                  La presente política se rige por la normatividad colombiana
-                  vigente en materia de protección de datos personales,
-                  incluyendo:
+                  This policy is governed by the Colombian regulations in force
+                  on personal data protection, including:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    Constitución Política de Colombia, artículos 15 y 20.
-                  </li>
-                  <li>Ley 1266 de 2008 (Habeas Data financiero).</li>
-                  <li>
-                    Ley 1581 de 2012 (Régimen General de Protección de Datos
-                    Personales).
-                  </li>
-                  <li>Decreto 1377 de 2013.</li>
-                  <li>Decreto Único Reglamentario 1074 de 2015.</li>
-                  <li>Decreto 090 de 2018.</li>
-                  <li>
-                    Sentencias de la Corte Constitucional C-1011 de 2008 y
-                    C-748 de 2011.
+                    Constitución Política de Colombia (Political Constitution of
+                    Colombia), Articles 15 and 20.
                   </li>
                   <li>
-                    Circular 003 de 2018 de la Superintendencia de Industria y
-                    Comercio.
+                    Ley 1266 de 2008 (Law 1266 of 2008; financial Habeas Data).
                   </li>
                   <li>
-                    Guías y pronunciamientos emitidos por la Superintendencia de
+                    Ley 1581 de 2012 (Law 1581 of 2012; General Personal Data
+                    Protection Regime).
+                  </li>
+                  <li>Decreto 1377 de 2013 (Decree 1377 of 2013).</li>
+                  <li>
+                    Decreto Único Reglamentario 1074 de 2015 (Single Regulatory
+                    Decree 1074 of 2015).
+                  </li>
+                  <li>Decreto 090 de 2018 (Decree 090 of 2018).</li>
+                  <li>
+                    Rulings C-1011 of 2008 and C-748 of 2011 of the Corte
+                    Constitucional (Constitutional Court of Colombia).
+                  </li>
+                  <li>
+                    Circular 003 de 2018 (Circular 003 of 2018) of the
+                    Superintendencia de Industria y Comercio (SIC,
+                    Colombia&apos;s data protection authority).
+                  </li>
+                  <li>
+                    Guidelines and opinions issued by the Superintendencia de
                     Industria y Comercio.
                   </li>
                 </ul>
                 <p>
-                  Adicionalmente, merahki.ai observará las disposiciones del
-                  Reglamento General de Protección de Datos de la Unión Europea
-                  (GDPR) cuando los servicios sean prestados a usuarios ubicados
-                  en el Espacio Económico Europeo, así como las regulaciones
-                  locales aplicables de cada jurisdicción donde operen sus
-                  clientes.
+                  In addition, merahki.ai will observe the provisions of the
+                  European Union General Data Protection Regulation (GDPR) when
+                  services are provided to users located in the European
+                  Economic Area, as well as the applicable local regulations of
+                  each jurisdiction where its clients operate.
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* 4. Ámbito de Aplicación */}
+            {/* 4. Scope */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-white">
-                  4. Ámbito de Aplicación
-                </h2>
+                <h2 className="text-2xl font-bold text-white">4. Scope</h2>
                 <p>
-                  La presente política será aplicable a todas las personas
-                  naturales cuyos datos personales sean recolectados,
-                  almacenados, usados, procesados, circulados o suprimidos por
-                  merahki.ai en el marco de la prestación de sus servicios
-                  tecnológicos y educativos, incluyendo pero no limitándose a:
+                  This policy applies to all natural persons whose personal data
+                  is collected, stored, used, processed, circulated, or deleted
+                  by merahki.ai in the course of providing its technology and
+                  educational services, including but not limited to:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    Administradores y operadores de academias creadas en la
-                    plataforma.
+                    Administrators and operators of academies created on the
+                    platform.
                   </li>
                   <li>
-                    Estudiantes y aprendices inscritos en cursos, programas y
-                    rutas de aprendizaje.
+                    Students and learners enrolled in courses, programs, and
+                    learning paths.
+                  </li>
+                  <li>Instructors, tutors, and live session facilitators.</li>
+                  <li>
+                    Users of branded mobile apps built with the Mobile App
+                    Builder.
                   </li>
                   <li>
-                    Instructores, tutores y facilitadores de sesiones en vivo.
+                    Visitors to the website and to academy sites built with the
+                    Website Creation Service.
                   </li>
                   <li>
-                    Usuarios de aplicaciones móviles branded construidas con el
-                    Mobile App Builder.
+                    People who take part in surveys, forms, and assessments
+                    created with the Survey Builder.
                   </li>
                   <li>
-                    Visitantes del sitio web y de los sitios de academias
-                    construidos con el Website Creation Service.
+                    Partners, affiliates, and third parties integrated through
+                    APIs, webhooks, or native integrations.
                   </li>
                   <li>
-                    Personas que participan en encuestas, formularios y
-                    evaluaciones creados con el Survey Builder.
-                  </li>
-                  <li>
-                    Partners, afiliados y terceros integrados mediante API,
-                    webhooks o integraciones nativas.
-                  </li>
-                  <li>
-                    Prospectos y leads capturados a través de formularios de
-                    registro, landing pages y campañas educativas.
+                    Prospects and leads captured through registration forms,
+                    landing pages, and educational campaigns.
                   </li>
                 </ul>
                 <p>
-                  Esta política aplica tanto dentro como fuera del territorio
-                  colombiano, siempre que merahki.ai actúe como Responsable o
-                  Encargado del Tratamiento de datos personales.
+                  This policy applies both inside and outside Colombian
+                  territory, whenever merahki.ai acts as Data Controller or Data
+                  Processor of personal data.
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* 5. Definiciones */}
+            {/* 5. Definitions */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  5. Definiciones
+                  5. Definitions
                 </h2>
                 <ul className="space-y-4">
                   <li>
-                    <strong className="text-white">Autorización:</strong>{" "}
-                    Consentimiento previo, expreso e informado del Titular para
-                    llevar a cabo el Tratamiento de sus datos personales.
+                    <strong className="text-white">Authorization:</strong>{" "}
+                    Prior, express, and informed consent of the Data Subject to
+                    carry out the Processing of their personal data.
                   </li>
                   <li>
-                    <strong className="text-white">Base de datos:</strong>{" "}
-                    Conjunto organizado de datos personales que sea objeto de
-                    Tratamiento, incluyendo las bases gestionadas en la
-                    plataforma merahki.ai y sus integraciones con sistemas CRM,
-                    pasarelas de pago y herramientas de marketing.
+                    <strong className="text-white">Database:</strong> An
+                    organized set of personal data subject to Processing,
+                    including the databases managed on the merahki.ai platform
+                    and its integrations with CRM systems, payment gateways, and
+                    marketing tools.
                   </li>
                   <li>
-                    <strong className="text-white">Dato personal:</strong>{" "}
-                    Cualquier información vinculada o que pueda asociarse a una o
-                    varias personas naturales determinadas o determinables.
+                    <strong className="text-white">Personal data:</strong> Any
+                    information linked or that may be associated with one or more
+                    identified or identifiable natural persons.
                   </li>
                   <li>
-                    <strong className="text-white">Dato sensible:</strong> Datos
-                    que afectan la intimidad del titular o cuyo uso indebido
-                    puede generar discriminación, tales como datos de salud,
-                    orientación política, convicciones religiosas, datos
-                    biométricos, vida sexual, origen racial o étnico, entre
-                    otros.
-                  </li>
-                  <li>
-                    <strong className="text-white">
-                      Encargado del Tratamiento:
-                    </strong>{" "}
-                    Persona natural o jurídica que por sí misma o en asocio con
-                    otros realice el Tratamiento de datos personales por cuenta
-                    del Responsable. En el contexto de merahki.ai, incluye
-                    proveedores de infraestructura cloud, pasarelas de pago
-                    (Stripe, PayPal), plataformas de videollamada (Zoom,
-                    Microsoft Teams, Webex), herramientas de email marketing
-                    (Mailchimp, ActiveCampaign), CRM (HubSpot), y servicios de
-                    analítica (Google Analytics, MixPanel).
+                    <strong className="text-white">Sensitive data:</strong> Data
+                    that affects the Data Subject&apos;s intimacy or whose
+                    improper use may lead to discrimination, such as health data,
+                    political orientation, religious beliefs, biometric data,
+                    sex life, and racial or ethnic origin, among others.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Responsable del Tratamiento:
+                      Data Processor (Encargado del Tratamiento):
                     </strong>{" "}
-                    merahki.ai, quien decide sobre las bases de datos y el
-                    tratamiento de los datos personales.
+                    A natural or legal person who, alone or jointly with others,
+                    carries out the Processing of personal data on behalf of the
+                    Controller. In the context of merahki.ai, this includes cloud
+                    infrastructure providers, payment gateways (Stripe, PayPal),
+                    video conferencing platforms (Zoom, Microsoft Teams, Webex),
+                    email marketing tools (Mailchimp, ActiveCampaign), CRM
+                    (HubSpot), and analytics services (Google Analytics,
+                    MixPanel).
                   </li>
                   <li>
-                    <strong className="text-white">Titular:</strong> Persona
-                    natural cuyos datos personales sean objeto de Tratamiento.
+                    <strong className="text-white">
+                      Data Controller (Responsable del Tratamiento):
+                    </strong>{" "}
+                    merahki.ai, which makes decisions about the databases and the
+                    processing of personal data.
                   </li>
                   <li>
-                    <strong className="text-white">Tratamiento:</strong>{" "}
-                    Cualquier operación o conjunto de operaciones sobre datos
-                    personales, tales como la recolección, almacenamiento, uso,
-                    circulación, análisis mediante inteligencia artificial, o
-                    supresión.
+                    <strong className="text-white">
+                      Data Subject (Titular):
+                    </strong>{" "}
+                    The natural person whose personal data is subject to
+                    Processing.
                   </li>
                   <li>
-                    <strong className="text-white">Plataforma:</strong> El
-                    conjunto de herramientas, servicios y funcionalidades
-                    ofrecidos por merahki.ai, incluyendo el LMS, el Mobile App
-                    Builder, el Website Builder, el Interactive Video Player, el
-                    AI Assistant, el Survey Builder, las sesiones en vivo, el
-                    panel de Analytics &amp; Reports, y las integraciones con
-                    terceros.
+                    <strong className="text-white">Processing:</strong> Any
+                    operation or set of operations on personal data, such as
+                    collection, storage, use, circulation, analysis through
+                    artificial intelligence, or deletion.
                   </li>
                   <li>
-                    <strong className="text-white">Academia:</strong> Espacio de
-                    aprendizaje digital creado y administrado por un cliente de
-                    merahki.ai utilizando las herramientas de la plataforma.
+                    <strong className="text-white">Platform:</strong> The set of
+                    tools, services, and features offered by merahki.ai,
+                    including the LMS, the Mobile App Builder, the Website
+                    Builder, the Interactive Video Player, the AI Assistant, the
+                    Survey Builder, live sessions, the Analytics &amp; Reports
+                    dashboard, and third-party integrations.
+                  </li>
+                  <li>
+                    <strong className="text-white">Academy:</strong> A digital
+                    learning space created and managed by a merahki.ai client
+                    using the platform&apos;s tools.
                   </li>
                 </ul>
               </div>
             </AnimatedSection>
 
-            {/* 6. Principios Específicos */}
+            {/* 6. Specific Principles */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  6. Principios Específicos
+                  6. Specific Principles
                 </h2>
                 <p>
-                  merahki.ai aplicará los siguientes principios en la
-                  recolección, manejo, uso, tratamiento, almacenamiento e
-                  intercambio de datos personales:
+                  merahki.ai will apply the following principles in the
+                  collection, handling, use, processing, storage, and exchange of
+                  personal data:
                 </p>
                 <ul className="space-y-3">
                   <li>
                     <strong className="text-white">
-                      Principio de legalidad:
+                      Principle of legality:
                     </strong>{" "}
-                    Se dará aplicación a las disposiciones vigentes que rigen el
-                    tratamiento de datos personales y demás derechos
-                    fundamentales conexos.
+                    The provisions in force governing the processing of personal
+                    data and other related fundamental rights will be applied.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Principio de libertad:
+                      Principle of freedom:
                     </strong>{" "}
-                    El tratamiento de datos personales solo puede llevarse a cabo
-                    con el consentimiento previo, expreso e informado del
-                    Titular, o en ausencia de mandato legal o judicial que releve
-                    el consentimiento.
+                    Personal data may only be processed with the prior, express,
+                    and informed consent of the Data Subject, or in the absence
+                    of a legal or judicial mandate that waives consent.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Principio de finalidad:
+                      Principle of purpose:
                     </strong>{" "}
-                    El tratamiento de datos personales estará subordinado a una
-                    finalidad legítima, la cual debe ser informada al respectivo
-                    titular.
+                    The processing of personal data will be subject to a
+                    legitimate purpose, which must be disclosed to the
+                    respective Data Subject.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Principio de veracidad o calidad:
+                      Principle of accuracy or quality:
                     </strong>{" "}
-                    La información sujeta a tratamiento debe ser veraz, completa,
-                    exacta, actualizada, comprobable y comprensible.
+                    Information subject to processing must be truthful,
+                    complete, accurate, up to date, verifiable, and
+                    understandable.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Principio de transparencia:
+                      Principle of transparency:
                     </strong>{" "}
-                    Se garantizará el derecho del Titular a obtener de
-                    merahki.ai, en cualquier momento y sin restricciones,
-                    información acerca de la existencia de cualquier tipo de dato
-                    personal que sea de su interés.
+                    The Data Subject&apos;s right to obtain from merahki.ai, at
+                    any time and without restriction, information about the
+                    existence of any type of personal data of interest to them
+                    will be guaranteed.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Principio de acceso y circulación restringida:
+                      Principle of restricted access and circulation:
                     </strong>{" "}
-                    Los datos personales no estarán disponibles en medios de
-                    divulgación masiva, salvo que el acceso sea técnicamente
-                    controlable.
+                    Personal data will not be made available in mass media,
+                    unless access is technically controllable.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Principio de seguridad:
+                      Principle of security:
                     </strong>{" "}
-                    Los datos serán protegidos mediante medidas tecnológicas,
-                    protocolos de cifrado y medidas administrativas que
-                    garanticen su integridad y confidencialidad.
+                    Data will be protected through technological measures,
+                    encryption protocols, and administrative measures that
+                    guarantee its integrity and confidentiality.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Principio de confidencialidad:
+                      Principle of confidentiality:
                     </strong>{" "}
-                    Todas las personas que administren, manejen o tengan acceso a
-                    datos personales se comprometen a conservar la
-                    confidencialidad de la información.
+                    All persons who administer, handle, or have access to
+                    personal data undertake to maintain the confidentiality of
+                    the information.
                   </li>
                 </ul>
               </div>
             </AnimatedSection>
 
-            {/* 7. Tratamiento y Finalidades de los Datos */}
+            {/* 7. Data Processing and Purposes */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold text-white">
-                  7. Tratamiento y Finalidades de los Datos
+                  7. Data Processing and Purposes
                 </h2>
                 <p>
-                  Los datos personales recolectados por merahki.ai serán
-                  utilizados para las siguientes finalidades, clasificadas por
-                  tipo de usuario:
+                  The personal data collected by merahki.ai will be used for the
+                  following purposes, classified by type of user:
                 </p>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    7.1 Administradores de Academias (Clientes B2B)
+                    7.1 Academy Administrators (B2B Clients)
                   </h3>
                   <ul className="space-y-2 pl-4 list-disc list-inside">
                     <li>
-                      Gestión de la relación contractual y prestación de los
-                      servicios de plataforma.
+                      Management of the contractual relationship and provision of
+                      platform services.
                     </li>
                     <li>
-                      Procesamiento de pagos y facturación a través de pasarelas
-                      integradas (Stripe, PayPal, Shopify).
+                      Payment processing and billing through integrated payment
+                      gateways (Stripe, PayPal, Shopify).
+                    </li>
+                    <li>Commercial, technical, and support communications.</li>
+                    <li>
+                      Generation of analytical reports through the Analytics
+                      &amp; Reports dashboard.
                     </li>
                     <li>
-                      Comunicaciones comerciales, técnicas y de soporte.
-                    </li>
-                    <li>
-                      Generación de reportes analíticos mediante el dashboard de
-                      Analytics &amp; Reports.
-                    </li>
-                    <li>
-                      Provisión de insights de negocio generados por el AI
+                      Provision of business insights generated by the AI
                       Assistant.
                     </li>
                     <li>
-                      Integración con herramientas de CRM (HubSpot), email
-                      marketing y analítica.
+                      Integration with CRM tools (HubSpot), email marketing, and
+                      analytics.
                     </li>
                   </ul>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    7.2 Estudiantes y Aprendices
+                    7.2 Students and Learners
                   </h3>
                   <p>
-                    merahki.ai recolecta y trata datos de estudiantes en calidad
-                    de Encargado del Tratamiento por cuenta del Administrador de
-                    la Academia (Responsable). Las finalidades incluyen:
+                    merahki.ai collects and processes student data as Data
+                    Processor on behalf of the Academy Administrator (Data
+                    Controller). The purposes include:
                   </p>
                   <ul className="space-y-2 pl-4 list-disc list-inside">
                     <li>
-                      Registro e inscripción en cursos, programas y rutas de
-                      aprendizaje.
+                      Registration and enrollment in courses, programs, and
+                      learning paths.
                     </li>
                     <li>
-                      Seguimiento del progreso de aprendizaje, resultados de
-                      exámenes, respuestas a encuestas e historial de
-                      participación.
+                      Tracking of learning progress, exam results, survey
+                      responses, and participation history.
                     </li>
                     <li>
-                      Personalización de experiencias de aprendizaje adaptativo
-                      mediante inteligencia artificial.
+                      Personalization of adaptive learning experiences through
+                      artificial intelligence.
                     </li>
                     <li>
-                      Emisión de certificados y credenciales digitales
+                      Issuance of certificates and digital credentials
                       (Accredible, Credly).
                     </li>
                     <li>
-                      Facilitación de sesiones en vivo a través de Zoom,
-                      Microsoft Teams, Webex, Google Meet y Calendly.
+                      Facilitation of live sessions through Zoom, Microsoft
+                      Teams, Webex, Google Meet, and Calendly.
                     </li>
+                    <li>Delivery of push notifications in branded mobile apps.</li>
                     <li>
-                      Entrega de notificaciones push en aplicaciones móviles
-                      branded.
-                    </li>
-                    <li>
-                      Generación automática de subtítulos, transcripciones y
-                      traducciones en videos interactivos.
+                      Automatic generation of subtitles, transcripts, and
+                      translations in interactive videos.
                     </li>
                   </ul>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    7.3 Instructores y Facilitadores
+                    7.3 Instructors and Facilitators
                   </h3>
                   <ul className="space-y-2 pl-4 list-disc list-inside">
+                    <li>Profile management and assignment of live sessions.</li>
                     <li>
-                      Gestión de perfiles y asignación de sesiones en vivo.
+                      Attendance tracking and generation of activity reports.
                     </li>
                     <li>
-                      Registro de asistencia y generación de reportes de
-                      actividad.
-                    </li>
-                    <li>
-                      Coordinación de sesiones a través de integraciones con
+                      Coordination of sessions through integrations with
                       Calendly.
                     </li>
                   </ul>
@@ -493,498 +510,475 @@ export default function PrivacyPolicyPage() {
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    7.4 Prospectos y Leads
+                    7.4 Prospects and Leads
                   </h3>
                   <ul className="space-y-2 pl-4 list-disc list-inside">
                     <li>
-                      Captura y cualificación de leads a través del Survey
-                      Builder y formularios de registro.
+                      Lead capture and qualification through the Survey Builder
+                      and registration forms.
                     </li>
                     <li>
-                      Segmentación de audiencias y personalización de
-                      comunicaciones de marketing.
+                      Audience segmentation and personalization of marketing
+                      communications.
                     </li>
                     <li>
-                      Seguimiento de campañas mediante Google Firebase, Facebook
-                      Business SDK, UTMs y Google Analytics.
+                      Campaign tracking through Google Firebase, Facebook
+                      Business SDK, UTMs, and Google Analytics.
                     </li>
                   </ul>
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* 8. Categorías de Datos Recolectados */}
+            {/* 8. Categories of Data Collected */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold text-white">
-                  8. Categorías de Datos Recolectados
+                  8. Categories of Data Collected
                 </h2>
                 <p>
-                  De acuerdo con las funcionalidades de la plataforma, merahki.ai
-                  puede recolectar las siguientes categorías de datos:
+                  Depending on the features of the platform, merahki.ai may
+                  collect the following categories of data:
                 </p>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    8.1 Datos de identificación
+                    8.1 Identification data
                   </h3>
                   <p>
-                    Nombre completo, correo electrónico, número de teléfono, país
-                    de residencia, idioma preferido, fotografía de perfil e
-                    información de inicio de sesión (incluido login biométrico en
-                    aplicaciones móviles y autenticación vía OpenID, SAML o SSO).
+                    Full name, email address, phone number, country of
+                    residence, preferred language, profile photo, and login
+                    information (including biometric login in mobile apps and
+                    authentication via OpenID, SAML, or SSO).
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    8.2 Datos de actividad de aprendizaje
+                    8.2 Learning activity data
                   </h3>
                   <p>
-                    Progreso en cursos, resultados de evaluaciones y exámenes,
-                    tiempo de estudio, historial de visualización de videos
-                    (plays, re-watches, drop-offs), interacciones sociales dentro
-                    de cursos, respuestas a encuestas, participación en sesiones
-                    en vivo, asistencia y desempeño en actividades SCORM y xAPI.
+                    Course progress, assessment and exam results, study time,
+                    video viewing history (plays, re-watches, drop-offs), social
+                    interactions within courses, survey responses, participation
+                    in live sessions, attendance, and performance in SCORM and
+                    xAPI activities.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    8.3 Datos transaccionales y financieros
+                    8.3 Transactional and financial data
                   </h3>
                   <p>
-                    Historial de compras de cursos, suscripciones, compras dentro
-                    de aplicaciones móviles (in-app purchases), métodos de pago
-                    procesados por Stripe y PayPal (merahki.ai no almacena datos
-                    completos de tarjetas de crédito), e información fiscal
-                    gestionada mediante Stripe Tax y Quaderno.
+                    Course purchase history, subscriptions, purchases within
+                    mobile apps (in-app purchases), payment methods processed by
+                    Stripe and PayPal (merahki.ai does not store full credit card
+                    data), and tax information managed through Stripe Tax and
+                    Quaderno.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    8.4 Datos de navegación y analítica
+                    8.4 Browsing and analytics data
                   </h3>
                   <p>
-                    Dirección IP, tipo de navegador y dispositivo, sistema
-                    operativo, páginas visitadas, tiempo de sesión, cookies,
-                    datos de comportamiento capturados por Google Analytics,
-                    Google Tag Manager, Facebook Pixel, MixPanel, Hotjar,
-                    Fullstory, Mouseflow y Fullsession.
+                    IP address, browser and device type, operating system, pages
+                    visited, session time, cookies, and behavioral data captured
+                    by Google Analytics, Google Tag Manager, Facebook Pixel,
+                    MixPanel, Hotjar, Fullstory, Mouseflow, and Fullsession.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    8.5 Datos generados por inteligencia artificial
+                    8.5 Data generated by artificial intelligence
                   </h3>
                   <p>
-                    Interacciones con el AI Assistant (prompts y respuestas),
-                    contenido generado automáticamente (resúmenes de video,
-                    subtítulos, traducciones, evaluaciones, outlines de curso), e
-                    insights de negocio generados a partir del análisis de datos
-                    de la plataforma.
+                    Interactions with the AI Assistant (prompts and responses),
+                    automatically generated content (video summaries, subtitles,
+                    translations, assessments, course outlines), and business
+                    insights generated from the analysis of platform data.
                   </p>
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* 9. Tratamiento de Datos Sensibles */}
+            {/* 9. Processing of Sensitive Data */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  9. Tratamiento de Datos Sensibles
+                  9. Processing of Sensitive Data
                 </h2>
                 <p>
-                  merahki.ai no solicita ni recolecta intencionalmente datos
-                  sensibles. Sin embargo, en el contexto de academias
-                  especializadas (por ejemplo, en el sector salud, fitness o
-                  bienestar), los Administradores de Academias pueden configurar
-                  formularios o encuestas que recolecten información sensible de
-                  sus estudiantes.
+                  merahki.ai does not intentionally request or collect sensitive
+                  data. However, in the context of specialized academies (for
+                  example, in the health, fitness, or wellness sector), Academy
+                  Administrators may set up forms or surveys that collect
+                  sensitive information from their students.
                 </p>
-                <p>En estos casos:</p>
+                <p>In these cases:</p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    El Administrador de la Academia actúa como Responsable del
-                    Tratamiento y debe obtener autorización explícita del
-                    Titular.
+                    The Academy Administrator acts as Data Controller and must
+                    obtain explicit authorization from the Data Subject.
                   </li>
                   <li>
-                    merahki.ai actúa como Encargado del Tratamiento y se limita a
-                    procesar dichos datos conforme a las instrucciones del
-                    Responsable.
+                    merahki.ai acts as Data Processor and limits itself to
+                    processing such data in accordance with the Controller&apos;s
+                    instructions.
                   </li>
                   <li>
-                    merahki.ai aplicará medidas de seguridad reforzadas para la
-                    protección de datos sensibles almacenados en la plataforma.
+                    merahki.ai will apply enhanced security measures to protect
+                    sensitive data stored on the platform.
                   </li>
                 </ul>
               </div>
             </AnimatedSection>
 
-            {/* 10. Uso de Inteligencia Artificial y Tratamiento Automatizado */}
+            {/* 10. Use of Artificial Intelligence and Automated Processing */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  10. Uso de Inteligencia Artificial y Tratamiento Automatizado
+                  10. Use of Artificial Intelligence and Automated Processing
                 </h2>
                 <p>
-                  merahki.ai incorpora funcionalidades de inteligencia artificial
-                  en múltiples componentes de la plataforma, incluyendo:
+                  merahki.ai incorporates artificial intelligence features into
+                  multiple components of the platform, including:
                 </p>
                 <ul className="space-y-3">
                   <li>
                     <strong className="text-white">AI Assistant:</strong>{" "}
-                    Generación de outlines de curso, evaluaciones, ebooks e
-                    insights de negocio a partir de datos del usuario.
+                    Generation of course outlines, assessments, ebooks, and
+                    business insights from user data.
+                  </li>
+                  <li>
+                    <strong className="text-white">Adaptive learning:</strong>{" "}
+                    Personalization of learning paths based on each
+                    student&apos;s progress, style, and pace.
+                  </li>
+                  <li>
+                    <strong className="text-white">Interactive video:</strong>{" "}
+                    Automatic generation of subtitles, transcripts, translations,
+                    summaries, and tables of contents.
+                  </li>
+                  <li>
+                    <strong className="text-white">AI-powered analytics:</strong>{" "}
+                    Automated answers to queries about business performance and
+                    learner behavior.
                   </li>
                   <li>
                     <strong className="text-white">
-                      Aprendizaje adaptativo:
+                      AI-powered Survey Builder:
                     </strong>{" "}
-                    Personalización de rutas de aprendizaje basada en el
-                    progreso, estilo y ritmo de cada estudiante.
-                  </li>
-                  <li>
-                    <strong className="text-white">Video interactivo:</strong>{" "}
-                    Generación automática de subtítulos, transcripciones,
-                    traducciones, resúmenes y tablas de contenido.
-                  </li>
-                  <li>
-                    <strong className="text-white">Analytics con IA:</strong>{" "}
-                    Respuestas automatizadas a consultas sobre rendimiento de
-                    negocio y comportamiento de aprendices.
-                  </li>
-                  <li>
-                    <strong className="text-white">
-                      Survey Builder con IA:
-                    </strong>{" "}
-                    Creación guiada de encuestas mediante diálogo asistido por
-                    inteligencia artificial.
+                    Guided creation of surveys through dialogue assisted by
+                    artificial intelligence.
                   </li>
                 </ul>
                 <p>
-                  El tratamiento automatizado de datos mediante IA se realizará
-                  bajo los siguientes principios:
+                  Automated processing of data through AI will be carried out
+                  under the following principles:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    Los datos utilizados para entrenamiento o mejora de modelos
-                    de IA serán anonimizados o agregados.
+                    Data used to train or improve AI models will be anonymized or
+                    aggregated.
                   </li>
                   <li>
-                    El Titular tendrá derecho a conocer la existencia de
-                    decisiones automatizadas que le afecten y a solicitar
-                    intervención humana.
+                    The Data Subject will have the right to know of the existence
+                    of automated decisions that affect them and to request human
+                    intervention.
                   </li>
                   <li>
-                    El contenido generado por IA pertenece al usuario que lo
-                    creó, conforme a los términos de servicio de la plataforma.
+                    Content generated by AI belongs to the user who created it,
+                    in accordance with the platform&apos;s terms of service.
                   </li>
                 </ul>
               </div>
             </AnimatedSection>
 
-            {/* 11. Autorización del Titular */}
+            {/* 11. Data Subject Authorization */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  11. Autorización del Titular
+                  11. Data Subject Authorization
                 </h2>
                 <p>
-                  merahki.ai obtendrá la autorización previa, expresa e informada
-                  del Titular para el tratamiento de sus datos personales. Dicha
-                  autorización podrá otorgarse mediante:
+                  merahki.ai will obtain the prior, express, and informed
+                  authorization of the Data Subject for the processing of their
+                  personal data. Such authorization may be granted through:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    Aceptación de términos y condiciones al registrarse en la
-                    plataforma.
+                    Acceptance of the terms and conditions when registering on
+                    the platform.
                   </li>
                   <li>
-                    Marcación de casillas de consentimiento (opt-in) en
-                    formularios de registro.
+                    Checking consent boxes (opt-in) on registration forms.
+                  </li>
+                  <li>Consent forms set up in the Survey Builder.</li>
+                  <li>
+                    Acceptance of privacy policies when downloading and using
+                    branded mobile apps.
                   </li>
                   <li>
-                    Formularios de consentimiento configurados en el Survey
-                    Builder.
-                  </li>
-                  <li>
-                    Aceptación de políticas de privacidad al descargar y usar
-                    aplicaciones móviles branded.
-                  </li>
-                  <li>
-                    Cualquier mecanismo electrónico que permita su posterior
-                    consulta y verificación.
+                    Any electronic mechanism that allows it to be subsequently
+                    consulted and verified.
                   </li>
                 </ul>
 
                 <h3 className="text-xl font-semibold text-white mt-6">
-                  11.1 Casos en los que no se requiere autorización
+                  11.1 Cases in which authorization is not required
                 </h3>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    Información requerida por una entidad pública o
-                    administrativa en ejercicio de sus funciones legales o por
-                    orden judicial.
+                    Information required by a public or administrative entity in
+                    the exercise of its legal functions or by court order.
                   </li>
-                  <li>Datos de naturaleza pública.</li>
-                  <li>Casos de urgencia médica o sanitaria.</li>
+                  <li>Data of a public nature.</li>
+                  <li>Cases of medical or health emergency.</li>
                   <li>
-                    Tratamiento de información autorizado por la ley para fines
-                    históricos, estadísticos o científicos.
+                    Processing of information authorized by law for historical,
+                    statistical, or scientific purposes.
                   </li>
                 </ul>
               </div>
             </AnimatedSection>
 
-            {/* 12. Derechos de los Titulares */}
+            {/* 12. Rights of Data Subjects */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  12. Derechos de los Titulares
+                  12. Rights of Data Subjects
                 </h2>
-                <p>
-                  Los titulares de datos personales tienen los siguientes
-                  derechos:
-                </p>
+                <p>Data Subjects have the following rights:</p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    Acceder, conocer, rectificar y actualizar sus datos
-                    personales.
+                    Access, know, rectify, and update their personal data.
                   </li>
-                  <li>Solicitar prueba de la autorización otorgada.</li>
+                  <li>Request proof of the authorization granted.</li>
                   <li>
-                    Recibir información sobre el uso que se ha dado a sus datos
-                    personales.
+                    Receive information about the use that has been made of their
+                    personal data.
                   </li>
                   <li>
-                    Presentar quejas ante la Superintendencia de Industria y
+                    File complaints with the Superintendencia de Industria y
                     Comercio.
                   </li>
+                  <li>Revoke the authorization or request deletion of the data.</li>
+                  <li>Access their personal data free of charge.</li>
                   <li>
-                    Revocar la autorización o solicitar la supresión del dato.
-                  </li>
-                  <li>
-                    Acceder en forma gratuita a sus datos personales.
-                  </li>
-                  <li>
-                    Conocer la existencia de tratamientos automatizados y
-                    solicitar intervención humana en decisiones basadas en IA.
+                    Know of the existence of automated processing and request
+                    human intervention in AI-based decisions.
                   </li>
                 </ul>
               </div>
             </AnimatedSection>
 
-            {/* 13. Transferencia Internacional y Compartición con Terceros */}
+            {/* 13. International Transfers and Sharing with Third Parties */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-6">
                 <h2 className="text-2xl font-bold text-white">
-                  13. Transferencia Internacional y Compartición con Terceros
+                  13. International Transfers and Sharing with Third Parties
                 </h2>
                 <p>
-                  Dada la naturaleza de la plataforma y su ecosistema de más de
-                  50 integraciones nativas, los datos personales pueden ser
-                  transferidos o transmitidos a terceros ubicados dentro y fuera
-                  de Colombia, incluyendo:
+                  Given the nature of the platform and its ecosystem of more than
+                  50 native integrations, personal data may be transferred or
+                  transmitted to third parties located inside and outside
+                  Colombia, including:
                 </p>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    13.1 Pasarelas de pago
+                    13.1 Payment gateways
                   </h3>
                   <p>
-                    Stripe, PayPal y Shopify, para el procesamiento de
-                    transacciones.
+                    Stripe, PayPal, and Shopify, for transaction processing.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    13.2 Plataformas de videollamada
+                    13.2 Video conferencing platforms
                   </h3>
                   <p>
-                    Zoom, Microsoft Teams, Webex, Google Meet y Calendly, para la
-                    facilitación de sesiones en vivo y coaching.
+                    Zoom, Microsoft Teams, Webex, Google Meet, and Calendly, to
+                    facilitate live sessions and coaching.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    13.3 Herramientas de marketing y CRM
+                    13.3 Marketing and CRM tools
                   </h3>
                   <p>
                     HubSpot, Mailchimp, ActiveCampaign, Mailerlite, GetResponse,
-                    Kit, Moosend, AWeber y Constant Contact.
+                    Kit, Moosend, AWeber, and Constant Contact.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    13.4 Servicios de analítica
+                    13.4 Analytics services
                   </h3>
                   <p>
                     Google Analytics, Google Tag Manager, Facebook Pixel,
-                    MixPanel, Hotjar, Fullstory, Mouseflow y Fullsession.
+                    MixPanel, Hotjar, Fullstory, Mouseflow, and Fullsession.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    13.5 Credenciales digitales
+                    13.5 Digital credentials
                   </h3>
                   <p>
-                    Accredible y Credly, para la emisión y gestión de
-                    certificados.
+                    Accredible and Credly, for the issuance and management of
+                    certificates.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    13.6 Plataformas de automatización
+                    13.6 Automation platforms
                   </h3>
                   <p>
-                    Zapier, Make, Integrately y Pabbly, a través de las cuales
-                    los datos pueden fluir hacia miles de aplicaciones adicionales
-                    configuradas por el cliente.
+                    Zapier, Make, Integrately, and Pabbly, through which data may
+                    flow to thousands of additional applications configured by
+                    the client.
                   </p>
                 </div>
 
                 <div className="space-y-4">
                   <h3 className="text-xl font-semibold text-white">
-                    13.7 API y Webhooks
+                    13.7 API and Webhooks
                   </h3>
                   <p>
-                    Los clientes que utilizan la API extendida y los webhooks
-                    avanzados de merahki.ai son responsables del tratamiento de
-                    datos que fluyan hacia sus propios sistemas.
+                    Clients who use the merahki.ai extended API and advanced
+                    webhooks are responsible for the processing of data that
+                    flows into their own systems.
                   </p>
                 </div>
 
                 <p>
-                  merahki.ai tomará las medidas necesarias para que todos los
-                  terceros conozcan y se comprometan a observar esta política. La
-                  transferencia internacional se realizará conforme a los
-                  requisitos legales aplicables.
+                  merahki.ai will take the necessary measures so that all third
+                  parties are aware of and undertake to observe this policy.
+                  International transfers will be carried out in accordance
+                  with the applicable legal requirements.
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* 14. Seguridad de la Información */}
+            {/* 14. Information Security */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  14. Seguridad de la Información
+                  14. Information Security
                 </h2>
                 <p>
-                  merahki.ai adoptará medidas técnicas, humanas y administrativas
-                  para proteger los datos personales, incluyendo:
+                  merahki.ai will adopt technical, human, and administrative
+                  measures to protect personal data, including:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    Cifrado de datos en tránsito (HTTPS/TLS) y en reposo.
+                    Encryption of data in transit (HTTPS/TLS) and at rest.
                   </li>
                   <li>
-                    Autenticación robusta mediante OpenID, SAML, SSO y login
-                    biométrico en aplicaciones móviles.
+                    Strong authentication through OpenID, SAML, SSO, and
+                    biometric login in mobile apps.
                   </li>
                   <li>
-                    Control de acceso basado en roles para administradores,
-                    instructores y estudiantes.
+                    Role-based access control for administrators, instructors,
+                    and students.
                   </li>
                   <li>
-                    Infraestructura distribuida globalmente con SLA de 99.9% de
-                    disponibilidad.
+                    Globally distributed infrastructure with a 99.9% uptime SLA.
                   </li>
                   <li>
-                    Protección de contenido de video mediante watermarks y
-                    hosting seguro.
+                    Protection of video content through watermarks and secure
+                    hosting.
                   </li>
                   <li>
-                    Cumplimiento GDPR y manejo cifrado de datos integrado en cada
-                    build del Website Creation Service.
+                    GDPR compliance and encrypted data handling built into every
+                    build of the Website Creation Service.
                   </li>
                   <li>
-                    Monitoreo continuo de vulnerabilidades y respuesta a
-                    incidentes.
+                    Continuous vulnerability monitoring and incident response.
                   </li>
                 </ul>
               </div>
             </AnimatedSection>
 
-            {/* 15. Política de Cookies */}
+            {/* 15. Cookie Policy */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  15. Política de Cookies
+                  15. Cookie Policy
                 </h2>
                 <p>
-                  merahki.ai y las academias construidas sobre la plataforma
-                  utilizan cookies y tecnologías similares para:
+                  merahki.ai and the academies built on the platform use cookies
+                  and similar technologies to:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
-                  <li>Mantener sesiones de usuario activas.</li>
-                  <li>Personalizar la experiencia de aprendizaje.</li>
+                  <li>Keep user sessions active.</li>
+                  <li>Personalize the learning experience.</li>
                   <li>
-                    Realizar análisis de comportamiento y rendimiento (Google
-                    Analytics, Facebook Pixel, MixPanel).
+                    Perform behavior and performance analysis (Google Analytics,
+                    Facebook Pixel, MixPanel).
                   </li>
                   <li>
-                    Optimizar campañas de marketing mediante Google Firebase y
+                    Optimize marketing campaigns through Google Firebase and
                     Facebook Business SDK.
                   </li>
                   <li>
-                    Rastrear interacciones con la aplicación móvil (usuarios
-                    activos, sesiones, métricas de rendimiento).
+                    Track interactions with the mobile app (active users,
+                    sessions, performance metrics).
                   </li>
                 </ul>
                 <p>
-                  Los titulares podrán gestionar sus preferencias de cookies a
-                  través de la configuración de su navegador o de los mecanismos
-                  habilitados en las academias (como el widget de AccessiBe para
-                  accesibilidad).
+                  Data Subjects may manage their cookie preferences through their
+                  browser settings or through the mechanisms enabled in the
+                  academies (such as the AccessiBe accessibility widget).
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* 16. Derechos de Niños, Niñas y Adolescentes */}
+            {/* 16. Rights of Children and Adolescents */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  16. Derechos de Niños, Niñas y Adolescentes
+                  16. Rights of Children and Adolescents
                 </h2>
                 <p>
-                  merahki.ai no recolecta intencionalmente datos personales de
-                  menores de edad. En el caso de academias orientadas a
-                  audiencias menores, el Administrador de la Academia deberá
-                  garantizar que se obtenga la autorización de los representantes
-                  legales y que se respeten los derechos prevalentes de los
-                  menores, conforme a la legislación vigente.
+                  merahki.ai does not intentionally collect personal data from
+                  minors. In the case of academies aimed at underage audiences,
+                  the Academy Administrator must ensure that authorization is
+                  obtained from their legal representatives and that the
+                  prevailing rights of minors are respected, in accordance with
+                  the law in force.
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* 17. Procedimientos para Ejercer Derechos */}
+            {/* 17. Procedures for Exercising Rights */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  17. Procedimientos para Ejercer Derechos
+                  17. Procedures for Exercising Rights
                 </h2>
                 <p>
-                  El Titular puede ejercer sus derechos de acceso, rectificación,
-                  actualización, supresión y revocatoria a través de los
-                  siguientes canales:
+                  The Data Subject may exercise their rights of access,
+                  rectification, updating, deletion, and revocation through the
+                  following channels:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    <strong className="text-white">Correo electrónico:</strong>{" "}
+                    <strong className="text-white">Email:</strong>{" "}
                     datospersonales@merahki.ai
                   </li>
                   <li>
                     <strong className="text-white">
-                      Formulario de solicitud disponible en:
+                      Request form available at:
                     </strong>{" "}
                     <a
                       href="https://merahki.ai/datos-personales"
@@ -995,100 +989,100 @@ export default function PrivacyPolicyPage() {
                   </li>
                 </ul>
                 <p>
-                  La solicitud deberá contener: nombre completo del titular,
-                  datos de contacto, descripción del derecho que desea ejercer,
-                  documentos de soporte y número de identificación.
+                  The request must include: the Data Subject&apos;s full name,
+                  contact details, a description of the right they wish to
+                  exercise, supporting documents, and identification number.
                 </p>
                 <p>
-                  merahki.ai atenderá las consultas dentro de un término máximo
-                  de diez (10) días hábiles y los reclamos dentro de quince (15)
-                  días hábiles, conforme a la Ley 1581 de 2012.
-                </p>
-              </div>
-            </AnimatedSection>
-
-            {/* 18. Retención y Supresión de Datos */}
-            <AnimatedSection delay={0.1}>
-              <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-white">
-                  18. Retención y Supresión de Datos
-                </h2>
-                <p>
-                  Los datos personales serán conservados durante el tiempo
-                  necesario para cumplir con las finalidades del tratamiento y
-                  las obligaciones legales aplicables. Una vez finalizada la
-                  relación contractual o revocada la autorización, merahki.ai
-                  procederá a la supresión segura de los datos, salvo que exista
-                  una obligación legal o contractual de retención.
+                  merahki.ai will respond to inquiries within a maximum of ten
+                  (10) business days and to claims within fifteen (15) business
+                  days, in accordance with Ley 1581 de 2012.
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* 19. Responsabilidades del Administrador de la Academia */}
+            {/* 18. Data Retention and Deletion */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  19. Responsabilidades del Administrador de la Academia
+                  18. Data Retention and Deletion
                 </h2>
                 <p>
-                  Cuando un cliente utiliza merahki.ai para crear y operar una
-                  academia, dicho cliente actúa como Responsable del Tratamiento
-                  de los datos personales de sus estudiantes. En este contexto,
-                  el cliente se compromete a:
+                  Personal data will be kept for as long as necessary to fulfill
+                  the purposes of the processing and the applicable legal
+                  obligations. Once the contractual relationship ends or the
+                  authorization is revoked, merahki.ai will securely delete the
+                  data, unless there is a legal or contractual obligation to
+                  retain it.
+                </p>
+              </div>
+            </AnimatedSection>
+
+            {/* 19. Responsibilities of the Academy Administrator */}
+            <AnimatedSection delay={0.1}>
+              <div className="space-y-4">
+                <h2 className="text-2xl font-bold text-white">
+                  19. Responsibilities of the Academy Administrator
+                </h2>
+                <p>
+                  When a client uses merahki.ai to create and operate an
+                  academy, that client acts as Data Controller of its
+                  students&apos; personal data. In this context, the client
+                  undertakes to:
                 </p>
                 <ul className="space-y-2 pl-4 list-disc list-inside">
                   <li>
-                    Obtener las autorizaciones necesarias de sus estudiantes y
-                    usuarios.
+                    Obtain the necessary authorizations from its students and
+                    users.
                   </li>
                   <li>
-                    Informar a sus estudiantes sobre la política de tratamiento
-                    de datos aplicable.
+                    Inform its students of the applicable data processing
+                    policy.
                   </li>
                   <li>
-                    Utilizar las herramientas de formularios de consentimiento
-                    disponibles en el Survey Builder.
+                    Use the consent form tools available in the Survey Builder.
                   </li>
                   <li>
-                    Configurar adecuadamente los avisos de privacidad en su
-                    academia y aplicación móvil.
+                    Properly configure the privacy notices in its academy and
+                    mobile app.
                   </li>
                   <li>
-                    No recolectar datos sensibles sin autorización explícita del
-                    titular.
+                    Not collect sensitive data without the Data Subject&apos;s
+                    explicit authorization.
                   </li>
                   <li>
-                    Gestionar las solicitudes de sus titulares conforme a la
-                    normatividad vigente.
+                    Handle requests from its Data Subjects in accordance with the
+                    regulations in force.
                   </li>
                 </ul>
               </div>
             </AnimatedSection>
 
-            {/* 20. Modificaciones a la Política */}
+            {/* 20. Changes to this Policy */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-white">
-                  20. Modificaciones a la Política
+                  20. Changes to this Policy
                 </h2>
                 <p>
-                  merahki.ai se reserva el derecho de modificar esta política en
-                  cualquier momento. Las modificaciones serán comunicadas a los
-                  titulares a través de los canales habituales de comunicación de
-                  la plataforma, incluyendo notificaciones por correo electrónico
-                  y avisos dentro de la plataforma.
+                  merahki.ai reserves the right to modify this policy at any
+                  time. Changes will be communicated to Data Subjects through the
+                  platform&apos;s usual communication channels, including email
+                  notifications and in-platform notices.
                 </p>
               </div>
             </AnimatedSection>
 
-            {/* 21. Vigencia */}
+            {/* 21. Effective Date */}
             <AnimatedSection delay={0.1}>
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-white">21. Vigencia</h2>
+                <h2 className="text-2xl font-bold text-white">
+                  21. Effective Date
+                </h2>
                 <p>
-                  La presente política rige a partir del 3 de mayo de 2026 y
-                  permanecerá vigente mientras merahki.ai continúe operando y
-                  tratando datos personales.
+                  This policy is effective as of May 3, 2026, and will remain in
+                  force for as long as merahki.ai continues to operate and
+                  process personal data.
                 </p>
               </div>
             </AnimatedSection>

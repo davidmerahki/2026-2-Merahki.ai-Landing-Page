@@ -9,6 +9,15 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   allowedDevOrigins: ["127.0.0.1", "localhost"],
+  async redirects() {
+    // Artículos que solo existen en español: su URL canónica es /es/blog/<slug>.
+    // La ruta sin /es respondía con el texto en español dentro del sitio en inglés (24-nov-2026).
+    return ["guia-credenciales-digitales", "microcredenciales-nueva-arquitectura-aprendizaje", "que-hace-merahki", "reporte-2026-education-led-growth"].map((slug) => ({
+      source: `/blog/${slug}`,
+      destination: `/es/blog/${slug}`,
+      permanent: true,
+    }));
+  },
   async headers() {
     return [
       {

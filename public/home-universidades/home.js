@@ -126,15 +126,31 @@ window.initHomeUniversidades = function (root) {
     vd.addEventListener('close', function(){ try { vdv.pause(); } catch (e) {} });
   }
 
-  // video del encabezado: pausa (WCAG 2.2.2) y respeto al movimiento reducido
+  // prisma del título: cada 2,8 s entra la siguiente frase; con movimiento reducido queda fija la primera.
+  // window.__mhuPrism permite pausarlo (botón de animaciones del sitio) y detenerlo al salir de la página.
+  var prism = document.querySelector('.prism');
+  if (prism) {
+    var faces = prism.querySelectorAll('.face'), pi = 0, ptimer = null;
+    var pstill = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var pstep = function(){ var cur = faces[pi]; pi = (pi + 1) % faces.length; for (var k = 0; k < faces.length; k++) faces[k].classList.remove('out'); cur.classList.remove('on'); cur.classList.add('out'); faces[pi].classList.add('on'); };
+    var pplay = function(){ if (!ptimer && !pstill) ptimer = setInterval(pstep, 2800); };
+    var ppause = function(){ if (ptimer) { clearInterval(ptimer); ptimer = null; } };
+    var pmeasure = function(){ prism.style.setProperty('--ph', (prism.offsetHeight / 2) + 'px'); };
+    pmeasure(); window.addEventListener('resize', pmeasure);
+    pplay();
+    window.__mhuPrism = { play: pplay, pause: ppause, stop: function(){ ppause(); window.removeEventListener('resize', pmeasure); } };
+  }
+
+  // video y prisma del encabezado: un botón los pausa juntos (WCAG 2.2.2); con movimiento reducido no se mueven
   var hv = document.getElementById('hero-loop'), hb = document.getElementById('hero-loop-btn');
   if (hv && hb) {
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) { try { hv.pause(); } catch (e) {} }
     else if (hv.paused) { var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){}); }
     hb.addEventListener('click', function(){
-      if (hv.paused) { hv.play(); hb.textContent = 'Pausar video'; hb.setAttribute('aria-pressed', 'false'); }
-      else { hv.pause(); hb.textContent = 'Reproducir video'; hb.setAttribute('aria-pressed', 'true'); }
+      var P = window.__mhuPrism;
+      if (hb.getAttribute('aria-pressed') === 'true') { hv.play(); P && P.play(); hb.textContent = 'Pausar animaciones'; hb.setAttribute('aria-pressed', 'false'); }
+      else { hv.pause(); P && P.pause(); hb.textContent = 'Reanudar animaciones'; hb.setAttribute('aria-pressed', 'true'); }
     });
   }
   // video completo en un diálogo: se carga al abrir y se pausa al cerrar
@@ -149,5 +165,5 @@ window.initHomeUniversidades = function (root) {
   }
   // analítica de los botones de agendar (Vercel Analytics, si está cargada)
   root.querySelectorAll('a[data-track]').forEach(function(a){ a.addEventListener('click', function(){ try { window.va && window.va('event', { name: a.getAttribute('data-track') }); } catch (e) {} }); });
-  return function () { observers.forEach(function (o) { o.disconnect(); }); };
+  return function () { observers.forEach(function (o) { o.disconnect(); }); if (window.__mhuPrism) { window.__mhuPrism.stop(); window.__mhuPrism = null; } };
 };

@@ -74,7 +74,7 @@ export default function Footer() {
             © {new Date().getFullYear()} merahki.ai. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors">
+            <Link href="/privacy-policy" className="text-white/30 hover:text-white/60 text-xs transition-colors">
               Privacy Policy
             </Link>
             <Link href="#" className="text-white/30 hover:text-white/60 text-xs transition-colors">

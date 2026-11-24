@@ -90,8 +90,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/privacy-policy",
   ];
 
-  // Posts del blog: todos los src/app/blog/<slug>/page.tsx reales.
-  const blogPosts = EN_ROUTES.filter((route) => route.startsWith("/blog/"));
+  // Posts del blog: todos los src/app/blog/<slug>/page.tsx reales, salvo los que solo existen en español
+  // (redirigen a /es/blog/<slug> en next.config.ts): esos se publican solo con su URL en español.
+  const SOLO_ES = new Set(["guia-credenciales-digitales", "microcredenciales-nueva-arquitectura-aprendizaje", "que-hace-merahki", "reporte-2026-education-led-growth"].map((s) => `/blog/${s}`));
+  const blogPosts = EN_ROUTES.filter((route) => route.startsWith("/blog/") && !SOLO_ES.has(route));
+  const blogEs = [...SOLO_ES].filter((route) => ES_ROUTE_SET.has(route)).map((route) => ({
+    url: `${BASE_URL}/es${route}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
 
-  return [...pairedRoutes, ...localized(staticRoutes, 0.6), ...localized(blogPosts, 0.6)];
+  return [...pairedRoutes, ...localized(staticRoutes, 0.6), ...localized(blogPosts, 0.6), ...blogEs];
 }

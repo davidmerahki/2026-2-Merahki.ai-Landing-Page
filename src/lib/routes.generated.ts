@@ -73,6 +73,7 @@ export const ES_ROUTES: readonly string[] = [
   "/methodology",
   "/mobile-app-builder",
   "/partner-academies",
+  "/privacy-policy",
   "/product-adoption",
   "/reports",
   "/reports/microcredentials-digital-credentials-research",
