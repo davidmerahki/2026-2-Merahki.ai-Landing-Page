@@ -15,7 +15,8 @@ export const metadata: Metadata = {
     url: "https://merahki.ai/blog/2026-state-of-education-led-growth",
     type: "article",
   },
-  alternates: { canonical: "https://merahki.ai/blog/2026-state-of-education-led-growth" },
+  // Traducciones declaradas (24-nov-2026): hreflang para Google y para el botón de idioma.
+  alternates: { canonical: "https://merahki.ai/blog/2026-state-of-education-led-growth", languages: { es: "https://merahki.ai/es/blog/reporte-2026-education-led-growth", "en-US": "https://merahki.ai/blog/2026-state-of-education-led-growth", "x-default": "https://merahki.ai/blog/2026-state-of-education-led-growth" } },
 };
 
 export default function ELGReport2026() {

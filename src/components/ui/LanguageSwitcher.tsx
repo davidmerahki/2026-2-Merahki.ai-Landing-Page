@@ -15,12 +15,20 @@ export default function LanguageSwitcher() {
   const isEs = pathname === "/es" || pathname.startsWith("/es/");
 
   const targetLang = isEs ? "en" : "es";
-  // Si la página no tiene versión ES, el switch lleva al home en español (no a un 404).
+  // Destino cuando la página no declara su versión en el otro idioma (hreflang):
+  // - un artículo sin traducción lleva al blog del otro idioma (antes: 404, o una redirección
+  //   que devolvía al artículo en español y el botón parecía no responder; 24-nov-2026);
+  // - una página sin versión ES lleva al home en español.
+  const isArticle = /^\/(es\/)?blog\/[^/]+/.test(pathname);
   const targetHref = isEs
-    ? pathname.slice(3) || "/"
+    ? isArticle
+      ? "/blog"
+      : pathname.slice(3) || "/"
     : ES_ROUTE_SET.has(pathname)
       ? "/es" + (pathname === "/" ? "" : pathname)
-      : "/es";
+      : isArticle
+        ? "/es/blog"
+        : "/es";
 
   function handleSwitch() {
     document.cookie = `${LANG_COOKIE}=${targetLang}; path=/; max-age=${COOKIE_MAX_AGE}; SameSite=Lax`;

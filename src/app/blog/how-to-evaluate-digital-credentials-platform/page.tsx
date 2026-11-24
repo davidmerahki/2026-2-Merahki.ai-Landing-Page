@@ -16,7 +16,8 @@ export const metadata: Metadata = {
     url: "https://merahki.ai/blog/how-to-evaluate-digital-credentials-platform",
     type: "article",
   },
-  alternates: { canonical: "https://merahki.ai/blog/how-to-evaluate-digital-credentials-platform" },
+  // Traducciones declaradas (24-nov-2026): hreflang para Google y para el botón de idioma.
+  alternates: { canonical: "https://merahki.ai/blog/how-to-evaluate-digital-credentials-platform", languages: { es: "https://merahki.ai/es/blog/guia-credenciales-digitales", "en-US": "https://merahki.ai/blog/how-to-evaluate-digital-credentials-platform", "x-default": "https://merahki.ai/blog/how-to-evaluate-digital-credentials-platform" } },
 };
 
 export default function HowToEvaluateDigitalCredentialsPlatform() {
