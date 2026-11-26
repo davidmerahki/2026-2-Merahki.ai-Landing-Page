@@ -5,6 +5,8 @@ type PageType = "feature" | "solution" | "home" | "resource" | "case-study";
 
 type SeoEntry = {
   slug: string;
+  /** Slug en español cuando no es el mismo del inglés (/companies ↔ /es/empresas). */
+  slugEs?: string;
   type: PageType;
   audience?: string;
   en?: {
@@ -43,6 +45,26 @@ export const seoEntries: Record<string, SeoEntry> = {
       ogTitle: "Microcredenciales y virtualización de cursos",
       ogDescription: "merahki.ai diseña microcredenciales por competencias, virtualiza cursos con IA, opera tu LMS y emite credenciales verificables con POK.",
       ogImageAlt: "merahki.ai — Soluciones de formación para universidades",
+    },
+  },
+  empresas: {
+    slug: "companies",
+    slugEs: "empresas",
+    type: "home",
+    audience: "empresas",
+    en: {
+      title: "Custom training for companies | merahki.ai",
+      description: "merahki.ai designs training for your team, your customers and your partners, with weekly tracking and verifiable credentials from POK.",
+      ogTitle: "merahki.ai for companies: custom training for your team, your customers and your partners",
+      ogDescription: "Upskilling and reskilling, Customer Education, Partner Education and onboarding, with weekly tracking and verifiable credentials from POK.",
+      ogImageAlt: "merahki.ai — Custom training for companies",
+    },
+    es: {
+      title: "Formación a la medida para empresas | merahki.ai",
+      description: "merahki.ai diseña la formación de tu equipo, tus clientes y tus aliados, con seguimiento cada semana y credenciales verificables con POK.",
+      ogTitle: "merahki.ai para empresas: formación a la medida para tu equipo, tus clientes y tus aliados",
+      ogDescription: "Upskilling y reskilling, Customer Education, Partner Education y onboarding, con seguimiento cada semana y credenciales verificables con POK.",
+      ogImageAlt: "merahki.ai — Formación a la medida para empresas",
     },
   },
   "flexible-courses": {
@@ -497,7 +519,8 @@ export function buildMetadata(key: keyof typeof seoEntries, lang: Language): Met
     throw new Error(`Missing SEO content for ${String(key)} in ${lang}`);
   }
 
-  const canonical = getUrl(entry.slug, lang);
+  const slugDe = (l: Language) => (l === "es" ? entry.slugEs ?? entry.slug : entry.slug);
+  const canonical = getUrl(slugDe(lang), lang);
   const image =
     entry.slug === "case-studies/uniandes-sanofi-microbiota"
       ? getFallbackImage(lang)
@@ -507,7 +530,7 @@ export function buildMetadata(key: keyof typeof seoEntries, lang: Language): Met
 
   const languages = other
     ? {
-        es: getUrl(entry.slug, "es"),
+        es: getUrl(slugDe("es"), "es"),
         "en-US": getUrl(entry.slug, "en"),
         "x-default": getUrl(entry.slug, "en"),
       }

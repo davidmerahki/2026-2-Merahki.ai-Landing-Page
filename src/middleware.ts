@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ES_ROUTES } from "@/lib/routes.generated";
+import { PARES_EN_ES } from "@/lib/rutas-pares";
 
 const LANG_COOKIE = "preferred-lang";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
@@ -36,10 +37,12 @@ export function middleware(request: NextRequest) {
     ? (cookieVal as "es" | "en")
     : detectLanguage(request.headers.get("accept-language"));
 
-  if (lang === "es" && !isEsPath && hasEsVersion(pathname)) {
+  // Páginas con slug distinto en cada idioma (/companies ↔ /es/empresas, 26-nov-2026).
+  const par = PARES_EN_ES[pathname.replace(/\/+$/, "") || "/"];
+  if (lang === "es" && !isEsPath && (par || hasEsVersion(pathname))) {
     // clone() conserva el query string (UTMs) en el redirect
     const url = request.nextUrl.clone();
-    url.pathname = "/es" + (pathname === "/" ? "" : pathname);
+    url.pathname = par ?? "/es" + (pathname === "/" ? "" : pathname);
     const res = NextResponse.redirect(url);
     if (!hasCookie)
       res.cookies.set(LANG_COOKIE, "es", { path: "/", maxAge: COOKIE_MAX_AGE, sameSite: "lax" });

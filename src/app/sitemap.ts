@@ -14,10 +14,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Páginas con copy SEO en seoEntries (EN + ES). Si la página ES no existe, solo va la EN.
   const pairedRoutes = pairedSeoRoutes.flatMap((entry) => {
     const enPath = getPath(entry.slug, "en");
-    const esPath = getPath(entry.slug, "es");
+    const esPath = getPath(entry.slugEs ?? entry.slug, "es");
     const enUrl = `${BASE_URL}${enPath === "/" ? "/" : enPath}`;
+    // ES_ROUTES guarda las rutas en español sin el prefijo /es ("/empresas"); el home es "/".
+    const esKey = esPath === "/es" ? "/" : esPath.slice(3);
 
-    if (!ES_ROUTE_SET.has(enPath)) {
+    if (!ES_ROUTE_SET.has(esKey)) {
       return [
         {
           url: enUrl,
@@ -39,14 +41,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: languages["en-US"],
         lastModified,
         changeFrequency: "monthly" as const,
-        priority: entry.slug === "" ? 1 : 0.8,
+        priority: entry.slug === "" ? 1 : entry.type === "home" ? 0.9 : 0.8,
         alternates: { languages },
       },
       {
         url: languages.es,
         lastModified,
         changeFrequency: "monthly" as const,
-        priority: entry.slug === "" ? 0.9 : 0.7,
+        priority: entry.slug === "" || entry.type === "home" ? 0.9 : 0.7,
         alternates: { languages },
       },
     ];

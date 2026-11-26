@@ -4,6 +4,9 @@
 // completos en una pantalla de 1280 × 720 sin desplazamiento interno. Celular: cajón a pantalla
 // completa con secciones plegables y los dos llamados a la acción fijos abajo.
 // La estructura y los textos viven en nav-config.ts (español e inglés).
+// Selector de audiencia (26-nov-2026), como el de Coursera: «Para universidades | Para empresas | Para gobiernos».
+// La audiencia sale de la ruta (/es y / → universidades, /es/empresas y /companies → empresas) o de la última elección
+// guardada, y ordena Soluciones y los enlaces al home (merahki model, clientes, cotización) para esa audiencia.
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,6 +14,80 @@ import { ArrowRight, ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
 import { NAV, meetingHref, type NavColumn, type NavFeatured, type NavLink, type NavMenu } from "./nav-config";
 
 const isExternal = (href: string) => /^https?:\/\//.test(href);
+
+type Aud = "universidades" | "empresas";
+const AUD_KEY = "merahki-audiencia";
+const audFromPath = (p: string): Aud | null =>
+  p === "/es/empresas" || p.startsWith("/es/empresas/") || p === "/companies" || p.startsWith("/companies/")
+    ? "empresas"
+    : p === "/es" || p === "/"
+      ? "universidades"
+      : null;
+const AUD_HOME: Record<"es" | "en", Record<Aud, string>> = {
+  es: { universidades: "/es", empresas: "/es/empresas" },
+  en: { universidades: "/", empresas: "/companies" },
+};
+
+/** Ajusta el menú a la audiencia: la columna de esa audiencia va primero en Soluciones y los enlaces al home
+ *  (merahki model, clientes, cotización) llevan a su home, en español (/es#…) y en inglés (/#…). */
+function menusPara(menus: NavMenu[], aud: Aud, isEs: boolean): NavMenu[] {
+  if (aud === "universidades") return menus;
+  const ancla = isEs ? "/es#" : "/#";
+  const destino = `${AUD_HOME[isEs ? "es" : "en"][aud]}#`;
+  const home = (h: string) => (h.startsWith(ancla) ? destino + h.slice(ancla.length) : h);
+  const esDeEmpresas = (titulo: string) => Number(/empresas|companies/i.test(titulo));
+  return menus.map((m) => {
+    const columns = m.columns.map((c) => ({ ...c, links: c.links.map((l) => ({ ...l, href: home(l.href) })) }));
+    if (m.id === "soluciones") columns.sort((a, b) => esDeEmpresas(b.title) - esDeEmpresas(a.title));
+    return { ...m, columns, featured: m.featured ? { ...m.featured, href: home(m.featured.href) } : undefined };
+  });
+}
+
+/** Barra de audiencia encima del menú. Gobiernos llega después, en los dos idiomas. */
+function BarraAudiencia({ isEs, aud, pathname, onPick }: { isEs: boolean; aud: Aud; pathname: string; onPick: (a: Aud) => void }) {
+  const items: { key: string; label: string; href?: string }[] = isEs
+    ? [
+        { key: "universidades", label: "universidades", href: "/es" },
+        { key: "empresas", label: "empresas", href: "/es/empresas" },
+        { key: "gobiernos", label: "gobiernos" },
+      ]
+    : [
+        { key: "universidades", label: "universities", href: "/" },
+        { key: "empresas", label: "companies", href: "/companies" },
+        { key: "gobiernos", label: "governments" },
+      ];
+  const para = isEs ? "Para" : "For";
+  const pronto = isEs ? "pronto" : "soon";
+  return (
+    <div className="border-b border-white/[0.07] bg-[#05000A]">
+      <div className="mx-auto flex h-9 max-w-7xl items-stretch gap-1 overflow-x-auto px-4 text-[13px] [scrollbar-width:none] sm:px-6 [&::-webkit-scrollbar]:hidden" role="group" aria-label={isEs ? "¿Para quién es merahki.ai?" : "Who is merahki.ai for?"}>
+        {items.map((it) => {
+          const on = it.key === aud;
+          if (!it.href)
+            return (
+              <span key={it.key} className="flex items-center gap-1.5 whitespace-nowrap px-3 text-white/45">
+                <span className="text-white/35">{para}</span> {it.label}
+                <em className="rounded-full bg-white/[0.07] px-1.5 py-px text-[10px] font-bold uppercase not-italic tracking-wider text-[#C084FC]">{pronto}</em>
+              </span>
+            );
+          return (
+            <Link
+              key={it.key}
+              href={it.href}
+              onClick={() => onPick(it.key as Aud)}
+              aria-current={pathname === it.href ? "page" : undefined}
+              className={`flex items-center gap-1.5 whitespace-nowrap border-b-2 px-3 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#C084FC]/60 ${
+                on ? "border-[#C084FC] font-semibold text-white" : "border-transparent text-white/75 hover:text-white"
+              }`}
+            >
+              <span className={on ? "font-normal text-white/50" : "text-white/40"}>{para}</span> {it.label}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
 
 /** Link de Next para rutas internas; <a> nativo para enlaces externos o con #ancla
  *  (Next no dispara hashchange al navegar dentro de la misma página, y el home abre
@@ -98,10 +175,26 @@ function Featured({ f, onNavigate }: { f: NavFeatured; onNavigate: () => void })
 export default function Navbar() {
   const pathname = usePathname() || "/";
   const isEs = pathname === "/es" || pathname.startsWith("/es/");
-  const menus = NAV[isEs ? "es" : "en"];
+  // La audiencia de la ruta entra desde el primer render: así el HTML estático de /companies y /es/empresas
+  // ya trae «empresas» marcado y no parpadea «universidades» antes de hidratar.
+  const [aud, setAud] = useState<Aud>(() => audFromPath(pathname) ?? "universidades");
+  useEffect(() => {
+    const desdeRuta = audFromPath(pathname);
+    if (desdeRuta) {
+      setAud(desdeRuta);
+      try { localStorage.setItem(AUD_KEY, desdeRuta); } catch {}
+      return;
+    }
+    try {
+      const g = localStorage.getItem(AUD_KEY);
+      if (g === "empresas" || g === "universidades") setAud(g);
+    } catch {}
+  }, [pathname]);
+  const pick = (a: Aud) => { setAud(a); try { localStorage.setItem(AUD_KEY, a); } catch {} };
+  const menus = menusPara(NAV[isEs ? "es" : "en"], aud, isEs);
   const t = isEs
-    ? { main: "Menú principal", open: "Abrir menú", close: "Cerrar menú", cta: "Agendar reunión de 30 minutos", quote: "Solicitar cotización a la medida", quoteHref: "/es#cotizacion", home: "merahki.ai, inicio", need: "¿Tienes un proyecto en mente?" }
-    : { main: "Main menu", open: "Open menu", close: "Close menu", cta: "Book a 30-minute meeting", quote: "Request a custom quote", quoteHref: "/#cotizacion", home: "merahki.ai home", need: "Have a project in mind?" };
+    ? { main: "Menú principal", open: "Abrir menú", close: "Cerrar menú", cta: "Agendar reunión de 30 minutos", quote: "Solicitar cotización a la medida", quoteHref: `${AUD_HOME.es[aud]}#cotizacion`, home: "merahki.ai, inicio", need: "¿Tienes un proyecto en mente?" }
+    : { main: "Main menu", open: "Open menu", close: "Close menu", cta: "Book a 30-minute meeting", quote: "Request a custom quote", quoteHref: `${AUD_HOME.en[aud]}#cotizacion`, home: "merahki.ai home", need: "Have a project in mind?" };
 
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState<string | null>(null);
@@ -173,8 +266,9 @@ export default function Navbar() {
         mobileOpen ? "border-b border-white/10 bg-[#07040C]" : scrolled || open ? "border-b border-white/10 bg-black/85 backdrop-blur-lg" : "bg-transparent"
       }`}
     >
+      <BarraAudiencia isEs={isEs} aud={aud} pathname={pathname} onPick={pick} />
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link href={isEs ? "/es" : "/"} className="flex flex-shrink-0 items-center" aria-label={t.home} onClick={closeAll}>
+        <Link href={AUD_HOME[isEs ? "es" : "en"][aud]} className="flex flex-shrink-0 items-center" aria-label={t.home} onClick={closeAll}>
           <span className="text-lg font-bold tracking-tight text-white">
             merahki<span className="text-gradient-blue-pink">.ai</span>
           </span>
@@ -230,7 +324,7 @@ export default function Navbar() {
 
       {/* Panel de escritorio: uno solo, centrado, con el contenido del menú abierto */}
       {current && (
-        <div className="absolute left-0 right-0 top-16 hidden px-4 lg:block" onMouseEnter={clear} onMouseLeave={closeSoon}>
+        <div className="absolute left-0 right-0 top-[100px] hidden px-4 lg:block" onMouseEnter={clear} onMouseLeave={closeSoon}>
           <div
             ref={panelRef}
             id={`${uid}-p-${current.id}`}
@@ -238,7 +332,7 @@ export default function Navbar() {
             aria-labelledby={`${uid}-t-${current.id}`}
             onBlur={(e) => { if (!e.currentTarget.contains(e.relatedTarget as Node) && !Object.values(triggers.current).includes(e.relatedTarget as HTMLButtonElement)) closeSoon(); }}
             className="nav-panel-in mx-auto mt-2 overflow-y-auto rounded-2xl border border-white/10 bg-[#0D0817] shadow-[0_30px_80px_rgba(0,0,0,0.65)]"
-            style={{ width: `min(${current.width}px, calc(100vw - 32px))`, maxHeight: "calc(100vh - 96px)" }}
+            style={{ width: `min(${current.width}px, calc(100vw - 32px))`, maxHeight: "calc(100vh - 132px)" }}
           >
             <div className="grid gap-6 p-5" style={{ gridTemplateColumns: `${current.columns.map((c) => (c.compact ? "1.5fr" : "1fr")).join(" ")}${current.featured ? " 250px" : ""}` }}>
               {current.columns.map((c) => <Column key={c.title} col={c} isActive={isActive} onNavigate={closeAll} />)}
@@ -259,7 +353,7 @@ export default function Navbar() {
 
       {/* Celular y tableta: cajón a pantalla completa */}
       {mobileOpen && (
-        <div id={`${uid}-mobile`} className="fixed inset-x-0 bottom-0 top-16 flex flex-col border-t border-white/10 bg-[#07040C] lg:hidden">
+        <div id={`${uid}-mobile`} className="fixed inset-x-0 bottom-0 top-[100px] flex flex-col border-t border-white/10 bg-[#07040C] lg:hidden">
           <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-3">
             {menus.map((m) => {
               const exp = mobileSection === m.id;

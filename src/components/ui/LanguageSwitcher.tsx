@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { Globe } from "lucide-react";
 import { ES_ROUTES } from "@/lib/routes.generated";
+import { PARES_EN_ES, PARES_ES_EN } from "@/lib/rutas-pares";
 
 const LANG_COOKIE = "preferred-lang";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
@@ -20,7 +21,11 @@ export default function LanguageSwitcher() {
   //   que devolvía al artículo en español y el botón parecía no responder; 24-nov-2026);
   // - una página sin versión ES lleva al home en español.
   const isArticle = /^\/(es\/)?blog\/[^/]+/.test(pathname);
-  const targetHref = isEs
+  // Páginas con slug distinto en cada idioma (/es/empresas ↔ /companies, 26-nov-2026).
+  const par = isEs ? PARES_ES_EN[pathname] : PARES_EN_ES[pathname];
+  const targetHref = par
+    ? par
+    : isEs
     ? isArticle
       ? "/blog"
       : pathname.slice(3) || "/"
@@ -50,7 +55,7 @@ export default function LanguageSwitcher() {
     <button
       onClick={handleSwitch}
       aria-label={isEs ? "Switch to English" : "Cambiar a Español"}
-      className="fixed top-[14px] right-14 md:top-auto md:right-auto md:bottom-6 md:left-6 z-[60] group flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/15 bg-black/60 backdrop-blur-md shadow-xl hover:border-white/30 hover:bg-black/80 transition-all duration-200 cursor-pointer"
+      className="fixed top-[50px] right-14 md:top-auto md:right-auto md:bottom-6 md:left-6 z-[60] group flex items-center gap-2 px-3.5 py-2 rounded-full border border-white/15 bg-black/60 backdrop-blur-md shadow-xl hover:border-white/30 hover:bg-black/80 transition-all duration-200 cursor-pointer"
     >
       <Globe className="w-3.5 h-3.5 text-white/45 group-hover:text-white/70 transition-colors flex-shrink-0" />
       <span
