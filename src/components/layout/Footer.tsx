@@ -6,6 +6,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV, meetingHref, type NavLink } from "./nav-config";
+import { abrirAvisoCookies } from "@/lib/consentimiento";
 
 const COPY = {
   es: {
@@ -16,6 +17,7 @@ const COPY = {
     rights: "Todos los derechos reservados.",
     privacy: "Política de privacidad",
     privacyHref: "/es/privacy-policy",
+    cookies: "Preferencias de cookies",
     home: "/es",
   },
   en: {
@@ -26,6 +28,7 @@ const COPY = {
     rights: "All rights reserved.",
     privacy: "Privacy policy",
     privacyHref: "/privacy-policy",
+    cookies: "Cookie preferences",
     home: "/",
   },
 };
@@ -95,9 +98,18 @@ export default function Footer() {
           <p className="text-white/30 text-xs">
             © {new Date().getFullYear()} Meraki Media S.A.S. · merahki.ai. {t.rights}
           </p>
-          <Link href={t.privacyHref} className="text-white/30 hover:text-white/60 text-xs transition-colors">
-            {t.privacy}
-          </Link>
+          <div className="flex items-center gap-5">
+            <Link href={t.privacyHref} className="text-white/30 hover:text-white/60 text-xs transition-colors">
+              {t.privacy}
+            </Link>
+            <button
+              type="button"
+              onClick={abrirAvisoCookies}
+              className="text-white/30 hover:text-white/60 text-xs transition-colors cursor-pointer"
+            >
+              {t.cookies}
+            </button>
+          </div>
         </div>
       </div>
     </footer>

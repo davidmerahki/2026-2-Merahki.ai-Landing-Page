@@ -54,8 +54,8 @@ export default function PrivacyPolicyPage() {
                 POLICY
               </h1>
               <div className="text-white/50 text-sm space-y-1 mt-6">
-                <p>Version 1.1</p>
-                <p>May 2026 · updated November 24, 2026 (legal name and tax ID)</p>
+                <p>Version 1.2</p>
+                <p>May 2026 · updated November 24, 2026 (legal name and tax ID) and November 26, 2026 (website cookies)</p>
                 <p>Bogotá, D.C. — Colombia</p>
               </div>
               <p className="text-white/50 text-sm mt-6">
@@ -941,6 +941,72 @@ export default function PrivacyPolicyPage() {
                   browser settings or through the mechanisms enabled in the
                   academies (such as the AccessiBe accessibility widget).
                 </p>
+
+                {/* 15.1 Website cookies (Nov 26, 2026): cookie notice and HubSpot tracking code */}
+                <div id="website-cookies" className="space-y-4 pt-2 scroll-mt-28">
+                  <h3 className="text-xl font-semibold text-white">
+                    15.1 Cookies used on the merahki.ai website
+                  </h3>
+                  <p>
+                    This section covers visitors to merahki.ai. Three groups
+                    of tools run on the site, and only HubSpot&apos;s need your
+                    permission.
+                  </p>
+                  <ul className="space-y-2 pl-4 list-disc list-inside">
+                    <li>
+                      <strong className="text-white">Necessary cookies, no prior permission.</strong>{" "}
+                      <code className="text-white/90">preferred-lang</code> stores
+                      the language you chose for one year.{" "}
+                      <code className="text-white/90">merahki-cookies</code>{" "}
+                      stores your decision about HubSpot cookies and the date you made
+                      it, for six months. If you open the quote form, HubSpot&apos;s
+                      forms service and its delivery network may set technical
+                      cookies such as <code className="text-white/90">__cf_bm</code>{" "}
+                      to protect the form against bots.
+                    </li>
+                    <li>
+                      <strong className="text-white">Cookieless measurement.</strong>{" "}
+                      Vercel Web Analytics and Vercel Speed Insights count visits
+                      and measure site speed in aggregate. They do not use cookies
+                      or identify you.
+                    </li>
+                    <li>
+                      <strong className="text-white">HubSpot cookies, only if you accept them.</strong>{" "}
+                      HubSpot, Inc. is merahki.ai&apos;s CRM. If you accept, it sets{" "}
+                      <code className="text-white/90">__hstc</code> and{" "}
+                      <code className="text-white/90">hubspotutk</code> (six
+                      months), <code className="text-white/90">__hssc</code> (30
+                      minutes) and <code className="text-white/90">__hssrc</code>{" "}
+                      (until you close your browser). They let us record which
+                      pages you visit, when, and which link or campaign brought
+                      you here. Until you give us your email, those visits are
+                      anonymous. If you fill out a form on the site, or open a
+                      link in a marketing email sent from HubSpot, the visits are
+                      added to your contact record, including earlier ones from
+                      the same browser. We use this information to understand
+                      what interests you and to prepare a better sales
+                      conversation with you. We do not use advertising cookies on
+                      this site.
+                    </li>
+                  </ul>
+                  <p>
+                    The first time you visit the site you see a notice with two
+                    buttons, Accept and Reject. The HubSpot code does not load
+                    until you choose Accept, and if you reject, the site works the
+                    same. Your decision lasts six months, and then we ask you
+                    again. You can change it at any time with the &ldquo;Cookie
+                    preferences&rdquo; link at the bottom of every page. If you
+                    withdraw your permission, we delete the HubSpot cookies from
+                    your browser and stop recording your visits. To ask us to also
+                    delete the visits already on your contact record, write to
+                    datospersonales@merahki.ai, as explained in section 17.
+                  </p>
+                  <p>
+                    HubSpot, Inc. acts as data processor and stores this data on
+                    servers in the United States. This international transmission
+                    is governed by section 13 of this policy.
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
 

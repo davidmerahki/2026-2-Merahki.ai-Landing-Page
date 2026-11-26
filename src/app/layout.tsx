@@ -8,6 +8,8 @@ import PerksCarousel from "@/components/sections/PerksCarousel";
 import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import HubSpotTracking from "@/components/consent/HubSpotTracking";
+import CookieBanner from "@/components/consent/CookieBanner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -123,6 +125,9 @@ export default function RootLayout({
         <Footer />
         <Analytics />
         <SpeedInsights />
+        {/* Vercel mide sin cookies. HubSpot pone cookies y por eso espera el permiso del aviso (Ley 1581). */}
+        <HubSpotTracking />
+        <CookieBanner />
       </body>
     </HtmlRoot>
   );

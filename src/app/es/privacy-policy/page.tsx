@@ -51,8 +51,8 @@ export default function PoliticaDatosPersonalesPage() {
                 DATOS PERSONALES
               </h1>
               <div className="text-white/50 text-sm space-y-1 mt-6">
-                <p>Versión 1.1</p>
-                <p>Mayo de 2026 · actualizada el 24 de noviembre de 2026 (razón social y NIT)</p>
+                <p>Versión 1.2</p>
+                <p>Mayo de 2026 · actualizada el 24 de noviembre de 2026 (razón social y NIT) y el 26 de noviembre de 2026 (cookies del sitio web)</p>
                 <p>Bogotá, D.C. — Colombia</p>
               </div>
             </div>
@@ -955,6 +955,74 @@ export default function PoliticaDatosPersonalesPage() {
                   habilitados en las academias (como el widget de AccessiBe para
                   accesibilidad).
                 </p>
+
+                {/* 15.1 Cookies del sitio web (26-nov-2026): aviso de cookies y código de seguimiento de HubSpot */}
+                <div id="cookies-sitio-web" className="space-y-4 pt-2 scroll-mt-28">
+                  <h3 className="text-xl font-semibold text-white">
+                    15.1 Cookies que usa el sitio web merahki.ai
+                  </h3>
+                  <p>
+                    Esta sección es para quien visita merahki.ai. En el sitio
+                    funcionan tres grupos de herramientas y solo las de HubSpot
+                    necesitan tu permiso.
+                  </p>
+                  <ul className="space-y-2 pl-4 list-disc list-inside">
+                    <li>
+                      <strong className="text-white">Cookies necesarias, sin permiso previo.</strong>{" "}
+                      <code className="text-white/90">preferred-lang</code> guarda
+                      el idioma que elegiste durante un año.{" "}
+                      <code className="text-white/90">merahki-cookies</code> guarda
+                      tu decisión sobre las cookies de HubSpot y la fecha en que
+                      la tomaste, durante seis meses. Si abres el formulario de
+                      cotización, el servicio de formularios de HubSpot y su red
+                      de entrega pueden poner cookies técnicas como{" "}
+                      <code className="text-white/90">__cf_bm</code> para proteger
+                      el formulario contra bots.
+                    </li>
+                    <li>
+                      <strong className="text-white">Medición sin cookies.</strong>{" "}
+                      Vercel Web Analytics y Vercel Speed Insights cuentan las
+                      visitas y miden la velocidad del sitio de forma agregada. No
+                      usan cookies ni te identifican.
+                    </li>
+                    <li>
+                      <strong className="text-white">Cookies de HubSpot, solo si las aceptas.</strong>{" "}
+                      HubSpot, Inc. es el CRM de merahki.ai. Si aceptas, pone{" "}
+                      <code className="text-white/90">__hstc</code> y{" "}
+                      <code className="text-white/90">hubspotutk</code> (seis
+                      meses), <code className="text-white/90">__hssc</code> (30
+                      minutos) y <code className="text-white/90">__hssrc</code>{" "}
+                      (hasta que cierras el navegador). Con ellas registramos qué
+                      páginas visitas, cuándo y desde qué enlace o campaña
+                      llegaste. Mientras no nos des tu correo, esas visitas son
+                      anónimas. Si llenas un formulario del sitio, o abres el
+                      enlace de un correo de marketing enviado desde HubSpot, las
+                      visitas quedan en tu ficha de contacto, incluidas las que
+                      hiciste antes desde el mismo navegador. Usamos esa
+                      información para entender qué te interesa y preparar mejor
+                      la conversación comercial contigo. En este sitio no usamos
+                      cookies de publicidad.
+                    </li>
+                  </ul>
+                  <p>
+                    La primera vez que entras al sitio ves un aviso con dos
+                    botones, Aceptar y Rechazar. El código de HubSpot no se carga
+                    hasta que eliges Aceptar, y si rechazas el sitio funciona
+                    igual. Tu decisión dura seis meses y después te volvemos a
+                    preguntar. Puedes cambiarla cuando quieras con el enlace
+                    «Preferencias de cookies» que está al pie de cada página. Si
+                    retiras el permiso, borramos las cookies de HubSpot de tu
+                    navegador y dejamos de registrar tus visitas. Para pedir que
+                    también borremos las visitas que ya quedaron en tu ficha,
+                    escribe a datospersonales@merahki.ai, como explica la sección
+                    17.
+                  </p>
+                  <p>
+                    HubSpot, Inc. actúa como encargado del tratamiento y guarda
+                    estos datos en servidores de Estados Unidos. Esa transmisión
+                    internacional se rige por la sección 13 de esta política.
+                  </p>
+                </div>
               </div>
             </AnimatedSection>
 
