@@ -84,6 +84,13 @@ window.initHomeUniversidadesEn = function (root) {
   var mq = document.getElementById('marquee'), mqb = document.getElementById('mq-pause');
   mqb.addEventListener('click', function(){ var on = !mq.classList.contains('paused'); mq.classList.toggle('paused', on); mqb.setAttribute('aria-pressed', String(on)); mqb.textContent = on ? 'Resume logos' : 'Pause logos'; });
 
+  // noticias: tarjetas que se voltean (25-nov). El foco pasa al lado que queda visible.
+  document.querySelectorAll('.nw').forEach(function(card){
+    var go = card.querySelector('.nw-go'), bk = card.querySelector('.nw-back');
+    go.addEventListener('click', function(){ card.classList.add('on'); go.setAttribute('aria-expanded', 'true'); bk.focus({preventScroll: true}); });
+    bk.addEventListener('click', function(){ card.classList.remove('on'); go.setAttribute('aria-expanded', 'false'); go.focus({preventScroll: true}); });
+  });
+
   // filtro de casos
   var fchips = document.querySelectorAll('.filters .chip');
   fchips.forEach(function(c){ c.addEventListener('click', function(){

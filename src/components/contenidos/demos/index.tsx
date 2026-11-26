@@ -13,12 +13,13 @@ function Cargando() {
 export const DEMOS: Record<DemoId, ComponentType<DemoProps>> = {
   copiloto: dynamic(() => import("./Copiloto"), { ssr: false, loading: Cargando }),
   "escenario-ramificado": dynamic(() => import("./EscenarioRamificado"), { ssr: false, loading: Cargando }),
-  "proyecto-sql": dynamic(() => import("./ProyectoSQL"), { ssr: false, loading: Cargando }),
-  "simulador-explorable": dynamic(() => import("./SimuladorExplorable"), { ssr: false, loading: Cargando }),
+  "proyecto-sql": dynamic(() => import("./ProyectosEntornos"), { ssr: false, loading: Cargando }),
+  "simulador-explorable": dynamic(() => import("./SimuladoresEntornos"), { ssr: false, loading: Cargando }),
   storytelling: dynamic(() => import("./Storytelling"), { ssr: false, loading: Cargando }),
   "recorrido-360": dynamic(() => import("./Recorrido360"), { ssr: false, loading: Cargando }),
   "busqueda-tesoro-ra": dynamic(() => import("./BusquedaTesoroRA"), { ssr: false, loading: Cargando }),
   "video-presentador": dynamic(() => import("./VideoPresentador"), { ssr: false, loading: Cargando }),
   practica: dynamic(() => import("./Practica"), { ssr: false, loading: Cargando }),
   diagnostico: dynamic(() => import("./Diagnostico"), { ssr: false, loading: Cargando }),
+  "laboratorio-particulas": dynamic(() => import("./LaboratorioParticulas"), { ssr: false, loading: Cargando }),
 };

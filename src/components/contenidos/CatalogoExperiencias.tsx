@@ -3,7 +3,9 @@ import Link from "next/link";
 import { ArrowRight, ArrowUpRight, CircleCheck, MousePointerClick, Repeat, Timer } from "lucide-react";
 import GlowBackground from "@/components/ui/GlowBackground";
 import GaleriaExperiencias from "@/components/contenidos/GaleriaExperiencias";
-import { EXPERIENCIAS, FAMILIAS, ICAP, TOTAL_EXPERIENCIAS, type Lang } from "@/content/contenidos/experiencias";
+import MuroExperiencias from "@/components/contenidos/MuroExperiencias";
+import RielReferencias from "@/components/contenidos/RielReferencias";
+import { EXPERIENCIAS, ICAP, TOTAL_CON_DEMO, TOTAL_EXPERIENCIAS, type Lang, type Referencia } from "@/content/contenidos/experiencias";
 
 /**
  * Catálogo de experiencias de aprendizaje (24-nov-2026). Reemplaza el catálogo de 55 tipos.
@@ -16,6 +18,10 @@ const MEETING = "https://meetings.hubspot.com/david5040?uuid=26d4db2a-ff58-48ff-
 export const RUTA = { es: "/es/tipos-de-contenido-interactivo", en: "/interactive-content-types" } as const;
 
 const N = TOTAL_EXPERIENCIAS;
+const D = TOTAL_CON_DEMO;
+/** Videos de referencia para la franja «Así se ve en el mercado»: primero realidad virtual y avatares de IA. */
+const ORDEN_REFS = ["realidad-virtual", "video-presentador-ia", "simulador-conversaciones", "recorridos-360", "storytelling-aprendizaje", "realidad-aumentada"];
+const REFS: Referencia[] = ORDEN_REFS.flatMap((id) => EXPERIENCIAS.find((e) => e.id === id)?.referencias ?? []);
 const CON_FUENTE = EXPERIENCIAS.filter((e) => e.fuente).length;
 
 type Copy = {
@@ -36,6 +42,11 @@ type Copy = {
   steps: { t: string; d: string }[];
   catalogH2: string;
   catalogP: string;
+  railKicker: string;
+  railH2: string;
+  railP: string;
+  railPrev: string;
+  railNext: string;
   formatos: string;
   dataH2: string;
   dataP: string;
@@ -53,26 +64,31 @@ type Copy = {
 const COPY: Record<Lang, Copy> = {
   es: {
     seoTitle: "Experiencias interactivas para cursos virtuales, con demo",
-    description: "Copiloto estudiantil con IA, simuladores, 360°, realidad aumentada y diagnóstico de entrada: experiencias con demo que merahki.ai produce para tus cursos.",
+    description: "Copiloto estudiantil con IA, simuladores, realidad virtual, 360°, realidad aumentada y avatares de IA: experiencias de aprendizaje que merahki.ai produce para tus cursos.",
     ogAlt: "merahki.ai · Catálogo de experiencias de aprendizaje con demo",
     home: "Inicio",
     crumb: "Experiencias de aprendizaje",
     kicker: "¿Qué experiencias puede tener tu curso virtual?",
-    h1: ["El catálogo de merahki.ai reúne ", `${N} experiencias de aprendizaje con demo`, " para universidades y empresas que quieren cursos en los que el participante practica y cada avance se mide"],
-    sub: "Cada experiencia tiene una demo que puedes probar aquí mismo, la investigación que explica por qué funciona y los datos que deja para medir el avance de cada participante.",
+    h1: ["El catálogo de merahki.ai reúne ", `${N} experiencias de aprendizaje`, " para universidades y empresas que quieren cursos en los que el participante practica y cada avance se mide"],
+    sub: `Puedes probar aquí mismo la demo de ${D} de ellas. Cada ficha explica para qué sirve la experiencia, la investigación que la respalda cuando existe y los datos que deja para medir el avance de cada participante.`,
     ctaCatalog: "Ver las experiencias",
     ctaQuote: "Solicitar cotización a la medida",
     ctaMeet: "Agendar reunión de 30 minutos",
-    stats: ["experiencias de aprendizaje con demo", "familias según lo que hace el participante", "experiencias con investigación citada", "cada interacción queda registrada"],
+    stats: ["experiencias de aprendizaje", "experiencias con demo que puedes probar", "experiencias con investigación citada", "cada interacción queda registrada"],
     howH2: "merahki.ai eligió estas experiencias con el marco ICAP, que relaciona lo que hace el participante con lo que aprende",
     howP: "Según el marco ICAP, se aprende más cuando el participante conversa o construye algo que cuando solo mira o lee. Cada experiencia del catálogo cumple tres condiciones.",
     steps: [
       { t: "Evidencia publicada", d: "Un mecanismo de aprendizaje con investigación citada y verificada en su fuente original." },
-      { t: "Demo que se puede probar", d: "Una versión funcional con el programa de ejemplo, para que veas lo que va a vivir tu participante." },
+      { t: "Demo o video de referencia", d: "Una versión funcional con el programa de ejemplo, o videos de referencia del mercado cuando la experiencia necesita un visor, para que veas lo que va a vivir tu participante." },
       { t: "Datos para medir", d: "Cada interacción queda registrada con el estándar xAPI y llega al informe de resultados." },
     ],
     catalogH2: "Las experiencias de aprendizaje están organizadas en cuatro familias según lo que hace el participante",
     catalogP: "Abre cualquier experiencia para probar la demo con el programa de ejemplo «Analítica de Datos para la Toma de Decisiones», ver un caso por sector y los videos de referencia del mercado.",
+    railKicker: "Así se ve en el mercado",
+    railH2: "merahki.ai desarrolla, integra o licencia experiencias como las de estos videos: realidad virtual, avatares de IA, gemelos digitales y juegos de rol con IA",
+    railP: "Son videos públicos de otras empresas, que no son aliadas de merahki.ai. Debajo de cada uno ves si lo desarrollamos a la medida, lo integramos en tu LMS o lo licenciamos.",
+    railPrev: "Videos anteriores",
+    railNext: "Videos siguientes",
     formatos: "También producimos los formatos estándar de cualquier LMS, en SCORM y H5P: cuestionarios, arrastrar y soltar, líneas de tiempo, flashcards y más.",
     dataH2: "Cada experiencia deja datos para medir el avance de cada participante",
     dataP: "Las experiencias registran clics, tiempos, respuestas, intentos y rutas con el estándar xAPI. Esos datos alimentan el seguimiento semanal de la cohorte y el informe de resultados del programa.",
@@ -102,26 +118,31 @@ const COPY: Record<Lang, Copy> = {
   },
   en: {
     seoTitle: "Interactive learning experiences for online courses",
-    description: "Student AI copilot, simulations, 360° tours, augmented reality and entry diagnostics: learning experiences with live demos that merahki.ai builds for your courses.",
+    description: "Student AI copilot, simulations, virtual reality, 360° tours, augmented reality and AI avatars: learning experiences that merahki.ai builds for your courses.",
     ogAlt: "merahki.ai · Catalog of learning experiences with live demos",
     home: "Home",
     crumb: "Learning experiences",
     kicker: "What experiences can your online course include?",
-    h1: ["The merahki.ai catalog brings together ", `${N} learning experiences with live demos`, " for universities and companies that want courses where learners practice and every step of progress is measured"],
-    sub: "Each experience comes with a demo you can try right here, the research that explains why it works and the data it records to measure each learner's progress.",
+    h1: ["The merahki.ai catalog brings together ", `${N} learning experiences`, " for universities and companies that want courses where learners practice and every step of progress is measured"],
+    sub: `You can try the demo of ${D} of them right here. Each one explains what the experience is for, the research behind it when there is any, and the data it records to measure each learner's progress.`,
     ctaCatalog: "See the experiences",
     ctaQuote: "Request a custom quote",
     ctaMeet: "Book a 30-minute meeting",
-    stats: ["learning experiences with a demo", "families based on what the learner does", "experiences backed by cited research", "every interaction is recorded"],
+    stats: ["learning experiences", "experiences with a demo you can try", "experiences backed by cited research", "every interaction is recorded"],
     howH2: "merahki.ai chose these experiences with the ICAP framework, which links what learners do to what they learn",
     howP: "According to the ICAP framework, people learn more when they talk through ideas or build something than when they only watch or read. Every experience in the catalog meets three conditions.",
     steps: [
       { t: "Published evidence", d: "A learning mechanism backed by research, cited and checked against its original source." },
-      { t: "A demo you can try", d: "A working version with the sample program, so you can see what your learners will experience." },
+      { t: "A demo or reference video", d: "A working version with the sample program, or market reference videos when the experience needs a headset, so you can see what your learners will experience." },
       { t: "Data to measure", d: "Every interaction is recorded with the xAPI standard and feeds the results report." },
     ],
     catalogH2: "The learning experiences are grouped into four families based on what the learner does",
     catalogP: "Open any experience to try the demo with the sample program “Data Analytics for Decision Making”, see an industry example and watch market reference videos.",
+    railKicker: "What the market looks like",
+    railH2: "merahki.ai builds, integrates or licenses experiences like the ones in these videos: virtual reality, AI avatars, digital twins and AI role-plays",
+    railP: "These are public videos from other companies, which are not merahki.ai partners. Under each one you can see whether we build it custom, integrate it into your LMS or license it.",
+    railPrev: "Previous videos",
+    railNext: "Next videos",
     formatos: "We also produce the standard formats for any LMS, in SCORM and H5P: quizzes, drag and drop, timelines, flashcards and more.",
     dataH2: "Every experience records data to measure each learner's progress",
     dataP: "The experiences record clicks, time, answers, attempts and paths with the xAPI standard. That data feeds the weekly cohort follow-up and the program's results report.",
@@ -229,7 +250,7 @@ const DATA_ICONS = [MousePointerClick, Timer, CircleCheck, Repeat];
 
 export default function CatalogoExperiencias({ lang }: { lang: Lang }) {
   const c = COPY[lang];
-  const stats = [String(N), String(FAMILIAS.length), String(CON_FUENTE), "xAPI"];
+  const stats = [String(N), String(D), String(CON_FUENTE), "xAPI"];
   const btnWhite =
     "inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C084FC] focus-visible:ring-offset-2 focus-visible:ring-offset-black";
   const btnLine =
@@ -263,7 +284,12 @@ export default function CatalogoExperiencias({ lang }: { lang: Lang }) {
               {c.ctaQuote}
             </a>
           </div>
-          <dl className="mt-14 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-4">
+        </div>
+        <div className="relative z-10 -mx-6 mt-12">
+          <MuroExperiencias lang={lang} />
+        </div>
+        <div className="relative z-10 mx-auto max-w-6xl">
+          <dl className="mt-4 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 md:grid-cols-4">
             {stats.map((v, i) => (
               <div key={i} className="bg-[#07000d]/90 p-5 md:p-6">
                 <dt className="sr-only">{c.stats[i]}</dt>
@@ -310,6 +336,20 @@ export default function CatalogoExperiencias({ lang }: { lang: Lang }) {
           </div>
           <GaleriaExperiencias lang={lang} />
           <p className="mt-14 rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-relaxed text-white/65">{c.formatos}</p>
+        </div>
+      </section>
+
+      {/* ── Así se ve en el mercado ── */}
+      <section id="referencias" className="relative scroll-mt-24 px-4 pb-24 sm:px-6" aria-labelledby="referencias-titulo">
+        <div className="mx-auto max-w-6xl">
+          <div className="max-w-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#F9A8D4]">{c.railKicker}</p>
+            <h2 id="referencias-titulo" className="mt-3 text-3xl font-bold leading-tight tracking-tight text-white [text-wrap:balance] md:text-4xl">{c.railH2}</h2>
+            <p className="mt-4 leading-relaxed text-white/65">{c.railP}</p>
+          </div>
+          <div className="mt-6">
+            <RielReferencias lang={lang} refs={REFS} labels={{ prev: c.railPrev, next: c.railNext }} />
+          </div>
         </div>
       </section>
 

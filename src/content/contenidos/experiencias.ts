@@ -27,7 +27,8 @@ export type DemoId =
   | "busqueda-tesoro-ra"
   | "video-presentador"
   | "practica"
-  | "diagnostico";
+  | "diagnostico"
+  | "laboratorio-particulas";
 
 /**
  * Ejemplo de referencia en el mercado: video oficial del fabricante o de la institución.
@@ -54,6 +55,9 @@ export type Referencia = {
 
 export type Fuente = { cita: string; url: string };
 
+/** Recorrido 360° de referencia ya desarrollado por otra institución (Matterport, verificado el 26-nov-2026). */
+export type Recorrido = { matterport: string; titulo: Bi; descripcion: Bi; autor: string; url: string };
+
 export type Experiencia = {
   /** Slug estable: se usa en el enlace profundo #exp-<id>. */
   id: string;
@@ -67,11 +71,16 @@ export type Experiencia = {
   fuente?: Fuente;
   ejemplo: Bi;
   captura: DatoId[];
-  demo: DemoId;
+  demo?: DemoId;
   /** La demo ocupa todo el ancho de la ficha y la información va debajo (demos con panel propio). */
   ancho?: boolean;
   variante?: string;
   referencias?: Referencia[];
+  /** Vista previa de la tarjeta: captura de la demo (public/contenidos/previews/<lang>/<id>.webp), loop de video propio o miniatura de un video de referencia. */
+  vista: { tipo: "captura" } | { tipo: "video"; src: string; poster: string } | { tipo: "referencia" };
+  recorridos?: Recorrido[];
+  /** Sin demo propia: la ficha muestra los videos de referencia del mercado en lugar de la demo. */
+  soloVideos?: boolean;
 };
 
 export const PROGRAMA: Bi = {
@@ -134,6 +143,7 @@ export const DATOS: Record<DatoId, Bi> = {
 export const EXPERIENCIAS: Experiencia[] = [
   {
     id: "copiloto-estudiantil",
+    vista: { tipo: "captura" },
     familia: "conversar",
     nuevo: true,
     nombre: { es: "Copiloto estudiantil", en: "Student copilot" },
@@ -156,6 +166,7 @@ export const EXPERIENCIAS: Experiencia[] = [
   },
   {
     id: "simulador-conversaciones",
+    vista: { tipo: "captura" },
     familia: "conversar",
     nombre: { es: "Simulador de conversaciones con IA", en: "AI conversation simulator" },
     queHace: {
@@ -226,23 +237,11 @@ export const EXPERIENCIAS: Experiencia[] = [
       merahki: { es: "Integrar en tu LMS escenarios de video interactivo con conversación por IA.", en: "Integrate interactive video scenarios with AI conversation into your LMS." },
       modo: "integrar",
     },
-    {
-      plataforma: "Bodyswaps",
-      url: "https://bodyswaps.co",
-      provider: "youtube",
-      videoId: "XtsHXFwbbCU",
-      miniatura: "sddefault",
-      tituloVideo: "VR & AI soft skills training for nurses with Bodyswaps",
-      canal: "Bodyswaps",
-      duracion: "1:22",
-      wow: { es: "El participante ensaya conversaciones difíciles con personajes virtuales en VR y recibe retroalimentación de IA.", en: "Learners rehearse difficult conversations with virtual characters in VR and get AI feedback." },
-      merahki: { es: "Licenciar e integrar en tu LMS simulaciones de habilidades blandas en VR.", en: "License VR soft skills simulations and integrate them into your LMS." },
-      modo: "licenciar",
-    },
   ],
   },
   {
     id: "proyectos-retroalimentacion",
+    vista: { tipo: "captura" },
     familia: "construir",
     nuevo: true,
     nombre: { es: "Proyectos con retroalimentación al instante", en: "Projects with instant feedback" },
@@ -265,6 +264,7 @@ export const EXPERIENCIAS: Experiencia[] = [
   },
   {
     id: "simuladores-explorables",
+    vista: { tipo: "captura" },
     familia: "construir",
     nuevo: true,
     nombre: { es: "Simuladores explorables", en: "Explorable simulations" },
@@ -285,7 +285,31 @@ export const EXPERIENCIAS: Experiencia[] = [
     demo: "simulador-explorable",
   },
   {
+    id: "laboratorio-prediccion",
+    vista: { tipo: "captura" },
+    familia: "construir",
+    nuevo: true,
+    nombre: { es: "Laboratorio de predicción", en: "Prediction lab" },
+    queHace: {
+      es: "El participante entra a un laboratorio holográfico, dibuja dónde cree que van a caer mil partículas y las ve caer. Compara su predicción con lo que pasó, explica por qué aparece la campana y repite con solo 20 para ver por qué una muestra pequeña engaña.",
+      en: "Learners step into a holographic lab, draw where they think a thousand particles will land and watch them fall. They compare their prediction with what happened, explain why the bell curve appears and repeat with only 20 to see why a small sample misleads.",
+    },
+    porQue: {
+      es: "Según la investigación sobre predecir como estrategia de aprendizaje, anticipar una respuesta aumenta la sorpresa cuando el resultado es inesperado, y esa sorpresa dirige la atención a la respuesta correcta y ayuda a recordarla.",
+      en: "According to research on predicting as a learning strategy, anticipating an answer increases surprise when the result is unexpected, and that surprise directs attention to the correct answer and helps people remember it.",
+    },
+    fuente: { cita: "Brod (2021), Psychonomic Bulletin & Review", url: "https://doi.org/10.3758/s13423-021-01904-1" },
+    ejemplo: {
+      es: "En una aseguradora, los analistas predicen cuántos siniestros habrá en 20 pólizas y en 2.000, y ven por qué no se decide con una muestra pequeña.",
+      en: "At an insurer, analysts predict how many claims there will be in 20 policies and in 2,000, and see why decisions should not rest on a small sample.",
+    },
+    captura: ["respuestas", "intentos", "puntaje", "tiempo"],
+    demo: "laboratorio-particulas",
+    ancho: true,
+  },
+  {
     id: "storytelling-aprendizaje",
+    vista: { tipo: "video", src: "/contenidos/storytelling/junta-e2.mp4", poster: "/contenidos/storytelling/junta-e2-poster.webp" },
     familia: "vivir",
     nuevo: true,
     nombre: { es: "Storytelling para el Aprendizaje", en: "Learning through storytelling" },
@@ -349,6 +373,7 @@ export const EXPERIENCIAS: Experiencia[] = [
   },
   {
     id: "recorridos-360",
+    vista: { tipo: "captura" },
     familia: "vivir",
     nombre: { es: "Recorridos 360° y gemelos digitales", en: "360° tours and digital twins" },
     queHace: {
@@ -365,6 +390,28 @@ export const EXPERIENCIAS: Experiencia[] = [
     },
     captura: ["clics", "ruta", "tiempo", "vistas"],
     demo: "recorrido-360",
+    recorridos: [
+      {
+        matterport: "zrPem2o5syd",
+        titulo: { es: "Entrenador del transbordador espacial de la NASA", en: "NASA space shuttle trainer" },
+        descripcion: {
+          es: "Maqueta a escala real del transbordador donde la NASA entrenaba a sus astronautas en evacuación de emergencia y tareas a bordo.",
+          en: "Full-scale shuttle mockup where NASA trained its astronauts in emergency egress and onboard tasks.",
+        },
+        autor: "The Museum of Flight",
+        url: "https://www.museumofflight.org/exhibits-and-events/spacecraft/nasa-full-fuselage-trainer",
+      },
+      {
+        matterport: "gBoPaYdo6eP",
+        titulo: { es: "Centro de trauma de un hospital universitario", en: "University hospital trauma center" },
+        descripcion: {
+          es: "Área de atención inicial del centro de trauma Fanny Meisler. Así recorre un equipo de salud el lugar antes de su primer turno.",
+          en: "Care initiation area of the Fanny Meisler Trauma Center. This is how a care team can walk the space before its first shift.",
+        },
+        autor: "USA Health University Hospital",
+        url: "https://my.matterport.com/show/?m=gBoPaYdo6eP",
+      },
+    ],
     referencias: [
     {
       plataforma: "3DVista",
@@ -396,6 +443,7 @@ export const EXPERIENCIAS: Experiencia[] = [
   },
   {
     id: "realidad-aumentada",
+    vista: { tipo: "captura" },
     familia: "vivir",
     nombre: { es: "Realidad aumentada en el puesto de trabajo", en: "Augmented reality on the job" },
     queHace: {
@@ -442,10 +490,62 @@ export const EXPERIENCIAS: Experiencia[] = [
   ],
   },
   {
+    id: "realidad-virtual",
+    vista: { tipo: "referencia" },
+    familia: "vivir",
+    nuevo: true,
+    soloVideos: true,
+    nombre: { es: "Simulaciones en realidad virtual", en: "Virtual reality simulations" },
+    queHace: {
+      es: "El participante entra con un visor o desde el navegador a una escena simulada: una conversación difícil con un paciente, una emergencia en planta o el día a día de otra persona. Practica sin riesgo, repite las veces que necesite y la escena registra lo que hace.",
+      en: "Learners step into a simulated scene with a headset or from the browser: a difficult conversation with a patient, an emergency on the plant floor or another person's daily life. They practice without risk, repeat as often as they need and the scene records what they do.",
+    },
+    porQue: {
+      es: "Una revisión sistemática con metaanálisis de 31 estudios encontró que la realidad virtual mejora los conocimientos y las habilidades de los profesionales de la salud frente a la educación tradicional y a otros formatos digitales.",
+      en: "A systematic review and meta-analysis of 31 studies found that virtual reality improves health professionals' knowledge and skills compared with traditional education and other digital formats.",
+    },
+    fuente: { cita: "Kyaw et al. (2019), Journal of Medical Internet Research", url: "https://doi.org/10.2196/12959" },
+    ejemplo: {
+      es: "En un hospital, el personal de enfermería ensaya cómo darle una mala noticia a la familia de un paciente antes de vivirlo en un turno real.",
+      en: "At a hospital, nurses rehearse how to break bad news to a patient's family before they face it on a real shift.",
+    },
+    captura: ["ruta", "tiempo", "intentos", "progreso"],
+    ancho: true,
+    referencias: [
+    {
+      plataforma: "Bodyswaps",
+      url: "https://bodyswaps.co",
+      provider: "youtube",
+      videoId: "XtsHXFwbbCU",
+      miniatura: "sddefault",
+      tituloVideo: "VR & AI soft skills training for nurses with Bodyswaps",
+      canal: "Bodyswaps",
+      duracion: "1:22",
+      wow: { es: "El participante ensaya conversaciones difíciles con personajes virtuales en VR y recibe retroalimentación de IA.", en: "Learners rehearse difficult conversations with virtual characters in VR and get AI feedback." },
+      merahki: { es: "Licenciar e integrar en tu LMS simulaciones de habilidades blandas en VR.", en: "License VR soft skills simulations and integrate them into your LMS." },
+      modo: "licenciar",
+    },
+    {
+      plataforma: "1000 Cut Journey (Stanford VHIL y Columbia University)",
+      url: "https://brown.stanford.edu/portfolio/1000cut/",
+      provider: "youtube",
+      videoId: "rA6fOMSx2yk",
+      miniatura: "hqdefault",
+      tituloVideo: "1000 Cut Journey Official Trailer",
+      canal: "Virtual Human Interaction Lab",
+      duracion: "0:27",
+      wow: { es: "En VR, el participante vive en primera persona el racismo que enfrenta un hombre negro desde niño hasta adulto.", en: "In VR, learners live through the racism a Black man faces from childhood to adulthood, in the first person." },
+      merahki: { es: "Desarrollar a la medida una experiencia inmersiva de empatía para tu programa.", en: "Build a custom immersive empathy experience for your program." },
+      modo: "desarrollar",
+    },
+    ],
+  },
+  {
     id: "video-presentador-ia",
+    vista: { tipo: "video", src: "/contenidos/presentador/instructora.mp4", poster: "/contenidos/presentador/instructora-poster.webp" },
     familia: "practicar",
     nuevo: true,
-    nombre: { es: "Video con presentador de IA", en: "AI-presenter video" },
+    nombre: { es: "Video con avatar de IA", en: "AI avatar video" },
     queHace: {
       es: "El docente aparece como avatar de IA, con su cara y su voz, presenta cada lámina y el video se detiene para preguntar. Si el contenido cambia, se actualiza sin volver a grabar.",
       en: "The teacher appears as an AI avatar, with their own face and voice, presents each slide, and the video stops to ask questions. When the content changes, it is updated without filming again.",
@@ -493,6 +593,7 @@ export const EXPERIENCIAS: Experiencia[] = [
   },
   {
     id: "practica-inmediata",
+    vista: { tipo: "captura" },
     familia: "practicar",
     nombre: { es: "Práctica con retroalimentación inmediata", en: "Practice with instant feedback" },
     queHace: {
@@ -513,6 +614,7 @@ export const EXPERIENCIAS: Experiencia[] = [
   },
   {
     id: "diagnostico-ruta",
+    vista: { tipo: "captura" },
     familia: "practicar",
     nuevo: true,
     nombre: { es: "Diagnóstico y ruta personalizada", en: "Diagnostic and personalized path" },
@@ -536,3 +638,4 @@ export const EXPERIENCIAS: Experiencia[] = [
 
 export const getExperiencia = (id: string) => EXPERIENCIAS.find((e) => e.id === id);
 export const TOTAL_EXPERIENCIAS = EXPERIENCIAS.length;
+export const TOTAL_CON_DEMO = EXPERIENCIAS.filter((e) => e.demo).length;
