@@ -45,7 +45,7 @@ export const HOME_FAQ_COMPANIES: { question: string; answer: string }[] = [
     "answer": "No. They are included when the program needs them, and there is a free version that does not use blockchain."
   },
   {
-    "question": "Can you work with the university we already partner with?",
-    "answer": "Yes. If your company already trains its people with a university, we build the program with it."
+    "question": "Can you connect the program with a university?",
+    "answer": "Yes. If your company already trains its people with a university, we build the program with it. If not, we connect you with any of the universities that use POK, with their program portfolio and their certifications."
   }
 ];

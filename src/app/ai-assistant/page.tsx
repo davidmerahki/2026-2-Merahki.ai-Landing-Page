@@ -39,9 +39,13 @@ const features = [
   },
 ];
 
-const stats = [
+const stats: { value: string; label: string; source?: string }[] = [
   { value: "Minutes", label: "To generate a full course outline" },
-  { value: "10×", label: "Faster content creation" },
+  {
+    value: "40%",
+    label: "less time on professional writing tasks with generative AI",
+    source: "Source: Noy & Zhang, Science, 2023",
+  },
   { value: "100%", label: "Your content, your copyright" },
 ];
 
@@ -114,6 +118,9 @@ export default function AIAssistantPage() {
                     {stat.value}
                   </p>
                   <p className="text-white/50 text-sm">{stat.label}</p>
+                  {stat.source && (
+                    <p className="text-white/40 text-xs">{stat.source}</p>
+                  )}
                 </div>
               ))}
             </div>

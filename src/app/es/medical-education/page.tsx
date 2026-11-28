@@ -115,18 +115,21 @@ const agents = [
 
 const stats = [
   {
-    metric: "89%",
-    desc: "de las organizaciones de salud reportan mejores resultados de cumplimiento con programas de EMC digital estructurados.",
+    metric: "201",
+    desc: "estudios revisados en JAMA: el aprendizaje por internet en ciencias de la salud rinde de forma similar a los métodos tradicionales.",
+    source: "Fuente: Cook y otros, JAMA, 2008",
     color: "from-accent-purple/20",
   },
   {
-    metric: "3x",
-    desc: "más rápido el tiempo de competencia para equipos clínicos usando rutas de aprendizaje adaptativas con IA vs. formación presencial tradicional.",
+    metric: "11",
+    desc: "millones de trabajadores de la salud faltarán en el mundo en 2030, según la proyección de la OMS.",
+    source: "Fuente: Organización Mundial de la Salud, Health workforce",
     color: "from-accent-blue/20",
   },
   {
-    metric: "45%",
-    desc: "de reducción en costos de formación al reemplazar talleres presenciales con educación digital escalable bajo demanda.",
+    metric: "Espaciado",
+    desc: "El repaso espaciado por correo mejoró la retención de conocimiento clínico en un ensayo aleatorizado con estudiantes de medicina.",
+    source: "Fuente: Kerfoot y otros, Medical Education, 2007",
     color: "from-emerald-500/20",
   },
 ];
@@ -388,6 +391,9 @@ export default function MedicalEducationPageES() {
                   </p>
                   <p className="text-white/60 text-sm leading-relaxed">
                     {s.desc}
+                  </p>
+                  <p className="text-xs text-white/40 leading-relaxed">
+                    {s.source}
                   </p>
                 </div>
               </AnimatedSection>

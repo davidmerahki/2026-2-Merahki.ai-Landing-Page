@@ -18,9 +18,13 @@ import {
 
 export const metadata = buildMetadata("survey-builder", "es");
 
-const stats = [
+const stats: { value: string; label: string; source?: string }[] = [
   { value: "10+", label: "Tipos de preguntas soportados" },
-  { value: "3×", label: "Mayor finalización con lógica condicional" },
+  {
+    value: "10 a 15 min",
+    label: "dura la encuesta en línea ideal, según quienes responden",
+    source: "Fuente: Revilla y Höhne, International Journal of Market Research, 2020",
+  },
   { value: "100%", label: "Formularios con tu marca, sin código" },
 ];
 
@@ -175,6 +179,9 @@ export default function SurveyBuilderEsPage() {
                     {stat.value}
                   </p>
                   <p className="text-white/50 text-sm">{stat.label}</p>
+                  {stat.source && (
+                    <p className="text-white/40 text-xs">{stat.source}</p>
+                  )}
                 </div>
               ))}
             </div>

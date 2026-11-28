@@ -80,7 +80,7 @@ const faqJsonLd = {
       name: "How do you reduce churn in B2B SaaS using education?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Silent Churn Prevention through customer education works by identifying disengaged users before they cancel and delivering targeted micro-learning that re-connects them to product value. merahki.ai's Customer Education Academy uses AI-driven behavioral triggers to detect low-engagement signals, then automatically deploys adaptive onboarding sequences and In-app Mastery Guides. This framework achieves a 67% churn reduction by ensuring every customer reaches their 'Aha! Moment' before the disengagement window closes.",
+        text: "Silent Churn Prevention through customer education works by identifying disengaged users before they cancel and delivering targeted micro-learning that re-connects them to product value. merahki.ai's Customer Education Academy uses AI-driven behavioral triggers to detect low-engagement signals, then automatically deploys adaptive onboarding sequences and In-app Mastery Guides. In a 2024 Forrester study commissioned by Intellum, customer education raised average retention for trained products by 22.3%. The goal is for every customer to reach their 'Aha! Moment' before the disengagement window closes.",
       },
     },
     {

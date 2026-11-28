@@ -39,9 +39,13 @@ const features = [
   },
 ];
 
-const stats = [
+const stats: { value: string; label: string; source?: string }[] = [
   { value: "Minutos", label: "Para generar un esquema de curso completo" },
-  { value: "10×", label: "Creación de contenido más rápida" },
+  {
+    value: "40 %",
+    label: "menos tiempo en tareas de redacción profesional con IA generativa",
+    source: "Fuente: Noy y Zhang, Science, 2023",
+  },
   { value: "100%", label: "Tu contenido, tu copyright" },
 ];
 
@@ -116,6 +120,9 @@ export default function AIAssistantEsPage() {
                     {stat.value}
                   </p>
                   <p className="text-white/50 text-sm">{stat.label}</p>
+                  {stat.source && (
+                    <p className="text-white/40 text-xs">{stat.source}</p>
+                  )}
                 </div>
               ))}
             </div>

@@ -10,6 +10,7 @@ declare global {
     initHomeUniversidadesEn?: (root: HTMLElement) => () => void;
     initHomeEmpresas?: (root: HTMLElement) => () => void;
     initHomeCompanies?: (root: HTMLElement) => () => void;
+    initHomeGobiernos?: (root: HTMLElement) => () => void;
   }
 }
 
@@ -23,14 +24,17 @@ declare global {
  * (home-empresas.js, generado con HOME_LANG=empresas desde el prototipo v8-empresas). Su versión en inglés (/companies)
  * usa lang="en" aud="empresas" y home-companies.js (HOME_LANG=companies, prototipo v8-empresas-en).
  */
-export default function HomeUniversidades({ lang = "es", html, aud = "universidades" }: { lang?: "es" | "en"; html: string; aud?: "universidades" | "empresas" }) {
+export default function HomeUniversidades({ lang = "es", html, aud = "universidades" }: { lang?: "es" | "en"; html: string; aud?: "universidades" | "empresas" | "gobiernos" }) {
   const ref = useRef<HTMLDivElement>(null);
   const cleanup = useRef<(() => void) | null>(null);
   const en = lang === "en";
   const emp = aud === "empresas";
+  const gob = aud === "gobiernos";   // home para gobiernos (/es/gobiernos, 27-nov-2026): home-gobiernos.js
 
   const start = () => {
-    const init = emp
+    const init = gob
+      ? window.initHomeGobiernos
+      : emp
       ? en ? window.initHomeCompanies : window.initHomeEmpresas
       : en ? window.initHomeUniversidadesEn : window.initHomeUniversidades;
     if (!ref.current || !init || cleanup.current) return;
@@ -50,7 +54,9 @@ export default function HomeUniversidades({ lang = "es", html, aud = "universida
       <div ref={ref} className="mhu" lang={lang} data-aud={aud} data-role="rectoria" dangerouslySetInnerHTML={{ __html: html }} />
       <Script
         src={
-          emp
+          gob
+            ? "/home-universidades/home-gobiernos.js"
+            : emp
             ? en ? "/home-universidades/home-companies.js" : "/home-universidades/home-empresas.js"
             : en ? "/home-universidades/home-en.js" : "/home-universidades/home.js"
         }

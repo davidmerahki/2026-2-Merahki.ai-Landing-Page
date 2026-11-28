@@ -29,9 +29,16 @@ import {
 } from "lucide-react";
 
 const stats = [
-  { value: "+120", label: "Academies delivered" },
-  { value: "3×", label: "Faster than in-house" },
-  { value: "+40%", label: "Avg. student registration rate" },
+  {
+    value: "+8.4%",
+    label: "conversions with a 0.1s faster mobile site (retail)",
+    source: "Source: Deloitte for Google, Milliseconds Make Millions, 2020",
+  },
+  {
+    value: "45%",
+    label: "of Coursera learners in Colombia learn on mobile",
+    source: "Source: Coursera, Global Skills Report 2025, Latin America and the Caribbean",
+  },
 ];
 
 const designFeatures = [
@@ -186,8 +193,8 @@ export default function WebsiteBuilderClient() {
                 </div>
                 <span className="text-white/70 text-xs font-medium">Academy Analytics</span>
               </div>
-              <p className="text-3xl font-bold text-white">+52%</p>
-              <p className="text-white/40 text-xs mt-1">Student registrations after launch</p>
+              <p className="text-3xl font-bold text-white">Live</p>
+              <p className="text-white/40 text-xs mt-1">Student registrations since launch</p>
               <div className="mt-3 h-1 rounded-full bg-white/10 overflow-hidden">
                 <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-accent-purple to-accent-pink" />
               </div>
@@ -205,7 +212,7 @@ export default function WebsiteBuilderClient() {
                 <span className="text-white/60 text-xs">New enrollment</span>
               </div>
               <p className="text-white font-semibold text-sm">Customer Academy Live</p>
-              <p className="text-white/40 text-xs mt-1">Launched in 18 days</p>
+              <p className="text-white/40 text-xs mt-1">Ready for the first cohort</p>
             </motion.div>
 
             {/* Card 3 — metric pill */}
@@ -217,8 +224,8 @@ export default function WebsiteBuilderClient() {
                 <Zap className="w-4 h-4 text-accent-peach" />
               </div>
               <div>
-                <p className="text-white font-bold text-sm">94%</p>
-                <p className="text-white/40 text-xs">Avg. completion rate</p>
+                <p className="text-white font-bold text-sm">Tracking</p>
+                <p className="text-white/40 text-xs">Each participant's progress, every week</p>
               </div>
             </motion.div>
           </div>
@@ -229,18 +236,19 @@ export default function WebsiteBuilderClient() {
 
       {/* ── Stats Bar ── */}
       <section className="py-12 px-6 border-y border-white/5">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-3 gap-8 text-center"
+            className="grid grid-cols-2 gap-8 text-center"
           >
             {stats.map((stat, i) => (
               <motion.div key={stat.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={stagger(i)} className="space-y-1">
                 <p className="text-3xl md:text-4xl font-bold text-gradient-blue-pink">{stat.value}</p>
                 <p className="text-white/50 text-sm">{stat.label}</p>
+                <p className="text-white/40 text-xs">{stat.source}</p>
               </motion.div>
             ))}
           </motion.div>

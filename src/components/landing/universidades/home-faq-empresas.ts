@@ -45,7 +45,7 @@ export const HOME_FAQ_EMPRESAS: { question: string; answer: string }[] = [
     "answer": "No. Entran cuando el programa las necesita, y hay una versión gratuita que no usa blockchain."
   },
   {
-    "question": "¿Pueden trabajar con la universidad con la que ya tenemos convenio?",
-    "answer": "Sí. Si tu empresa ya forma a su gente con una universidad, armamos el programa con ella."
+    "question": "¿Pueden conectar el programa con una universidad?",
+    "answer": "Sí. Si tu empresa ya forma a su gente con una universidad, armamos el programa con ella. Si no, te conectamos con cualquiera de las universidades que usan POK, con su portafolio de programas y sus certificaciones."
   }
 ];

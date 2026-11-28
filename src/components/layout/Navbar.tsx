@@ -15,17 +15,19 @@ import { NAV, meetingHref, type NavColumn, type NavFeatured, type NavLink, type 
 
 const isExternal = (href: string) => /^https?:\/\//.test(href);
 
-type Aud = "universidades" | "empresas";
+type Aud = "universidades" | "empresas" | "gobiernos";
 const AUD_KEY = "merahki-audiencia";
 const audFromPath = (p: string): Aud | null =>
   p === "/es/empresas" || p.startsWith("/es/empresas/") || p === "/companies" || p.startsWith("/companies/")
     ? "empresas"
+    : p === "/es/gobiernos" || p.startsWith("/es/gobiernos/")
+      ? "gobiernos"
     : p === "/es" || p === "/"
       ? "universidades"
       : null;
 const AUD_HOME: Record<"es" | "en", Record<Aud, string>> = {
-  es: { universidades: "/es", empresas: "/es/empresas" },
-  en: { universidades: "/", empresas: "/companies" },
+  es: { universidades: "/es", empresas: "/es/empresas", gobiernos: "/es/gobiernos" },
+  en: { universidades: "/", empresas: "/companies", gobiernos: "/" },   // el home para gobiernos en inglés aún no existe
 };
 
 /** Ajusta el menú a la audiencia: la columna de esa audiencia va primero en Soluciones y los enlaces al home
@@ -38,18 +40,18 @@ function menusPara(menus: NavMenu[], aud: Aud, isEs: boolean): NavMenu[] {
   const esDeEmpresas = (titulo: string) => Number(/empresas|companies/i.test(titulo));
   return menus.map((m) => {
     const columns = m.columns.map((c) => ({ ...c, links: c.links.map((l) => ({ ...l, href: home(l.href) })) }));
-    if (m.id === "soluciones") columns.sort((a, b) => esDeEmpresas(b.title) - esDeEmpresas(a.title));
+    if (m.id === "soluciones" && aud === "empresas") columns.sort((a, b) => esDeEmpresas(b.title) - esDeEmpresas(a.title));
     return { ...m, columns, featured: m.featured ? { ...m.featured, href: home(m.featured.href) } : undefined };
   });
 }
 
-/** Barra de audiencia encima del menú. Gobiernos llega después, en los dos idiomas. */
+/** Barra de audiencia encima del menú. Gobiernos ya tiene home en español (/es/gobiernos, 27-nov); en inglés llega después. */
 function BarraAudiencia({ isEs, aud, pathname, onPick }: { isEs: boolean; aud: Aud; pathname: string; onPick: (a: Aud) => void }) {
   const items: { key: string; label: string; href?: string }[] = isEs
     ? [
         { key: "universidades", label: "universidades", href: "/es" },
         { key: "empresas", label: "empresas", href: "/es/empresas" },
-        { key: "gobiernos", label: "gobiernos" },
+        { key: "gobiernos", label: "gobiernos", href: "/es/gobiernos" },
       ]
     : [
         { key: "universidades", label: "universities", href: "/" },
@@ -187,7 +189,7 @@ export default function Navbar() {
     }
     try {
       const g = localStorage.getItem(AUD_KEY);
-      if (g === "empresas" || g === "universidades") setAud(g);
+      if (g === "empresas" || g === "universidades" || g === "gobiernos") setAud(g);
     } catch {}
   }, [pathname]);
   const pick = (a: Aud) => { setAud(a); try { localStorage.setItem(AUD_KEY, a); } catch {} };

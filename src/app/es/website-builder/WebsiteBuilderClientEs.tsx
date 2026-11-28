@@ -29,9 +29,16 @@ import {
 } from "lucide-react";
 
 const stats = [
-  { value: "+120", label: "Academias entregadas" },
-  { value: "3×", label: "Más rápido que in-house" },
-  { value: "+40%", label: "Tasa de registro de estudiantes promedio" },
+  {
+    value: "+8,4 %",
+    label: "en conversiones con un sitio móvil 0,1 s más rápido (retail)",
+    source: "Fuente: Deloitte para Google, Milliseconds Make Millions, 2020",
+  },
+  {
+    value: "45 %",
+    label: "de los estudiantes de Coursera en Colombia aprende desde el celular",
+    source: "Fuente: Coursera, Global Skills Report 2025, América Latina y el Caribe",
+  },
 ];
 
 const designFeatures = [
@@ -60,7 +67,7 @@ const proofPoints = [
 ];
 
 const standardFeatures = [
-  { icon: Zap, title: "Rendimiento siempre activo", desc: "SLA de 99.9% de uptime con infraestructura distribuida globalmente y failover instantáneo." },
+  { icon: Zap, title: "Rendimiento siempre activo", desc: "SLA de 99,9 % de uptime con infraestructura distribuida globalmente y failover instantáneo." },
   { icon: ShieldCheck, title: "Seguridad y cumplimiento", desc: "HTTPS obligatorio, GDPR-ready y manejo de datos encriptados en cada build." },
   { icon: HeartHandshake, title: "Asesoría de expertos", desc: "Un success partner dedicado guía la estrategia, revisa métricas e impulsa la mejora continua." },
 ];
@@ -179,8 +186,8 @@ export default function WebsiteBuilderClientEs() {
                 </div>
                 <span className="text-white/70 text-xs font-medium">Academy Analytics</span>
               </div>
-              <p className="text-3xl font-bold text-white">+52%</p>
-              <p className="text-white/40 text-xs mt-1">Registros de estudiantes tras el lanzamiento</p>
+              <p className="text-3xl font-bold text-white">En vivo</p>
+              <p className="text-white/40 text-xs mt-1">Registros de estudiantes desde el lanzamiento</p>
               <div className="mt-3 h-1 rounded-full bg-white/10 overflow-hidden">
                 <div className="h-full w-3/4 rounded-full bg-gradient-to-r from-accent-purple to-accent-pink" />
               </div>
@@ -197,7 +204,7 @@ export default function WebsiteBuilderClientEs() {
                 <span className="text-white/60 text-xs">Nueva matrícula</span>
               </div>
               <p className="text-white font-semibold text-sm">Customer Academy Live</p>
-              <p className="text-white/40 text-xs mt-1">Lanzada en 18 días</p>
+              <p className="text-white/40 text-xs mt-1">Lista para la primera cohorte</p>
             </motion.div>
 
             <motion.div
@@ -208,8 +215,8 @@ export default function WebsiteBuilderClientEs() {
                 <Zap className="w-4 h-4 text-accent-peach" />
               </div>
               <div>
-                <p className="text-white font-bold text-sm">94%</p>
-                <p className="text-white/40 text-xs">Tasa de finalización promedio</p>
+                <p className="text-white font-bold text-sm">Seguimiento</p>
+                <p className="text-white/40 text-xs">Avance de cada participante, cada semana</p>
               </div>
             </motion.div>
           </div>
@@ -220,18 +227,19 @@ export default function WebsiteBuilderClientEs() {
 
       {/* ── Stats Bar ── */}
       <section className="py-12 px-6 border-y border-white/5">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="grid grid-cols-3 gap-8 text-center"
+            className="grid grid-cols-2 gap-8 text-center"
           >
             {stats.map((stat, i) => (
               <motion.div key={stat.label} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={stagger(i)} className="space-y-1">
                 <p className="text-3xl md:text-4xl font-bold text-gradient-blue-pink">{stat.value}</p>
                 <p className="text-white/50 text-sm">{stat.label}</p>
+                <p className="text-white/40 text-xs">{stat.source}</p>
               </motion.div>
             ))}
           </motion.div>

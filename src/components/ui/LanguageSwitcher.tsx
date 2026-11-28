@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { Globe } from "lucide-react";
 import { ES_ROUTES } from "@/lib/routes.generated";
-import { PARES_EN_ES, PARES_ES_EN } from "@/lib/rutas-pares";
+import { PARES_EN_ES, PARES_ES_EN, SOLO_ES } from "@/lib/rutas-pares";
 
 const LANG_COOKIE = "preferred-lang";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365; // 1 year
@@ -22,7 +22,8 @@ export default function LanguageSwitcher() {
   // - una página sin versión ES lleva al home en español.
   const isArticle = /^\/(es\/)?blog\/[^/]+/.test(pathname);
   // Páginas con slug distinto en cada idioma (/es/empresas ↔ /companies, 26-nov-2026).
-  const par = isEs ? PARES_ES_EN[pathname] : PARES_EN_ES[pathname];
+  // y las que solo existen en español (/es/gobiernos → /), hasta que tengan su versión en inglés.
+  const par = isEs ? PARES_ES_EN[pathname] ?? SOLO_ES[pathname] : PARES_EN_ES[pathname];
   const targetHref = par
     ? par
     : isEs

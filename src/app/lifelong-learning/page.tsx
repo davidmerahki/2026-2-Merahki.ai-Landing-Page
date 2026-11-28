@@ -36,9 +36,17 @@ export const metadata = buildMetadata("lifelong-learning", "en");
 
 /* ────────────────────────────── DATA ────────────────────────────── */
 
-const heroStats = [
-  { value: "+40%", label: "Avg. completion rate across merahki.ai-operated programs" },
-  { value: "3×", label: "Faster than in-house production" },
+const heroStats: { value: string; label: string; source?: string }[] = [
+  {
+    value: "46%",
+    label: "completed among edX learners who paid for a certificate, vs. 3% of all",
+    source: "Source: OECD, Micro-credentials for Lifelong Learning and Employability, 2023",
+  },
+  {
+    value: "40%",
+    label: "less time on professional writing with generative AI",
+    source: "Source: Noy & Zhang, Science, 2023",
+  },
   { value: "8 wks", label: "Guaranteed delivery from kickoff to live program" },
 ];
 
@@ -48,20 +56,22 @@ const constraints = [
     icon: AlertTriangle,
     title: "Limited Operational Capacity",
     desc: "Your team manages instructional design, video production, LMS configuration, enrollment workflows, and participant support simultaneously. The bottleneck isn't demand — it's delivery capacity. Every new B2B program competes for the same scarce resources.",
-    stat: "50%+ of participant churn traces back to ineffective onboarding (Weber).",
+    stat: "74% of customer education leaders report a talent shortage to run their program, and 67% lack resources to hire.",
+    source: "Source: Forrester Consulting for Adobe, 2024",
   },
   {
     num: "02",
     icon: TrendingDown,
     title: "Low Completion and Retention Rates",
     desc: "Generic virtual programs lose participants after week two. Without engagement strategies grounded in behavioral economics and gamification, your corporate clients see disappointing outcomes — and they don't renew.",
-    stat: "MOOC-style: 12–15% completion. Structured programs: 60–80%. Cohort-based: 85–98%.",
+    stat: "In fully online MOOC-style courses, 3% to 15% of enrollees finish.",
+    source: "Source: OECD, Micro-credentials for Lifelong Learning and Employability, 2023",
   },
   {
     num: "03",
     icon: Clock,
     title: "Slow Time to Market",
-    desc: "From program conception to launch, months pass in cycles of instructional design, video production, LMS setup, enrollment coordination, and stakeholder review. The industry standard is 20 weeks across six phases.",
+    desc: "From program conception to launch, months pass in cycles of instructional design, video production, LMS setup, enrollment coordination, and stakeholder review.",
     stat: "merahki.ai compresses this to 8 weeks — platform, team, and methodology already in place.",
   },
   {
@@ -89,7 +99,7 @@ const pillars = [
       "Monetization model recommendation (Cost Center, Cost Recovery, or Revenue Center)",
     ],
     leadKpi: "Time-to-First-Course: <7 days from enrollment",
-    lagKpi: "Program Completion Rate: 60–80% (vs. 12–15% MOOC baseline)",
+    lagKpi: "Program Completion Rate: 60–80% target (vs. 3–15% in MOOCs, OECD 2023)",
     timeline: "Weeks 1–4",
   },
   {
@@ -108,7 +118,7 @@ const pillars = [
       "Interactive video: AI-generated quizzes, summaries, pop-ups, engagement checkpoints",
     ],
     leadKpi: "Course Completion Rate per module",
-    lagKpi: "Participant CSAT: 85%+ best-in-class",
+    lagKpi: "Participant CSAT (target: 85% or higher)",
     timeline: "Weeks 5–7",
   },
   {
@@ -116,7 +126,7 @@ const pillars = [
     color: "text-rose-400",
     title: "Gamification & Behavioral Economics",
     tagline: "We turn desired behaviors into habits — not obligations.",
-    desc: "We implement gamification structures based on Yu-kai Chou's Octalysis Framework and behavioral economics principles. Not superficial points and badges — we design the core drives that motivate completion, active participation, and re-purchase. Duolingo's 37% DAU/MAU stickiness ratio proves these techniques work at scale.",
+    desc: "We implement gamification structures based on Yu-kai Chou's Octalysis Framework and behavioral economics principles. Not superficial points and badges — we design the core drives that motivate completion, active participation, and re-purchase. Duolingo uses these same mechanics at scale.",
     includes: [
       "Octalysis mapping: 8 core drives tailored to each program",
       "Progression system: badges, certifications (Accredible/Credly), leaderboards",
@@ -133,10 +143,10 @@ const pillars = [
     color: "text-amber-400",
     title: "Launch & Enrollment Operations",
     tagline: "From ready program to enrolled participant — frictionless.",
-    desc: "We operate the entire go-to-market process: LMS technical configuration, enrollment flows, automated communications, participant onboarding, and coordination with your commercial team. Our academy websites achieve +40% average student registration rate because every design decision is conversion-engineered.",
+    desc: "We operate the entire go-to-market process: LMS technical configuration, enrollment flows, automated communications, participant onboarding, and coordination with your commercial team. Every design decision on our academy websites is conversion-engineered.",
     includes: [
       "Complete LMS configuration: schools, courses, users, roles, permissions",
-      "Conversion-optimized enrollment flows (+40% avg registration rate)",
+      "Conversion-optimized enrollment flows",
       "Payment gateway integration (Stripe, PayPal, Shopify)",
       "Automated communications: welcome emails, reminders, push notifications",
       "B2B coordination: bulk enrollment, corporate cohort management, per-company reporting",
@@ -151,16 +161,16 @@ const pillars = [
     color: "text-emerald-400",
     title: "Participant Support",
     tagline: "Support that frees your team — not consumes it.",
-    desc: "We provide participant support throughout the entire program lifecycle, combining AI agents with human escalation. The cost per assisted ticket is $25–$35, while self-service costs $1–$4. Our AI-first approach means support that scales logarithmically, not linearly, with participants.",
+    desc: "We provide participant support throughout the entire program lifecycle, combining AI agents with human escalation. Our AI-first approach means support that scales logarithmically, not linearly, with participants.",
     includes: [
-      "AI Learner Agent: resolves 80% of participant questions automatically",
+      "AI Learner Agent: answers participant questions automatically",
       "Human second-level support: escalation for complex cases",
       "Technical incident management: access, passwords, compatibility, certificates",
       "Multi-channel support: in-platform, email, chat (Freshchat, Zendesk, Tawk.to)",
-      "Feedback loops: post-module NPS surveys embedded in the learning flow (3× higher response)",
+      "Feedback loops: post-module NPS surveys embedded in the learning flow",
     ],
-    leadKpi: "Support Ticket Deflection Rate: 45–60%",
-    lagKpi: "Participant NPS: +50+ (world-class)",
+    leadKpi: "Support Ticket Deflection Rate (target: 45–60%)",
+    lagKpi: "Participant NPS: target +50",
     timeline: "Immediate from launch",
   },
   {
@@ -178,7 +188,7 @@ const pillars = [
       "CRM integration from day one: trained/untrained tagging for attribution",
     ],
     leadKpi: "Completion Rate, Engagement Rate per module",
-    lagKpi: "Customer Education ROI (Avramescu formula: 140–372% ROI)",
+    lagKpi: "Customer Education ROI (benchmark: 372% over three years, Forrester 2024)",
     timeline: "Leading indicators from week 1; lagging from month 3; terminal from month 6–12",
   },
 ];
@@ -212,9 +222,9 @@ const courseWeeks = [
 
 const beforeAfter = [
   { dimension: "Time to launch", before: "4–6 months", after: "8 weeks guaranteed" },
-  { dimension: "Completion rate", before: "20–35%", after: "60–80% (target: 72%+)" },
+  { dimension: "Completion rate", before: "No measured baseline", after: "Target: 60–80%" },
   { dimension: "Participant NPS", before: "Not measured", after: "+45 to +55 target" },
-  { dimension: "Support resolution", before: "Manual, slow", after: "80% auto-deflected by AI" },
+  { dimension: "Support resolution", before: "Manual, slow", after: "AI self-service with human escalation" },
   { dimension: "ROI visibility", before: "None", after: "Four-layer KPI dashboard" },
   { dimension: "Mobile access", before: "None", after: "Branded iOS + Android app" },
   { dimension: "Video engagement", before: "Passive playback", after: "Interactive: quizzes, pop-ups, AI subtitles" },
@@ -228,13 +238,13 @@ const outcomes = [
     icon: TrendingUp,
     title: "Revenue",
     color: "text-emerald-400",
-    desc: "Launch B2B programs 3× faster than in-house, accelerating pipeline and increasing revenue per quarter. Structured education programs generate +7.6% revenue lift and +35% Customer Lifetime Value.",
+    desc: "Launch programs without stalling your pipeline. Customer education raises revenue for trained products by 7.6% and lifetime value per trainee by 35%.",
   },
   {
     icon: RefreshCcw,
     title: "Corporate Client Retention",
     color: "text-sky-400",
-    desc: "Corporate clients that see high completion rates and participant satisfaction renew. +56% improvement in onboarding time and +21% lift in CLV.",
+    desc: "Corporate clients that see high completion rates renew. Customer education raises retention by 22.3% and reported satisfaction by 26.2%.",
   },
   {
     icon: Sparkles,
@@ -246,13 +256,13 @@ const outcomes = [
     icon: Star,
     title: "Satisfaction (NPS)",
     color: "text-amber-400",
-    desc: "NPS measured at every module and at program completion. SaaS benchmark: +31 to +36. Our target: world-class (+50+). Surveys embedded in-flow generate 3× higher response rates.",
+    desc: "NPS at every module and at program completion. Target: +50. Surveys embedded in the learning flow.",
   },
   {
     icon: ArrowDownRight,
     title: "Support Ticket Reduction",
     color: "text-rose-400",
-    desc: "AI Learner Agent deflects 80% of queries automatically. Cost per assisted ticket: $25–$35. Self-service: $1–$4. A 7–15× cost multiplier that frees your team for strategic work.",
+    desc: "Customer education cuts support inquiries by 15.5% and annual support costs by 7.2%.",
   },
   {
     icon: Zap,
@@ -417,17 +427,17 @@ const appPlans = [
 const addOns = [
   {
     title: "Partner Academy",
-    desc: "For corporate clients that need to train their own ecosystems — distributors, franchisees, resellers. Certified partners generate 6× more revenue (PartnerStack). 353% ROI (PartnerAwesome 2025).",
+    desc: "For corporate clients that need to train and certify their own ecosystems of distributors, franchisees, and resellers.",
     tiers: [] as string[],
   },
   {
     title: "Certification Program",
-    desc: "Validate competency, not just completion. Certifications are the highest-converting engagement mechanic. Meta Blueprint charges $99–$150 per exam across 3M+ course takers.",
+    desc: "Validate competency, not just completion.",
     tiers: [] as string[],
   },
   {
     title: "Academy Website",
-    desc: "Conversion-optimized web presence for your B2B education line. Strategy-first discovery, AI-powered personalization. Average +40% student registration rate.",
+    desc: "Conversion-optimized web presence for your B2B education line. Strategy-first discovery, AI-powered personalization.",
     tiers: [] as string[],
   },
   {
@@ -499,7 +509,7 @@ const faqs = [
   },
   {
     q: "What does participant support include?",
-    a: "24/7 AI Learner Agent (80% auto-deflection) + human second-level support + technical incident management + in-flow satisfaction surveys.",
+    a: "24/7 AI Learner Agent + human second-level support + technical incident management + in-flow satisfaction surveys.",
   },
   {
     q: "How is this different from hiring freelance instructional designers?",
@@ -608,6 +618,11 @@ export default function ContinuingEducationPage() {
                   <p className="text-xs text-white/40 mt-1 leading-tight">
                     {s.label}
                   </p>
+                  {s.source && (
+                    <p className="text-xs text-white/30 mt-2 leading-tight">
+                      {s.source}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
@@ -669,6 +684,11 @@ export default function ContinuingEducationPage() {
                   <p className="text-xs text-accent-purple/70 font-medium leading-relaxed border-t border-white/5 pt-3">
                     {c.stat}
                   </p>
+                  {c.source && (
+                    <p className="text-xs text-white/30 leading-relaxed">
+                      {c.source}
+                    </p>
+                  )}
                 </div>
               </AnimatedSection>
             ))}
@@ -1017,6 +1037,11 @@ export default function ContinuingEducationPage() {
               </AnimatedSection>
             ))}
           </div>
+          <p className="text-xs text-white/30 text-center mt-8">
+            Source: Forrester Consulting for Intellum, Drive Business Success
+            Through Customer Education, 2024 (revenue, retention, and ticket
+            reduction)
+          </p>
         </div>
       </section>
 
@@ -1208,8 +1233,8 @@ export default function ContinuingEducationPage() {
                 </span>
               </h3>
               <p className="text-white/40 text-sm mb-6">
-                Your content, your brand, on every device. App users generate
-                311% more revenue and 10× user growth compared to web-only.
+                Your content, your brand, on every device. In Colombia, 45% of
+                Coursera learners learn on mobile.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {appPlans.map((plan) => (

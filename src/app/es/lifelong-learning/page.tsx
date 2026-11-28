@@ -14,26 +14,34 @@ import {
 
 export const metadata = buildMetadata("lifelong-learning", "es");
 
-const heroStats = [
-  { value: "+40%", label: "Tasa de finalización promedio en programas operados por merahki.ai" },
-  { value: "3×", label: "Más rápido que la producción interna" },
+const heroStats: { value: string; label: string; source?: string }[] = [
+  {
+    value: "46 %",
+    label: "terminó el curso entre quienes pagaron el certificado en edX, frente a 3 % del total",
+    source: "Fuente: OCDE, Micro-credentials for Lifelong Learning and Employability, 2023",
+  },
+  {
+    value: "40 %",
+    label: "menos tiempo en redacción profesional con IA generativa",
+    source: "Fuente: Noy y Zhang, Science, 2023",
+  },
   { value: "8 sem", label: "Entrega garantizada desde el inicio hasta programa en vivo" },
 ];
 
 const constraints = [
-  { num: "01", icon: AlertTriangle, title: "Capacidad Operativa Limitada", desc: "Tu equipo gestiona diseño instruccional, producción de video, configuración LMS, flujos de inscripción y soporte a participantes simultáneamente. El cuello de botella no es la demanda — es la capacidad de entrega.", stat: "Más del 50% de la deserción se origina en un onboarding ineficaz (Weber)." },
-  { num: "02", icon: TrendingDown, title: "Bajas Tasas de Finalización y Retención", desc: "Los programas virtuales genéricos pierden participantes después de la segunda semana. Sin estrategias de engagement basadas en economía conductual y gamificación, tus clientes corporativos no renuevan.", stat: "Estilo MOOC: 12–15%. Programas estructurados: 60–80%. Cohortes: 85–98%." },
-  { num: "03", icon: Clock, title: "Lento Time to Market", desc: "Desde la concepción hasta el lanzamiento, pasan meses en ciclos de diseño, producción, configuración y revisión. El estándar de la industria es 20 semanas en seis fases.", stat: "merahki.ai comprime esto a 8 semanas — plataforma, equipo y metodología ya listos." },
+  { num: "01", icon: AlertTriangle, title: "Capacidad Operativa Limitada", desc: "Tu equipo gestiona diseño instruccional, producción de video, configuración LMS, flujos de inscripción y soporte a participantes simultáneamente. El cuello de botella no es la demanda — es la capacidad de entrega.", stat: "74 % de los líderes de educación de clientes reporta escasez de talento para operar su programa y 67 % no tiene recursos para contratar.", source: "Fuente: Forrester Consulting para Adobe, 2024" },
+  { num: "02", icon: TrendingDown, title: "Bajas Tasas de Finalización y Retención", desc: "Los programas virtuales genéricos pierden participantes después de la segunda semana. Sin estrategias de engagement basadas en economía conductual y gamificación, tus clientes corporativos no renuevan.", stat: "En cursos totalmente en línea tipo MOOC termina entre 3 % y 15 % de los inscritos.", source: "Fuente: OCDE, Micro-credentials for Lifelong Learning and Employability, 2023" },
+  { num: "03", icon: Clock, title: "Lento Time to Market", desc: "Desde la concepción hasta el lanzamiento, pasan meses en ciclos de diseño, producción, configuración y revisión.", stat: "merahki.ai comprime esto a 8 semanas — plataforma, equipo y metodología ya listos." },
   { num: "04", icon: EyeOff, title: "ROI Invisible", desc: "Sin analítica de aprendizaje integrada a métricas de negocio, tu unidad de educación continua no puede demostrar el valor real de sus programas.", stat: "La mayoría miden solo actividad (inscripciones) sin conectar con resultados de negocio (retención, ingresos)." },
 ];
 
 const pillars = [
-  { icon: Target, color: "text-violet-400", title: "Estrategia Educativa y Arquitectura de Programas", tagline: "Diseñamos programas orientados a resultados, no solo a contenido.", desc: "Comenzamos con una Auditoría de Fricción — un diagnóstico estructurado de dónde tus programas pierden participantes y no demuestran valor. Arquitectamos el programa usando el Onboarding Orquestado de Weber, los principios de Quick y los Siete Pilares de ELG de Intellum.", includes: ["Auditoría de Fricción de programas existentes o brief de nuevo programa", "Arquitectura completa del programa con estructura modular", "3–5 objetivos de aprendizaje medibles por módulo", "Diseño de rutas de aprendizaje (secuencial, libre o con prerequisitos)", "Selección de formato por módulo (video, ebook, evaluación, SCORM, H5P)", "Recomendación de modelo de monetización"], leadKpi: "Time-to-First-Course: <7 días", lagKpi: "Tasa de Finalización: 60–80%", timeline: "Semanas 1–4" },
-  { icon: BookOpen, color: "text-sky-400", title: "Diseño Instruccional y Producción de Contenido", tagline: "De la idea al curso publicado — en semanas, no meses.", desc: "Transformamos tu expertise académico en experiencias de aprendizaje interactivas y multimedia. Aplicamos Merrill, Gagné y Cathy Moore según las necesidades. Sin desarrollo frontend ni backend — entrega llave en mano.", includes: ["Diseño instruccional completo: guiones, storyboards, evaluaciones", "Hasta 100 min de video premium (producción y edición)", "Hasta 12 lecciones por expertos dedicados", "6+ actividades interactivas H5P por curso", "Personalización alineada a tu marca institucional", "IA: esquemas, evaluaciones, ebooks, traducciones", "Video interactivo: quizzes, resúmenes, pop-ups, checkpoints"], leadKpi: "Tasa de Finalización por módulo", lagKpi: "CSAT: 85%+ best-in-class", timeline: "Semanas 5–7" },
-  { icon: Gamepad2, color: "text-rose-400", title: "Gamificación y Economía Conductual", tagline: "Convertimos comportamientos deseados en hábitos — no en obligaciones.", desc: "Gamificación basada en el Framework Octalysis de Yu-kai Chou y economía conductual. Diseñamos los drives centrales que motivan finalización, participación activa y recompra. Duolingo: 37% DAU/MAU stickiness.", includes: ["Mapeo Octalysis: 8 drives centrales por programa", "Badges, certificaciones (Accredible/Credly), leaderboards", "Nudges conductuales: recordatorios, aversión a la pérdida, dotación", "Aprendizaje Comunitario: sesiones en vivo, breakout rooms, peer review", "Flywheel CLG: graduados → promotores → recompra"], leadKpi: "Tasa de Engagement", lagKpi: "Retención y recompra del cliente corporativo", timeline: "Semanas 8–12" },
-  { icon: Rocket, color: "text-amber-400", title: "Lanzamiento y Operaciones de Inscripción", tagline: "Del programa listo al participante inscrito — sin fricción.", desc: "Operamos todo el go-to-market: configuración LMS, flujos de inscripción, comunicaciones automatizadas, onboarding y coordinación con tu equipo comercial. +40% tasa promedio de registro.", includes: ["Configuración completa del LMS: escuelas, cursos, usuarios, roles", "Flujos de inscripción optimizados (+40% tasa de registro)", "Integración de pasarela de pago (Stripe, PayPal, Shopify)", "Comunicaciones automatizadas: emails, recordatorios, push notifications", "Coordinación B2B: inscripción masiva, cohortes, reportes por empresa", "App móvil con marca (iOS + Android) en 2–4 semanas"], leadKpi: "Tasa de Registro; Time-to-First-Course", lagKpi: "Ingreso por programa", timeline: "Semana 8" },
-  { icon: Headphones, color: "text-emerald-400", title: "Soporte al Participante", tagline: "Soporte que libera a tu equipo — no lo consume.", desc: "Soporte durante todo el ciclo de vida combinando IA con escalación humana. Costo por ticket asistido: $25–$35 vs. autoservicio $1–$4. Soporte que escala logarítmicamente, no linealmente.", includes: ["AI Learner Agent: resuelve 80% de consultas automáticamente", "Soporte humano de segundo nivel para casos complejos", "Gestión de incidentes técnicos", "Soporte multicanal: plataforma, email, chat", "Encuestas NPS post-módulo integradas (3× más respuestas)"], leadKpi: "Deflexión de Tickets: 45–60%", lagKpi: "NPS: +50+ (world-class)", timeline: "Inmediato" },
-  { icon: BarChart3, color: "text-cyan-400", title: "Analítica de Datos y Learning Analytics", tagline: "Cada decisión basada en datos. Cada resultado demostrable.", desc: "Stack de analítica completo: Leading → Transicionales → Lagging → Terminales. El error fatal es medir solo una capa. Nosotros instrumentamos las cuatro.", includes: ["Dashboard: 95+ filtros, progresión, exámenes", "Insights con IA en lenguaje natural", "Reportes automatizados a stakeholders", "Integración con herramientas BI", "Análisis de cohortes: por empresa, instructor, cohorte", "Integración CRM desde día uno para atribución"], leadKpi: "Tasa de Finalización y Engagement", lagKpi: "ROI de Educación (140–372%)", timeline: "Leading sem 1; lagging mes 3; terminal mes 6–12" },
+  { icon: Target, color: "text-violet-400", title: "Estrategia Educativa y Arquitectura de Programas", tagline: "Diseñamos programas orientados a resultados, no solo a contenido.", desc: "Comenzamos con una Auditoría de Fricción — un diagnóstico estructurado de dónde tus programas pierden participantes y no demuestran valor. Arquitectamos el programa usando el Onboarding Orquestado de Weber, los principios de Quick y los Siete Pilares de ELG de Intellum.", includes: ["Auditoría de Fricción de programas existentes o brief de nuevo programa", "Arquitectura completa del programa con estructura modular", "3–5 objetivos de aprendizaje medibles por módulo", "Diseño de rutas de aprendizaje (secuencial, libre o con prerequisitos)", "Selección de formato por módulo (video, ebook, evaluación, SCORM, H5P)", "Recomendación de modelo de monetización"], leadKpi: "Time-to-First-Course: <7 días", lagKpi: "Tasa de finalización (meta: 60 a 80 %)", timeline: "Semanas 1–4" },
+  { icon: BookOpen, color: "text-sky-400", title: "Diseño Instruccional y Producción de Contenido", tagline: "De la idea al curso publicado — en semanas, no meses.", desc: "Transformamos tu expertise académico en experiencias de aprendizaje interactivas y multimedia. Aplicamos Merrill, Gagné y Cathy Moore según las necesidades. Sin desarrollo frontend ni backend — entrega llave en mano.", includes: ["Diseño instruccional completo: guiones, storyboards, evaluaciones", "Hasta 100 min de video premium (producción y edición)", "Hasta 12 lecciones por expertos dedicados", "6+ actividades interactivas H5P por curso", "Personalización alineada a tu marca institucional", "IA: esquemas, evaluaciones, ebooks, traducciones", "Video interactivo: quizzes, resúmenes, pop-ups, checkpoints"], leadKpi: "Tasa de Finalización por módulo", lagKpi: "CSAT del participante (meta: 85 % o más)", timeline: "Semanas 5–7" },
+  { icon: Gamepad2, color: "text-rose-400", title: "Gamificación y Economía Conductual", tagline: "Convertimos comportamientos deseados en hábitos — no en obligaciones.", desc: "Gamificación basada en el Framework Octalysis de Yu-kai Chou y economía conductual. Diseñamos los drives centrales que motivan finalización, participación activa y recompra. Duolingo usa estas mismas mecánicas a escala.", includes: ["Mapeo Octalysis: 8 drives centrales por programa", "Badges, certificaciones (Accredible/Credly), leaderboards", "Nudges conductuales: recordatorios, aversión a la pérdida, dotación", "Aprendizaje Comunitario: sesiones en vivo, breakout rooms, peer review", "Flywheel CLG: graduados → promotores → recompra"], leadKpi: "Tasa de Engagement", lagKpi: "Retención y recompra del cliente corporativo", timeline: "Semanas 8–12" },
+  { icon: Rocket, color: "text-amber-400", title: "Lanzamiento y Operaciones de Inscripción", tagline: "Del programa listo al participante inscrito — sin fricción.", desc: "Operamos todo el go-to-market: configuración LMS, flujos de inscripción, comunicaciones automatizadas, onboarding y coordinación con tu equipo comercial.", includes: ["Configuración completa del LMS: escuelas, cursos, usuarios, roles", "Flujos de inscripción optimizados", "Integración de pasarela de pago (Stripe, PayPal, Shopify)", "Comunicaciones automatizadas: emails, recordatorios, push notifications", "Coordinación B2B: inscripción masiva, cohortes, reportes por empresa", "App móvil con marca (iOS + Android) en 2–4 semanas"], leadKpi: "Tasa de Registro; Time-to-First-Course", lagKpi: "Ingreso por programa", timeline: "Semana 8" },
+  { icon: Headphones, color: "text-emerald-400", title: "Soporte al Participante", tagline: "Soporte que libera a tu equipo — no lo consume.", desc: "Soporte durante todo el ciclo de vida combinando IA con escalación humana. Soporte que escala logarítmicamente, no linealmente.", includes: ["AI Learner Agent: responde consultas automáticamente", "Soporte humano de segundo nivel para casos complejos", "Gestión de incidentes técnicos", "Soporte multicanal: plataforma, email, chat", "Encuestas NPS post-módulo integradas"], leadKpi: "Deflexión de tickets (meta: 45 a 60 %)", lagKpi: "NPS: meta +50", timeline: "Inmediato" },
+  { icon: BarChart3, color: "text-cyan-400", title: "Analítica de Datos y Learning Analytics", tagline: "Cada decisión basada en datos. Cada resultado demostrable.", desc: "Stack de analítica completo: Leading → Transicionales → Lagging → Terminales. El error fatal es medir solo una capa. Nosotros instrumentamos las cuatro.", includes: ["Dashboard: 95+ filtros, progresión, exámenes", "Insights con IA en lenguaje natural", "Reportes automatizados a stakeholders", "Integración con herramientas BI", "Análisis de cohortes: por empresa, instructor, cohorte", "Integración CRM desde día uno para atribución"], leadKpi: "Tasa de Finalización y Engagement", lagKpi: "ROI de la educación de clientes (referencia: 372 % a tres años, Forrester 2024)", timeline: "Leading sem 1; lagging mes 3; terminal mes 6–12" },
 ];
 
 const courseWeeks = [
@@ -45,9 +53,9 @@ const courseWeeks = [
 
 const beforeAfter = [
   { dimension: "Tiempo de lanzamiento", before: "4–6 meses", after: "8 semanas garantizadas" },
-  { dimension: "Tasa de finalización", before: "20–35%", after: "60–80% (objetivo: 72%+)" },
+  { dimension: "Tasa de finalización", before: "Sin línea base medida", after: "Meta: 60 a 80 %" },
   { dimension: "NPS participantes", before: "No medido", after: "Objetivo +45 a +55" },
-  { dimension: "Resolución soporte", before: "Manual, lento", after: "80% auto-deflectado por IA" },
+  { dimension: "Resolución soporte", before: "Manual, lento", after: "Autoservicio con IA y escalación humana" },
   { dimension: "Visibilidad ROI", before: "Ninguna", after: "Dashboard KPIs 4 capas" },
   { dimension: "Acceso móvil", before: "Ninguno", after: "App iOS + Android con marca" },
   { dimension: "Video", before: "Reproducción pasiva", after: "Interactivo: quizzes, pop-ups, IA" },
@@ -57,11 +65,11 @@ const beforeAfter = [
 ];
 
 const outcomes = [
-  { icon: TrendingUp, title: "Ingresos", color: "text-emerald-400", desc: "Lanza programas 3× más rápido, acelerando pipeline e ingresos. +7.6% revenue lift y +35% Customer Lifetime Value." },
-  { icon: RefreshCcw, title: "Retención de Clientes", color: "text-sky-400", desc: "Clientes que ven altas tasas de finalización renuevan. +56% mejora en onboarding y +21% CLV." },
+  { icon: TrendingUp, title: "Ingresos", color: "text-emerald-400", desc: "Lanza programas sin frenar tu pipeline. La formación de clientes sube 7,6 % los ingresos del producto formado y 35 % el valor de vida por persona formada." },
+  { icon: RefreshCcw, title: "Retención de Clientes", color: "text-sky-400", desc: "Los clientes que ven altas tasas de finalización renuevan. La formación de clientes sube 22,3 % la retención y 26,2 % la satisfacción reportada." },
   { icon: Sparkles, title: "Experiencia del Participante", color: "text-violet-400", desc: "Video IA, Octalysis, app móvil, soporte multicanal. Comparable a HubSpot Academy y Coursera — no al LMS estático." },
-  { icon: Star, title: "Satisfacción (NPS)", color: "text-amber-400", desc: "NPS en cada módulo. Benchmark SaaS: +31 a +36. Objetivo: +50+. Encuestas in-flow: 3× más respuestas." },
-  { icon: ArrowDownRight, title: "Reducción de Tickets", color: "text-rose-400", desc: "AI deflecta 80%. Costo ticket: $25–$35 vs. autoservicio $1–$4. Multiplicador 7–15× que libera tu equipo." },
+  { icon: Star, title: "Satisfacción (NPS)", color: "text-amber-400", desc: "NPS en cada módulo y al cierre del programa. Objetivo: +50. Encuestas integradas al recorrido." },
+  { icon: ArrowDownRight, title: "Reducción de Tickets", color: "text-rose-400", desc: "La formación de clientes baja 15,5 % las consultas de soporte y 7,2 % el costo anual de soporte." },
   { icon: Zap, title: "Agilidad", color: "text-cyan-400", desc: "Idea a programa en vivo en 8 semanas. Sin desarrollo, sin contratar diseñadores, productores ni ingenieros." },
 ];
 
@@ -80,7 +88,7 @@ const setupPlans = [
 const lmsPlans = [
   { name: "Starter", price: "Según alcance", popular: false, features: ["500 usuarios", "50+ filtros analítica", "1 portal", "Reportes básicos", "Soporte email"] },
   { name: "Professional", price: "Según alcance", popular: true, features: ["1,000 usuarios", "95+ filtros analítica", "Hasta 3 portales", "CRM (HubSpot + Zapier)", "AI Learner Agent", "Reportes programados", "Webhooks", "Soporte prioritario"] },
-  { name: "Enterprise", price: "Según alcance", popular: false, features: ["5,000 usuarios", "95+ filtros + IA insights", "Portales ilimitados", "CRM + SSO/SAML", "AI Agent personalizado", "Dashboards ejecutivos", "API + webhooks avanzados", "CSM dedicado · SLA 99.9%"] },
+  { name: "Enterprise", price: "Según alcance", popular: false, features: ["5,000 usuarios", "95+ filtros + IA insights", "Portales ilimitados", "CRM + SSO/SAML", "AI Agent personalizado", "Dashboards ejecutivos", "API + webhooks avanzados", "CSM dedicado · SLA 99,9 %"] },
 ];
 
 const appPlans = [
@@ -90,9 +98,9 @@ const appPlans = [
 ];
 
 const addOns = [
-  { title: "Partner Academy", desc: "Para ecosistemas de distribuidores, franquiciados, revendedores. Partners certificados: 6× más ingresos. 353% ROI.", tiers: [] as string[] },
-  { title: "Programa de Certificación", desc: "Valida competencia, no solo finalización. Meta Blueprint: $99–$150/examen para 3M+ participantes.", tiers: [] as string[] },
-  { title: "Sitio Web de la Academia", desc: "Web optimizada para conversión. Strategy-first, IA. +40% tasa de registro promedio.", tiers: [] as string[] },
+  { title: "Partner Academy", desc: "Para ecosistemas de distribuidores, franquiciados y revendedores que necesitan formarse y certificarse.", tiers: [] as string[] },
+  { title: "Programa de Certificación", desc: "Valida competencia, no solo finalización.", tiers: [] as string[] },
+  { title: "Sitio Web de la Academia", desc: "Web optimizada para conversión. Strategy-first, IA.", tiers: [] as string[] },
   { title: "Retainer Estrategia ELG", desc: "Chief Learning Officer fraccional. Revisiones mensuales, KPIs, presentaciones ejecutivas trimestrales.", tiers: [] as string[] },
 ];
 
@@ -113,7 +121,7 @@ const faqs = [
   { q: "¿Con qué tier empiezo?", a: "Depende de cuántos programas lances y de cuánto contenido ya tengas. Lo definimos contigo en una reunión de 30 minutos." },
   { q: "¿Operan en múltiples idiomas?", a: "Sí. Traducción IA, localización y multi-idioma vía Weglot. Inglés, español, portugués y otros bajo demanda." },
   { q: "¿Cómo miden el ROI?", a: "Jerarquía KPI de 4 capas: Leading → Transicionales → Lagging → Terminales. Fórmula Avramescu. Reportes automáticos." },
-  { q: "¿Qué incluye el soporte?", a: "AI Learner Agent 24/7 (80% auto-deflexión) + soporte humano nivel 2 + gestión técnica + encuestas integradas." },
+  { q: "¿Qué incluye el soporte?", a: "AI Learner Agent 24/7 + soporte humano nivel 2 + gestión técnica + encuestas integradas." },
   { q: "¿Diferencia con freelancers?", a: "Freelancers: diseño individual. Nosotros: ciclo completo (estrategia → producción → lanzamiento → operaciones → analítica → mejora continua) + plataforma + IA + gamificación + app + CRM." },
   { q: "¿Necesito los add-ons?", a: "No para empezar. Los 3 servicios core cubren el ciclo completo. La mayoría añade Certificación en los primeros 6 meses." },
   { q: "¿Hay descuento bundle?", a: "Sí. Si lanzas el programa completo, la propuesta incluye un descuento por paquete." },
@@ -177,6 +185,9 @@ export default function ContinuingEducationPageES() {
                 <div key={s.value} className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-center">
                   <p className="text-2xl md:text-3xl font-bold text-gradient-peach-purple">{s.value}</p>
                   <p className="text-xs text-white/40 mt-1 leading-tight">{s.label}</p>
+                  {s.source && (
+                    <p className="text-xs text-white/30 mt-2 leading-tight">{s.source}</p>
+                  )}
                 </div>
               ))}
             </div>
@@ -215,6 +226,7 @@ export default function ContinuingEducationPageES() {
                   </div>
                   <p className="text-white/50 text-sm leading-relaxed">{c.desc}</p>
                   <p className="text-xs text-accent-purple/70 font-medium leading-relaxed border-t border-white/5 pt-3">{c.stat}</p>
+                  {c.source && <p className="text-xs text-white/30 leading-relaxed">{c.source}</p>}
                 </div>
               </AnimatedSection>
             ))}
@@ -403,6 +415,7 @@ export default function ContinuingEducationPageES() {
               </AnimatedSection>
             ))}
           </div>
+          <p className="text-xs text-white/30 text-center mt-8">Fuente: Forrester Consulting para Intellum, Drive Business Success Through Customer Education, 2024 (ingresos, retención y reducción de tickets)</p>
         </div>
       </section>
 
@@ -495,7 +508,7 @@ export default function ContinuingEducationPageES() {
           <AnimatedSection delay={0.2}>
             <div className="mb-16">
               <h3 className="text-xl font-bold text-white mb-2">App Móvil con Marca <span className="text-white/40 text-sm font-normal">(Opcional)</span></h3>
-              <p className="text-white/40 text-sm mb-6">Tu contenido, tu marca, en cada dispositivo. 311% más ingresos y 10× crecimiento vs. solo web.</p>
+              <p className="text-white/40 text-sm mb-6">Tu contenido, tu marca, en cada dispositivo. En Colombia, 45 % de los estudiantes de Coursera aprende desde el celular.</p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {appPlans.map((plan) => (
                   <div key={plan.name} className={`rounded-2xl p-7 border space-y-4 h-full flex flex-col ${plan.popular ? "border-accent-purple/50 bg-accent-purple/5" : "border-white/10 bg-white/[0.02]"}`}>

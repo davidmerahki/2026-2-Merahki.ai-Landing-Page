@@ -66,6 +66,7 @@ export const ES_ROUTES: readonly string[] = [
   "/david-gonzalez",
   "/empresas",
   "/flexible-courses",
+  "/gobiernos",
   "/growth-for-universities",
   "/integrations",
   "/interactive-video",

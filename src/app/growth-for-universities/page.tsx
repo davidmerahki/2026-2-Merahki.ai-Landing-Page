@@ -67,7 +67,7 @@ const programTypes = [
     label: "Undergraduate",
     icon: GraduationCap,
     bullets: [
-      "Interactive onboarding that reduces first-year dropout by up to 35%.",
+      "Interactive onboarding that supports students from their first semester.",
       "Adaptive learning paths aligned to degree requirements.",
       "Gamified engagement that keeps students motivated through completion.",
     ],
@@ -94,23 +94,27 @@ const programTypes = [
 
 const stats = [
   {
-    metric: "35%",
-    desc: "improvement in first-year student retention with AI-driven engagement programs.",
+    metric: "22.61%",
+    desc: "cumulative cohort dropout at the university level in Colombia, measured through semester 10 (2024).",
+    source: "Source: Colombian Ministry of Education, SPADIES, 2024",
     color: "from-accent-purple/20",
   },
   {
-    metric: "5x",
-    desc: "faster course creation from existing syllabi using the AI Creator Agent.",
+    metric: "40%",
+    desc: "less time on professional writing tasks with generative AI, in an experiment with 453 professionals.",
+    source: "Source: Noy & Zhang, Science, 2023",
     color: "from-accent-blue/20",
   },
   {
-    metric: "70%",
-    desc: "of alumni express interest in lifelong learning when offered relevant micro-credentials.",
+    metric: "71%",
+    desc: "of students say they're likely to enroll in a program with credit-bearing micro-credentials, vs. 35% with none.",
+    source: "Source: Coursera, Micro-Credentials Impact Report 2026",
     color: "from-emerald-500/20",
   },
   {
-    metric: "2.4x",
-    desc: "return on marketing investment with AI-optimized enrollment funnels.",
+    metric: "+8.4%",
+    desc: "conversions when a mobile site loads 0.1s faster (retail, Europe and US).",
+    source: "Source: Deloitte for Google, Milliseconds Make Millions, 2020",
     color: "from-amber-500/20",
   },
 ];
@@ -189,7 +193,7 @@ const faqJsonLd = {
       name: "How does merahki.ai help universities increase enrollment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "merahki.ai provides AI-optimized enrollment funnels that convert prospective students into enrolled learners. From targeted content marketing to personalized nurture sequences, the platform automates the recruitment process while providing real-time analytics on conversion rates, cost per enrollment, and channel performance — delivering an average 2.4x return on marketing investment.",
+        text: "merahki.ai provides AI-optimized enrollment funnels that convert prospective students into enrolled learners. From targeted content marketing to personalized nurture sequences, the platform automates the recruitment process while providing real-time analytics on conversion rates, cost per enrollment, and channel performance.",
       },
     },
     {
@@ -197,7 +201,7 @@ const faqJsonLd = {
       name: "Can merahki.ai improve student retention rates?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. merahki.ai's behavioral analytics engine detects at-risk students early by analyzing engagement patterns, assignment completion, and learning activity. The platform then triggers personalized interventions — adaptive content, tutor nudges, or mentor referrals — that keep students on track. Universities using this approach report up to 35% improvement in first-year retention.",
+        text: "Yes. merahki.ai's behavioral analytics engine detects at-risk students early by analyzing engagement patterns, assignment completion, and learning activity. The platform then triggers personalized interventions — adaptive content, tutor nudges, or mentor referrals — that keep students on track. In Colombia, the annual dropout rate at the university level was 8.65% in 2024, according to the Ministry of Education's SPADIES system.",
       },
     },
     {
@@ -415,6 +419,9 @@ export default function GrowthForUniversitiesPage() {
                   </p>
                   <p className="text-white/55 text-sm leading-relaxed">
                     {s.desc}
+                  </p>
+                  <p className="text-xs text-white/40 leading-relaxed">
+                    {s.source}
                   </p>
                 </div>
               </AnimatedSection>

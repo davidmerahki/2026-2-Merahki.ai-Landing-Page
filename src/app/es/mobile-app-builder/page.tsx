@@ -47,9 +47,17 @@ const features = [
   },
 ];
 
-const stats = [
-  { value: "311%", label: "Mayor revenue para usuarios de app" },
-  { value: "10×", label: "Crecimiento de usuarios con mobile" },
+const stats: { value: string; label: string; source?: string }[] = [
+  {
+    value: "45 %",
+    label: "de los estudiantes de Coursera en Colombia aprende desde el celular",
+    source: "Fuente: Coursera, Global Skills Report 2025, América Latina y el Caribe",
+  },
+  {
+    value: "73 %",
+    label: "de los equipos de educación de alto éxito considera importante el acceso móvil",
+    source: "Fuente: Forrester Consulting para Intellum, 2024",
+  },
   { value: "2–4 sem", label: "De la entrega al lanzamiento en vivo" },
 ];
 
@@ -124,6 +132,9 @@ export default function MobileAppBuilderEsPage() {
                     {stat.value}
                   </p>
                   <p className="text-white/50 text-sm">{stat.label}</p>
+                  {stat.source && (
+                    <p className="text-white/40 text-xs">{stat.source}</p>
+                  )}
                 </div>
               ))}
             </div>

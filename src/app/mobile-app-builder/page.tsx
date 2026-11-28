@@ -47,9 +47,17 @@ const features = [
   },
 ];
 
-const stats = [
-  { value: "311%", label: "More revenue for app users" },
-  { value: "10×", label: "User growth with mobile" },
+const stats: { value: string; label: string; source?: string }[] = [
+  {
+    value: "45%",
+    label: "of Coursera learners in Colombia learn on mobile",
+    source: "Source: Coursera, Global Skills Report 2025, Latin America and the Caribbean",
+  },
+  {
+    value: "73%",
+    label: "of high-success education teams rate mobile access as important",
+    source: "Source: Forrester Consulting for Intellum, 2024",
+  },
   { value: "2–4 wks", label: "From submission to live" },
 ];
 
@@ -121,6 +129,9 @@ export default function MobileAppBuilderPage() {
                     {stat.value}
                   </p>
                   <p className="text-white/50 text-sm">{stat.label}</p>
+                  {stat.source && (
+                    <p className="text-white/40 text-xs">{stat.source}</p>
+                  )}
                 </div>
               ))}
             </div>

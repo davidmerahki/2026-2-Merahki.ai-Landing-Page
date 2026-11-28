@@ -67,7 +67,7 @@ const programTypes = [
     label: "Pregrado",
     icon: GraduationCap,
     bullets: [
-      "Onboarding interactivo que reduce la deserción de primer año hasta un 35%.",
+      "Onboarding interactivo que acompaña al estudiante desde el primer semestre.",
       "Rutas de aprendizaje adaptativas alineadas a los requisitos del programa.",
       "Engagement gamificado que mantiene a los estudiantes motivados hasta la graduación.",
     ],
@@ -94,23 +94,27 @@ const programTypes = [
 
 const stats = [
   {
-    metric: "35%",
-    desc: "de mejora en la retención estudiantil de primer año con programas de engagement impulsados por IA.",
+    metric: "22,61 %",
+    desc: "de deserción acumulada por cohorte en el nivel universitario en Colombia, medida hasta el semestre 10 (2024).",
+    source: "Fuente: Ministerio de Educación Nacional, SPADIES, cierre 2024",
     color: "from-accent-purple/20",
   },
   {
-    metric: "5x",
-    desc: "más rápido en la creación de cursos a partir de planes de estudio existentes usando el AI Creator Agent.",
+    metric: "40 %",
+    desc: "menos tiempo en tareas de redacción profesional con IA generativa, en un experimento con 453 profesionales.",
+    source: "Fuente: Noy y Zhang, Science, 2023",
     color: "from-accent-blue/20",
   },
   {
-    metric: "70%",
-    desc: "de los egresados expresan interés en aprendizaje permanente cuando se les ofrecen micro-credenciales relevantes.",
+    metric: "71 %",
+    desc: "de los estudiantes dice que probablemente se inscribiría en un programa con microcredenciales con crédito, frente a 35 % sin ellas.",
+    source: "Fuente: Coursera, Micro-Credentials Impact Report 2026",
     color: "from-emerald-500/20",
   },
   {
-    metric: "2.4x",
-    desc: "de retorno sobre la inversión en marketing con funnels de matrícula optimizados por IA.",
+    metric: "+8,4 %",
+    desc: "en conversiones cuando un sitio móvil carga 0,1 s más rápido (retail, Europa y EE. UU.).",
+    source: "Fuente: Deloitte para Google, Milliseconds Make Millions, 2020",
     color: "from-amber-500/20",
   },
 ];
@@ -373,6 +377,9 @@ export default function GrowthForUniversitiesPageES() {
                   </p>
                   <p className="text-white/55 text-sm leading-relaxed">
                     {s.desc}
+                  </p>
+                  <p className="text-xs text-white/40 leading-relaxed">
+                    {s.source}
                   </p>
                 </div>
               </AnimatedSection>

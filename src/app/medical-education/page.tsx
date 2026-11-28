@@ -115,18 +115,21 @@ const agents = [
 
 const stats = [
   {
-    metric: "89%",
-    desc: "of healthcare organizations report improved compliance outcomes with structured digital CME programs.",
+    metric: "201",
+    desc: "studies reviewed in JAMA: internet-based learning in the health professions performs similarly to traditional methods.",
+    source: "Source: Cook et al., JAMA, 2008",
     color: "from-accent-purple/20",
   },
   {
-    metric: "3x",
-    desc: "faster time-to-competency for clinical teams using AI-adaptive learning paths vs. traditional classroom training.",
+    metric: "11M",
+    desc: "projected shortfall of health workers worldwide by 2030, according to WHO.",
+    source: "Source: World Health Organization, Health workforce",
     color: "from-accent-blue/20",
   },
   {
-    metric: "45%",
-    desc: "reduction in training costs by replacing in-person workshops with scalable, on-demand digital education.",
+    metric: "Spaced",
+    desc: "Spaced e-mail review improved retention of clinical knowledge in a randomized trial with medical students.",
+    source: "Source: Kerfoot et al., Medical Education, 2007",
     color: "from-emerald-500/20",
   },
 ];
@@ -197,7 +200,7 @@ const faqJsonLd = {
       name: "How does AI improve medical education outcomes?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "merahki.ai's AI agents transform medical education by automating content creation from clinical guidelines and research, delivering adaptive learning paths personalized to each clinician's knowledge gaps, and providing a persistent AI tutor for spaced repetition and evidence-based recommendations. This results in 3x faster time-to-competency and measurable improvements in clinical performance.",
+        text: "merahki.ai's AI agents transform medical education by automating content creation from clinical guidelines and research, delivering adaptive learning paths personalized to each clinician's knowledge gaps, and providing a persistent AI tutor for spaced repetition and evidence-based recommendations. The goal is faster time-to-competency and measurable improvements in clinical performance.",
       },
     },
     {
@@ -431,6 +434,9 @@ export default function MedicalEducationPage() {
                   </p>
                   <p className="text-white/60 text-sm leading-relaxed">
                     {s.desc}
+                  </p>
+                  <p className="text-xs text-white/40 leading-relaxed">
+                    {s.source}
                   </p>
                 </div>
               </AnimatedSection>
