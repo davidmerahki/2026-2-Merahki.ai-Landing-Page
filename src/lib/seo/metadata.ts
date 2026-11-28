@@ -68,9 +68,17 @@ export const seoEntries: Record<string, SeoEntry> = {
     },
   },
   gobiernos: {
-    slug: "gobiernos",
+    slug: "governments",
+    slugEs: "gobiernos",
     type: "home",
     audience: "gobiernos",
+    en: {
+      title: "Training for public agencies | merahki.ai",
+      description: "merahki.ai designs training for your public servants and the beneficiaries of your programs, with progress reports for the contract supervisor and verifiable credentials from POK.",
+      ogTitle: "merahki.ai for governments: training for public servants and program beneficiaries with progress reports",
+      ogDescription: "Institutional training plans, role-based and workforce training, a WhatsApp version and verifiable credentials from POK, with the university your agency contracts.",
+      ogImageAlt: "merahki.ai — Training for public agencies",
+    },
     es: {
       title: "Formación para entidades públicas | merahki.ai",
       description: "merahki.ai diseña la formación de tus servidores públicos y de los beneficiarios de tus programas, con informes de avance para el supervisor y credenciales verificables con POK.",

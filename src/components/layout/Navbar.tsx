@@ -20,14 +20,14 @@ const AUD_KEY = "merahki-audiencia";
 const audFromPath = (p: string): Aud | null =>
   p === "/es/empresas" || p.startsWith("/es/empresas/") || p === "/companies" || p.startsWith("/companies/")
     ? "empresas"
-    : p === "/es/gobiernos" || p.startsWith("/es/gobiernos/")
+    : p === "/es/gobiernos" || p.startsWith("/es/gobiernos/") || p === "/governments" || p.startsWith("/governments/")
       ? "gobiernos"
     : p === "/es" || p === "/"
       ? "universidades"
       : null;
 const AUD_HOME: Record<"es" | "en", Record<Aud, string>> = {
   es: { universidades: "/es", empresas: "/es/empresas", gobiernos: "/es/gobiernos" },
-  en: { universidades: "/", empresas: "/companies", gobiernos: "/" },   // el home para gobiernos en inglés aún no existe
+  en: { universidades: "/", empresas: "/companies", gobiernos: "/governments" },
 };
 
 /** Ajusta el menú a la audiencia: la columna de esa audiencia va primero en Soluciones y los enlaces al home
@@ -45,7 +45,7 @@ function menusPara(menus: NavMenu[], aud: Aud, isEs: boolean): NavMenu[] {
   });
 }
 
-/** Barra de audiencia encima del menú. Gobiernos ya tiene home en español (/es/gobiernos, 27-nov); en inglés llega después. */
+/** Barra de audiencia encima del menú: universidades, empresas y gobiernos, en español y en inglés (27-nov-2026). */
 function BarraAudiencia({ isEs, aud, pathname, onPick }: { isEs: boolean; aud: Aud; pathname: string; onPick: (a: Aud) => void }) {
   const items: { key: string; label: string; href?: string }[] = isEs
     ? [
@@ -56,7 +56,7 @@ function BarraAudiencia({ isEs, aud, pathname, onPick }: { isEs: boolean; aud: A
     : [
         { key: "universidades", label: "universities", href: "/" },
         { key: "empresas", label: "companies", href: "/companies" },
-        { key: "gobiernos", label: "governments" },
+        { key: "gobiernos", label: "governments", href: "/governments" },
       ];
   const para = isEs ? "Para" : "For";
   const pronto = isEs ? "pronto" : "soon";

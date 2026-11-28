@@ -26,6 +26,7 @@ export const EN_ROUTES: readonly string[] = [
   "/education-led-growth",
   "/events",
   "/flexible-courses",
+  "/governments",
   "/growth-for-universities",
   "/integrations",
   "/interactive-content-types",

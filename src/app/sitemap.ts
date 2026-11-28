@@ -128,8 +128,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ];
   });
 
-  // Páginas que solo existen en español (27-nov-2026): el home para gobiernos, hasta que tenga su versión en inglés.
-  const soloEs = ["/es/gobiernos"].filter((r) => ES_ROUTE_SET.has(r.slice(3))).map((r) => ({ url: `${BASE_URL}${r}`, lastModified, changeFrequency: "monthly" as const, priority: 0.9 }));
-
-  return [...pairedRoutes, ...localized(staticRoutes, 0.6), ...localized(blogPosts, 0.6), ...blogEs, ...articulos, ...servicios, ...soloEs];
+  return [...pairedRoutes, ...localized(staticRoutes, 0.6), ...localized(blogPosts, 0.6), ...blogEs, ...articulos, ...servicios];
 }

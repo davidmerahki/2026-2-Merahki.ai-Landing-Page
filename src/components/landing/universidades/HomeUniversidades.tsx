@@ -11,6 +11,7 @@ declare global {
     initHomeEmpresas?: (root: HTMLElement) => () => void;
     initHomeCompanies?: (root: HTMLElement) => () => void;
     initHomeGobiernos?: (root: HTMLElement) => () => void;
+    initHomeGovernments?: (root: HTMLElement) => () => void;
   }
 }
 
@@ -33,7 +34,7 @@ export default function HomeUniversidades({ lang = "es", html, aud = "universida
 
   const start = () => {
     const init = gob
-      ? window.initHomeGobiernos
+      ? en ? window.initHomeGovernments : window.initHomeGobiernos
       : emp
       ? en ? window.initHomeCompanies : window.initHomeEmpresas
       : en ? window.initHomeUniversidadesEn : window.initHomeUniversidades;
@@ -55,7 +56,7 @@ export default function HomeUniversidades({ lang = "es", html, aud = "universida
       <Script
         src={
           gob
-            ? "/home-universidades/home-gobiernos.js"
+            ? en ? "/home-universidades/home-governments.js" : "/home-universidades/home-gobiernos.js"
             : emp
             ? en ? "/home-universidades/home-companies.js" : "/home-universidades/home-empresas.js"
             : en ? "/home-universidades/home-en.js" : "/home-universidades/home.js"
